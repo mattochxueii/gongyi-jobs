@@ -117,3 +117,35 @@
 2. python -m unittest discover -s tests -v 全部通过
 3. 列出每家入库企业的 evidence_url 与原文引述摘要，确认全部来自真实可访问页面。
 ```
+
+
+---
+
+## 战役 3：发给 `Gemini 4 Hydrogen`（`raw_inbox/` 河南事业编真实解析入库 + 过期归档 + 静态站全量端到端验证）
+
+> 说明：本步骤严格控制额度——只精细拆分**近期活跃**公告里的具体岗位表，对 2026 年 2–6 月已过期的大体积联考公告只读前 120 行生成“公告级历史归档记录”，绝不把 363 KB 大表全量逐行喂给 AI。
+
+```text
+请先阅读 AGENTS.md、schemas/job.schema.json、scripts/validate_data.py 和 scrapers/core/merger.py。
+你本次的任务是将 raw_inbox/ 中已抓取的 12 份真实河南公告整理为标准 JSON，安全合入系统并跑通整站静态构建（严禁修改 site/ 源码，严禁捏造任何不存在于原文中的字段）：
+
+1. 【分类处置 raw_inbox/*.txt（严格省额度）】
+   - 跳过噪音：忽略 `henan_xuchang_rsj_1c9f4f19e5ca.txt`（《西部某市公安局招聘辅警公告》，非事业编且属噪音）。
+   - 近期活跃公告精细拆分：重点读取 `henan_xuchang_rsj_5cc79c914978.txt`（许昌职业技术学院 2026 年第二批考核招聘博士研究生公告，报名至 2026-11-30），根据正文与附带的 `.xlsx` 计划表按真实学科/岗位组拆分为结构化岗位记录（可先用简短 Python 脚本把 `.xlsx` 管线输出转换成结构化草稿再校对，确保每条均带真实 `source_url`、`apply_start_at`、`deadline_at: "2026-11-30"`、`education_min: "博士"`、`majors`、`headcount` 与 `attachments`）。
+   - 近期进程中/刚截止公告：读取 `henan_luoyang_rsks_d9fe499bc92a.txt`（大学生乡村医生专项计划）与 `henan_luoyang_rsks_fc479adc014f.txt`（2027 军队文职公开招考）正文关键时间节点，各生成 1 条准确的公告级记录（如实填写 `published_at` 与网报 `deadline_at`，若网报已过则在 `summary` 与 `other_requirements` 如实写明当前后续审核/缴费节点）。
+   - 历史已过期公告（2026 年 2–6 月，含 363KB / 160KB 大表）：**严禁全文逐行读表浪费上下文**！每份文件只读前 120 行（元数据 + 正文公告），各生成 1 条“公告级记录”（保留原 `attachments` 官链），如实填写其历史 `deadline_at`（或 `published_at`）及 `status: "expired"`。
+
+2. 【安全合入、校验与过期归档】
+   - 调用 `scrapers/core/merger.py` 中的 `merge_jobs_into_dataset`（`archive_expired=True`）将上述解析结果安全合入 `data/jobs.json`（保留原有的 69 条高福利民企岗位不被覆盖），并自动将过期公告归档至 `data/archive/YYYY-MM.json`。
+   - 确认 `data/jobs.json` 中既包含这批真实的河南省事业编/招考在招岗位，又包含全部 69 条高福利民企岗位；若已全部归档处理完毕，清理已入库的 `raw_inbox/*.txt`（保留 `.gitkeep`）或记录处理日志。
+
+3. 【整站静态构建端到端验收】
+   - 运行 `python scripts/validate_data.py` 确保通过。
+   - 运行 `python -m unittest discover -s tests -v` 确保全部单元测试通过。
+   - 进入 `site/` 目录执行默认生产构建 `npm run build`（禁止开 `PREVIEW_FIXTURES=1`），核验 `site/dist/public/index.html` 与 `site/dist/companies/index.html` 均真实渲染出了本次入库的河南事业编岗位与 8 家高福利民企。
+
+验收标准（必须亲自跑通并贴出结果）：
+1. 贴出 `python scripts/validate_data.py` 输出（展示 `jobs`、`companies`、`sources` 数量）及 `data/archive/` 归档文件清单。
+2. 贴出 `python -m unittest discover -s tests -v` 结果与 `site/` 下 `npm run build` 完整输出。
+3. 核查 `site/dist/public/index.html` 中确实包含真实许昌职业技术学院岗位及官方附件链接，无虚构数据。
+```
