@@ -13,7 +13,7 @@
       "enabled": false,
       "url_verified": true,
       "fetch_interval_hours": 24,
-      "notes": "根域名已核验；待战役2/3实测确认“事业单位公开招聘/公示公告”具体栏目列表页URL后将 enabled 设为 true。"
+      "notes": "根域名已核验；当前探测环境出口IP被网宿CDN返回403阻断，无法实测确认栏目列表页URL，暂保持禁用，待国内环境实测后补全 list_urls 并启用。"
     },
     {
       "source_id": "henan_rsks",
@@ -23,11 +23,68 @@
       "city": "全省",
       "adapter": "henan_rsks",
       "base_url": "http://www.hnrsks.com",
-      "list_urls": [],
-      "enabled": false,
+      "list_urls": [
+        "http://www.hnrsks.com/sitesources/hnsrskszx/page_pc/zngg/list1.html",
+        "http://www.hnrsks.com/sitesources/hnsrskszx/page_pc/zngg/list2.html",
+        "http://www.hnrsks.com/sitesources/hnsrskszx/page_pc/zngg/list3.html"
+      ],
+      "enabled": true,
       "url_verified": true,
       "fetch_interval_hours": 24,
-      "notes": "根域名已核验；待战役2/3实测确认具体事业单位招聘栏目入口与附件格式后启用。"
+      "notes": "实测根路径超时，地市站外链指向 /sitesources/hnsrskszx/page_pc/zngg/list1..3.html 可正常访问；已配置面试/体检/总成绩标题过滤。"
+    },
+    {
+      "source_id": "henan_luoyang_rsks",
+      "name": "洛阳市人事考试中心（洛阳人事考试网）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "洛阳市",
+      "adapter": "henan_luoyang_rsks",
+      "base_url": "https://www.lysrsks.cn",
+      "list_urls": [
+        "https://www.lysrsks.cn/index/news/index.html?classfiy=42",
+        "https://www.lysrsks.cn/index/news/index.html?classfiy=42&page=2",
+        "https://www.lysrsks.cn/index/news/index.html?classfiy=42&page=3",
+        "https://www.lysrsks.cn/index/news/index.html?classfiy=45"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测招录招聘(classfiy=42)与招聘转载(classfiy=45)可访问；转载栏目仅保留河南及洛阳本地招聘公告。"
+    },
+    {
+      "source_id": "henan_xuchang_rsj",
+      "name": "许昌市人力资源和社会保障局",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "许昌市",
+      "adapter": "henan_xuchang_rsj",
+      "base_url": "https://rsj.xuchang.gov.cn",
+      "list_urls": [
+        "https://rsj.xuchang.gov.cn/zxdt/002002/about.html",
+        "https://rsj.xuchang.gov.cn/zxdt/002002/2.html"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测公示公告栏目(/zxdt/002002/)可正常访问，包含近期在招高校/事业单位公告，自动过滤工伤鉴定与补贴公示。"
+    },
+    {
+      "source_id": "henan_zhoukou_rsks",
+      "name": "周口市人事考试中心（周口人事考试网）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "周口市",
+      "adapter": "henan_zhoukou_rsks",
+      "base_url": "http://www.zkrsks.com",
+      "list_urls": [
+        "http://www.zkrsks.com/zkrswz/zkrsksw/website/exam/getProfessionExamList?resourceClassify=3109&resourceItem=310902&pageSize=16&pageNum=1&systemClassify=3",
+        "http://www.zkrsks.com/zkrswz/zkrsksw/website/exam/getProfessionExamList?resourceClassify=3109&resourceItem=310902&pageSize=16&pageNum=2&systemClassify=3"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测事业单位招录考试JSON接口(resourceItem=310902)及详情接口getContentInfo可用，支持fileDownloadServlet动态附件下载。"
     }
   ]
 }

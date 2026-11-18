@@ -43,7 +43,7 @@ LEGACY_UNSUPPORTED_TYPES = {"doc", "xls", "wps", "et", "zip", "rar", "7z"}
 
 _DATE_PATTERNS = [
     re.compile(r"(?:发布(?:日期|时间)|时间|日期|成文日期)[：:\s]*(\d{4})[-年/.](\d{1,2})[-月/.](\d{1,2})"),
-    re.compile(r"\b(20\d{2})[-年/.](0?[1-9]|1[0-2])[-月/.](0?[1-9]|[12]\d|3[01])(?:日|\b)"),
+    re.compile(r"\b(20\d{2})[-年/.](1[0-2]|0?[1-9])[-月/.](3[01]|[12]\d|0?[1-9])(?:日|\b)"),
 ]
 
 _WORD_NS = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
@@ -105,6 +105,105 @@ def _format_table_rows(rows: list[list[str]]) -> str:
     return "\n".join(formatted)
 
 
+_CONTENT_TYPE_EXT_MAP = {
+    "application/pdf": "pdf",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "docx",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "xlsx",
+    "application/msword": "doc",
+    "application/vnd.ms-excel": "xls",
+    "text/csv": "csv",
+    "application/csv": "csv",
+    "application/zip": "zip",
+    "application/x-zip-compressed": "zip",
+    "application/x-rar-compressed": "rar",
+    "application/vnd.rar": "rar",
+    "application/x-7z-compressed": "7z",
+}
+
+_ATTACHMENT_KEYWORDS = (
+    "附件",
+    "岗位表",
+    "职位表",
+    "计划表",
+    "信息表",
+    "登记表",
+    "报名表",
+    "一览表",
+    "考试大纲",
+    "下载",
+)
+_DYNAMIC_URL_HINTS = (
+    "download",
+    "down",
+    "attach",
+    "file",
+    "appendix",
+    "fujian",
+    "servlet",
+)
+_DYNAMIC_QUERY_HINTS = ("fileurl=", "filename=", "fileid=", "attachid=", "fjid=", "down=")
+
+DEFAULT_TITLE_SELECTORS: tuple[str, ...] = (
+    "h1",
+    ".hnks-wzbt",
+    ".article-title",
+    ".trs_title",
+    ".news-title",
+    ".title",
+    "meta[name='ArticleTitle']",
+    "title",
+)
+
+DEFAULT_CONTENT_SELECTORS: tuple[str, ...] = (
+    ".article-content",
+    ".trs_editor_view",
+    ".TRS_UEDITOR",
+    ".news-content",
+    ".detail-content",
+    ".details-box",
+    ".hnks-wznr",
+    "#zoom",
+    "#content",
+    "article",
+    "main",
+    ".content",
+)
+
+
+def extract_filename_from_content_disposition(content_disposition: str | None) -> str | None:
+    """Extract filename from an HTTP Content-Disposition header (including RFC 5987)."""
+    if not content_disposition:
+        return None
+
+    # RFC 5987: filename*=charset'lang'encoded-value
+    m_ext = re.search(r"filename\*\s*=\s*([^;]+)", content_disposition, flags=re.IGNORECASE)
+    if m_ext:
+        raw_val = m_ext.group(1).strip().strip("\"'")
+        if "''" in raw_val:
+            charset, _, encoded = raw_val.partition("''")
+            try:
+                name = unquote(encoded, encoding=charset or "utf-8", errors="replace")
+            except LookupError:
+                name = unquote(encoded)
+        else:
+            name = unquote(raw_val)
+        cleaned = Path(name.replace("\\", "/")).name.strip()
+        if cleaned:
+            return cleaned
+
+    # Standard: filename="..." or filename=...
+    m_std = re.search(r'filename\s*=\s*"([^"]+)"|filename\s*=\s*([^;\s]+)', content_disposition, flags=re.IGNORECASE)
+    if m_std:
+        raw_name = (m_std.group(1) or m_std.group(2) or "").strip()
+        # Handle RFC 2231 / percent-encoded fallback
+        if raw_name.startswith("=?") or "%" in raw_name:
+            raw_name = unquote(raw_name)
+        cleaned = Path(raw_name.replace("\\", "/")).name.strip()
+        if cleaned:
+            return cleaned
+    return None
+
+
 def infer_file_type(filename_or_url: str) -> str:
     """Infer attachment file type from filename or URL path/query."""
     if not filename_or_url:
@@ -116,6 +215,57 @@ def infer_file_type(filename_or_url: str) -> str:
             if candidate.endswith(ext) or f"{ext}&" in candidate or f"{ext}?" in candidate:
                 return ftype
     return "other"
+
+
+def infer_file_type_from_headers(
+    content_type: str | None,
+    content_disposition: str | None = None,
+) -> str:
+    """Infer attachment file type from HTTP Content-Disposition and Content-Type headers."""
+    cd_name = extract_filename_from_content_disposition(content_disposition)
+    if cd_name:
+        ftype = infer_file_type(cd_name)
+        if ftype != "other":
+            return ftype
+
+    if content_type:
+        mime = content_type.split(";", 1)[0].strip().lower()
+        if mime in _CONTENT_TYPE_EXT_MAP:
+            return _CONTENT_TYPE_EXT_MAP[mime]
+    return "other"
+
+
+def infer_file_type_from_bytes(raw: bytes, filename_hint: str = "") -> str:
+    """Sniff attachment type from magic file headers when URL/headers lack extension."""
+    if raw.startswith(b"%PDF-"):
+        return "pdf"
+    if raw.startswith(OLE2_MAGIC):
+        hint = filename_hint.lower()
+        if ".xls" in hint or any(k in filename_hint for k in ("岗位表", "职位表", "计划表", "信息表", "一览表")):
+            return "xls"
+        return "doc"
+    if raw.startswith(b"PK\x03\x04"):
+        try:
+            with zipfile.ZipFile(io.BytesIO(raw)) as zf:
+                names = set(zf.namelist())
+            if "word/document.xml" in names:
+                return "docx"
+            if "xl/workbook.xml" in names:
+                return "xlsx"
+        except Exception:
+            pass
+        return "zip"
+    return "other"
+
+
+def _clean_title_text(raw_title: str) -> str:
+    text = re.sub(r"<\s*br\s*/?\s*>", " ", raw_title or "", flags=re.IGNORECASE)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _is_placeholder_att_label(label: str) -> bool:
+    stripped = re.sub(r"[\d.\s、:：()（）\[\]【】_-]+", "", label or "")
+    return not stripped or label.strip() in {"下载", "点击下载", "附件", "附件下载"}
 
 
 def _extract_date_from_soup_or_text(soup: BeautifulSoup, full_text: str) -> str | None:
@@ -138,7 +288,13 @@ def _extract_date_from_soup_or_text(soup: BeautifulSoup, full_text: str) -> str 
     return None
 
 
-def extract_html(html: str, base_url: str = "") -> HtmlExtractionResult:
+def extract_html(
+    html: str,
+    base_url: str = "",
+    *,
+    title_selectors: tuple[str, ...] | None = None,
+    content_selectors: tuple[str, ...] | None = None,
+) -> HtmlExtractionResult:
     """Extract clean title, publish date, main text, tables, and attachment links from HTML."""
     parser = "lxml" if _HAS_LXML else "html.parser"
     soup = BeautifulSoup(html or "", parser)
@@ -152,71 +308,79 @@ def extract_html(html: str, base_url: str = "") -> HtmlExtractionResult:
 
     # Extract title
     title = ""
-    for selector in (
-        "h1",
-        ".article-title",
-        ".trs_title",
-        ".news-title",
-        ".title",
-        "meta[name='ArticleTitle']",
-        "title",
-    ):
+    for selector in (title_selectors or DEFAULT_TITLE_SELECTORS):
         el = soup.select_one(selector)
         if el:
             candidate = el.get("content", "") if el.name == "meta" else el.get_text(" ", strip=True)
-            candidate = re.sub(r"\s+", " ", str(candidate)).strip()
+            candidate = _clean_title_text(str(candidate))
             if candidate:
                 title = candidate
                 break
 
     # Discover attachment links before mutating tables/navigation
     attachments: list[AttachmentLink] = []
-    seen_att_urls: set[str] = set()
+    att_by_url: dict[str, AttachmentLink] = {}
     for a_tag in soup.find_all("a", href=True):
         raw_href = str(a_tag["href"]).strip()
-        if not raw_href or raw_href.startswith(("javascript:", "mailto:", "#")):
+        if not raw_href or raw_href.startswith(("javascript:", "mailto:", "#", "tel:")):
             continue
         resolved_url = urljoin(base_url, raw_href) if base_url else raw_href
+        parsed_resolved = urlparse(resolved_url)
+        if parsed_resolved.scheme and parsed_resolved.scheme.lower() not in {"http", "https"}:
+            continue
+
         anchor_text = re.sub(r"\s+", " ", a_tag.get_text(" ", strip=True)).strip()
         title_attr = re.sub(r"\s+", " ", str(a_tag.get("title") or a_tag.get("download") or "")).strip()
-        label = anchor_text or title_attr or Path(unquote(urlparse(resolved_url).path)).name
+        label = anchor_text or title_attr or Path(unquote(parsed_resolved.path)).name
 
         ftype = infer_file_type(resolved_url)
         if ftype == "other":
             ftype = infer_file_type(label)
-        is_attachment_keyword = any(
-            kw in (label + " " + title_attr) for kw in ("附件", "岗位表", "职位表", "报名表", "下载", "一览表")
+        if ftype == "other" and title_attr:
+            ftype = infer_file_type(title_attr)
+
+        is_attachment_keyword = any(kw in (label + " " + title_attr) for kw in _ATTACHMENT_KEYWORDS)
+        url_lower = resolved_url.lower()
+        path_lower = unquote(parsed_resolved.path).lower()
+        query_lower = unquote(parsed_resolved.query).lower()
+        has_download_attr = a_tag.has_attr("download")
+        has_dynamic_endpoint = any(tok in url_lower for tok in _DYNAMIC_URL_HINTS)
+        has_file_query = any(qp in query_lower for qp in _DYNAMIC_QUERY_HINTS)
+        is_obvious_html_page = path_lower.endswith((".html", ".htm", ".shtml")) and not has_file_query and not has_download_attr
+
+        is_match = (
+            ftype != "other"
+            or has_download_attr
+            or (not is_obvious_html_page and (has_file_query or (is_attachment_keyword and has_dynamic_endpoint)))
         )
-        if ftype != "other" or (is_attachment_keyword and any(ext in resolved_url.lower() for ext in ("download", "attach", "file", " appendix"))):
-            if resolved_url not in seen_att_urls:
-                seen_att_urls.add(resolved_url)
-                attachments.append(
-                    AttachmentLink(
-                        name=label or "未命名附件",
-                        url=resolved_url,
-                        file_type=ftype,
-                    )
+        if is_match:
+            existing = att_by_url.get(resolved_url)
+            if existing is None:
+                att_link = AttachmentLink(
+                    name=label or "未命名附件",
+                    url=resolved_url,
+                    file_type=ftype,
                 )
+                att_by_url[resolved_url] = att_link
+                attachments.append(att_link)
+            else:
+                if _is_placeholder_att_label(existing.name) and label and not _is_placeholder_att_label(label):
+                    existing.name = label
+                if existing.file_type == "other" and ftype != "other":
+                    existing.file_type = ftype
 
     full_page_text = soup.get_text(" ", strip=True)
     published_at = _extract_date_from_soup_or_text(soup, full_page_text)
 
     # Locate main content container or fallback to body
     content_root: Tag | BeautifulSoup = soup
-    for selector in (
-        ".article-content",
-        ".trs_editor_view",
-        ".news-content",
-        ".detail-content",
-        "#zoom",
-        "article",
-        "main",
-        ".content",
-    ):
+    for selector in (content_selectors or DEFAULT_CONTENT_SELECTORS):
         found = soup.select_one(selector)
-        if isinstance(found, Tag) and len(found.get_text(strip=True)) >= 20:
-            content_root = found
-            break
+        if isinstance(found, Tag):
+            txt_len = len(found.get_text(strip=True))
+            if txt_len >= 20 or (txt_len >= 4 and found.find("a", href=True)):
+                content_root = found
+                break
     else:
         for nav_tag in soup.find_all(["nav", "header", "footer"]):
             nav_tag.decompose()
@@ -517,6 +681,132 @@ def extract_xlsx(source: bytes | Path, display_name: str = "workbook.xlsx") -> E
         )
 
 
+def _decompress_pdf_stream(stream_bytes: bytes) -> bytes:
+    for wbits in (zlib.MAX_WBITS, -zlib.MAX_WBITS):
+        try:
+            return zlib.decompress(stream_bytes, wbits)
+        except zlib.error:
+            continue
+    return stream_bytes
+
+
+def _parse_tounicode_cmap(cmap_text: str) -> tuple[dict[int, str], int]:
+    """Parse a PDF ToUnicode CMap stream into {cid_int: unicode_str} and byte width."""
+    mapping: dict[int, str] = {}
+    code_width = 2
+
+    cs_match = re.search(
+        r"begincodespacerange\s*<([0-9A-Fa-f]+)>\s*<([0-9A-Fa-f]+)>",
+        cmap_text,
+        flags=re.IGNORECASE,
+    )
+    if cs_match:
+        code_width = max(1, len(cs_match.group(1)) // 2)
+
+    def _hex_to_utf16(hex_val: str) -> str:
+        clean = re.sub(r"\s+", "", hex_val)
+        if len(clean) % 2 == 1:
+            clean += "0"
+        try:
+            return bytes.fromhex(clean).decode("utf-16-be", errors="ignore")
+        except ValueError:
+            return ""
+
+    for blk in re.findall(r"beginbfchar\b(.*?)endbfchar", cmap_text, flags=re.DOTALL):
+        for src_hex, dst_hex in re.findall(r"<([0-9A-Fa-f]+)>\s*<([0-9A-Fa-f]+)>", blk):
+            code_width = max(1, len(src_hex) // 2)
+            mapping[int(src_hex, 16)] = _hex_to_utf16(dst_hex)
+
+    for blk in re.findall(r"beginbfrange\b(.*?)endbfrange", cmap_text, flags=re.DOTALL):
+        for line in blk.splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            m_arr = re.match(r"<([0-9A-Fa-f]+)>\s*<([0-9A-Fa-f]+)>\s*\[(.*?)\]", line)
+            if m_arr:
+                start = int(m_arr.group(1), 16)
+                end = int(m_arr.group(2), 16)
+                dsts = re.findall(r"<([0-9A-Fa-f]+)>", m_arr.group(3))
+                for offset, dst_hex in enumerate(dsts):
+                    if start + offset <= end:
+                        mapping[start + offset] = _hex_to_utf16(dst_hex)
+                continue
+            m_seq = re.match(r"<([0-9A-Fa-f]+)>\s*<([0-9A-Fa-f]+)>\s*<([0-9A-Fa-f]+)>", line)
+            if m_seq:
+                start = int(m_seq.group(1), 16)
+                end = int(m_seq.group(2), 16)
+                dst_start = int(m_seq.group(3), 16)
+                for offset in range(max(0, min(end - start + 1, 4096))):
+                    try:
+                        mapping[start + offset] = chr(dst_start + offset)
+                    except ValueError:
+                        break
+    return mapping, code_width
+
+
+def _extract_pdf_font_cmaps(raw: bytes) -> tuple[dict[int, tuple[dict[int, str], int]], dict[str, dict[int, tuple[dict[int, str], int]]]]:
+    """Build per-content-stream and global font-name -> ToUnicode CMap tables from PDF objects."""
+    stream_by_obj: dict[int, bytes] = {}
+    obj_headers: dict[int, bytes] = {}
+    for m in re.finditer(rb"(\d+)\s+\d+\s+obj\b(.*?)endobj", raw, flags=re.DOTALL):
+        obj_id = int(m.group(1))
+        body = m.group(2)
+        obj_headers[obj_id] = body
+        sm = re.search(rb"stream\r?\n(.*?)\r?\nendstream", body, flags=re.DOTALL)
+        if sm:
+            stream_by_obj[obj_id] = _decompress_pdf_stream(sm.group(1))
+
+    cmap_by_obj: dict[int, tuple[dict[int, str], int]] = {}
+    for obj_id, st in stream_by_obj.items():
+        if b"beginbfchar" in st or b"beginbfrange" in st:
+            cmap_by_obj[obj_id] = _parse_tounicode_cmap(st.decode("latin-1", errors="ignore"))
+
+    font_obj_to_cmap: dict[int, tuple[dict[int, str], int]] = {}
+    for obj_id, body in obj_headers.items():
+        tm = re.search(rb"/ToUnicode\s+(\d+)\s+\d+\s+R", body)
+        if tm:
+            cmap_obj = int(tm.group(1))
+            if cmap_obj in cmap_by_obj:
+                font_obj_to_cmap[obj_id] = cmap_by_obj[cmap_obj]
+
+    # Map content stream object IDs and font resource names to their CMap
+    content_cmaps: dict[int, dict[str, tuple[dict[int, str], int]]] = {}
+    global_font_cmaps: dict[str, tuple[dict[int, str], int]] = {}
+    for body in obj_headers.values():
+        fm = re.search(rb"/Font\s*<<(.*?)>>", body, flags=re.DOTALL)
+        if not fm:
+            continue
+        page_fonts: dict[str, tuple[dict[int, str], int]] = {}
+        for ref_m in re.finditer(rb"/([A-Za-z0-9_.-]+)\s+(\d+)\s+\d+\s+R", fm.group(1)):
+            fname = ref_m.group(1).decode("ascii", errors="ignore")
+            fobj = int(ref_m.group(2))
+            if fobj in font_obj_to_cmap:
+                page_fonts[fname] = font_obj_to_cmap[fobj]
+                global_font_cmaps.setdefault(fname, font_obj_to_cmap[fobj])
+        if page_fonts:
+            cm_single = re.search(rb"/Contents\s+(\d+)\s+\d+\s+R", body)
+            if cm_single:
+                content_cmaps[int(cm_single.group(1))] = page_fonts
+            cm_arr = re.search(rb"/Contents\s*\[(.*?)\]", body, flags=re.DOTALL)
+            if cm_arr:
+                for cref in re.findall(rb"(\d+)\s+\d+\s+R", cm_arr.group(1)):
+                    content_cmaps[int(cref)] = page_fonts
+
+    return global_font_cmaps, content_cmaps
+
+
+def _decode_pdf_hex_with_cmap(hex_token: str, cmap_info: tuple[dict[int, str], int]) -> str:
+    cmap, width = cmap_info
+    hex_str = re.sub(r"\s+", "", hex_token[1:-1])
+    step = width * 2
+    out: list[str] = []
+    for idx in range(0, len(hex_str) - step + 1, step):
+        code = int(hex_str[idx : idx + step], 16)
+        if code in cmap:
+            out.append(cmap[code])
+    return "".join(out)
+
+
 def _decode_pdf_literal_token(token: str) -> str:
     """Decode a PDF string token (...) or hex token <...>."""
     token = token.strip()
@@ -528,6 +818,8 @@ def _decode_pdf_literal_token(token: str) -> str:
             raw_bytes = bytes.fromhex(hex_str)
             if raw_bytes.startswith(b"\xfe\xff"):
                 return raw_bytes[2:].decode("utf-16-be", errors="ignore")
+            if b"\x00" in raw_bytes:
+                return ""
             try:
                 return raw_bytes.decode("utf-8")
             except UnicodeDecodeError:
@@ -546,6 +838,22 @@ def _decode_pdf_literal_token(token: str) -> str:
         )
         return inner
     return ""
+
+
+def _strip_control_chars(text: str) -> str:
+    return "".join(ch for ch in text if ch in "\n\r\t" or ord(ch) >= 32)
+
+
+def _is_readable_pdf_text(text: str, raw_size: int) -> bool:
+    if not text.strip():
+        return False
+    cleaned = re.sub(r"\s+", "", text)
+    if not cleaned:
+        return False
+    meaningful = sum(1 for ch in cleaned if ("\u4e00" <= ch <= "\u9fff") or ch.isalnum())
+    if raw_size > 4096 and meaningful < 15:
+        return False
+    return meaningful / len(cleaned) >= 0.25
 
 
 def extract_pdf(source: bytes | Path, display_name: str = "document.pdf") -> ExtractionResult:
@@ -596,41 +904,69 @@ def extract_pdf(source: bytes | Path, display_name: str = "document.pdf") -> Ext
                 file_type="pdf",
             )
 
-    # Pure-Python stream/operator fallback for PDF text extraction
-    stream_pattern = re.compile(rb"stream\r?\n(.*?)\r?\nendstream", re.DOTALL)
-    token_pattern = re.compile(r"(\([^()\\]*(?:\\.[^()\\]*)*\)|<[0-9A-Fa-f\s]+>)")
+    # Pure-Python stream/operator fallback for PDF text extraction (with ToUnicode CMap support)
+    global_font_cmaps, content_cmaps = _extract_pdf_font_cmaps(raw)
+    uses_cid_identity = b"/Identity-H" in raw or b"/CIDFont" in raw
+    obj_stream_pattern = re.compile(rb"(?:(\d+)\s+\d+\s+obj\b.*?)?stream\r?\n(.*?)\r?\nendstream", re.DOTALL)
+    op_pattern = re.compile(r"(/([A-Za-z0-9_.-]+)\s+[\d.]+\s+Tf|\([^()\\]*(?:\\.[^()\\]*)*\)|<[0-9A-Fa-f\s]+>)")
     lines: list[str] = []
     tables: list[list[list[str]]] = []
 
-    for match in stream_pattern.finditer(raw):
-        stream_bytes = match.group(1)
-        decompressed = stream_bytes
-        for wbits in (zlib.MAX_WBITS, -zlib.MAX_WBITS):
-            try:
-                decompressed = zlib.decompress(stream_bytes, wbits)
-                break
-            except zlib.error:
-                continue
+    for match in obj_stream_pattern.finditer(raw):
+        obj_id = int(match.group(1)) if match.group(1) else None
+        decompressed = _decompress_pdf_stream(match.group(2))
+        if b"beginbfchar" in decompressed or b"beginbfrange" in decompressed:
+            continue
 
         try:
             stream_str = decompressed.decode("utf-8")
         except UnicodeDecodeError:
             stream_str = decompressed.decode("latin-1", errors="ignore")
 
+        page_cmaps = content_cmaps.get(obj_id, {}) if obj_id is not None else {}
+        current_font: str | None = None
+
         for bt_block in re.findall(r"BT\b(.*?)ET\b", stream_str, flags=re.DOTALL):
             parts: list[str] = []
-            for tok in token_pattern.findall(bt_block):
-                decoded = _decode_pdf_literal_token(tok)
+            for m_op in op_pattern.finditer(bt_block):
+                tok = m_op.group(1)
+                font_name = m_op.group(2)
+                if font_name:
+                    current_font = font_name
+                    continue
+                if tok.startswith("<") and tok.endswith(">"):
+                    cmap_info = page_cmaps.get(current_font or "") or global_font_cmaps.get(current_font or "")
+                    if cmap_info is not None:
+                        decoded = _decode_pdf_hex_with_cmap(tok, cmap_info)
+                    elif uses_cid_identity and not tok[1:].strip().upper().startswith("FEFF"):
+                        decoded = ""
+                    else:
+                        decoded = _decode_pdf_literal_token(tok)
+                else:
+                    decoded = _decode_pdf_literal_token(tok)
                 if decoded:
-                    parts.append(decoded)
+                    parts.append(_strip_control_chars(decoded))
             if parts:
                 line_str = "".join(parts).strip()
                 if line_str:
                     lines.append(line_str)
 
+    joined_text = _normalize_whitespace("\n".join(lines))
+    if not _is_readable_pdf_text(joined_text, len(raw)):
+        return ExtractionResult(
+            text=(
+                f"[附件解析降级提示] 检测到 PDF 附件《{display_name}》使用扫描件或特殊字形编码"
+                "（当前未启用 pdfplumber 或缺少可映射文本层），请通过附件原链接下载查阅。"
+            ),
+            tables=[],
+            warnings=[f"Graceful degradation for PDF {display_name}: unreadable or image-only PDF stream"],
+            supported=False,
+            file_type="pdf",
+        )
+
     # Detect pipe-delimited table rows inside extracted PDF text
     current_table: list[list[str]] = []
-    for ln in lines:
+    for ln in joined_text.split("\n"):
         if "|" in ln:
             cells = [c.strip() for c in ln.strip("|").split("|")]
             if len(cells) >= 2 and any(cells):
@@ -643,7 +979,7 @@ def extract_pdf(source: bytes | Path, display_name: str = "document.pdf") -> Ext
         tables.append(current_table)
 
     return ExtractionResult(
-        text=_normalize_whitespace("\n".join(lines)),
+        text=joined_text,
         tables=tables,
         warnings=[],
         supported=True,
@@ -651,34 +987,59 @@ def extract_pdf(source: bytes | Path, display_name: str = "document.pdf") -> Ext
     )
 
 
-def extract_attachment(source: bytes | Path, filename_or_url: str) -> ExtractionResult:
+def extract_attachment(
+    source: bytes | Path,
+    filename_or_url: str,
+    *,
+    file_type: str | None = None,
+    display_name: str | None = None,
+    content_disposition: str | None = None,
+    content_type: str | None = None,
+) -> ExtractionResult:
     """Dispatch attachment extraction by file type with graceful degradation for legacy formats."""
-    display_name = Path(unquote(urlparse(str(filename_or_url)).path)).name or str(filename_or_url)
-    ftype = infer_file_type(filename_or_url)
+    cd_filename = extract_filename_from_content_disposition(content_disposition)
+    url_filename = Path(unquote(urlparse(str(filename_or_url)).path)).name
+    ftype = file_type if file_type and file_type != "other" else infer_file_type(filename_or_url)
+    if ftype == "other":
+        ftype = infer_file_type_from_headers(content_type, content_disposition)
+    if ftype == "other" and display_name:
+        ftype = infer_file_type(display_name)
     if ftype == "other" and isinstance(source, Path):
         ftype = infer_file_type(source.name)
 
+    resolved_name = display_name or cd_filename or url_filename or str(filename_or_url)
+    if not display_name:
+        if "." not in url_filename and cd_filename:
+            resolved_name = cd_filename
+        elif url_filename and ftype != "other" and not url_filename.lower().endswith(f".{ftype}") and cd_filename:
+            resolved_name = cd_filename
+
     if ftype in LEGACY_UNSUPPORTED_TYPES:
-        return _make_legacy_degradation_result(ftype, display_name)
+        return _make_legacy_degradation_result(ftype, resolved_name)
 
     raw = _read_bytes(source)
+    if ftype == "other":
+        ftype = infer_file_type_from_bytes(raw, filename_hint=resolved_name)
+        if ftype in LEGACY_UNSUPPORTED_TYPES:
+            return _make_legacy_degradation_result(ftype, resolved_name)
+
     if raw.startswith(OLE2_MAGIC):
         legacy_kind = "xls" if ftype == "xlsx" else "doc"
         return _make_legacy_degradation_result(
             legacy_kind,
-            display_name,
+            resolved_name,
             f"检测到旧版二进制 OLE2 复合文档格式 (.{legacy_kind})",
         )
 
     if ftype == "pdf":
-        return extract_pdf(raw, display_name=display_name)
+        return extract_pdf(raw, display_name=resolved_name)
     if ftype == "docx":
-        return extract_docx(raw, display_name=display_name)
+        return extract_docx(raw, display_name=resolved_name)
     if ftype == "xlsx":
-        return extract_xlsx(raw, display_name=display_name)
+        return extract_xlsx(raw, display_name=resolved_name)
 
     return _make_legacy_degradation_result(
         ftype,
-        display_name,
+        resolved_name,
         f"暂不支持直接解析此附件类型 ({ftype})",
     )

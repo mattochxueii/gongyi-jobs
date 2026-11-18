@@ -164,6 +164,11 @@ class PoliteHttpClient:
         if headers:
             merged_headers.update(headers)
 
+        self._merged_headers = merged_headers
+        self._has_custom_transport = transport is not None
+        self._ipv4_only_hosts: set[str] = set()
+        self._ipv4_client: httpx.Client | None = None
+
         self._client = httpx.Client(
             headers=merged_headers,
             timeout=httpx.Timeout(timeout),
@@ -171,8 +176,20 @@ class PoliteHttpClient:
             transport=transport,
         )
 
+    def _get_ipv4_client(self) -> httpx.Client:
+        if self._ipv4_client is None:
+            self._ipv4_client = httpx.Client(
+                headers=self._merged_headers,
+                timeout=httpx.Timeout(self.timeout),
+                follow_redirects=True,
+                transport=httpx.HTTPTransport(local_address="0.0.0.0"),
+            )
+        return self._ipv4_client
+
     def close(self) -> None:
         self._client.close()
+        if self._ipv4_client is not None:
+            self._ipv4_client.close()
 
     def __enter__(self) -> PoliteHttpClient:
         return self
@@ -205,11 +222,17 @@ class PoliteHttpClient:
         """Perform an HTTP request with rate-limiting and retry logic."""
         last_exc: Exception | None = None
         total_attempts = self.max_retries + 1
+        host = urlparse(url).netloc.lower()
 
         for attempt in range(total_attempts):
             self._respect_rate_limit(url)
+            client = (
+                self._get_ipv4_client()
+                if (not self._has_custom_transport and host in self._ipv4_only_hosts)
+                else self._client
+            )
             try:
-                resp = self._client.request(
+                resp = client.request(
                     method=method.upper(),
                     url=url,
                     headers=headers,
@@ -234,6 +257,13 @@ class PoliteHttpClient:
                 )
             except (httpx.TimeoutException, httpx.TransportError, httpx.HTTPStatusError) as exc:
                 last_exc = exc
+                if (
+                    not self._has_custom_transport
+                    and host
+                    and host not in self._ipv4_only_hosts
+                    and isinstance(exc, (httpx.TimeoutException, httpx.ConnectError))
+                ):
+                    self._ipv4_only_hosts.add(host)
                 if isinstance(exc, httpx.HTTPStatusError):
                     if exc.response.status_code not in RETRYABLE_STATUS_CODES:
                         raise
