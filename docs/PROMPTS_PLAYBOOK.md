@@ -58,3 +58,62 @@
 1. 在 site/ 目录下执行 npm run build 成功产出 site/dist/，零报错（分别在默认空 data/*.json 与 PREVIEW_FIXTURES=1 两种状态下均构建验证通过）。
 2. 确认 git status 未污染根目录 data/jobs.json 和 data/companies.json，未改动 scrapers/。
 ```
+
+
+---
+
+## 战役 2A：发给 `Gemini 4 Hydrogen`（接通河南省真实官网站点 + 实抓进入 `raw_inbox/`）
+
+> 说明：本步骤需要访问外网/国内政务网（执行探测脚本时如触发沙箱联网审批，请点允许）。严禁伪造任何 URL 或公告内容。
+
+```text
+请先阅读 AGENTS.md、BLUEPRINT.md、config/sources.json、scrapers/base.py 和 scrapers/core/extractors.py。
+你本次的任务是作为“河南省采集适配器工程师”，打通真实的河南省事业编官方数据源并生成第一批真实待解析文本（严禁修改 site/，严禁直接往 data/jobs.json 写假数据）：
+
+1. 【修复一个底座小问题】
+   在 scrapers/core/extractors.py 约第190行，去掉 `" appendix"` 的前导空格；如实测政务网站通过动态下载接口（如带 Content-Disposition 或 download/down 参数）提供附件，请顺手完善附件发现逻辑。
+
+2. 【实测探测河南省官方站点真实栏目页（必须真实联网读取，禁止猜测 subpath）】
+   - 探测 https://hrss.henan.gov.cn 与 http://www.hnrsks.com 的真实导航/栏目页结构（如“公示公告 / 招考录用 / 事业单位公开招聘”栏目 URL、分页/AJAX JSON 接口、编码与正文容器选择器）。
+   - 如果其中某个栏目近期主要是“面试/体检/拟聘用公示”而非“正在报名招考公告”，请在适配器里设计合理的标题关键词过滤/分类逻辑（过滤掉明显的“成绩查询/体检通知/拟聘用公示”，优先保留“招聘公告/招考简章/选聘/引进”）。
+   - 如省直页面近期在招公告较少，可同步补充 1~2 个真实的河南省重点地市人社局/人事考试网（如郑州、洛阳等，必须联网实测确认根域名和列表页 URL 可访问）。
+
+3. 【更新配置与专用适配器】
+   - 将实测确认可用的真实 list_urls 填入 config/sources.json，并将对应源的 url_verified 与 enabled 设为 true。
+   - 完善 scrapers/base.py 中的 HenanHrssAdapter、HenanRsksAdapter（或拆为 scrapers/adapters/ 独立模块并在 ADAPTER_REGISTRY 注册），确保列表页解析和详情页正文/附件抽取准确无噪音。
+   - 在 tests/test_henan_adapters.py 补充针对真实网页结构片段的离线单元测试（fixture 放 tests/fixtures/）。
+
+4. 【跑通真实增量抓取】
+   - 运行 python -m scrapers.run --max-items 8（真实抓取首批公告到 raw_inbox/，观察是否有解码乱码或附件下载报错）。
+   - 再次运行一次 python -m scrapers.run --max-items 8 验证增量去重（第二次应全部输出 unchanged，0 新写入）。
+
+验收标准（必须亲自跑通并贴出结果）：
+1. python scripts/validate_data.py 输出 [OK]
+2. python -m unittest discover -s tests -v 全部通过
+3. 贴出两次运行 python -m scrapers.run --max-items 8 的真实终端输出，以及 raw_inbox/ 中生成的文件列表和其中 1 份文件的前 40 行内容摘要。
+```
+
+---
+
+## 战役 2B：发给 `Gemini 4 Hydrogen`（首批高福利民企白名单核验 + 招聘 SaaS 适配器）
+
+> 说明：建议在战役 2A 验收通过后再发本指令（避免同时修改 `config/sources.json`）。如果希望先并行收集企业官网信息，可先只做 `data/companies.json` 核验。
+
+```text
+请先阅读 AGENTS.md、schemas/company.schema.json、schemas/job.schema.json 和 scrapers/base.py。
+你本次的任务是完成“高福利民营企业白名单冷启动 + 官方招聘页适配器”（严禁捏造福利或网址，严禁修改 site/）：
+
+1. 【真实官网核验首批 5~10 家高福利民企】
+   - 选取在河南省有岗位、支持远程办公、或行业内公认且官网有明确书面说明的优质民营企业（优先寻找官网使用 Moka、飞书招聘、北森、Greenhouse、Lever 等标准招聘页的公司）。
+   - 对每一家企业，必须真实访问其官网或官方招聘页，摘录逐字原文作为 evidence_quote（例如官网明确写了“周末双休”“不打卡”“补充医疗保险”“带薪年假”等）及对应 evidence_url。找不到官网明文依据的福利一律不写。
+   - 按 schemas/company.schema.json 写入 data/companies.json。
+
+2. 【实现至少 1 个通用招聘 SaaS 适配器】
+   - 根据上述核验企业实际使用的招聘系统（如飞书招聘 / Moka / Greenhouse / Lever API），在 scrapers/adapters/ 实现对应的适配器并注册到 ADAPTER_REGISTRY，在 config/sources.json 登记并启用。
+   - 对于可以直接拿到结构化 JSON 的 SaaS 接口，直接转为符合 job.schema.json 的标准化岗位列表，或写入可控的待合入中间文件，再调用 scrapers/core/merger.py 合入 data/jobs.json（绝不浪费 AI Token）。
+
+验收标准（必须亲自跑通并贴出结果）：
+1. python scripts/validate_data.py 输出 [OK]（展示实际通过校验的 companies 数量与 jobs 数量）
+2. python -m unittest discover -s tests -v 全部通过
+3. 列出每家入库企业的 evidence_url 与原文引述摘要，确认全部来自真实可访问页面。
+```
