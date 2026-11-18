@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-18T18:10:15+08:00",
+  "items": [
+    {
+      "id": "pub-henan-luoyang-50a77b8ef55c",
+      "category": "public_institution",
+      "title": "关于组织实施2026年乡村振兴村级协理员专项计划的公告",
+      "org_name": "中共河南省委组织部、河南省人力资源和社会保障厅等四部门",
+      "province": "河南省",
+      "city": "全省",
+      "district": null,
+      "source_url": "https://www.lysrsks.cn/index/news/detail.html?id=2497",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "洛阳市人事考试中心（洛阳人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2026-05-31",
+      "deadline_at": "2026-06-09",
+      "status": "expired",
+      "scraped_at": "2026-11-18T16:11:57+08:00",
+      "last_seen_at": "2026-11-18T16:11:57+08:00",
+      "content_hash": "50a77b8ef55c304a3ad0b5d45383e42b7b6d7a134ee4fb20daf4c80c3035bd64",
+      "summary": "河南省2026年乡村振兴村级协理员专项计划公告（历史已截止公告），全省计划招聘10000名（纳入乡镇事业单位编制统筹管理），面向2024—2026届高校毕业生及2025年在岗协理员，网报2026-06-03至06-09。",
+      "tags": [
+        "河南省",
+        "乡村振兴村级协理员",
+        "专项计划",
+        "乡镇事业编",
+        "历史归档"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": null,
+        "post_level": null,
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 10000,
+        "education_min": "本科",
+        "degree_min": "相应学位",
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "38周岁以下（1987年6月1日及以后出生）",
+        "political_status": null,
+        "exam_type": "笔试50%+面试50%（职测+公基）",
+        "apply_method": "网上报名（河南省人事考试中心网站，免报名费）",
+        "apply_start_at": "2026-06-03",
+        "written_exam_time": "2026-06-27",
+        "interview_time": null,
+        "other_requirements": "本科及以上学历并具备对应学位；在乡镇最低服务期限5年（含在村不少于2年），试用期12个月；笔试2026-06-27。",
+        "announcement_title": "关于组织实施2026年乡村振兴村级协理员专项计划的公告",
+        "attachments": [
+          {
+            "name": "河南省2026年“乡村振兴村级协理员”专项计划岗位表",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260531/98e72adee4e945368df023ad304fa91f.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省2026年“乡村振兴村级协理员”专项计划工作专用网站及咨询电话",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260531/af1b02c567d94136831a7bb166788ee6.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-luoyang-d28645b4e701",
+      "category": "public_institution",
+      "title": "关于组织实施2026年社区网格事务协理员专项计划的公告",
+      "org_name": "中共河南省委组织部、省委社会工作部、省人社厅、省教育厅",
+      "province": "河南省",
+      "city": "全省",
+      "district": null,
+      "source_url": "https://www.lysrsks.cn/index/news/detail.html?id=2498",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "洛阳市人事考试中心（洛阳人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2026-05-31",
+      "deadline_at": "2026-06-10",
+      "status": "expired",
+      "scraped_at": "2026-11-18T16:11:55+08:00",
+      "last_seen_at": "2026-11-18T16:11:55+08:00",
+      "content_hash": "d28645b4e701b7e967bccd8675f97ee1cfffb37ce9691a7e6ed39e4da31d11f0",
+      "summary": "河南省2026年社区网格事务协理员专项计划公告（历史已截止公告），全省计划招聘10000名，面向2024—2026届高校毕业生及2025年在岗乡村振兴村级协理员，网报2026-06-04至06-10，笔试2026-06-28。",
+      "tags": [
+        "河南省",
+        "社区网格事务协理员",
+        "专项计划",
+        "历史归档"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": null,
+        "post_level": null,
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 10000,
+        "education_min": "本科",
+        "degree_min": "相应学位",
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "38周岁以下（1987年6月1日及以后出生）",
+        "political_status": null,
+        "exam_type": "笔试（《公共基础知识》）",
+        "apply_method": "网上报名（河南省人事考试中心网站，免报名费）",
+        "apply_start_at": "2026-06-04",
+        "written_exam_time": "2026-06-28 09:00-11:00",
+        "interview_time": null,
+        "other_requirements": "本科及以上学历并具备对应学位；与街道（乡镇）签订劳动合同由社区使用，试用期6个月，经资格复审和体检后公示上岗。",
+        "announcement_title": "关于组织实施2026年社区网格事务协理员专项计划的公告",
+        "attachments": [
+          {
+            "name": "河南省2026年社区网格事务协理员专项计划岗位表",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260531/18299fb6db3d4046b8900ffc746edf6c.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省2026年社区网格事务协理员专项计划工作专用网站及咨询电话",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260531/43d805934fe54b3898b0947370ead42f.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-luoyang-e65b99d32483",
+      "category": "public_institution",
+      "title": "2026年洛阳市中小学面向社会公开招聘教师联考公告",
+      "org_name": "洛阳市人力资源和社会保障局、洛阳市教育局",
+      "province": "河南省",
+      "city": "洛阳市",
+      "district": null,
+      "source_url": "https://www.lysrsks.cn/index/news/detail.html?id=2530",
+      "apply_url": null,
+      "source_name": "洛阳市人事考试中心（洛阳人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2026-06-18",
+      "deadline_at": "2026-06-26",
+      "status": "expired",
+      "scraped_at": "2026-11-18T16:11:51+08:00",
+      "last_seen_at": "2026-11-18T16:11:51+08:00",
+      "content_hash": "e65b99d324833b815c517a1ea7bac0fb51d99af865c6660a4b1ef3498e470c75",
+      "summary": "2026年洛阳市中小学面向社会公开招聘教师联考公告（历史已截止公告），市属学校及10个县区共招聘576名（市属43名、各县区533名），网报时间2026-06-22至2026-06-26。",
+      "tags": [
+        "洛阳市",
+        "中小学教师",
+        "教师联考",
+        "历史归档"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": null,
+        "post_level": null,
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 576,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "1987年6月1日及以后出生（博士/退役军人放宽至1985年6月1日）",
+        "political_status": null,
+        "exam_type": "笔试+面试",
+        "apply_method": "网上报名（洛阳人事考试中心网站）",
+        "apply_start_at": "2026-06-22",
+        "written_exam_time": null,
+        "interview_time": null,
+        "other_requirements": "报名2026-06-22至06-26，缴费至06-27，改报07-01；语文须普通话二甲及以上、其余学科二乙及以上，须具备对应教师资格。",
+        "announcement_title": "2026年洛阳市中小学面向社会公开招聘教师联考公告",
+        "attachments": [
+          {
+            "name": "2026年洛阳市中小学面向社会公开招聘教师联考公告附件1-4.pdf",
+            "url": "https://oss.ly.gov.cn/upload-file/files/20260617/707c39c90570459c8007a0a1ec17875b.pdf",
+            "file_type": "pdf"
+          }
+        ]
+      }
+    }
+  ]
+}

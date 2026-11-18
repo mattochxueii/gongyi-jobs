@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-18T17:50:02+08:00",
+  "updated_at": "2026-11-18T18:10:15+08:00",
   "items": [
     {
       "id": "ent-songmics-home-7709015140973218057",
@@ -3946,6 +3946,76 @@
             "tag": "混合与远程办公",
             "evidence_quote": "Hybrid policy: in-office when collaboration matters, remote when it doesn't.",
             "evidence_url": "https://join.dify.ai/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-xuchang-5cc79c914978-210101",
+      "category": "public_institution",
+      "title": "2026年第二批考核招聘博士研究生（专业技术岗十级及以下）",
+      "org_name": "许昌职业技术学院",
+      "province": "河南省",
+      "city": "许昌市",
+      "district": null,
+      "source_url": "https://rsj.xuchang.gov.cn/zxdt/002002/20261104/a0c7a07e-468e-4c2b-80ae-c964c487cdd4.html",
+      "apply_url": null,
+      "source_name": "许昌市人力资源和社会保障局",
+      "source_type": "gov_official",
+      "published_at": "2026-11-04",
+      "deadline_at": "2026-11-30",
+      "status": "active",
+      "scraped_at": "2026-11-18T16:12:15+08:00",
+      "last_seen_at": "2026-11-18T16:12:15+08:00",
+      "content_hash": "5cc79c91497825fa0a6327b967c297025e7c12e949518449b07cb592a54a306d",
+      "summary": "许昌职业技术学院考核招聘博士研究生32名（专业技术岗十级及以下，岗位代码210101，公示无异议按规定办理入编、聘用手续）。涵盖10个学科门类：哲学(01)、经济学(02)、法学(03)、理学(07)、工学(08)、农学(09)、医学(10)、管理学(12)、艺术学(13)、交叉学科(14)；联系部门含马克思主义、艺术、财经、智能制造、能源与汽车工程、航空工程、人工智能、现代信息技术、智能建造、园林与食品、医疗卫生共11个学院。",
+      "tags": [
+        "许昌市",
+        "博士研究生",
+        "高校招聘",
+        "考核招聘",
+        "入编"
+      ],
+      "public_meta": {
+        "post_code": "210101",
+        "department": "马克思主义/艺术/财经/智能制造/能源与汽车工程/航空工程/人工智能/现代信息技术/智能建造/园林与食品/医疗卫生学院",
+        "post_level": "专业技术岗十级及以下",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 32,
+        "education_min": "博士",
+        "degree_min": "博士学位（与学历相对应）",
+        "majors": [
+          "哲学（01）",
+          "经济学（02）",
+          "法学（03）",
+          "理学（07）",
+          "工学（08）",
+          "农学（09）",
+          "医学（10）",
+          "管理学（12）",
+          "艺术学（13）",
+          "交叉学科（14）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "43周岁以下（1982年11月1日及以后出生）",
+        "political_status": "良好政治素质和道德品行",
+        "exam_type": "考核招聘（试讲40%+答辩60%，免笔试）",
+        "apply_method": "电子邮件报名（压缩包及PDF合并材料发至 xcrsc@126.com，标题：应聘学科专业+姓名）",
+        "apply_start_at": "2026-11-05",
+        "written_exam_time": "免笔试（采取面试考核）",
+        "interview_time": "另行通知（许昌职业技术学院官网）",
+        "other_requirements": "普通高等教育博士研究生学历及对应学位，报名前须取得；最低服务年限不少于6年；不受报名比例限制，等额面试低于75分不进下一环节。咨询：0374-2270911；监督：0374-2270146；专用网站：http://www.xcitc.edu.cn/。",
+        "announcement_title": "许昌职业技术学院 2026年第二批考核招聘博士研究生公告",
+        "attachments": [
+          {
+            "name": "许昌职业技术学院2026年第二批考核招聘博士研究生计划表.xlsx",
+            "url": "https://rsj.xuchang.gov.cn/uploadfile/a0c7a07e-468e-4c2b-80ae-c964c487cdd4/20261104173354855.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "许昌职业技术学院2026年第二批考核招聘博士研究生报名表.xlsx",
+            "url": "https://rsj.xuchang.gov.cn/uploadfile/a0c7a07e-468e-4c2b-80ae-c964c487cdd4/20261104173416509.xlsx",
+            "file_type": "xlsx"
           }
         ]
       }

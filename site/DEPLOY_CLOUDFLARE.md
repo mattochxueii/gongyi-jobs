@@ -53,3 +53,11 @@ $env:PREVIEW_FIXTURES="1"; npm run build; Remove-Item Env:PREVIEW_FIXTURES
 ## 4. 自动更新机制
 
 当采集流水线更新根目录 `data/jobs.json` 或 `data/companies.json` 并推送至默认分支（如 `master` / `main`）时，Cloudflare Pages 会自动触发一次静态重建，将最新岗位与白名单数据同步至全球 CDN 边缘节点。
+
+---
+
+## 5. 自定义域名绑定（`fairjobs.ccwu.cc`）
+
+1. 完成首次 `*.pages.dev` 构建并确认页面可正常访问后，进入 Cloudflare Pages 项目的 **Custom domains** -> **Set up a custom domain**，填写 `fairjobs.ccwu.cc`。
+2. 在 `ccwu.cc` 域名管理面板中，为 `fairjobs` 添加一条 **CNAME 记录**指向 Cloudflare 分配的 `<project>.pages.dev` 目标地址（如 Cloudflare 页面同时提示 TXT 验证记录，按页面指示一并补齐）。
+3. 回到 Cloudflare Pages 等待域名状态变为 **Active**（SSL/TLS 证书自动签发），随后通过 `https://fairjobs.ccwu.cc` 核验首页、`/public`、`/companies` 与 `/about` 加载正常。

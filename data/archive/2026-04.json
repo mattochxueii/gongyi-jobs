@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-18T18:10:15+08:00",
+  "items": [
+    {
+      "id": "pub-henan-rsks-5c67271a974a",
+      "category": "public_institution",
+      "title": "中共河南省委组织部 河南省人力资源和社会保障厅 2026年河南省事业单位公开招聘联考工作的公告",
+      "org_name": "中共河南省委组织部、河南省人力资源和社会保障厅",
+      "province": "河南省",
+      "city": "全省",
+      "district": null,
+      "source_url": "http://www.hnrsks.com/sitesources/hnsrskszx/page_pc/zngg/article638db7d0945844eba2dbb17c513de70b.html",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "河南省人事考试中心（河南人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2026-04-22",
+      "deadline_at": "2026-04-30",
+      "status": "expired",
+      "scraped_at": "2026-11-18T16:11:39+08:00",
+      "last_seen_at": "2026-11-18T16:11:39+08:00",
+      "content_hash": "5c67271a974ae7240c0c3325612920dc277173a89e4da6d7fdc08cc93086a4dc",
+      "summary": "2026年河南省事业单位公开招聘联考公告（历史已截止公告），共有省直及17个省辖市、济源示范区、郑州航空港区3624家事业单位招聘13685名（省直156家1030名、各地3468家12655名），网报2026-04-24至04-30。",
+      "tags": [
+        "河南省联考",
+        "事业单位",
+        "全省",
+        "历史归档"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": null,
+        "post_level": null,
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 13685,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "详见省直及各地岗位信息表",
+        "political_status": null,
+        "exam_type": "笔试+面试（综合类/教育类/卫生类）",
+        "apply_method": "网上报名（河南人事考试网 http://www.hnrsks.com）",
+        "apply_start_at": "2026-04-24",
+        "written_exam_time": null,
+        "interview_time": null,
+        "other_requirements": "报名2026-04-24至04-30，缴费04-25至05-01，改报05-08，打准考证05-25至05-30；普通高校2026年应届生需于聘用前取得毕业证、学位证。",
+        "announcement_title": "中共河南省委组织部 河南省人力资源和社会保障厅 2026年河南省事业单位公开招聘联考工作的公告",
+        "attachments": [
+          {
+            "name": "1. 2026 年河南省事业单位公开招聘联考岗位 信息表（省直单位）",
+            "url": "http://www.hnrsks.com/sitesources/hnsrskszx/upload/202604/20260422085908914.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "2. 2026 年河南省事业单位公开招聘联考工作 专用网站及咨询、监督电话（各地人社部 门和人事考试机构）",
+            "url": "http://www.hnrsks.com/sitesources/hnsrskszx/upload/202604/20260421223608362.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "3. 2026 年河南省事业单位公开招聘联考工作 专用网站及咨询、监督电话（省直单位）",
+            "url": "http://www.hnrsks.com/sitesources/hnsrskszx/upload/202604/20260422092904349.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "4. 2026 年河南省事业单位公开招聘联考笔试 考试大纲",
+            "url": "http://www.hnrsks.com/sitesources/hnsrskszx/upload/202604/20260421223608456.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-zhoukou-cf5d5cb538d3",
+      "category": "public_institution",
+      "title": "2026年河南省（周口市）事业单位公开招聘联考工作的公告",
+      "org_name": "中共周口市委组织部、周口市人力资源和社会保障局",
+      "province": "河南省",
+      "city": "周口市",
+      "district": null,
+      "source_url": "http://www.zkrsks.com/new.html?contentNum=29ae2c6f02c14761b78fc1efe6a3b188",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "周口市人事考试中心（周口人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2026-04-22",
+      "deadline_at": "2026-04-30",
+      "status": "expired",
+      "scraped_at": "2026-11-18T16:12:23+08:00",
+      "last_seen_at": "2026-11-18T16:12:23+08:00",
+      "content_hash": "cf5d5cb538d391250ccf1f9023a69de9d336b74f368f0b1d62c45f51d6a28db2",
+      "summary": "2026年河南省（周口市）事业单位公开招聘联考公告（历史已截止公告），周口全市274家事业单位拟招聘487名（市直97名、县市区及管委会390名），网报时间2026-04-24至2026-04-30。",
+      "tags": [
+        "周口市",
+        "河南省联考",
+        "事业单位",
+        "历史归档"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": null,
+        "post_level": null,
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 487,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "一般38周岁以下（硕博研究生放宽至43周岁以下）",
+        "political_status": null,
+        "exam_type": "笔试+面试（综合类/教育类/卫生类）",
+        "apply_method": "网上报名（河南省人事考试中心网站）",
+        "apply_start_at": "2026-04-24",
+        "written_exam_time": null,
+        "interview_time": null,
+        "other_requirements": "报名2026-04-24至04-30，缴费04-25至05-01，改报05-08，打准考证05-25至05-30。",
+        "announcement_title": "2026年河南省（周口市）事业单位公开招聘联考工作的公告",
+        "attachments": [
+          {
+            "name": "2026年河南省（周口市）事业单位公开招聘联考岗位信息表.xlsx",
+            "url": "http://www.zkrsks.com/zkrswz/public/fileDownloadServlet?fileUrl=http://127.0.0.1:9190/zkrswz-file/zkrsksw/file/20264/file_3dd104899b584bc0a78cc615eaccb9a8.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "2026年河南省（周口市）事业单位公开招聘联考工作专用网站及咨询、监督电话.xlsx",
+            "url": "http://www.zkrsks.com/zkrswz/public/fileDownloadServlet?fileUrl=http://127.0.0.1:9190/zkrswz-file/zkrsksw/file/20264/file_4b5317ad247e48d289d13739b814b204.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "2026年河南省事业单位公开招聘联考笔试考试大纲.docx",
+            "url": "http://www.zkrsks.com/zkrswz/public/fileDownloadServlet?fileUrl=http://127.0.0.1:9190/zkrswz-file/zkrsksw/file/20264/file_b694b822fae14292b9d06b8a1cd4b8af.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    }
+  ]
+}

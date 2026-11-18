@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-18T18:10:15+08:00",
+  "items": [
+    {
+      "id": "pub-henan-luoyang-fca73530bb0e",
+      "category": "public_institution",
+      "title": "洛阳市市属学校面向2026年普通高校优秀应届毕业生公开招聘教师公告",
+      "org_name": "洛阳市市属学校（17所）",
+      "province": "河南省",
+      "city": "洛阳市",
+      "district": null,
+      "source_url": "https://www.lysrsks.cn/index/news/detail.html?id=2460",
+      "apply_url": "https://apply.lyrcrs.com/314/login.aspx",
+      "source_name": "洛阳市人事考试中心（洛阳人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2026-05-09",
+      "deadline_at": "2026-05-16",
+      "status": "expired",
+      "scraped_at": "2026-11-18T16:12:04+08:00",
+      "last_seen_at": "2026-11-18T16:12:04+08:00",
+      "content_hash": "fca73530bb0e17899f70d789f5bb45ac1053ed5c86b9a41f37e7510c03e47dc8",
+      "summary": "洛阳市17所市属学校面向2026年普通高校优秀应届毕业生公开招聘事业编制教师84名（历史已截止公告，含普通高中78名、中职5名、特教1名），网报时间2026-05-11至2026-05-16。",
+      "tags": [
+        "洛阳市",
+        "市属学校",
+        "教师招聘",
+        "应届毕业生",
+        "历史归档"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": null,
+        "post_level": null,
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 84,
+        "education_min": "本科",
+        "degree_min": "学士及以上",
+        "majors": [],
+        "fresh_grad_only": true,
+        "age_limit": "38周岁以下（1987年5月1日及以后出生）",
+        "political_status": null,
+        "exam_type": "校园/定点面试考核（西安/长春/武汉/郑州四地站点）",
+        "apply_method": "网上报名（https://apply.lyrcrs.com/314/login.aspx）",
+        "apply_start_at": "2026-05-11",
+        "written_exam_time": null,
+        "interview_time": null,
+        "other_requirements": "仅限2026年普通高校优秀应届师范类本科及硕士研究生及以上毕业生；需于2026-07-31前取得对应教师资格证并满足奖学金/前40%等优秀条件之一。",
+        "announcement_title": "洛阳市市属学校面向2026年普通高校优秀应届毕业生公开招聘教师公告",
+        "attachments": [
+          {
+            "name": "下载附件",
+            "url": "https://www.lysrsks.cn/luoyang/upload/file/20260509002.pdf",
+            "file_type": "pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-luoyang-38b05461900c",
+      "category": "public_institution",
+      "title": "中共洛阳市委组织部 洛阳市人力资源和社会保障局2026年洛阳市县区事业单位公开招聘联考工作的公告",
+      "org_name": "中共洛阳市委组织部、洛阳市人力资源和社会保障局",
+      "province": "河南省",
+      "city": "洛阳市",
+      "district": null,
+      "source_url": "https://www.lysrsks.cn/index/news/detail.html?id=2479",
+      "apply_url": null,
+      "source_name": "洛阳市人事考试中心（洛阳人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2026-05-19",
+      "deadline_at": "2026-05-28",
+      "status": "expired",
+      "scraped_at": "2026-11-18T16:12:02+08:00",
+      "last_seen_at": "2026-11-18T16:12:02+08:00",
+      "content_hash": "38b05461900c70ec2ce38ff704c1607caae05f81ea0e8980c3bc0d03d5083b07",
+      "summary": "2026年洛阳市13个县区（新安县、伊川县、涧西区、西工区等）事业单位公开招聘联考公告（历史已截止公告），计划招聘534人，网报2026-05-22至05-28，笔试2026-06-27。",
+      "tags": [
+        "洛阳市",
+        "县区联考",
+        "事业单位",
+        "历史归档"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": null,
+        "post_level": null,
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 534,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "详见各招聘县区岗位条件",
+        "political_status": null,
+        "exam_type": "笔试+面试（综合类/教育类/卫生类）",
+        "apply_method": "网上报名（洛阳人事考试网）",
+        "apply_start_at": "2026-05-22",
+        "written_exam_time": "2026-06-27",
+        "interview_time": null,
+        "other_requirements": "报名2026-05-22至05-28，缴费05-23至05-29，改报06-04，准考证06-23至06-27，笔试06-27。",
+        "announcement_title": "中共洛阳市委组织部 洛阳市人力资源和社会保障局2026年洛阳市县区事业单位公开招聘联考工作的公告",
+        "attachments": [
+          {
+            "name": "2026年洛阳市县区事业单位公开招聘联考工作专用网站及联系电话.xlsx",
+            "url": "https://oss.ly.gov.cn/upload-file/files/20260519/592fb9c64bfe4325ab7d2f1c7d63b2b1.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "2026年洛阳市县区事业单位公开招聘联考笔试考试大纲.docx",
+            "url": "https://oss.ly.gov.cn/upload-file/files/20260519/6434544aaa3d4d58a6b8d9faa49dd167.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -149,3 +149,52 @@
 2. 贴出 `python -m unittest discover -s tests -v` 结果与 `site/` 下 `npm run build` 完整输出。
 3. 核查 `site/dist/public/index.html` 中确实包含真实许昌职业技术学院岗位及官方附件链接，无虚构数据。
 ```
+
+
+---
+
+## 战役 4：发给 `Muse AI`（GitHub 推码 + Cloudflare Pages 首次部署 + `fairjobs.ccwu.cc` 绑定）
+
+> 安全前提：凡涉及 **GitHub / Cloudflare / ccwu.cc 登录密码、二步验证（2FA）或人机验证码**，务必由用户本人亲手完成；Muse AI 仅在已登录状态下协助点选页面配置、推码与核验部署日志。
+
+```text
+你现在的任务是协助我把本地项目 `C:\Users\mattochxueii\.gemini\antigravity\scratch\gongyi-jobs` 部署上线到 Cloudflare Pages，并绑定自定义域名 `fairjobs.ccwu.cc`。
+注意：所有账号登录、2FA、人机验证码由我自己操作，遇到需要登录或验证时请暂停提示我处理，不要尝试绕过或索要密码。
+
+请按以下 4 步严格执行（先读一下工作区里的 `site/DEPLOY_CLOUDFLARE.md`）：
+
+【第 1 步：创建 GitHub 仓库并推送本地代码】
+1. 打开 GitHub，引导/确认我已登录；创建一个新仓库（名称建议 `gongyi-jobs`，可见性建议 Public 公开仓库，不要勾 Initialize with README/gitignore，保持空仓库）。
+2. 复制新仓库地址，在本地目录 `C:\Users\mattochxueii\.gemini\antigravity\scratch\gongyi-jobs` 执行：
+   - 检查 `git status` 干净
+   - `git remote add origin <仓库URL>`
+   - `git push -u origin master`
+3. 确认 GitHub 网页刷新后能看到 `site/`、`data/jobs.json`、`data/companies.json`、`schemas/` 等文件已上传成功。
+
+【第 2 步：接入 Cloudflare Pages 并完成首次构建】
+1. 打开 Cloudflare Dashboard (`https://dash.cloudflare.com`)，确认我已登录。
+2. 进入 `Workers & Pages` -> `Create` -> `Pages` -> `Connect to Git`，选择刚刚推送的 `gongyi-jobs` 仓库（Production branch 选 `master`）。
+3. 严格按 `site/DEPLOY_CLOUDFLARE.md` 填写配置（一个字都不要填错）：
+   - Root directory (Path)：`site`
+   - Framework preset：`Astro`（或 `None`）
+   - Build command：`npm run build`
+   - Build output directory：`dist`
+   - Environment variables（Production 和 Preview 都加）：`NODE_VERSION` = `24`（**绝对不要**设置 `PREVIEW_FIXTURES`）
+4. 点击 `Save and Deploy`，等待构建完成；如果构建失败，立刻完整复制报错日志停下来反馈给我。
+5. 构建成功后，打开 Cloudflare 分配的 `https://<project>.pages.dev` 逐页检查：
+   - 首页统计数字正常（1 条事业编 + 8 家民企 / 69 个民企岗位）
+   - `/public` 能看到许昌职业技术学院招聘及截止倒计时
+   - `/companies` 能看到致欧家居等 8 家企业及原文福利引述
+
+【第 3 步：绑定自定义域名 `fairjobs.ccwu.cc`】
+1. 在 Cloudflare Pages 项目的 `Custom domains` 点击 `Set up a custom domain`，输入 `fairjobs.ccwu.cc`。
+2. 记录页面给出的 CNAME 目标地址（及如有 TXT 验证记录要求）。
+3. 打开 `ccwu.cc` 子域名管理面板（确认我已登录），为 `fairjobs` 添加一条 CNAME 记录指向 `<project>.pages.dev`（如有 TXT 记录要求一并添加）。
+4. 回到 Cloudflare Pages 等待/触发验证，直到 `fairjobs.ccwu.cc` 状态变为 `Active`（SSL 证书生效）。
+
+【第 4 步：上线结果验收汇报】
+完成后请向我汇报：
+1. GitHub 仓库 URL；
+2. Cloudflare Pages 默认域名（`*.pages.dev`）和 `https://fairjobs.ccwu.cc` 的最终访问状态；
+3. 首页、`/public`、`/companies`、`/about` 四个页面是否均正常加载且无样式丢失、无控制台报错。
+```

@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-18T18:10:15+08:00",
+  "items": [
+    {
+      "id": "pub-henan-zhoukou-36b9cb7fc533",
+      "category": "public_institution",
+      "title": "2026年度周口市基层卫生专业技术人员公开招聘公告",
+      "org_name": "周口市卫生健康委员会（全市乡镇卫生院）",
+      "province": "河南省",
+      "city": "周口市",
+      "district": null,
+      "source_url": "http://www.zkrsks.com/new.html?contentNum=84f5b0acad044d1384eb5c7d91985ef4",
+      "apply_url": null,
+      "source_name": "周口市人事考试中心（周口人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2026-02-28",
+      "deadline_at": "2026-03-08",
+      "status": "expired",
+      "scraped_at": "2026-11-18T16:12:26+08:00",
+      "last_seen_at": "2026-11-18T16:12:26+08:00",
+      "content_hash": "36b9cb7fc533a5aefeab8259e7c20ce2e2bde18af44e4aa90a0b7d216093c8c9",
+      "summary": "2026年度周口市乡镇卫生院（不含社区卫生服务中心）公开招聘基层卫生专业技术人员984名（历史已截止公告）。涵盖临床医学、口腔医学、中医学、护理、药学等专业，报名时间2026-03-01至2026-03-08。",
+      "tags": [
+        "周口市",
+        "基层卫生",
+        "乡镇卫生院",
+        "医疗卫生",
+        "历史归档"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": null,
+        "post_level": null,
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 984,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [
+          "临床医学",
+          "口腔医学",
+          "中医学",
+          "中西医结合",
+          "护理",
+          "药学",
+          "医学技术",
+          "公共卫生"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "45周岁以下（高级/中级职称、硕士、本科学历且有资格者48周岁以下）",
+        "political_status": null,
+        "exam_type": "笔试60%+面试40%（部分高层次及本科有资格者免笔试）",
+        "apply_method": "网上报名/现场资格审核（周口人事考试网及各县市区卫健委）",
+        "apply_start_at": "2026-03-01",
+        "written_exam_time": null,
+        "interview_time": null,
+        "other_requirements": "资格条件截止2026-03-01；聘用后在基层工作时间不少于6年；高/中级职称、硕士及取得卫生专业技术资格的普通高校本科生免笔试。",
+        "announcement_title": "2026年度周口市基层卫生专业技术人员公开招聘公告",
+        "attachments": [
+          {
+            "name": "2026年度周口市基层卫生专业技术人员公开招聘计划及岗位一览表.doc",
+            "url": "http://www.zkrsks.com/zkrswz/public/fileDownloadServlet?fileUrl=http://127.0.0.1:9190/zkrswz-file/zkrsksw/file/20262/file_693d90898131408f8371cb80cfd296c5.doc",
+            "file_type": "doc"
+          },
+          {
+            "name": "2026年度周口市基层卫生专业技术人员招聘报名登记表.docx",
+            "url": "http://www.zkrsks.com/zkrswz/public/fileDownloadServlet?fileUrl=http://127.0.0.1:9190/zkrswz-file/zkrsksw/file/20262/file_f665378fab5f489e8ab7729f1ef54bc1.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    }
+  ]
+}

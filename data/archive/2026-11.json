@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-18T18:10:15+08:00",
+  "items": [
+    {
+      "id": "pub-henan-luoyang-d9fe499bc92a",
+      "category": "public_institution",
+      "title": "河南省2026年大学生乡村医生专项计划公开招聘公告",
+      "org_name": "河南省卫生健康委员会等五部门",
+      "province": "河南省",
+      "city": "全省",
+      "district": null,
+      "source_url": "https://www.lysrsks.cn/index/news/detail.html?id=2641",
+      "apply_url": "https://examinee.atahn.com/exam/1784552672/index.html",
+      "source_name": "洛阳市人事考试中心（洛阳人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2026-10-28",
+      "deadline_at": "2026-11-13",
+      "status": "expired",
+      "scraped_at": "2026-11-18T16:12:09+08:00",
+      "last_seen_at": "2026-11-18T16:12:09+08:00",
+      "content_hash": "d9fe499bc92a8c30a0caf0ff2e41a1df3458888d1bf5db808366807e833c3f97",
+      "summary": "全省公开招聘大学生乡村医生185名（入编乡镇卫生院并在村卫生室服务不少于6年），面向2024—2026届医学专业高校毕业生及同等对待人员。网上报名已于2026-11-13截止；当前后续节点：现场资格审核2026-11-18至11-20、缴费2026-11-24至11-26（30元）、打印准考证11-29起、全省统一笔试2026-12-01左右。",
+      "tags": [
+        "河南省",
+        "大学生乡村医生",
+        "医疗卫生",
+        "入编",
+        "专项计划"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "各省辖市乡镇卫生院及村卫生室",
+        "post_level": null,
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 185,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [
+          "医学专业（可报考临床类别、中医类别执业/助理医师）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "38周岁以下（1987年10月1日及以后出生）",
+        "political_status": null,
+        "exam_type": "笔试50%+面试50%",
+        "apply_method": "网上报名（https://examinee.atahn.com/exam/1784552672/index.html）",
+        "apply_start_at": "2026-11-09",
+        "written_exam_time": "2026年12月1日左右",
+        "interview_time": "笔试后由各省辖市卫健委官网公布",
+        "other_requirements": "网报已于2026-11-13截止；当前后续节点：现场资格审核11-18至11-20；缴费11-24至11-26；准考证11-29至笔试前；笔试12-01左右。须符合2021年修订《河南省乡村医生执业注册管理办法》第五条第一款免试注册规定，3年内未取得执业（助理）医师资格解除聘用合同。",
+        "announcement_title": "河南省2026年大学生乡村医生专项计划公开招聘公告",
+        "attachments": [
+          {
+            "name": "1：河南省2026年大学生乡村医生专项计划公开招聘岗位信息表.xlsx",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20261028/f9c8e6caeeab4aaf8aa1e59d16894d08.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "2：河南省大学生乡村医生公开招聘报名登记表.doc",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20261028/fdedbb86fd73404bb2cf7cb4d1611172.doc",
+            "file_type": "doc"
+          },
+          {
+            "name": "3：各省辖市现场资格审核地点及联系电话.xlsx",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20261028/42c717e7d8924b408e37c3681e8705d3.xlsx",
+            "file_type": "xlsx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-luoyang-fc479adc014f",
+      "category": "public_institution",
+      "title": "2027年军队文职人员公开招考公告",
+      "org_name": "中央军委政治工作部",
+      "province": "全国",
+      "city": "全国（含河南考点）",
+      "district": null,
+      "source_url": "https://www.lysrsks.cn/index/news/detail.html?id=2649",
+      "apply_url": "http://www.81rc.mil.cn",
+      "source_name": "洛阳市人事考试中心（洛阳人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-05",
+      "deadline_at": "2026-11-10",
+      "status": "expired",
+      "scraped_at": "2026-11-18T16:11:46+08:00",
+      "last_seen_at": "2026-11-18T16:11:46+08:00",
+      "content_hash": "fc479adc014f5fad9346f5b66d5b1c52ab41add7b59e48e7fa64801a44be03b7",
+      "summary": "中央军委政治工作部公开招考管理类和专业技术类军队文职人员。网上选报岗位已于2026-11-10 18:00截止（初审至11-12、调整报名岗位至11-14）；当前后续节点：网上缴费及选择考试城市2026-11-17 8:00至11-18 18:00（每科50元），打印准考证2026-12-07至12-13，全军统一笔试2026-12-13。",
+      "tags": [
+        "军队文职",
+        "公开招考",
+        "全国招考"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "中央军委机关部委、战区、军兵种、武警部队等用人单位",
+        "post_level": "九级文员以下/初级及八七级文员/中级专业技术岗",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": null,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "九级文员以下/初级35周岁以下；八七级文员/中级45周岁以下",
+        "political_status": "符合军队招录聘用文职人员政治考核标准",
+        "exam_type": "统一笔试+面试（博士及部分双一流硕可免笔试）",
+        "apply_method": "网上报名（军队人才网 http://www.81rc.mil.cn）",
+        "apply_start_at": "2026-11-05",
+        "written_exam_time": "2026-12-13 09:00-11:00 / 14:00-16:00",
+        "interview_time": "2027年1月底查分后组织",
+        "other_requirements": "网报选岗已于2026-11-10截止（初审11-05至11-12，调整岗位11-13至11-14）。当前节点：网上缴费2026-11-17 8:00至11-18 18:00；打印准考证12-07至12-13；统一笔试12-13；预计2027年5月起审批录用。学历学位取得截止2027-07-31。",
+        "announcement_title": "2027年军队文职人员公开招考公告",
+        "attachments": []
+      }
+    }
+  ]
+}
