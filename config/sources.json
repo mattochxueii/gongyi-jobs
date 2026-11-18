@@ -85,6 +85,134 @@
       "url_verified": true,
       "fetch_interval_hours": 24,
       "notes": "实测事业单位招录考试JSON接口(resourceItem=310902)及详情接口getContentInfo可用，支持fileDownloadServlet动态附件下载。"
+    },
+    {
+      "source_id": "ent_songmics_feishu",
+      "name": "致欧家居科技股份有限公司（飞书招聘）",
+      "category": "enterprise",
+      "province": "河南省",
+      "city": "郑州市",
+      "adapter": "feishu_hire",
+      "base_url": "https://songmicshome.jobs.feishu.cn",
+      "list_urls": [
+        "https://songmicshome.jobs.feishu.cn/"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "河南郑州总部企业，实测飞书招聘公开CSRF+职位检索JSON接口可用，优先精选郑州在招岗位。"
+    },
+    {
+      "source_id": "ent_lilith_feishu",
+      "name": "上海莉莉丝网络科技有限公司（飞书招聘）",
+      "category": "enterprise",
+      "province": "上海市",
+      "city": "上海市",
+      "adapter": "feishu_hire",
+      "base_url": "https://lilithgames.jobs.feishu.cn",
+      "list_urls": [
+        "https://lilithgames.jobs.feishu.cn/career"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测飞书招聘 /career 门户与职位检索JSON接口可用，官网公开30天全薪病假及商业保险政策。"
+    },
+    {
+      "source_id": "ent_moka_self",
+      "name": "北京希瑞亚斯科技有限公司（Moka 社招）",
+      "category": "enterprise",
+      "province": "北京市",
+      "city": "多城市",
+      "adapter": "moka",
+      "base_url": "https://app.mokahr.com",
+      "list_urls": [
+        "https://app.mokahr.com/social-recruitment/moka/118263"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测Moka社招官网页面内嵌init-data明文JSON，覆盖北京/上海/杭州/深圳/成都/厦门开放岗位。"
+    },
+    {
+      "source_id": "ent_trip_moka",
+      "name": "携程集团（Moka 社招）",
+      "category": "enterprise",
+      "province": "上海市",
+      "city": "多城市",
+      "adapter": "moka",
+      "base_url": "https://app.mokahr.com",
+      "list_urls": [
+        "https://app.mokahr.com/social-recruitment/trip/70415"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测携程Moka社招页面init-data明文JSON可用，覆盖上海/北京/广州等开放岗位。"
+    },
+    {
+      "source_id": "ent_canonical_greenhouse",
+      "name": "Canonical（Greenhouse 公开职位接口）",
+      "category": "enterprise",
+      "province": "全国/远程",
+      "city": "远程",
+      "adapter": "greenhouse",
+      "base_url": "https://boards-api.greenhouse.io",
+      "list_urls": [
+        "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测Greenhouse Boards API可用，自动过滤非中国区定向岗，仅保留中国办公与支持中国区申报的远程岗位。"
+    },
+    {
+      "source_id": "ent_mongodb_greenhouse",
+      "name": "MongoDB（Greenhouse 公开职位接口）",
+      "category": "enterprise",
+      "province": "北京市",
+      "city": "多城市",
+      "adapter": "greenhouse",
+      "base_url": "https://boards-api.greenhouse.io",
+      "list_urls": [
+        "https://boards-api.greenhouse.io/v1/boards/mongodb/jobs?content=true"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测Greenhouse Boards API可用，筛选北京/上海/深圳混合办公模式（Hybrid）岗位。"
+    },
+    {
+      "source_id": "ent_emq_jobs",
+      "name": "杭州映云科技有限公司（EMQ 官网职位接口）",
+      "category": "enterprise",
+      "province": "浙江省",
+      "city": "多城市",
+      "adapter": "emq_jobs",
+      "base_url": "https://careers.emqx.com",
+      "list_urls": [
+        "https://community-sites.emqx.com/api/v1/jobs?language=zh&enable=1&limit=50"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测EMQ招聘官网公开JSON接口可用，返回中国多城市职位及详情页直链。"
+    },
+    {
+      "source_id": "ent_dify_jobs",
+      "name": "苏州语灵人工智能科技有限公司（Dify 官网职位接口）",
+      "category": "enterprise",
+      "province": "江苏省",
+      "city": "多城市",
+      "adapter": "dify_jobs",
+      "base_url": "https://join.dify.ai",
+      "list_urls": [
+        "https://qcnurokxgtyuimuixztr.supabase.co/functions/v1/public-jobs?lang=zh"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测Dify官方公开职位JSON接口可用，直出中国区与远程岗位及结构化福利清单。"
     }
   ]
 }

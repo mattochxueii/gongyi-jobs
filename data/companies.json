@@ -1,5 +1,274 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-18T12:48:00+08:00",
-  "items": []
+  "updated_at": "2026-11-18T17:25:00+08:00",
+  "items": [
+    {
+      "company_id": "songmics-home",
+      "name": "致欧家居科技股份有限公司",
+      "aliases": ["致欧科技", "致欧家居", "SONGMICS HOME"],
+      "industry": "跨境电商/互联网家居",
+      "cities": ["郑州市", "深圳市"],
+      "career_url": "https://songmicshome.jobs.feishu.cn/",
+      "saas_platform": "feishu",
+      "work_schedule": "周末双休",
+      "benefit_claims": [
+        {
+          "label": "周末双休",
+          "evidence_quote": "4.工作时间： 双休，9:00-18:00。",
+          "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "年度免费体检",
+          "evidence_quote": "（1）保险保障：五险一金、年度免费体检；",
+          "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "带薪年假",
+          "evidence_quote": "（3）带薪假期：带薪年假、婚假、产假、陪产假、哺乳假等法定假期；",
+          "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "节日福利与餐补下午茶",
+          "evidence_quote": "（4）礼品礼金：（端午、中秋、春节）节日福利、生日福利、婚育礼金、内推奖励等；（5）其他福利：室内运动室、餐补、下午茶、内部团购等。",
+          "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail",
+          "verified_at": "2026-11-18"
+        }
+      ],
+      "status": "active",
+      "notes": "总部位于河南省郑州市，飞书招聘官网（songmicshome.jobs.feishu.cn）公开大量郑州在招岗位及双休、体检、年假书面福利。"
+    },
+    {
+      "company_id": "moka-hr",
+      "name": "北京希瑞亚斯科技有限公司",
+      "aliases": ["Moka", "Moka智能化招聘"],
+      "industry": "企业级 HR SaaS",
+      "cities": ["北京市", "上海市", "杭州市", "深圳市", "成都市", "厦门市"],
+      "career_url": "https://app.mokahr.com/social-recruitment/moka/118263",
+      "saas_platform": "moka",
+      "work_schedule": "弹性工作",
+      "benefit_claims": [
+        {
+          "label": "弹性办公",
+          "evidence_quote": "花式团建、弹性办公、无限零食下午茶与节日礼遇；一起赢，也好好生活",
+          "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "补充商业医疗与体检",
+          "evidence_quote": "补充商业医疗、年度体检、心理关怀；身心都被认真照顾",
+          "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263",
+          "verified_at": "2026-11-18"
+        }
+      ],
+      "status": "active",
+      "notes": "国内主流 HR SaaS 服务商，官方社招主页直接公开“弹性办公”及“补充商业医疗、年度体检”等福利说明。"
+    },
+    {
+      "company_id": "trip-com",
+      "name": "携程集团",
+      "aliases": ["携程", "Trip.com Group", "Ctrip"],
+      "industry": "在线旅游与互联网平台",
+      "cities": ["上海市", "北京市", "广州市"],
+      "career_url": "https://app.mokahr.com/social-recruitment/trip/70415",
+      "saas_platform": "moka",
+      "work_schedule": "弹性工作",
+      "benefit_claims": [
+        {
+          "label": "弹性工作安排",
+          "evidence_quote": "We believe that you're in charge of your own time. Therefore, we offer flexible working arrangements to allow you to have a more fulfilling life in and outside the workplace.",
+          "evidence_url": "https://careers.ctrip.com/",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "商业保险福利",
+          "evidence_quote": "可以为自己和家人选择更完善的商业保险计划，我们帮助您用最优惠的方式享受优质的保险福利。（仅适用于工作地在中国的员工）",
+          "evidence_url": "https://careers.ctrip.com/",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "年度体检与旅游福利金",
+          "evidence_quote": "我们为员工提供各种福利。出勤补贴，携程医务室，年度体检等样样齐全，我们还为热爱旅游的您提供了旅游福利金。",
+          "evidence_url": "https://careers.ctrip.com/",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "生育礼金与育儿补贴",
+          "evidence_quote": "携程为孕期的员工提供每日交通补贴；在您的宝宝出生时，可申请生育礼金和生育医疗补贴；各类育儿讲座不间断；儿童节我们将为您的宝贝送上六一贺礼。（仅适用于中国大陆员工）",
+          "evidence_url": "https://careers.ctrip.com/",
+          "verified_at": "2026-11-18"
+        }
+      ],
+      "status": "active",
+      "notes": "国内大型在线旅游平台，Moka 社招门户覆盖上海、北京、广州等多城市岗位，官网公开弹性办公安排与商业保险、生育及旅游福利。"
+    },
+    {
+      "company_id": "lilith-games",
+      "name": "上海莉莉丝网络科技有限公司",
+      "aliases": ["莉莉丝游戏", "Lilith Games"],
+      "industry": "游戏研发与发行",
+      "cities": ["上海市"],
+      "career_url": "https://jobs.lilith.com/",
+      "saas_platform": "feishu",
+      "work_schedule": "其他",
+      "benefit_claims": [
+        {
+          "label": "30天全薪病假与带薪年假",
+          "evidence_quote": "莉莉丝为员工准备了丰富的假期类型，无论是陪伴家人、照顾自己，还是追寻热爱，年休假、30天全薪病假、事假、产假、陪产假、婚假等一应俱全，愿你在重要时刻无需顾虑，安心享受属于你的时光。",
+          "evidence_url": "https://jobs.lilith.com/",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "全面商业保险",
+          "evidence_quote": "每一位员工都享有全面的商业保险，覆盖生活与工作的方方面面。愿这份保障成为你坚实的后盾，让你在前行的路上安心生活，无忧工作。",
+          "evidence_url": "https://jobs.lilith.com/",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "年度全面体检",
+          "evidence_quote": "公司每年春末夏初启动全面体检，旨在及时干预可能存在的健康风险，帮助大家维持理想的生活与工作状态。",
+          "evidence_url": "https://jobs.lilith.com/",
+          "verified_at": "2026-11-18"
+        }
+      ],
+      "status": "active",
+      "notes": "官方招聘主页公开完整假期（含30天全薪病假）、商业保险与年度体检说明，在招岗位托管于飞书招聘。"
+    },
+    {
+      "company_id": "emq-technologies",
+      "name": "杭州映云科技有限公司",
+      "aliases": ["EMQ", "EMQX"],
+      "industry": "开源物联网与基础软件",
+      "cities": ["杭州市", "北京市", "上海市", "深圳市", "成都市", "广州市", "南京市", "昆明市", "远程"],
+      "career_url": "https://careers.emqx.com/zh/alljobs",
+      "saas_platform": "custom",
+      "work_schedule": "弹性工作",
+      "benefit_claims": [
+        {
+          "label": "不打卡/拒绝996",
+          "evidence_quote": "拒绝无意义的打卡和「996」，我们希望你高效工作，同时也要追求丰富的人生。",
+          "evidence_url": "https://careers.emqx.com/zh",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "支持远程协作办公",
+          "evidence_quote": "不同 Office 间通过 Github、 Zoom、Slack 和 Jira 等工具远程协作与交流，全球化的高效合作使我们始终与世界同步。",
+          "evidence_url": "https://careers.emqx.com/zh",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "多城市办公",
+          "evidence_quote": "无论是一线都市北京、上海、深圳，还是风景宜人的杭州、昆明，亦或是诺贝尔奖的故乡斯德哥尔摩、IT 人的梦想之地硅谷，都可以有你的一席之地。",
+          "evidence_url": "https://careers.emqx.com/zh",
+          "verified_at": "2026-11-18"
+        }
+      ],
+      "status": "active",
+      "notes": "开源物联网与流处理基础软件企业，官网明确提出“拒绝无意义的打卡和「996」”，支持国内多城市与远程协同。"
+    },
+    {
+      "company_id": "dify-langgenius",
+      "name": "苏州语灵人工智能科技有限公司",
+      "aliases": ["Dify", "LangGenius"],
+      "industry": "开源 AI 应用开发平台",
+      "cities": ["苏州市", "上海市", "远程"],
+      "career_url": "https://join.dify.ai/roles",
+      "saas_platform": "custom",
+      "work_schedule": "弹性工作",
+      "benefit_claims": [
+        {
+          "label": "混合与远程办公",
+          "evidence_quote": "Hybrid policy: in-office when collaboration matters, remote when it doesn't.",
+          "evidence_url": "https://join.dify.ai/",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "每月首个周一自主日",
+          "evidence_quote": "The first Monday of every month belongs to you — no sprint tasks, no standups, nothing you owe anyone.",
+          "evidence_url": "https://join.dify.ai/",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "探索四天工作制愿景",
+          "evidence_quote": "It's also the first step toward something we've always meant to get to: a 4-day work week. We haven't forgotten.",
+          "evidence_url": "https://join.dify.ai/",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "补充商业保险与年度体检",
+          "evidence_quote": "身心健康支持 | Mental and Physical Health Support：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+          "evidence_url": "https://join.dify.ai/roles",
+          "verified_at": "2026-11-18"
+        }
+      ],
+      "status": "active",
+      "notes": "开源 AI 应用开发平台 Dify 团队，官方招聘页写明混合办公、每月首个周一无任务自主日及补充商业保险等福利。"
+    },
+    {
+      "company_id": "canonical-ubuntu",
+      "name": "Canonical",
+      "aliases": ["Ubuntu", "Canonical Group"],
+      "industry": "开源操作系统与云基础设施",
+      "cities": ["远程", "北京市", "上海市", "深圳市"],
+      "career_url": "https://canonical.com/careers",
+      "saas_platform": "greenhouse",
+      "work_schedule": "弹性工作",
+      "benefit_claims": [
+        {
+          "label": "全员远程优先 (Remote-First)",
+          "evidence_quote": "Canonical has been a remote-first company since its inception in 2004.",
+          "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "养老与医疗保险",
+          "evidence_quote": "Pension and medical insurance",
+          "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "带薪年假与育儿假",
+          "evidence_quote": "Annual holiday leave",
+          "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "年度2000美元学习预算",
+          "evidence_quote": "Personal learning and development budget of USD 2,000 per year",
+          "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406",
+          "verified_at": "2026-11-18"
+        }
+      ],
+      "status": "active",
+      "notes": "Ubuntu 操作系统母公司，自2004年起全员分布式远程协作，通过 Greenhouse 开放中国区办公与 APAC 远程岗位。"
+    },
+    {
+      "company_id": "mongodb-inc",
+      "name": "MongoDB",
+      "aliases": ["MongoDB Inc."],
+      "industry": "数据库与云数据平台",
+      "cities": ["北京市", "上海市", "深圳市"],
+      "career_url": "https://www.mongodb.com/careers",
+      "saas_platform": "greenhouse",
+      "work_schedule": "弹性工作",
+      "benefit_claims": [
+        {
+          "label": "混合办公模式",
+          "evidence_quote": "This is a hybrid role based in Shanghai, China.",
+          "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "带薪育儿假与员工关怀",
+          "evidence_quote": "From employee affinity groups, to fertility assistance and a generous parental leave policy, we value our employees’ wellbeing and want to support them along every step of their professional and personal journeys.",
+          "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010",
+          "verified_at": "2026-11-18"
+        }
+      ],
+      "status": "active",
+      "notes": "全球文档数据库软件厂商，通过 Greenhouse 发布中国区北京、上海、深圳混合办公（Hybrid）在招职位。"
+    }
+  ]
 }

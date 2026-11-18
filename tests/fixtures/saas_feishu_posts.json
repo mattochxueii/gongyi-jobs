@@ -1,0 +1,31 @@
+{
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "count": 2,
+    "job_post_list": [
+      {
+        "id": "7705970818661189930",
+        "title": "营销税务会计",
+        "description": "1. 负责海外平台财税合规核算。\n福利待遇：\n（1）保险保障：五险一金、年度免费体检；\n（3）带薪假期：带薪年假、婚假、产假、陪产假、哺乳假等法定假期；\n4.工作时间： 双休，9:00-18:00。",
+        "requirement": "本科及以上学历，会计、财务管理等相关专业。",
+        "city_info": {"name": "郑州"},
+        "city_list": [{"name": "郑州"}],
+        "department_info": {"name": "财务部"},
+        "job_category": {"name": "财务 / 审计 / 税务"},
+        "publish_time": 1794186712892
+      },
+      {
+        "id": "7706005043299813695",
+        "title": "跨境电商运营专员",
+        "description": "负责北美站点商品运营推广。",
+        "requirement": "英语六级及以上。",
+        "city_info": {"name": "深圳"},
+        "city_list": [{"name": "深圳"}],
+        "department_info": null,
+        "job_category": {"name": "销售运营"},
+        "publish_time": 1794194218771
+      }
+    ]
+  }
+}

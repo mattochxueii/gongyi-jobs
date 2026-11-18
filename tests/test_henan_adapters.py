@@ -128,6 +128,12 @@ class HenanAdaptersTests(unittest.TestCase):
             classify_announcement_title("关于2026年度许昌市第一批一次性扩岗补助发放企业名单的公示"),
             "non_recruitment",
         )
+        self.assertEqual(
+            classify_announcement_title("西部某市公安局招聘辅警公告"),
+            "non_recruitment",
+        )
+        self.assertFalse(is_recruitment_announcement("西部某市公安局招聘辅警公告"))
+        self.assertFalse(is_recruitment_announcement("某市公安局公开招聘警务辅助人员公告"))
         self.assertFalse(is_recruitment_announcement("2027年度宁夏招录选调生公告", allow_out_of_province=False))
         self.assertFalse(is_recruitment_announcement("北京市各级机关2027年度考试录用公务员公告", allow_out_of_province=False))
         self.assertTrue(is_recruitment_announcement("河南省2026年大学生乡村医生专项计划公开招聘公告", allow_out_of_province=False))

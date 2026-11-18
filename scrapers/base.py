@@ -12,6 +12,15 @@ from scrapers.adapters.henan import (
     classify_announcement_title,
     is_recruitment_announcement,
 )
+from scrapers.adapters.saas import (
+    DifyJobsAdapter,
+    EmqJobsAdapter,
+    FeishuHireAdapter,
+    GreenhouseAdapter,
+    LeverAdapter,
+    MokaAdapter,
+    SaasBaseAdapter,
+)
 from scrapers.core.base_adapter import (
     _INLINE_DATE_RE,
     RECRUIT_KEYWORDS,
@@ -27,6 +36,12 @@ ADAPTER_REGISTRY: dict[str, type[BaseScraperAdapter]] = {
     "henan_luoyang_rsks": HenanLuoyangRsksAdapter,
     "henan_xuchang_rsj": HenanXuchangRsjAdapter,
     "henan_zhoukou_rsks": HenanZhoukouRsksAdapter,
+    "feishu_hire": FeishuHireAdapter,
+    "greenhouse": GreenhouseAdapter,
+    "lever": LeverAdapter,
+    "moka": MokaAdapter,
+    "emq_jobs": EmqJobsAdapter,
+    "dify_jobs": DifyJobsAdapter,
 }
 
 
@@ -40,13 +55,20 @@ __all__ = [
     "AnnouncementStub",
     "BaseScraperAdapter",
     "CrawlRunSummary",
+    "DifyJobsAdapter",
+    "EmqJobsAdapter",
+    "FeishuHireAdapter",
+    "GreenhouseAdapter",
     "HenanGovBaseAdapter",
     "HenanHrssAdapter",
     "HenanLuoyangRsksAdapter",
     "HenanRsksAdapter",
     "HenanXuchangRsjAdapter",
     "HenanZhoukouRsksAdapter",
+    "LeverAdapter",
+    "MokaAdapter",
     "RECRUIT_KEYWORDS",
+    "SaasBaseAdapter",
     "_INLINE_DATE_RE",
     "classify_announcement_title",
     "get_adapter_class",

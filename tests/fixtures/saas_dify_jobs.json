@@ -1,0 +1,26 @@
+{
+  "jobs": [
+    {
+      "id": "b8925633-aba4-42e9-a615-039af4364e50",
+      "title": "UI/UX 设计师",
+      "department": "Design",
+      "location": "中国 / 美国",
+      "work_site": "远程 / 苏州",
+      "content": "<div class='jm-section'><p>主导 AI 开发平台用户界面设计。</p></div>",
+      "benefits": "<ul><li><strong>工作生活平衡 | Work-Life Balance</strong>：混合工作政策 · 节日福利 · 搬家补贴</li><li><strong>身心健康支持</strong>：补充商业保险 · 年度体检</li></ul>",
+      "created_at": "2026-03-04T08:06:19Z",
+      "updated_at": "2026-11-06T08:17:55Z"
+    },
+    {
+      "id": "us-only-001",
+      "title": "US Enterprise Account Executive",
+      "department": "Sales",
+      "location": "United States",
+      "work_site": "San Francisco Onsite",
+      "content": "<p>San Francisco onsite role.</p>",
+      "benefits": "",
+      "created_at": "2026-10-01T00:00:00Z",
+      "updated_at": "2026-11-01T00:00:00Z"
+    }
+  ]
+}

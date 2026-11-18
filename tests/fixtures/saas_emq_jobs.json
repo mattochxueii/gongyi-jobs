@@ -1,0 +1,22 @@
+{
+  "code": 200,
+  "data": {
+    "items": [
+      {
+        "id": 68,
+        "enable": 1,
+        "titleCN": "Erlang 高级开发工程师",
+        "workPlaceCN": "北京,上海,杭州,成都,广州",
+        "contentCN": "工作地点：北京/上海/杭州\n薪资范围：2.5万-4万 × 14薪\n岗位职责：负责分布式 MQTT 消息引擎核心研发。",
+        "updateAt": "2026-11-12T08:00:00Z"
+      },
+      {
+        "id": 999,
+        "enable": 0,
+        "titleCN": "已下线岗位",
+        "workPlaceCN": "杭州",
+        "contentCN": "已关闭。"
+      }
+    ]
+  }
+}

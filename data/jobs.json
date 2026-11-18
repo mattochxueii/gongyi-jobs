@@ -1,5 +1,3954 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-18T12:48:00+08:00",
-  "items": []
+  "updated_at": "2026-11-18T17:50:02+08:00",
+  "items": [
+    {
+      "id": "ent-songmics-home-7709015140973218057",
+      "category": "enterprise",
+      "title": "亚马逊账户安全",
+      "org_name": "致欧家居科技股份有限公司",
+      "province": "河南省",
+      "city": "郑州市",
+      "source_url": "https://songmicshome.jobs.feishu.cn/index/position/7709015140973218057/detail",
+      "apply_url": "https://songmicshome.jobs.feishu.cn/index/position/7709015140973218057/detail",
+      "source_name": "致欧家居科技股份有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-17",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:47:53+08:00",
+      "last_seen_at": "2026-11-18T17:49:42+08:00",
+      "content_hash": "f9bdcd8d877d347e1d2a6525003910a078c6f8830da1961313395c3378103596",
+      "summary": "1、账号安全事件专业处置：第一时间响应账户状况变红、批量链接下架、政策违规警告、受限商品标记等紧急事件，制定并执行恢复方案；完成证据链梳理、申诉策略制定与申诉执行，对处置结果闭环负责； 2、平台政策解读与合规标准落地：持续跟踪欧美日澳等站点平台新政与目的国法规变化，独立完成政策解读、业务影响评估与内部宣贯；将解读结论转化为可执行的合规操作规范、检查清单与红线要求，推动业务侧执行到位并跟踪复核执行效果。 3、账户设置与权限标准化管理：制定并执行账号注册、店铺与公司主体规划、主体切换、KYC 审核、账号密码台账、权限审批与登录安全（Passkey 等）的规则与审核标准，负责高敏感事项的专业审核与把关，实现从\"个案审批\"到\"标准规则 + 全程留痕\"。 4、平台维权与疑难 Case 攻坚：独立处理侵权投诉、跟卖、盗图、恶意差评等维权事项；承接业务侧二次升级的疑难 Case，输出合规处理策略与证据方案，对维权成功率与合规结论质量负责。…",
+      "tags": [
+        "高福利民企",
+        "郑州市",
+        "周末双休",
+        "年度免费体检",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "songmics-home",
+        "work_schedule": "周末双休",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "互联网 / 电子 / 网游",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "周末双休",
+            "evidence_quote": "4.工作时间： 双休，9:00-18:00。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "年度免费体检",
+            "evidence_quote": "（1）保险保障：五险一金、年度免费体检；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "（3）带薪假期：带薪年假、婚假、产假、陪产假、哺乳假等法定假期；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "节日福利与餐补下午茶",
+            "evidence_quote": "（4）礼品礼金：（端午、中秋、春节）节日福利、生日福利、婚育礼金、内推奖励等；（5）其他福利：室内运动室、餐补、下午茶、内部团购等。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-songmics-home-7707122477834733867",
+      "category": "enterprise",
+      "title": "外贸业务实习生（数据与市场调研方向）",
+      "org_name": "致欧家居科技股份有限公司",
+      "province": "河南省",
+      "city": "郑州市",
+      "source_url": "https://songmicshome.jobs.feishu.cn/index/position/7707122477834733867/detail",
+      "apply_url": "https://songmicshome.jobs.feishu.cn/index/position/7707122477834733867/detail",
+      "source_name": "致欧家居科技股份有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-12",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:47:53+08:00",
+      "last_seen_at": "2026-11-18T17:49:42+08:00",
+      "content_hash": "bd2b10b9639419f543dc9995d16377e019133a7b8a4e4f274c14ea2ed3e31f01",
+      "summary": "岗位职责 客户数据维护：定期收集、更新现有客户的销量、售价、促销及货架表现等数据，维护客户经营监控表。 数据整理支持：围绕核心客户，按模板整理、校验原始数据，形成结构化数据包，支持AI工具分析及业务判断。 海外市场调研：协助开展海外线下KA客户开发调研（目标客户背景调研以及竞品与市场价格信息收集）； 客户跟进与复盘：协助维护客户跟进档案，整理销售额、毛利、品效、动销等货架复盘数据。 数据流程优化：参与数据流程的梳理及模板优化，沉淀标准化操作规范，提升数据质量与工作效率。 任职要求 本科在读或应届毕业生，国际贸易、商务英语、市场营销、数据相关专业优先。 英语读写能力良好，能够查阅英文网站、收集并整理海外客户及市场信息。 熟练使用Excel，掌握数据整理及基础函数；熟悉或愿意学习AI工具，并能对输出结果进行核验。 细致耐心，具备良好的信息检索、归纳整理能力，对数据准确性及交付质量负责。 对外贸业务及海外市场研究有兴趣，能够持续实习…",
+      "tags": [
+        "高福利民企",
+        "郑州市",
+        "周末双休",
+        "年度免费体检",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "songmics-home",
+        "work_schedule": "周末双休",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "互联网 / 电子 / 网游",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "周末双休",
+            "evidence_quote": "4.工作时间： 双休，9:00-18:00。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "年度免费体检",
+            "evidence_quote": "（1）保险保障：五险一金、年度免费体检；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "（3）带薪假期：带薪年假、婚假、产假、陪产假、哺乳假等法定假期；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "节日福利与餐补下午茶",
+            "evidence_quote": "（4）礼品礼金：（端午、中秋、春节）节日福利、生日福利、婚育礼金、内推奖励等；（5）其他福利：室内运动室、餐补、下午茶、内部团购等。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-songmics-home-7706796538449725737",
+      "category": "enterprise",
+      "title": "品类经理(CM)",
+      "org_name": "致欧家居科技股份有限公司",
+      "province": "河南省",
+      "city": "郑州市",
+      "source_url": "https://songmicshome.jobs.feishu.cn/index/position/7706796538449725737/detail",
+      "apply_url": "https://songmicshome.jobs.feishu.cn/index/position/7706796538449725737/detail",
+      "source_name": "致欧家居科技股份有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-11",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:47:53+08:00",
+      "last_seen_at": "2026-11-18T17:49:42+08:00",
+      "content_hash": "a532b91b296839334eaaba9b9920252eaa01e6921ffcac77e351693c5fe6c7ee",
+      "summary": "负责品类规划与产品矩阵优化，制定并推动品类销售及利润目标达成。 制定新品GTM及重点产品推广策略，统筹上市节奏、资源投入与落地执行。 洞察海外市场、竞品及客户需求，开展客户分层，输出差异化产品销售方案。 协同产品、销售、供应链等团队，推进重点客户营销项目，做好销售赋能。 跟踪销售及推广成效，识别业务风险，持续优化策略并沉淀方法。 本科及以上学历，英语六级及以上，具备良好的英文商务沟通能力。 具备GTM、品类销售及外贸相关经验，熟悉海外B2B业务及客户采购流程。 具备独立操盘品类或产品线的能力，有新品上市、营销推广及销售目标达成经验。 具备良好的市场洞察、数据分析、跨部门协同及项目推进能力。",
+      "tags": [
+        "高福利民企",
+        "郑州市",
+        "周末双休",
+        "年度免费体检",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "songmics-home",
+        "work_schedule": "周末双休",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "互联网 / 电子 / 网游",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "周末双休",
+            "evidence_quote": "4.工作时间： 双休，9:00-18:00。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "年度免费体检",
+            "evidence_quote": "（1）保险保障：五险一金、年度免费体检；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "（3）带薪假期：带薪年假、婚假、产假、陪产假、哺乳假等法定假期；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "节日福利与餐补下午茶",
+            "evidence_quote": "（4）礼品礼金：（端午、中秋、春节）节日福利、生日福利、婚育礼金、内推奖励等；（5）其他福利：室内运动室、餐补、下午茶、内部团购等。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-songmics-home-7705970818661189930",
+      "category": "enterprise",
+      "title": "营销税务会计",
+      "org_name": "致欧家居科技股份有限公司",
+      "province": "河南省",
+      "city": "郑州市",
+      "source_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail",
+      "apply_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail",
+      "source_name": "致欧家居科技股份有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-09",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:47:53+08:00",
+      "last_seen_at": "2026-11-18T17:49:42+08:00",
+      "content_hash": "cc255f3b673c2b7587cf58986e6d8b93be58cabcd7a5e8637410d797c5b0aacd",
+      "summary": "1. 营销平台政策、税务政策、销售模式解读，并结合海外当地财税准则以及中国会计准则正确进行账务处理； 2. 对平台收入、费用进行财务分析，及时发现异常并解决，深入业务，可提出改善型建议； 3. 了解同行业、竞卖表现，对其财报进行分析； 4. 掌握海外当地税务规则，对订单、费用发票税金进行复核监控，可协助并指导上下游处理税务问题；完成某个公司流转税申报工作； 5. 完成领导交待的其他工作。 1. 专业背景：本科及以上学历，会计、财务管理、税务等相关专业。 2. 工作背景：具备2-3 年收入应收核算经验，且具有税务经验/税务知识者优先； 3. 技能要求： （1）良好的会计基础，能较快学习并理解欧美会计准则和税法，并在业务中有效应用； （2）英语过CET6级500分以上或专四，能用英语处理日常工作（必备项），英语可作为工作语言者优先； （3）数据处理能力，比如Excel、Powner BI、Python等； （4）具备财务分析能力和…",
+      "tags": [
+        "高福利民企",
+        "郑州市",
+        "周末双休",
+        "年度体检",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "songmics-home",
+        "work_schedule": "周末双休",
+        "work_hours": "双休，9:00-18:00",
+        "salary_range": "高于行业平均水平，竞争力底薪+全勤奖+专项奖金+年终奖+其它",
+        "remote_policy": "未明确",
+        "department": "财务 / 审计 / 税务",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "年度体检",
+            "evidence_quote": "（1）保险保障：五险一金、年度免费体检；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "（3）带薪假期：带薪年假、婚假、产假、陪产假、哺乳假等法定假期；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "周末双休",
+            "evidence_quote": "4.工作时间： 双休，9:00-18:00。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "年度免费体检",
+            "evidence_quote": "（1）保险保障：五险一金、年度免费体检；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "节日福利与餐补下午茶",
+            "evidence_quote": "（4）礼品礼金：（端午、中秋、春节）节日福利、生日福利、婚育礼金、内推奖励等；（5）其他福利：室内运动室、餐补、下午茶、内部团购等。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-songmics-home-7701288387126593843",
+      "category": "enterprise",
+      "title": "绩效专家",
+      "org_name": "致欧家居科技股份有限公司",
+      "province": "河南省",
+      "city": "郑州市",
+      "source_url": "https://songmicshome.jobs.feishu.cn/index/position/7701288387126593843/detail",
+      "apply_url": "https://songmicshome.jobs.feishu.cn/index/position/7701288387126593843/detail",
+      "source_name": "致欧家居科技股份有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-10-27",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:47:53+08:00",
+      "last_seen_at": "2026-11-18T17:49:42+08:00",
+      "content_hash": "2b22518ce582444097e43fee7d1fef6f4b6cd8280ffbfd99be9ad7c27e5de478",
+      "summary": "1.薪酬体系设计与优化。薪酬宽带标准建立与持续优化，外部薪酬调研与市场对标，年度调薪/年终奖方案制定落地，人工成本测算分析与管控。 2.绩效管理体系搭建与运营。公司层 / 中心层 / 考核组&BP 三级联动考核方案，个人绩效考核流程设计与实施，季度/年度核算、分配与反馈面谈。 3.激励方案设计与实施。专项激励、业务提成（如 B2B 提成）设计测算与兑现，跟踪激励效果，优化投产比，季度评优等及时激励落地。 4.制度合规与数据分析。薪酬绩效制度及流程制定与定期更新，劳动法合规、支撑绩效争议与用工风险防范，数据报告输出，全员制度宣贯与培训。 1.本科及以上学历，人力资源专业优先，英语四级及以上。 2.人力资源相关工作背景，绩效管理经验优先；3-5 年薪酬绩效相关专业经验（非相关经验不计），持有人力资源管理师等相关专业证书优先。 3.较完整掌握岗位/薪酬/绩效领域知识原理，掌握劳动法相关法律法规；熟练使用 Excel 等数据分析工具，…",
+      "tags": [
+        "高福利民企",
+        "郑州市",
+        "周末双休",
+        "年度免费体检",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "songmics-home",
+        "work_schedule": "周末双休",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "互联网 / 电子 / 网游",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "周末双休",
+            "evidence_quote": "4.工作时间： 双休，9:00-18:00。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "年度免费体检",
+            "evidence_quote": "（1）保险保障：五险一金、年度免费体检；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "（3）带薪假期：带薪年假、婚假、产假、陪产假、哺乳假等法定假期；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "节日福利与餐补下午茶",
+            "evidence_quote": "（4）礼品礼金：（端午、中秋、春节）节日福利、生日福利、婚育礼金、内推奖励等；（5）其他福利：室内运动室、餐补、下午茶、内部团购等。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-songmics-home-7701253980953020735",
+      "category": "enterprise",
+      "title": "计划交付实习生",
+      "org_name": "致欧家居科技股份有限公司",
+      "province": "河南省",
+      "city": "郑州市",
+      "source_url": "https://songmicshome.jobs.feishu.cn/index/position/7701253980953020735/detail",
+      "apply_url": "https://songmicshome.jobs.feishu.cn/index/position/7701253980953020735/detail",
+      "source_name": "致欧家居科技股份有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-10-27",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:47:53+08:00",
+      "last_seen_at": "2026-11-18T17:49:42+08:00",
+      "content_hash": "f2c1a81d9a603eac8ff63c05d1ccf70473408cf6dce25a8a8a9ad691ed09ec36",
+      "summary": "岗位描述： 1.数据整理与维护：负责业务数据、交付数据等的定期采集、清洗和归档，建立和维护基础数据表，保障数据质量与一致性。 2.日常报表与看板制作：使用 Excel、SQL 等工具完成数据统计，制作和维护日常经营数据看板及分析报表，辅助监控数据波动与异常。 3.专题分析支持：在指导下参与交付周期、区域表现、需求波动等小专题分析，完成数据提取、处理和初步归因，整理分析过程与结论。 4.协助部门处理其它临时性数据提取、报表优化及相关文档工作。 职位要求： 1. 统计学、数学、计算机、信息管理、经济学等相关专业在读，本科或研究生均可。 2. 熟练运用 Excel（数据透视表、常用函数等），具备 SQL 基础查询能力；熟悉 Python 或 R 数据处理、或有 Tableau/Power BI 等可视化工具使用经验者优先。 3. 对数据敏感，逻辑清晰，做事细致耐心，注重数据准确性；具备较好的学习意愿和团队协作意识。 4. 能连续实习…",
+      "tags": [
+        "高福利民企",
+        "郑州市",
+        "周末双休",
+        "年度免费体检",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "songmics-home",
+        "work_schedule": "周末双休",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "数据分析",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "周末双休",
+            "evidence_quote": "4.工作时间： 双休，9:00-18:00。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "年度免费体检",
+            "evidence_quote": "（1）保险保障：五险一金、年度免费体检；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "（3）带薪假期：带薪年假、婚假、产假、陪产假、哺乳假等法定假期；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "节日福利与餐补下午茶",
+            "evidence_quote": "（4）礼品礼金：（端午、中秋、春节）节日福利、生日福利、婚育礼金、内推奖励等；（5）其他福利：室内运动室、餐补、下午茶、内部团购等。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-songmics-home-7689042595859433764",
+      "category": "enterprise",
+      "title": "运营安全专员（法国三方）",
+      "org_name": "致欧家居科技股份有限公司",
+      "province": "河南省",
+      "city": "郑州市",
+      "source_url": "https://songmicshome.jobs.feishu.cn/index/position/7689042595859433764/detail",
+      "apply_url": "https://songmicshome.jobs.feishu.cn/index/position/7689042595859433764/detail",
+      "source_name": "致欧家居科技股份有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-09-24",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:47:53+08:00",
+      "last_seen_at": "2026-11-18T17:49:42+08:00",
+      "content_hash": "00c59d037d92d3d14491e8fd5b3c65b93225300bcb85f2adb194143db38903f6",
+      "summary": "1、平台政策更新的及时解读、确认及发布，重要政策周期性review及关键版块类政策汇总宣贯，及时传递平台政策对公司业务的影响； 2、及时处理平台邮件，高效和平台各团队沟通，解决异常问题，维护账号安全； 3、平台账号关键信息维护和更新、异常问题处理，识别账号风险，及时报备并制定规避方案； 4、业务case处理，及时高效解决业务疑难问题； 1、本科及以上学历，法语TCF/DELF B1及以上，法语听说读写能力良好， 能够准确理解和表达外语内容、组织参与国外团队会议的能力； 2. 逻辑清晰，复杂问题梳理能力强，且能够快速识别关键问题 3. 数据敏感度高，能够使用Excel对数据进行处理和分析。",
+      "tags": [
+        "高福利民企",
+        "郑州市",
+        "周末双休",
+        "年度免费体检",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "songmics-home",
+        "work_schedule": "周末双休",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "互联网 / 电子 / 网游",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "周末双休",
+            "evidence_quote": "4.工作时间： 双休，9:00-18:00。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "年度免费体检",
+            "evidence_quote": "（1）保险保障：五险一金、年度免费体检；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "（3）带薪假期：带薪年假、婚假、产假、陪产假、哺乳假等法定假期；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "节日福利与餐补下午茶",
+            "evidence_quote": "（4）礼品礼金：（端午、中秋、春节）节日福利、生日福利、婚育礼金、内推奖励等；（5）其他福利：室内运动室、餐补、下午茶、内部团购等。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-songmics-home-7688276560936208678",
+      "category": "enterprise",
+      "title": "海外电商运营（英语/德语）",
+      "org_name": "致欧家居科技股份有限公司",
+      "province": "河南省",
+      "city": "郑州市",
+      "source_url": "https://songmicshome.jobs.feishu.cn/index/position/7688276560936208678/detail",
+      "apply_url": "https://songmicshome.jobs.feishu.cn/index/position/7688276560936208678/detail",
+      "source_name": "致欧家居科技股份有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-09-22",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:47:53+08:00",
+      "last_seen_at": "2026-11-18T17:49:42+08:00",
+      "content_hash": "8ea3c106e8dbe96860537a5953bc9d4d496b4bf4719056d6692aa9492e734dab",
+      "summary": "德国市场，品类运营 1、上传、优化listing，保证页面的整体质量和展示效果； 2、制定销售策略和营销方案，深入产品规划和布局，确保销售业绩的完成； 3、结合产品运营链条和市场分析，进行产品定价，实现利润最大化； 4、对产品销售数据和库存情况进行分析，预估销量，达成健康的库存周转； 5、进行CPC广告投放、活动策划，提高曝光和排名，提升转化率和成交量； 6、对接产品、客服、市场、设计等多部门，共同提高产品质量和曝光，提升客户满意度和复购率。 1、本科及以上学历，英语/德语口语流利可作为工作语言； 2、具备wayfair、速卖通等跨境B2C电商平台经验或国内电商平台经验、或者优先，无相关经验亦可； 3、抗压力强，上进心强，良好的沟通表达和逻辑思维能力，对数据敏感，结果导向； 4、对跨境电商有浓厚的兴趣和激情，工作积极主动，有良好的团队合作精神。",
+      "tags": [
+        "高福利民企",
+        "郑州市",
+        "周末双休",
+        "年度免费体检",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "songmics-home",
+        "work_schedule": "周末双休",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "互联网 / 电子 / 网游",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "周末双休",
+            "evidence_quote": "4.工作时间： 双休，9:00-18:00。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "年度免费体检",
+            "evidence_quote": "（1）保险保障：五险一金、年度免费体检；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "（3）带薪假期：带薪年假、婚假、产假、陪产假、哺乳假等法定假期；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "节日福利与餐补下午茶",
+            "evidence_quote": "（4）礼品礼金：（端午、中秋、春节）节日福利、生日福利、婚育礼金、内推奖励等；（5）其他福利：室内运动室、餐补、下午茶、内部团购等。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-songmics-home-7684099044298377508",
+      "category": "enterprise",
+      "title": "跨境电商运营实习生",
+      "org_name": "致欧家居科技股份有限公司",
+      "province": "河南省",
+      "city": "郑州市",
+      "source_url": "https://songmicshome.jobs.feishu.cn/index/position/7684099044298377508/detail",
+      "apply_url": "https://songmicshome.jobs.feishu.cn/index/position/7684099044298377508/detail",
+      "source_name": "致欧家居科技股份有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-09-11",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:47:53+08:00",
+      "last_seen_at": "2026-11-18T17:49:42+08:00",
+      "content_hash": "c2993565639529020ace7c5e297fbef116ce43ee289fabe5ee4ca38772885add",
+      "summary": "实习期3个月，急招需立刻能到岗，每周实习5天（周一到周五，双休），线下实习，短期实习无转正名额 实习薪资：140元/天，月度发放 1.负责Amazon、Miravia.es、Shein、Mano等跨境电商平台产品上下架工作； 2.负责listing优化，保证页面的整体质量和展示效果； 3.与部门其他成员积极沟通，紧密合作，不断促进业务高效达成。 1.本科或研究生在读（未毕业），专业不限； 2.责任心强，做事踏实认真； 3.对跨境电商有浓厚的兴趣，工作积极主动，有良好的团队合作精神。",
+      "tags": [
+        "高福利民企",
+        "郑州市",
+        "周末双休",
+        "年度免费体检",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "songmics-home",
+        "work_schedule": "周末双休",
+        "work_hours": null,
+        "salary_range": "140元/天，月度发放",
+        "remote_policy": "线下办公",
+        "department": "互联网 / 电子 / 网游",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "周末双休",
+            "evidence_quote": "实习期3个月，急招需立刻能到岗，每周实习5天（周一到周五，双休），线下实习，短期实习无转正名额",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7684099044298377508/detail"
+          },
+          {
+            "tag": "年度免费体检",
+            "evidence_quote": "（1）保险保障：五险一金、年度免费体检；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "（3）带薪假期：带薪年假、婚假、产假、陪产假、哺乳假等法定假期；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "节日福利与餐补下午茶",
+            "evidence_quote": "（4）礼品礼金：（端午、中秋、春节）节日福利、生日福利、婚育礼金、内推奖励等；（5）其他福利：室内运动室、餐补、下午茶、内部团购等。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-songmics-home-7675926089910798646",
+      "category": "enterprise",
+      "title": "费用会计",
+      "org_name": "致欧家居科技股份有限公司",
+      "province": "河南省",
+      "city": "郑州市",
+      "source_url": "https://songmicshome.jobs.feishu.cn/index/position/7675926089910798646/detail",
+      "apply_url": "https://songmicshome.jobs.feishu.cn/index/position/7675926089910798646/detail",
+      "source_name": "致欧家居科技股份有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-08-20",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:47:53+08:00",
+      "last_seen_at": "2026-11-18T17:49:42+08:00",
+      "content_hash": "8fa6bbc93b76025e636d30986b776a656197ad14ee73b4ac64974c64dfc291e2",
+      "summary": "1、参与搭建公司费用管理的相关制度，并不断优化和改进； 2、负责审核公司费用，严格执行公司相关制度，确保流程及原始单据的真实性、合法性； 3、负责每月编制费用分析表，合理归集各项费用并搭建分析指标； 4、参与预算编制工作，分析各项费用的成本动因，为预算编制打下基础； 5、基于审核后费用的预算，做好预算执行管控。 任职资格: 1.专业背景：本科及以上学历，会计学、财务管理等相关专业 2.工作背景：具备2-3 年集团、连锁企业总部费用审核、财务核算、总账相关工作经验。 3. 能力要求： （1）良好的沟通协调能力和团队合作精神，能够与各部门有效协作。 （2）工作细致、严谨，责任心强，具备较强的抗压能力。 （3）具备较强的学习能力，能够快速适应公司财务制度和业务的变化。 （4）具备中级会计师职称，CPA优先。 薪资待遇： 1.高于行业平均水平，竞争力底薪+全勤奖+专项奖金+年终奖+其它。 2.福利待遇： （1）保险保障：五险一金、年度…",
+      "tags": [
+        "高福利民企",
+        "郑州市",
+        "周末双休",
+        "年度体检",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "songmics-home",
+        "work_schedule": "周末双休",
+        "work_hours": "双休，9:00-18:00",
+        "salary_range": "1.高于行业平均水平，竞争力底薪+全勤奖+专项奖金+年终奖+其它",
+        "remote_policy": "未明确",
+        "department": "财务 / 审计 / 税务",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "年度体检",
+            "evidence_quote": "（1）保险保障：五险一金、年度免费体检；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7675926089910798646/detail"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "（3）带薪假期：带薪年假、婚假、产假、陪产假、哺乳假等法定假期；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7675926089910798646/detail"
+          },
+          {
+            "tag": "周末双休",
+            "evidence_quote": "4.工作时间： 双休，9:00-18:00。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7675926089910798646/detail"
+          },
+          {
+            "tag": "年度免费体检",
+            "evidence_quote": "（1）保险保障：五险一金、年度免费体检；",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          },
+          {
+            "tag": "节日福利与餐补下午茶",
+            "evidence_quote": "（4）礼品礼金：（端午、中秋、春节）节日福利、生日福利、婚育礼金、内推奖励等；（5）其他福利：室内运动室、餐补、下午茶、内部团购等。",
+            "evidence_url": "https://songmicshome.jobs.feishu.cn/index/position/7705970818661189930/detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-lilith-games-7708723387945896243",
+      "category": "enterprise",
+      "title": "3D角色美术师（欧美写实SLG）",
+      "org_name": "上海莉莉丝网络科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://lilithgames.jobs.feishu.cn/career/position/7708723387945896243/detail",
+      "apply_url": "https://lilithgames.jobs.feishu.cn/career/position/7708723387945896243/detail",
+      "source_name": "上海莉莉丝网络科技有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:03+08:00",
+      "last_seen_at": "2026-11-18T17:49:50+08:00",
+      "content_hash": "711a4da74cc55affcf37117956d5c6e11eefe526d3457da83ad0eb15e5fbad9f",
+      "summary": "1. 按原画和既定品质标准，独立完成写实风格角色的全流程制作：高模、低模拓扑、UV、烘焙、PBR 贴图、毛发发片。 2. 在 Unity 中完成角色材质与最终效果还原，对游戏内的实际呈现负责。 3. 承接英雄、NPC、敌人、服饰配件等量产内容，以及 LOD、面数与贴图优化等配套工作。 4. 参与外包角色资产的反馈、修改与入库验收，保证外包与内部产出品质一致。 5. 对接绑定、动作、特效和 TA，解决布线、蒙皮、穿插、材质表现等问题。 6. 执行并协助完善角色制作规范（命名、面数、贴图规格、目录结构），整理维护角色资源库。 7. 关注行业动态与新工具（含 AI 辅助建模与贴图），把有效的方法用进实际流程。 1. 3 年以上次世代 3D 角色制作经验，完整参与过至少 1 个完整项目的角色制作。 2. 审美好，造型能力扎实：熟悉真人比例的人体与面部结构、服装版型与褶皱，对皮肤、皮革、布料、金属等材质的质感判断准确。 3. 熟练使用…",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "30天全薪病假与带薪年假",
+        "全面商业保险",
+        "年度全面体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "lilith-games",
+        "work_schedule": "未明确",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "30天全薪病假与带薪年假",
+            "evidence_quote": "莉莉丝为员工准备了丰富的假期类型，无论是陪伴家人、照顾自己，还是追寻热爱，年休假、30天全薪病假、事假、产假、陪产假、婚假等一应俱全，愿你在重要时刻无需顾虑，安心享受属于你的时光。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "全面商业保险",
+            "evidence_quote": "每一位员工都享有全面的商业保险，覆盖生活与工作的方方面面。愿这份保障成为你坚实的后盾，让你在前行的路上安心生活，无忧工作。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "年度全面体检",
+            "evidence_quote": "公司每年春末夏初启动全面体检，旨在及时干预可能存在的健康风险，帮助大家维持理想的生活与工作状态。",
+            "evidence_url": "https://jobs.lilith.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-lilith-games-7707604324545464617",
+      "category": "enterprise",
+      "title": "世界观策划（欧美现代SLG）",
+      "org_name": "上海莉莉丝网络科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://lilithgames.jobs.feishu.cn/career/position/7707604324545464617/detail",
+      "apply_url": "https://lilithgames.jobs.feishu.cn/career/position/7707604324545464617/detail",
+      "source_name": "上海莉莉丝网络科技有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-13",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:03+08:00",
+      "last_seen_at": "2026-11-18T17:49:50+08:00",
+      "content_hash": "736d90bcdf693f21cea9335218e1a98abc172c48a7b554c77947f38f32d72050",
+      "summary": "1. 负责一款在研的欧美写实题材 SLG 的世界观深化、剧情设计、角色塑造与任务/演出设计。 2. 基于项目既定题材方向，扩展自洽的世界观与角色体系，建设并维护角色设定、语言风格等内容资产，保证长线内容一致性。 3. 基于对 SLG 游戏的理解，与项目组共同确立有效、可行、成本可控的叙事框架，让叙事与玩法体验深度结合而非两张皮。 4. 与各部门沟通，推动设计落地；对涉及美国市场的文化敏感内容做风险判断和处理。 5. 深度参与本地化流程，确保产出原汁原味、符合美国本土玩家语感的文本内容。 1. 5 年以上游戏文案或世界观设计经验，主导带领过项目的内容开发。 2. 深入理解美国本土文化和大众审美，对美剧有爱好和系统性研究；有美国留学、生活背景者优先。 3. 有较强的英文文本鉴赏力，有直接英文创作能力者优先。 4. 熟悉 AI 辅助创作流程，能将 AI 工具融入内容生产管线者优先。 5. 有出色的沟通协作和表达能力，有效沟通保证设计…",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "30天全薪病假与带薪年假",
+        "全面商业保险",
+        "年度全面体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "lilith-games",
+        "work_schedule": "未明确",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "30天全薪病假与带薪年假",
+            "evidence_quote": "莉莉丝为员工准备了丰富的假期类型，无论是陪伴家人、照顾自己，还是追寻热爱，年休假、30天全薪病假、事假、产假、陪产假、婚假等一应俱全，愿你在重要时刻无需顾虑，安心享受属于你的时光。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "全面商业保险",
+            "evidence_quote": "每一位员工都享有全面的商业保险，覆盖生活与工作的方方面面。愿这份保障成为你坚实的后盾，让你在前行的路上安心生活，无忧工作。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "年度全面体检",
+            "evidence_quote": "公司每年春末夏初启动全面体检，旨在及时干预可能存在的健康风险，帮助大家维持理想的生活与工作状态。",
+            "evidence_url": "https://jobs.lilith.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-lilith-games-7706873930989455679",
+      "category": "enterprise",
+      "title": "高级系统策划-AI Native SLG方向",
+      "org_name": "上海莉莉丝网络科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://lilithgames.jobs.feishu.cn/career/position/7706873930989455679/detail",
+      "apply_url": "https://lilithgames.jobs.feishu.cn/career/position/7706873930989455679/detail",
+      "source_name": "上海莉莉丝网络科技有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-11",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:03+08:00",
+      "last_seen_at": "2026-11-18T17:49:50+08:00",
+      "content_hash": "ffb3f3164add05ebe4aee05050340c734b1dc3c282ee93d9908ef640acd9daaa",
+      "summary": "1. 融入并利用AI Native设计管线，在既有项目框架下（含架构框架和数值框架），独立闭环完成SLG项目的多种类型模块的设计、开发落地、调优和上线跟进。（例如成长线、单人和SLG玩法、大型活动等）。 2. 深度与用研沟通合作，主动融入目标玩家群体，具备数据导向意识和数据分析挖掘能力。洞察目标玩家对已有项目内容的痛点，以及存在的潜在需求，对已有模块进行优化，或者提出可行的扩展方案并持续跟进。 3. 基于题材和题材用户画像，优化游戏内的交互、流程、以及各个功能的玩法包装以及代入感设计。 4. 能够在扁平敏捷的团队中，和跨职能组展开有效沟通，深度合作，提高最终各类玩法功能落地的效果。 5. 具有ai 开发能力和经验，能够利用ai辅助，完成中轻量级玩法的独立开发，利用ai，优化或开发常用的策划工具。 1. 具备以下任一经历：拥有3年以上SLG、卡牌或MMORPG游戏策划经验，并在至少1款从0到1的项目中独立负责过核心功能设计；或在…",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "30天全薪病假与带薪年假",
+        "全面商业保险",
+        "年度全面体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "lilith-games",
+        "work_schedule": "未明确",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "30天全薪病假与带薪年假",
+            "evidence_quote": "莉莉丝为员工准备了丰富的假期类型，无论是陪伴家人、照顾自己，还是追寻热爱，年休假、30天全薪病假、事假、产假、陪产假、婚假等一应俱全，愿你在重要时刻无需顾虑，安心享受属于你的时光。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "全面商业保险",
+            "evidence_quote": "每一位员工都享有全面的商业保险，覆盖生活与工作的方方面面。愿这份保障成为你坚实的后盾，让你在前行的路上安心生活，无忧工作。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "年度全面体检",
+            "evidence_quote": "公司每年春末夏初启动全面体检，旨在及时干预可能存在的健康风险，帮助大家维持理想的生活与工作状态。",
+            "evidence_url": "https://jobs.lilith.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-lilith-games-7706861878756215091",
+      "category": "enterprise",
+      "title": "【启程计划】系统策划-前期体验（Warline）",
+      "org_name": "上海莉莉丝网络科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://lilithgames.jobs.feishu.cn/career/position/7706861878756215091/detail",
+      "apply_url": "https://lilithgames.jobs.feishu.cn/career/position/7706861878756215091/detail",
+      "source_name": "上海莉莉丝网络科技有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-11",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:03+08:00",
+      "last_seen_at": "2026-11-18T17:49:50+08:00",
+      "content_hash": "1f9f4bce63ba8cd8e797ca5fbb827b5cbf753e237c2dd163319a3c9fd52db6a0",
+      "summary": "1. 负责首日体验，新手引导、前期任务链、七日目标等内容的配置落地和体验走查。 2. 日常跟踪前期漏斗数据和玩家反馈，定位流失点，提出并落地优化；设计并负责AB 实验的配置和数据整理。 3. 做竞品前期体验的逐分钟拆解，沉淀成案例库。 4. 配合美术、程序、QA、本地化推进版本内容上线。 1. 1–2年游戏策划经验（关卡、系统、执行方向均可），优秀应届可放宽。 2. 拆解能力强，投递时请附一份自己做的游戏前期或关卡拆解。 3. 对AI Agent有一定掌握，有使用AI Agent进行数据分析，产品设计的经验。 4. 责任心强，愿意反复打磨产品细节。",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "30天全薪病假与带薪年假",
+        "全面商业保险",
+        "年度全面体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "lilith-games",
+        "work_schedule": "未明确",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "30天全薪病假与带薪年假",
+            "evidence_quote": "莉莉丝为员工准备了丰富的假期类型，无论是陪伴家人、照顾自己，还是追寻热爱，年休假、30天全薪病假、事假、产假、陪产假、婚假等一应俱全，愿你在重要时刻无需顾虑，安心享受属于你的时光。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "全面商业保险",
+            "evidence_quote": "每一位员工都享有全面的商业保险，覆盖生活与工作的方方面面。愿这份保障成为你坚实的后盾，让你在前行的路上安心生活，无忧工作。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "年度全面体检",
+            "evidence_quote": "公司每年春末夏初启动全面体检，旨在及时干预可能存在的健康风险，帮助大家维持理想的生活与工作状态。",
+            "evidence_url": "https://jobs.lilith.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-lilith-games-7706842868678150451",
+      "category": "enterprise",
+      "title": "高级系统策划-前期体验（Warline）",
+      "org_name": "上海莉莉丝网络科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://lilithgames.jobs.feishu.cn/career/position/7706842868678150451/detail",
+      "apply_url": "https://lilithgames.jobs.feishu.cn/career/position/7706842868678150451/detail",
+      "source_name": "上海莉莉丝网络科技有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-11",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:03+08:00",
+      "last_seen_at": "2026-11-18T17:49:50+08:00",
+      "content_hash": "73c4d6286c79fd416ce9323dd56390420c740f27b03b1c600898f1214d6a4b95",
+      "summary": "1. 负责游戏首日体验调优，对次日核心指标数据负责，如，次留、付费次留、新手漏斗通过率。 2. 负责游戏前 7 天体验的整体设计与梳理，对7 留、付费7留负责。 3. 深度与用研、ux合作，通过敏捷ab试验洞察用户痛点和需求，提供对次留提升的可行方案。 4. 承接部分7日roi 增长业务的设计、跟进开发落地。达成7日增长目标。 5. 设计从狙击玩法到 SLG 的转化路径：定义关卡在前期的定位和节奏，以及城建、联盟、大地图等系统的开放顺序、动机包装和教学方式。 6. 针对不同来源的用户（狙击素材来的休闲用户、SLG 老玩家）设计分层的前期体验和引导策略。 7. 与买量、素材团队协同：保证素材卖点和前期体验一致，用前期数据指导素材方向，用素材测试结果指导前期内容。 8. 协同关卡、系统、数值、美术、程序、本地化推进落地，并指导中初级策划。 1. 5 年以上游戏策划经验，至少在 1 款已上线并持续运营的产品中主导过新手或前期模块，有…",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "30天全薪病假与带薪年假",
+        "全面商业保险",
+        "年度全面体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "lilith-games",
+        "work_schedule": "未明确",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "30天全薪病假与带薪年假",
+            "evidence_quote": "莉莉丝为员工准备了丰富的假期类型，无论是陪伴家人、照顾自己，还是追寻热爱，年休假、30天全薪病假、事假、产假、陪产假、婚假等一应俱全，愿你在重要时刻无需顾虑，安心享受属于你的时光。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "全面商业保险",
+            "evidence_quote": "每一位员工都享有全面的商业保险，覆盖生活与工作的方方面面。愿这份保障成为你坚实的后盾，让你在前行的路上安心生活，无忧工作。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "年度全面体检",
+            "evidence_quote": "公司每年春末夏初启动全面体检，旨在及时干预可能存在的健康风险，帮助大家维持理想的生活与工作状态。",
+            "evidence_url": "https://jobs.lilith.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-lilith-games-7706837046341798182",
+      "category": "enterprise",
+      "title": "测试经理（欧美现代SLG）",
+      "org_name": "上海莉莉丝网络科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://lilithgames.jobs.feishu.cn/career/position/7706837046341798182/detail",
+      "apply_url": "https://lilithgames.jobs.feishu.cn/career/position/7706837046341798182/detail",
+      "source_name": "上海莉莉丝网络科技有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-11",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:03+08:00",
+      "last_seen_at": "2026-11-18T17:49:50+08:00",
+      "content_hash": "23e740a99a895b58d7ec91aeb6cf44ca0e91e6e6e1ee821e358e3832169ea1de",
+      "summary": "1. 制定并执行项目测试策略，识别质量风险，保障产品符合研发标准。 2. 搭建和持续优化测试流程、推动专项、自动化、工具建设落地。 3. 统筹测试团队工作安排，分配任务、跟进进度、协调资源，推动项目高效推进。 4. 提交测试进展报告，组织复盘沉淀经验；制定外放测试方案并完成风险评估。 5. 负责测试团队管理，包括组建、技能培训及成员能力指导提升。 1. 本科以上学历，3年+手游测试经验，有项目测试管理经验者优先。 2. 具备业务快速熟悉、优化能力，强沟通总结和协作能力及产品质量全局把控力。 3. 具备一定的开发能力，能够从技术视角思考测试提效，有AI落地经验者优先。 4. 自驱与学习能力强，可独立思考解决问题并协同团队推进方案落地。",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "30天全薪病假与带薪年假",
+        "全面商业保险",
+        "年度全面体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "lilith-games",
+        "work_schedule": "未明确",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "30天全薪病假与带薪年假",
+            "evidence_quote": "莉莉丝为员工准备了丰富的假期类型，无论是陪伴家人、照顾自己，还是追寻热爱，年休假、30天全薪病假、事假、产假、陪产假、婚假等一应俱全，愿你在重要时刻无需顾虑，安心享受属于你的时光。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "全面商业保险",
+            "evidence_quote": "每一位员工都享有全面的商业保险，覆盖生活与工作的方方面面。愿这份保障成为你坚实的后盾，让你在前行的路上安心生活，无忧工作。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "年度全面体检",
+            "evidence_quote": "公司每年春末夏初启动全面体检，旨在及时干预可能存在的健康风险，帮助大家维持理想的生活与工作状态。",
+            "evidence_url": "https://jobs.lilith.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-lilith-games-7706833136130541866",
+      "category": "enterprise",
+      "title": "测试开发工程师（客户端专项）",
+      "org_name": "上海莉莉丝网络科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://lilithgames.jobs.feishu.cn/career/position/7706833136130541866/detail",
+      "apply_url": "https://lilithgames.jobs.feishu.cn/career/position/7706833136130541866/detail",
+      "source_name": "上海莉莉丝网络科技有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-11",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:03+08:00",
+      "last_seen_at": "2026-11-18T17:49:50+08:00",
+      "content_hash": "4aa65020f43e8bc6089280d906649365acdd234020989e2633438c34dac952bc",
+      "summary": "1. 负责游戏项目的客户端性能和安全专项测试工作，覆盖帧率、卡顿、内存、CPU/GPU、发热、功耗、包体等性能指标，以及反外挂、防篡改、协议与资源安全等安全场景 2. 结合项目实际情况挖掘专项测试过程中的卡点和痛点，提升专项测试的广度和深度。 3. 将前沿技术能力落地在专项测试领域，提升专项测试的效率。 1. 计算机相关专业本科以上学历，5年以上游戏测开或者客户端开发经验。 2. 熟悉客户端性能分析与优化的原理和方法，熟练使用 Unity Profiler、Unreal Insights、RenderDoc、Perfetto、Xcode Instruments等主流工具中的若干种。 3. 了解客户端安全的常见攻防手段，如内存修改、加速器、注入/Hook、协议篡改、资源破解等，具备一定的逆向分析能力者优先。 4. 具备系统化开发能力，有创新及探索精神，善于发现项目不足并实行有效的解决方案。 5. 思路清晰，善于交流，能与设计开发…",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "30天全薪病假与带薪年假",
+        "全面商业保险",
+        "年度全面体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "lilith-games",
+        "work_schedule": "未明确",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "30天全薪病假与带薪年假",
+            "evidence_quote": "莉莉丝为员工准备了丰富的假期类型，无论是陪伴家人、照顾自己，还是追寻热爱，年休假、30天全薪病假、事假、产假、陪产假、婚假等一应俱全，愿你在重要时刻无需顾虑，安心享受属于你的时光。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "全面商业保险",
+            "evidence_quote": "每一位员工都享有全面的商业保险，覆盖生活与工作的方方面面。愿这份保障成为你坚实的后盾，让你在前行的路上安心生活，无忧工作。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "年度全面体检",
+            "evidence_quote": "公司每年春末夏初启动全面体检，旨在及时干预可能存在的健康风险，帮助大家维持理想的生活与工作状态。",
+            "evidence_url": "https://jobs.lilith.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-lilith-games-7706734935037479231",
+      "category": "enterprise",
+      "title": "VX设计师（AFK）-Li岗",
+      "org_name": "上海莉莉丝网络科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://lilithgames.jobs.feishu.cn/career/position/7706734935037479231/detail",
+      "apply_url": "https://lilithgames.jobs.feishu.cn/career/position/7706734935037479231/detail",
+      "source_name": "上海莉莉丝网络科技有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-11",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:03+08:00",
+      "last_seen_at": "2026-11-18T17:49:50+08:00",
+      "content_hash": "3f080b4703cf4621af1507c0cae7a4d6126e882494e1ead566ff4f8503e5862a",
+      "summary": "1.根据UI资源和策划需求，设计2D界面动效演示。 2.负责界面动效的落地，资源整理和优化。 1.熟练掌握动画运动规律。 2.熟悉界面动效设计和交互设计的原理。 3.热爱游戏 富于创意。有一定的沟通能力。 4.熟练掌握COCOS Studio、AE、Spine、Flash等2D动效软件。 5.熟悉欧美卡通风格化设计的优先。 6.有运用AI生成演出表现的优先。",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "30天全薪病假与带薪年假",
+        "全面商业保险",
+        "年度全面体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "lilith-games",
+        "work_schedule": "未明确",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "30天全薪病假与带薪年假",
+            "evidence_quote": "莉莉丝为员工准备了丰富的假期类型，无论是陪伴家人、照顾自己，还是追寻热爱，年休假、30天全薪病假、事假、产假、陪产假、婚假等一应俱全，愿你在重要时刻无需顾虑，安心享受属于你的时光。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "全面商业保险",
+            "evidence_quote": "每一位员工都享有全面的商业保险，覆盖生活与工作的方方面面。愿这份保障成为你坚实的后盾，让你在前行的路上安心生活，无忧工作。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "年度全面体检",
+            "evidence_quote": "公司每年春末夏初启动全面体检，旨在及时干预可能存在的健康风险，帮助大家维持理想的生活与工作状态。",
+            "evidence_url": "https://jobs.lilith.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-lilith-games-7706482139932182847",
+      "category": "enterprise",
+      "title": "系统策划（欧美休闲）",
+      "org_name": "上海莉莉丝网络科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://lilithgames.jobs.feishu.cn/career/position/7706482139932182847/detail",
+      "apply_url": "https://lilithgames.jobs.feishu.cn/career/position/7706482139932182847/detail",
+      "source_name": "上海莉莉丝网络科技有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-10",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:03+08:00",
+      "last_seen_at": "2026-11-18T17:49:50+08:00",
+      "content_hash": "86c977a7b6753b22391188722c64faf64f3fcd28094232ff9dc5c766e33ca8fa",
+      "summary": "1. 负责项目的外围养成、比赛及活动系统设计，能够与核心玩法循环形成联动。 2. 独立产出负责模块的策划方案、交互原型及配置需求，跟进开发与功能验收。 3. 持续研究同类产品，根据试玩和玩家反馈持续优化，对负责模块的体验品质负责。 1. 3年以上游戏策划经验,独立负责过核心系统的设计与落地。 2. 熟悉养成或活动设计,有休闲、模拟养成、竞技项目经验优先。 3. 逻辑清晰,重视交互体验,具备良好的沟通能力和开发推进能力。 4. 有创意,善于发现和解决问题 *加分项* 熟悉海外休闲游戏，对相关用户的成长追求与游玩习惯有持续研究。 有从0到1的项目经历，或参与过3D场景交互及角色养成表现见的设计。",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "30天全薪病假与带薪年假",
+        "全面商业保险",
+        "年度全面体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "lilith-games",
+        "work_schedule": "未明确",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "30天全薪病假与带薪年假",
+            "evidence_quote": "莉莉丝为员工准备了丰富的假期类型，无论是陪伴家人、照顾自己，还是追寻热爱，年休假、30天全薪病假、事假、产假、陪产假、婚假等一应俱全，愿你在重要时刻无需顾虑，安心享受属于你的时光。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "全面商业保险",
+            "evidence_quote": "每一位员工都享有全面的商业保险，覆盖生活与工作的方方面面。愿这份保障成为你坚实的后盾，让你在前行的路上安心生活，无忧工作。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "年度全面体检",
+            "evidence_quote": "公司每年春末夏初启动全面体检，旨在及时干预可能存在的健康风险，帮助大家维持理想的生活与工作状态。",
+            "evidence_url": "https://jobs.lilith.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-lilith-games-7706473719406283035",
+      "category": "enterprise",
+      "title": "高级引擎开发工程师（都市生活模拟）",
+      "org_name": "上海莉莉丝网络科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://lilithgames.jobs.feishu.cn/career/position/7706473719406283035/detail",
+      "apply_url": "https://lilithgames.jobs.feishu.cn/career/position/7706473719406283035/detail",
+      "source_name": "上海莉莉丝网络科技有限公司(飞书招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-10",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:03+08:00",
+      "last_seen_at": "2026-11-18T17:49:50+08:00",
+      "content_hash": "1cf773a986b4e511230b756920277d7f8d02c363b90d44201405eeabf7f7d1a3",
+      "summary": "1. 围绕性能优化、画质提升和研发效率，负责 Unity 引擎相关模块的研发与深度改造。 2. 定位并解决 CPU、GPU、内存、加载等性能问题，通过实机验证取得可量化的优化收益。 3. 参与渲染管线与 Shader 的开发优化，与 TA、美术协作提升画面品质，平衡性能与制作成本。 4. 优化工具链和资源生产流程，提升研发效率；负责 PC、移动端的设备适配及兼容性问题修复。 5. 独立负责关键模块或技术专项，推动跨团队协作、技术评审与经验沉淀，参与成员培养。 1. 本科及以上学历，计算机或相关专业，基础扎实；熟练使用 C#，具备 C++ 开发与调试能力。 2. 深入理解 Unity 运行机制，在渲染、资源管理、内存或脚本运行时等方向有扎实积累，能够进行源码级问题定位与改造。 3. 具备实际项目性能优化经验，熟悉实时渲染与 Shader 开发，能够独立完成问题分析、方案实现及实机验证。 4. 学习能力强、执行力强，有明确的项目产…",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "30天全薪病假与带薪年假",
+        "全面商业保险",
+        "年度全面体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "lilith-games",
+        "work_schedule": "未明确",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "30天全薪病假与带薪年假",
+            "evidence_quote": "莉莉丝为员工准备了丰富的假期类型，无论是陪伴家人、照顾自己，还是追寻热爱，年休假、30天全薪病假、事假、产假、陪产假、婚假等一应俱全，愿你在重要时刻无需顾虑，安心享受属于你的时光。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "全面商业保险",
+            "evidence_quote": "每一位员工都享有全面的商业保险，覆盖生活与工作的方方面面。愿这份保障成为你坚实的后盾，让你在前行的路上安心生活，无忧工作。",
+            "evidence_url": "https://jobs.lilith.com/"
+          },
+          {
+            "tag": "年度全面体检",
+            "evidence_quote": "公司每年春末夏初启动全面体检，旨在及时干预可能存在的健康风险，帮助大家维持理想的生活与工作状态。",
+            "evidence_url": "https://jobs.lilith.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-moka-hr-8bf22608-b981-4a54-a8f6-1e506e8b13c8",
+      "category": "enterprise",
+      "title": "People项目经理(杭州）",
+      "org_name": "北京希瑞亚斯科技有限公司",
+      "province": "浙江省",
+      "city": "杭州市",
+      "source_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/8bf22608-b981-4a54-a8f6-1e506e8b13c8",
+      "apply_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/8bf22608-b981-4a54-a8f6-1e506e8b13c8",
+      "source_name": "北京希瑞亚斯科技有限公司(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-10-28",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:06+08:00",
+      "last_seen_at": "2026-11-18T17:49:53+08:00",
+      "content_hash": "964c39ef5a753f290ad492b6bec3a2f47acc18779fc98b438589276a00531e8e",
+      "summary": "官方在招职位：People项目经理(杭州） 职能类别：技术类 办公地点：杭州市拱墅区上塘路15号武林时代10层1005室 职位性质：全职",
+      "tags": [
+        "高福利民企",
+        "杭州市",
+        "弹性工作",
+        "弹性办公",
+        "补充商业医疗与体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "moka-hr",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "技术类",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性办公",
+            "evidence_quote": "花式团建、弹性办公、无限零食下午茶与节日礼遇；一起赢，也好好生活",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          },
+          {
+            "tag": "补充商业医疗与体检",
+            "evidence_quote": "补充商业医疗、年度体检、心理关怀；身心都被认真照顾",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-moka-hr-8b5c09d7-ca95-4f4a-9a03-f9d0504b25de",
+      "category": "enterprise",
+      "title": "People项目经理（上海）",
+      "org_name": "北京希瑞亚斯科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/8b5c09d7-ca95-4f4a-9a03-f9d0504b25de",
+      "apply_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/8b5c09d7-ca95-4f4a-9a03-f9d0504b25de",
+      "source_name": "北京希瑞亚斯科技有限公司(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-04-02",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:06+08:00",
+      "last_seen_at": "2026-11-18T17:49:53+08:00",
+      "content_hash": "e7534bff7910f3999b1878f3cfd30753ddb596b384a3109b6683ed9f9830b157",
+      "summary": "官方在招职位：People项目经理（上海） 职能类别：服务类 职位性质：全职",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "弹性工作",
+        "弹性办公",
+        "补充商业医疗与体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "moka-hr",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "服务类",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性办公",
+            "evidence_quote": "花式团建、弹性办公、无限零食下午茶与节日礼遇；一起赢，也好好生活",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          },
+          {
+            "tag": "补充商业医疗与体检",
+            "evidence_quote": "补充商业医疗、年度体检、心理关怀；身心都被认真照顾",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-moka-hr-a19b70ae-8bfb-487e-9d34-5033f58abcf2",
+      "category": "enterprise",
+      "title": "销售经理（杭州）",
+      "org_name": "北京希瑞亚斯科技有限公司",
+      "province": "浙江省",
+      "city": "杭州市",
+      "source_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/a19b70ae-8bfb-487e-9d34-5033f58abcf2",
+      "apply_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/a19b70ae-8bfb-487e-9d34-5033f58abcf2",
+      "source_name": "北京希瑞亚斯科技有限公司(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-04-01",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:06+08:00",
+      "last_seen_at": "2026-11-18T17:49:53+08:00",
+      "content_hash": "9af9c158800955c3e2b01b5a91cc6f75c8d1451029b9b4ac2afe8720fcca2d81",
+      "summary": "官方在招职位：销售经理（杭州） 职能类别：销售类 办公地点：杭州市拱墅区上塘路15号武林时代10层1005室 职位性质：全职",
+      "tags": [
+        "高福利民企",
+        "杭州市",
+        "弹性工作",
+        "弹性办公",
+        "补充商业医疗与体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "moka-hr",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "销售类",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性办公",
+            "evidence_quote": "花式团建、弹性办公、无限零食下午茶与节日礼遇；一起赢，也好好生活",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          },
+          {
+            "tag": "补充商业医疗与体检",
+            "evidence_quote": "补充商业医疗、年度体检、心理关怀；身心都被认真照顾",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-moka-hr-d85b75a3-5cd5-4c86-ad4a-cf1523f9430e",
+      "category": "enterprise",
+      "title": "销售总监（上海）",
+      "org_name": "北京希瑞亚斯科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/d85b75a3-5cd5-4c86-ad4a-cf1523f9430e",
+      "apply_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/d85b75a3-5cd5-4c86-ad4a-cf1523f9430e",
+      "source_name": "北京希瑞亚斯科技有限公司(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-03-11",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:06+08:00",
+      "last_seen_at": "2026-11-18T17:49:53+08:00",
+      "content_hash": "3190b9f6a21450e4ea955e1cb46e65b3e93928c25f38192677870226930b11ba",
+      "summary": "官方在招职位：销售总监（上海） 职能类别：销售类 办公地点：上海市黄浦区福州路465号德必上海书城1903室 职位性质：全职",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "弹性工作",
+        "弹性办公",
+        "补充商业医疗与体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "moka-hr",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "销售类",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性办公",
+            "evidence_quote": "花式团建、弹性办公、无限零食下午茶与节日礼遇；一起赢，也好好生活",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          },
+          {
+            "tag": "补充商业医疗与体检",
+            "evidence_quote": "补充商业医疗、年度体检、心理关怀；身心都被认真照顾",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-moka-hr-d458104e-8eae-4113-903e-042da7e742e1",
+      "category": "enterprise",
+      "title": "销售经理（上海）",
+      "org_name": "北京希瑞亚斯科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/d458104e-8eae-4113-903e-042da7e742e1",
+      "apply_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/d458104e-8eae-4113-903e-042da7e742e1",
+      "source_name": "北京希瑞亚斯科技有限公司(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2025-04-18",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:06+08:00",
+      "last_seen_at": "2026-11-18T17:49:53+08:00",
+      "content_hash": "1770e26c68031edabaf6a467cd90f229e60c0eeb6ae4ed7a745456cbedaee72e",
+      "summary": "官方在招职位：销售经理（上海） 职能类别：销售类 职位性质：全职",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "弹性工作",
+        "弹性办公",
+        "补充商业医疗与体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "moka-hr",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "销售类",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性办公",
+            "evidence_quote": "花式团建、弹性办公、无限零食下午茶与节日礼遇；一起赢，也好好生活",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          },
+          {
+            "tag": "补充商业医疗与体检",
+            "evidence_quote": "补充商业医疗、年度体检、心理关怀；身心都被认真照顾",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-moka-hr-68f9e499-50e5-4c88-88fd-31602ce4c2c5",
+      "category": "enterprise",
+      "title": "客户成功经理（厦门）",
+      "org_name": "北京希瑞亚斯科技有限公司",
+      "province": "福建省",
+      "city": "厦门市",
+      "source_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/68f9e499-50e5-4c88-88fd-31602ce4c2c5",
+      "apply_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/68f9e499-50e5-4c88-88fd-31602ce4c2c5",
+      "source_name": "北京希瑞亚斯科技有限公司(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-13",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:06+08:00",
+      "last_seen_at": "2026-11-18T17:49:53+08:00",
+      "content_hash": "4ec748bab398e8b076d05241d69b19d6c4079d55e0a1769866865254e20bffa8",
+      "summary": "官方在招职位：客户成功经理（厦门） 职能类别：运营类 办公地点：厦门市思明区望海路63-2号5层511室 职位性质：全职",
+      "tags": [
+        "高福利民企",
+        "厦门市",
+        "弹性工作",
+        "弹性办公",
+        "补充商业医疗与体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "moka-hr",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "运营类",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性办公",
+            "evidence_quote": "花式团建、弹性办公、无限零食下午茶与节日礼遇；一起赢，也好好生活",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          },
+          {
+            "tag": "补充商业医疗与体检",
+            "evidence_quote": "补充商业医疗、年度体检、心理关怀；身心都被认真照顾",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-moka-hr-09cc3d33-4dfb-4dad-9979-9a2263e1b40a",
+      "category": "enterprise",
+      "title": "项目经理（上海）",
+      "org_name": "北京希瑞亚斯科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/09cc3d33-4dfb-4dad-9979-9a2263e1b40a",
+      "apply_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/09cc3d33-4dfb-4dad-9979-9a2263e1b40a",
+      "source_name": "北京希瑞亚斯科技有限公司(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-09",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:06+08:00",
+      "last_seen_at": "2026-11-18T17:49:53+08:00",
+      "content_hash": "6a97f38f2ef87617039403f4937d19fc12ec53855f32c47cd26e6d39d131cd60",
+      "summary": "官方在招职位：项目经理（上海） 职能类别：服务类 办公地点：上海市黄浦区福州路465号德必上海书城1903室 职位性质：全职",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "弹性工作",
+        "弹性办公",
+        "补充商业医疗与体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "moka-hr",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "服务类",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性办公",
+            "evidence_quote": "花式团建、弹性办公、无限零食下午茶与节日礼遇；一起赢，也好好生活",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          },
+          {
+            "tag": "补充商业医疗与体检",
+            "evidence_quote": "补充商业医疗、年度体检、心理关怀；身心都被认真照顾",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-moka-hr-e376e6ce-ec67-4663-a16f-7dc69a9c51de",
+      "category": "enterprise",
+      "title": "渠道经理-华南",
+      "org_name": "北京希瑞亚斯科技有限公司",
+      "province": "广东省",
+      "city": "深圳市",
+      "source_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/e376e6ce-ec67-4663-a16f-7dc69a9c51de",
+      "apply_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/e376e6ce-ec67-4663-a16f-7dc69a9c51de",
+      "source_name": "北京希瑞亚斯科技有限公司(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-10-19",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:06+08:00",
+      "last_seen_at": "2026-11-18T17:49:53+08:00",
+      "content_hash": "ffeec3c2cea1d4869b2b33f26990959a0fbccf447a29d9d5a944b3790b2c9448",
+      "summary": "官方在招职位：渠道经理-华南 职能类别：销售类 办公地点：深圳市南山区海德三道(深圳湾段)166号航天科技广场B座12层H10室 职位性质：全职",
+      "tags": [
+        "高福利民企",
+        "深圳市",
+        "弹性工作",
+        "弹性办公",
+        "补充商业医疗与体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "moka-hr",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "销售类",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性办公",
+            "evidence_quote": "花式团建、弹性办公、无限零食下午茶与节日礼遇；一起赢，也好好生活",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          },
+          {
+            "tag": "补充商业医疗与体检",
+            "evidence_quote": "补充商业医疗、年度体检、心理关怀；身心都被认真照顾",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-moka-hr-0e40ce87-0849-4a35-8ea6-661d54933fcc",
+      "category": "enterprise",
+      "title": "SDR专员",
+      "org_name": "北京希瑞亚斯科技有限公司",
+      "province": "四川省",
+      "city": "成都市",
+      "source_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/0e40ce87-0849-4a35-8ea6-661d54933fcc",
+      "apply_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/0e40ce87-0849-4a35-8ea6-661d54933fcc",
+      "source_name": "北京希瑞亚斯科技有限公司(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-09-20",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:06+08:00",
+      "last_seen_at": "2026-11-18T17:49:53+08:00",
+      "content_hash": "13989fd89f9a615a66d3bc3207dacc0a00bbbbf6c3e7c253ffe7737c384edf91",
+      "summary": "官方在招职位：SDR专员 职能类别：市场类 办公地点：天府新区会龙公园1号楼2层202-205室 职位性质：全职",
+      "tags": [
+        "高福利民企",
+        "成都市",
+        "弹性工作",
+        "弹性办公",
+        "补充商业医疗与体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "moka-hr",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "市场类",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性办公",
+            "evidence_quote": "花式团建、弹性办公、无限零食下午茶与节日礼遇；一起赢，也好好生活",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          },
+          {
+            "tag": "补充商业医疗与体检",
+            "evidence_quote": "补充商业医疗、年度体检、心理关怀；身心都被认真照顾",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-moka-hr-83dcdadc-b9d9-48ea-b55d-71257d359907",
+      "category": "enterprise",
+      "title": "搜索增长专家（SEM / SEO / GEO）",
+      "org_name": "北京希瑞亚斯科技有限公司",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/83dcdadc-b9d9-48ea-b55d-71257d359907",
+      "apply_url": "https://app.mokahr.com/social-recruitment/moka/118263#/job/83dcdadc-b9d9-48ea-b55d-71257d359907",
+      "source_name": "北京希瑞亚斯科技有限公司(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-09-14",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:06+08:00",
+      "last_seen_at": "2026-11-18T17:49:53+08:00",
+      "content_hash": "c578f5f4479447b0a4dd6638dc1b7bf4019c1406553b2a9c26afadf3897bfcb3",
+      "summary": "官方在招职位：搜索增长专家（SEM / SEO / GEO） 职能类别：市场类 办公地点：知春路68号领航科技大厦5层（请走东侧电梯） 职位性质：全职",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "弹性办公",
+        "补充商业医疗与体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "moka-hr",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "市场类",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性办公",
+            "evidence_quote": "花式团建、弹性办公、无限零食下午茶与节日礼遇；一起赢，也好好生活",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          },
+          {
+            "tag": "补充商业医疗与体检",
+            "evidence_quote": "补充商业医疗、年度体检、心理关怀；身心都被认真照顾",
+            "evidence_url": "https://app.mokahr.com/social-recruitment/moka/118263"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-trip-com-547d6e8b-6839-43eb-9138-5d5db708f78d",
+      "category": "enterprise",
+      "title": "携程粤英高级客服专员（广州）",
+      "org_name": "携程集团",
+      "province": "广东省",
+      "city": "广州市",
+      "source_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/547d6e8b-6839-43eb-9138-5d5db708f78d",
+      "apply_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/547d6e8b-6839-43eb-9138-5d5db708f78d",
+      "source_name": "携程集团(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:07+08:00",
+      "last_seen_at": "2026-11-18T17:49:54+08:00",
+      "content_hash": "10417ea11296df4405d7da0b912911c3363476c6a9c02ffcc780f5cbea49bd84",
+      "summary": "官方在招职位：携程粤英高级客服专员（广州） 所属部门：FU-IBU 办公地点：汉溪大道东477号中铁诺德大厦9楼",
+      "tags": [
+        "高福利民企",
+        "广州市",
+        "弹性工作",
+        "弹性工作安排",
+        "商业保险福利",
+        "年度体检与旅游福利金"
+      ],
+      "enterprise_meta": {
+        "company_id": "trip-com",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "FU-IBU",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性工作安排",
+            "evidence_quote": "We believe that you're in charge of your own time. Therefore, we offer flexible working arrangements to allow you to have a more fulfilling life in and outside the workplace.",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "商业保险福利",
+            "evidence_quote": "可以为自己和家人选择更完善的商业保险计划，我们帮助您用最优惠的方式享受优质的保险福利。（仅适用于工作地在中国的员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "年度体检与旅游福利金",
+            "evidence_quote": "我们为员工提供各种福利。出勤补贴，携程医务室，年度体检等样样齐全，我们还为热爱旅游的您提供了旅游福利金。",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "生育礼金与育儿补贴",
+            "evidence_quote": "携程为孕期的员工提供每日交通补贴；在您的宝宝出生时，可申请生育礼金和生育医疗补贴；各类育儿讲座不间断；儿童节我们将为您的宝贝送上六一贺礼。（仅适用于中国大陆员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-trip-com-8029a6a0-9cf0-40db-b801-737201b15849",
+      "category": "enterprise",
+      "title": "携程国英高级客服专员（广州）",
+      "org_name": "携程集团",
+      "province": "广东省",
+      "city": "广州市",
+      "source_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/8029a6a0-9cf0-40db-b801-737201b15849",
+      "apply_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/8029a6a0-9cf0-40db-b801-737201b15849",
+      "source_name": "携程集团(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:07+08:00",
+      "last_seen_at": "2026-11-18T17:49:54+08:00",
+      "content_hash": "668f06633d4afd2d65fb7b55c4cfb7039930b370b3c14162f3bc1bec0f2107b4",
+      "summary": "官方在招职位：携程国英高级客服专员（广州） 所属部门：FU-IBU 办公地点：汉溪大道东477号中铁诺德大厦9楼",
+      "tags": [
+        "高福利民企",
+        "广州市",
+        "弹性工作",
+        "弹性工作安排",
+        "商业保险福利",
+        "年度体检与旅游福利金"
+      ],
+      "enterprise_meta": {
+        "company_id": "trip-com",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "FU-IBU",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性工作安排",
+            "evidence_quote": "We believe that you're in charge of your own time. Therefore, we offer flexible working arrangements to allow you to have a more fulfilling life in and outside the workplace.",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "商业保险福利",
+            "evidence_quote": "可以为自己和家人选择更完善的商业保险计划，我们帮助您用最优惠的方式享受优质的保险福利。（仅适用于工作地在中国的员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "年度体检与旅游福利金",
+            "evidence_quote": "我们为员工提供各种福利。出勤补贴，携程医务室，年度体检等样样齐全，我们还为热爱旅游的您提供了旅游福利金。",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "生育礼金与育儿补贴",
+            "evidence_quote": "携程为孕期的员工提供每日交通补贴；在您的宝宝出生时，可申请生育礼金和生育医疗补贴；各类育儿讲座不间断；儿童节我们将为您的宝贝送上六一贺礼。（仅适用于中国大陆员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-trip-com-15611702-f6a4-4519-be7a-ce1f051c9a56",
+      "category": "enterprise",
+      "title": "携程旅游黑钻服务管家（粤英双语）",
+      "org_name": "携程集团",
+      "province": "广东省",
+      "city": "广州市",
+      "source_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/15611702-f6a4-4519-be7a-ce1f051c9a56",
+      "apply_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/15611702-f6a4-4519-be7a-ce1f051c9a56",
+      "source_name": "携程集团(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:07+08:00",
+      "last_seen_at": "2026-11-18T17:49:54+08:00",
+      "content_hash": "48369124ba4c19ac990a0f4322ee791fb17b2bc85da74711c3a8fb79f82afca0",
+      "summary": "官方在招职位：携程旅游黑钻服务管家（粤英双语） 所属部门：FU-IBU 办公地点：汉溪大道东477号中铁诺德大厦9楼",
+      "tags": [
+        "高福利民企",
+        "广州市",
+        "弹性工作",
+        "弹性工作安排",
+        "商业保险福利",
+        "年度体检与旅游福利金"
+      ],
+      "enterprise_meta": {
+        "company_id": "trip-com",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "FU-IBU",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性工作安排",
+            "evidence_quote": "We believe that you're in charge of your own time. Therefore, we offer flexible working arrangements to allow you to have a more fulfilling life in and outside the workplace.",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "商业保险福利",
+            "evidence_quote": "可以为自己和家人选择更完善的商业保险计划，我们帮助您用最优惠的方式享受优质的保险福利。（仅适用于工作地在中国的员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "年度体检与旅游福利金",
+            "evidence_quote": "我们为员工提供各种福利。出勤补贴，携程医务室，年度体检等样样齐全，我们还为热爱旅游的您提供了旅游福利金。",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "生育礼金与育儿补贴",
+            "evidence_quote": "携程为孕期的员工提供每日交通补贴；在您的宝宝出生时，可申请生育礼金和生育医疗补贴；各类育儿讲座不间断；儿童节我们将为您的宝贝送上六一贺礼。（仅适用于中国大陆员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-trip-com-6a3f1b3c-45fd-4bcc-86ef-8cfd7c8ee969",
+      "category": "enterprise",
+      "title": "携程俄语客服专员",
+      "org_name": "携程集团",
+      "province": "广东省",
+      "city": "广州市",
+      "source_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/6a3f1b3c-45fd-4bcc-86ef-8cfd7c8ee969",
+      "apply_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/6a3f1b3c-45fd-4bcc-86ef-8cfd7c8ee969",
+      "source_name": "携程集团(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:07+08:00",
+      "last_seen_at": "2026-11-18T17:49:54+08:00",
+      "content_hash": "4f8bb797d7e914f61ce1f319bbf79f2e0cc317dd7bf4c5736e29739d56d9d03e",
+      "summary": "官方在招职位：携程俄语客服专员 所属部门：FU-IBU 办公地点：汉溪大道东477号中铁诺德大厦9楼",
+      "tags": [
+        "高福利民企",
+        "广州市",
+        "弹性工作",
+        "弹性工作安排",
+        "商业保险福利",
+        "年度体检与旅游福利金"
+      ],
+      "enterprise_meta": {
+        "company_id": "trip-com",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "FU-IBU",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性工作安排",
+            "evidence_quote": "We believe that you're in charge of your own time. Therefore, we offer flexible working arrangements to allow you to have a more fulfilling life in and outside the workplace.",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "商业保险福利",
+            "evidence_quote": "可以为自己和家人选择更完善的商业保险计划，我们帮助您用最优惠的方式享受优质的保险福利。（仅适用于工作地在中国的员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "年度体检与旅游福利金",
+            "evidence_quote": "我们为员工提供各种福利。出勤补贴，携程医务室，年度体检等样样齐全，我们还为热爱旅游的您提供了旅游福利金。",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "生育礼金与育儿补贴",
+            "evidence_quote": "携程为孕期的员工提供每日交通补贴；在您的宝宝出生时，可申请生育礼金和生育医疗补贴；各类育儿讲座不间断；儿童节我们将为您的宝贝送上六一贺礼。（仅适用于中国大陆员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-trip-com-43b6fb73-99d4-4f79-ba20-f4dd9c74cf6a",
+      "category": "enterprise",
+      "title": "携程俄语服务质检专员",
+      "org_name": "携程集团",
+      "province": "广东省",
+      "city": "广州市",
+      "source_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/43b6fb73-99d4-4f79-ba20-f4dd9c74cf6a",
+      "apply_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/43b6fb73-99d4-4f79-ba20-f4dd9c74cf6a",
+      "source_name": "携程集团(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:07+08:00",
+      "last_seen_at": "2026-11-18T17:49:54+08:00",
+      "content_hash": "b5289b3e109cd73b0084d11abc984982159fb73d23033206a404104b8036bee1",
+      "summary": "官方在招职位：携程俄语服务质检专员 所属部门：FU-IBU 办公地点：汉溪大道东477号中铁诺德大厦9楼",
+      "tags": [
+        "高福利民企",
+        "广州市",
+        "弹性工作",
+        "弹性工作安排",
+        "商业保险福利",
+        "年度体检与旅游福利金"
+      ],
+      "enterprise_meta": {
+        "company_id": "trip-com",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "FU-IBU",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性工作安排",
+            "evidence_quote": "We believe that you're in charge of your own time. Therefore, we offer flexible working arrangements to allow you to have a more fulfilling life in and outside the workplace.",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "商业保险福利",
+            "evidence_quote": "可以为自己和家人选择更完善的商业保险计划，我们帮助您用最优惠的方式享受优质的保险福利。（仅适用于工作地在中国的员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "年度体检与旅游福利金",
+            "evidence_quote": "我们为员工提供各种福利。出勤补贴，携程医务室，年度体检等样样齐全，我们还为热爱旅游的您提供了旅游福利金。",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "生育礼金与育儿补贴",
+            "evidence_quote": "携程为孕期的员工提供每日交通补贴；在您的宝宝出生时，可申请生育礼金和生育医疗补贴；各类育儿讲座不间断；儿童节我们将为您的宝贝送上六一贺礼。（仅适用于中国大陆员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-trip-com-9f6c7c1b-a4b3-4b60-b0c5-c21af4f1b205",
+      "category": "enterprise",
+      "title": "Operation Manager_RU_HKCG",
+      "org_name": "携程集团",
+      "province": "广东省",
+      "city": "广州市",
+      "source_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/9f6c7c1b-a4b3-4b60-b0c5-c21af4f1b205",
+      "apply_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/9f6c7c1b-a4b3-4b60-b0c5-c21af4f1b205",
+      "source_name": "携程集团(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:07+08:00",
+      "last_seen_at": "2026-11-18T17:49:54+08:00",
+      "content_hash": "f8d49e3177f28f2cb59e84dc38eec8588b2577ba8ae68fa71b20520ad289b666",
+      "summary": "官方在招职位：Operation Manager_RU_HKCG 所属部门：FU-IBU 办公地点：汉溪大道东477号中铁诺德大厦9楼",
+      "tags": [
+        "高福利民企",
+        "广州市",
+        "弹性工作",
+        "弹性工作安排",
+        "商业保险福利",
+        "年度体检与旅游福利金"
+      ],
+      "enterprise_meta": {
+        "company_id": "trip-com",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "FU-IBU",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性工作安排",
+            "evidence_quote": "We believe that you're in charge of your own time. Therefore, we offer flexible working arrangements to allow you to have a more fulfilling life in and outside the workplace.",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "商业保险福利",
+            "evidence_quote": "可以为自己和家人选择更完善的商业保险计划，我们帮助您用最优惠的方式享受优质的保险福利。（仅适用于工作地在中国的员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "年度体检与旅游福利金",
+            "evidence_quote": "我们为员工提供各种福利。出勤补贴，携程医务室，年度体检等样样齐全，我们还为热爱旅游的您提供了旅游福利金。",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "生育礼金与育儿补贴",
+            "evidence_quote": "携程为孕期的员工提供每日交通补贴；在您的宝宝出生时，可申请生育礼金和生育医疗补贴；各类育儿讲座不间断；儿童节我们将为您的宝贝送上六一贺礼。（仅适用于中国大陆员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-trip-com-25f2b79a-de17-4eaa-a02a-094e21c2a96b",
+      "category": "enterprise",
+      "title": "携程俄语客服Team leader",
+      "org_name": "携程集团",
+      "province": "广东省",
+      "city": "广州市",
+      "source_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/25f2b79a-de17-4eaa-a02a-094e21c2a96b",
+      "apply_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/25f2b79a-de17-4eaa-a02a-094e21c2a96b",
+      "source_name": "携程集团(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:07+08:00",
+      "last_seen_at": "2026-11-18T17:49:54+08:00",
+      "content_hash": "1dfb313898dd22fd1e548121bf28b94149baf6f30aa119c72af014547fe5d8b1",
+      "summary": "官方在招职位：携程俄语客服Team leader 所属部门：FU-IBU 办公地点：汉溪大道东477号中铁诺德大厦9楼",
+      "tags": [
+        "高福利民企",
+        "广州市",
+        "弹性工作",
+        "弹性工作安排",
+        "商业保险福利",
+        "年度体检与旅游福利金"
+      ],
+      "enterprise_meta": {
+        "company_id": "trip-com",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "FU-IBU",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性工作安排",
+            "evidence_quote": "We believe that you're in charge of your own time. Therefore, we offer flexible working arrangements to allow you to have a more fulfilling life in and outside the workplace.",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "商业保险福利",
+            "evidence_quote": "可以为自己和家人选择更完善的商业保险计划，我们帮助您用最优惠的方式享受优质的保险福利。（仅适用于工作地在中国的员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "年度体检与旅游福利金",
+            "evidence_quote": "我们为员工提供各种福利。出勤补贴，携程医务室，年度体检等样样齐全，我们还为热爱旅游的您提供了旅游福利金。",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "生育礼金与育儿补贴",
+            "evidence_quote": "携程为孕期的员工提供每日交通补贴；在您的宝宝出生时，可申请生育礼金和生育医疗补贴；各类育儿讲座不间断；儿童节我们将为您的宝贝送上六一贺礼。（仅适用于中国大陆员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-trip-com-4ad99777-29bb-46e3-9ec2-7ce9932a2396",
+      "category": "enterprise",
+      "title": "携程俄语客服培训师",
+      "org_name": "携程集团",
+      "province": "广东省",
+      "city": "广州市",
+      "source_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/4ad99777-29bb-46e3-9ec2-7ce9932a2396",
+      "apply_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/4ad99777-29bb-46e3-9ec2-7ce9932a2396",
+      "source_name": "携程集团(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:07+08:00",
+      "last_seen_at": "2026-11-18T17:49:54+08:00",
+      "content_hash": "4df59d54f06f0d5a5f716b96aae99bf2b89355768c3d8ed6ffc46a6ad87bb9c9",
+      "summary": "官方在招职位：携程俄语客服培训师 所属部门：FU-IBU 办公地点：汉溪大道东477号中铁诺德大厦9楼",
+      "tags": [
+        "高福利民企",
+        "广州市",
+        "弹性工作",
+        "弹性工作安排",
+        "商业保险福利",
+        "年度体检与旅游福利金"
+      ],
+      "enterprise_meta": {
+        "company_id": "trip-com",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "FU-IBU",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性工作安排",
+            "evidence_quote": "We believe that you're in charge of your own time. Therefore, we offer flexible working arrangements to allow you to have a more fulfilling life in and outside the workplace.",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "商业保险福利",
+            "evidence_quote": "可以为自己和家人选择更完善的商业保险计划，我们帮助您用最优惠的方式享受优质的保险福利。（仅适用于工作地在中国的员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "年度体检与旅游福利金",
+            "evidence_quote": "我们为员工提供各种福利。出勤补贴，携程医务室，年度体检等样样齐全，我们还为热爱旅游的您提供了旅游福利金。",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "生育礼金与育儿补贴",
+            "evidence_quote": "携程为孕期的员工提供每日交通补贴；在您的宝宝出生时，可申请生育礼金和生育医疗补贴；各类育儿讲座不间断；儿童节我们将为您的宝贝送上六一贺礼。（仅适用于中国大陆员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-trip-com-fd8c7f90-90d3-4831-a8e6-eea07e317957",
+      "category": "enterprise",
+      "title": "中台策略产品经理",
+      "org_name": "携程集团",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/fd8c7f90-90d3-4831-a8e6-eea07e317957",
+      "apply_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/fd8c7f90-90d3-4831-a8e6-eea07e317957",
+      "source_name": "携程集团(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-12",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:07+08:00",
+      "last_seen_at": "2026-11-18T17:49:54+08:00",
+      "content_hash": "ab45d43545beb2727cae2d746fbdd093e6f878cf3199ccc3db53328cfe83ed3e",
+      "summary": "官方在招职位：中台策略产品经理 所属部门：FU-内容中心 办公地点：金钟路968号凌空SOHO16号楼6楼",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "弹性工作",
+        "弹性工作安排",
+        "商业保险福利",
+        "年度体检与旅游福利金"
+      ],
+      "enterprise_meta": {
+        "company_id": "trip-com",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "FU-内容中心",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性工作安排",
+            "evidence_quote": "We believe that you're in charge of your own time. Therefore, we offer flexible working arrangements to allow you to have a more fulfilling life in and outside the workplace.",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "商业保险福利",
+            "evidence_quote": "可以为自己和家人选择更完善的商业保险计划，我们帮助您用最优惠的方式享受优质的保险福利。（仅适用于工作地在中国的员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "年度体检与旅游福利金",
+            "evidence_quote": "我们为员工提供各种福利。出勤补贴，携程医务室，年度体检等样样齐全，我们还为热爱旅游的您提供了旅游福利金。",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "生育礼金与育儿补贴",
+            "evidence_quote": "携程为孕期的员工提供每日交通补贴；在您的宝宝出生时，可申请生育礼金和生育医疗补贴；各类育儿讲座不间断；儿童节我们将为您的宝贝送上六一贺礼。（仅适用于中国大陆员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-trip-com-dfadb1b6-a92c-4130-8602-1a0814c577b3",
+      "category": "enterprise",
+      "title": "公关媒介经理（KOL&自媒体）",
+      "org_name": "携程集团",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/dfadb1b6-a92c-4130-8602-1a0814c577b3",
+      "apply_url": "https://app.mokahr.com/social-recruitment/trip/70415#/job/dfadb1b6-a92c-4130-8602-1a0814c577b3",
+      "source_name": "携程集团(Moka招聘)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-03",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:07+08:00",
+      "last_seen_at": "2026-11-18T17:49:54+08:00",
+      "content_hash": "f0455ee4f14c6237558d40b5339ad40758c9cb59b708b5150e4a1f47c4d88ea2",
+      "summary": "官方在招职位：公关媒介经理（KOL&自媒体） 所属部门：FU-市场营销部 办公地点：酒仙桥北路甲10号院电子城IT产业园304号楼C座",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "弹性工作安排",
+        "商业保险福利",
+        "年度体检与旅游福利金"
+      ],
+      "enterprise_meta": {
+        "company_id": "trip-com",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "FU-市场营销部",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性工作安排",
+            "evidence_quote": "We believe that you're in charge of your own time. Therefore, we offer flexible working arrangements to allow you to have a more fulfilling life in and outside the workplace.",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "商业保险福利",
+            "evidence_quote": "可以为自己和家人选择更完善的商业保险计划，我们帮助您用最优惠的方式享受优质的保险福利。（仅适用于工作地在中国的员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "年度体检与旅游福利金",
+            "evidence_quote": "我们为员工提供各种福利。出勤补贴，携程医务室，年度体检等样样齐全，我们还为热爱旅游的您提供了旅游福利金。",
+            "evidence_url": "https://careers.ctrip.com/"
+          },
+          {
+            "tag": "生育礼金与育儿补贴",
+            "evidence_quote": "携程为孕期的员工提供每日交通补贴；在您的宝宝出生时，可申请生育礼金和生育医疗补贴；各类育儿讲座不间断；儿童节我们将为您的宝贝送上六一贺礼。（仅适用于中国大陆员工）",
+            "evidence_url": "https://careers.ctrip.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-canonical-ubuntu-7267406",
+      "category": "enterprise",
+      "title": "Beijing Office Administrator",
+      "org_name": "Canonical",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406",
+      "apply_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406",
+      "source_name": "Canonical(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-11",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:10+08:00",
+      "last_seen_at": "2026-11-18T17:49:58+08:00",
+      "content_hash": "02659258d35f24aeff8f5e469c699228ced0f96a424343b03e67ea3fe3bfa111",
+      "summary": "Canonical is a leading provider of open source software and operating systems to the global enterprise and technology markets. Our platform, Ubuntu, is very widely used in breakthrough enterprise initiatives such as public cloud, data science, AI, engineering innovation and IoT. Our customers include the world's leading public cloud and silicon providers, and industry leaders in many sectors. The company is a pionee…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "学习发展预算",
+        "带薪年假",
+        "补充医疗"
+      ],
+      "enterprise_meta": {
+        "company_id": "canonical-ubuntu",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "线下办公",
+        "department": "Operations",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "学习发展预算",
+            "evidence_quote": "Personal learning and development budget of USD 2,000 per year",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "Annual holiday leave",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "补充医疗",
+            "evidence_quote": "Pension and medical insurance",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "弹性工作",
+            "evidence_quote": "Canonical is a pioneering tech firm at the forefront of the global move to open source. As the company that publishes Ubuntu, one of the most important open source projects and the platform for AI, IoT and the cloud, we are changing the world on a daily basis. We recruit on a gl…",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "全员远程优先 (Remote-First)",
+            "evidence_quote": "Canonical has been a remote-first company since its inception in 2004.",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-canonical-ubuntu-7561124",
+      "category": "enterprise",
+      "title": "Silicon Alliances Ecosystem Development Manager - Shanghai or Beijing",
+      "org_name": "Canonical",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://job-boards.greenhouse.io/canonical/jobs/7561124",
+      "apply_url": "https://job-boards.greenhouse.io/canonical/jobs/7561124",
+      "source_name": "Canonical(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-10-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:10+08:00",
+      "last_seen_at": "2026-11-18T17:49:58+08:00",
+      "content_hash": "83e87c5393ff5054c1a0c6847bb4824eb4e57ab98c5692c60339370335d9986c",
+      "summary": "Canonical is a leading provider of open source software and operating systems to the global enterprise and technology markets. Our platform, Ubuntu, is very widely used in breakthrough enterprise initiatives such as public cloud, data science, AI, engineering innovation, and IoT. Our customers include the world's leading public cloud and silicon providers, and industry leaders in many sectors. The company is a pione…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "学习发展预算",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "canonical-ubuntu",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "线下办公",
+        "department": "Partner",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "弹性工作",
+            "evidence_quote": "Disciplined and self motivated for a remote-first workplace environment.",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7561124"
+          },
+          {
+            "tag": "学习发展预算",
+            "evidence_quote": "Personal learning and development budget of USD 2,000 per year",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7561124"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "Annual holiday leave",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7561124"
+          },
+          {
+            "tag": "全员远程优先 (Remote-First)",
+            "evidence_quote": "Canonical has been a remote-first company since its inception in 2004.",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "养老与医疗保险",
+            "evidence_quote": "Pension and medical insurance",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-canonical-ubuntu-8248986",
+      "category": "enterprise",
+      "title": "Software Quality Assurance Engineer - Linux, PC, IoT",
+      "org_name": "Canonical",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://job-boards.greenhouse.io/canonical/jobs/8248986",
+      "apply_url": "https://job-boards.greenhouse.io/canonical/jobs/8248986",
+      "source_name": "Canonical(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-10-02",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:10+08:00",
+      "last_seen_at": "2026-11-18T17:49:58+08:00",
+      "content_hash": "1e4934368c618c9d7f75482f3aa1036e149508db9d393b36b2116c568726ba21",
+      "summary": "Canonical is a growing international software company that works with the open-source community to deliver Ubuntu, “the world’s best free software platform”. The Commercial Engineering Quality Assurance (QA) team works with all the engineering teams in Canonical, OEM and ODM customers, to bring Ubuntu directly to millions of users by delivering certified Ubuntu laptop, desktop, IoT and other computing devices. As a…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "全员远程优先 (Remote-First)",
+        "养老与医疗保险",
+        "带薪年假与育儿假"
+      ],
+      "enterprise_meta": {
+        "company_id": "canonical-ubuntu",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "线下办公",
+        "department": "Devices Engineering",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "全员远程优先 (Remote-First)",
+            "evidence_quote": "Canonical has been a remote-first company since its inception in 2004.",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "养老与医疗保险",
+            "evidence_quote": "Pension and medical insurance",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "带薪年假与育儿假",
+            "evidence_quote": "Annual holiday leave",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "年度2000美元学习预算",
+            "evidence_quote": "Personal learning and development budget of USD 2,000 per year",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-canonical-ubuntu-6994398",
+      "category": "enterprise",
+      "title": "Embedded Linux Field Engineer (Mandarin speaking)",
+      "org_name": "Canonical",
+      "province": "全国/远程",
+      "city": "远程",
+      "source_url": "https://job-boards.greenhouse.io/canonical/jobs/6994398",
+      "apply_url": "https://job-boards.greenhouse.io/canonical/jobs/6994398",
+      "source_name": "Canonical(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-08-05",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:10+08:00",
+      "last_seen_at": "2026-11-18T17:49:58+08:00",
+      "content_hash": "9172bf21859c63e28afdcae80a846d373c764a5c0c0525cacf21c5e62f3d8b6a",
+      "summary": "Canonical is a leading provider of open source software and operating systems to the global enterprise and technology markets. Our platform, Ubuntu, is very widely used in breakthrough enterprise initiatives such as public cloud, data science, AI, engineering innovation, and IoT. Our customers include the world's leading public cloud and silicon providers, and industry leaders in many sectors. The company is a pione…",
+      "tags": [
+        "高福利民企",
+        "远程",
+        "弹性工作",
+        "可远程",
+        "学习发展预算",
+        "带薪年假",
+        "全员远程优先 (Remote-First)"
+      ],
+      "enterprise_meta": {
+        "company_id": "canonical-ubuntu",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "可远程",
+        "department": "Field Engineering",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "学习发展预算",
+            "evidence_quote": "Personal learning and development budget of USD 2,000 per year",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/6994398"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "Annual holiday leave",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/6994398"
+          },
+          {
+            "tag": "全员远程优先 (Remote-First)",
+            "evidence_quote": "Canonical has been a remote-first company since its inception in 2004.",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "养老与医疗保险",
+            "evidence_quote": "Pension and medical insurance",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "带薪年假与育儿假",
+            "evidence_quote": "Annual holiday leave",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-canonical-ubuntu-5560182",
+      "category": "enterprise",
+      "title": "Linux Enablement - Software Engineering Manager",
+      "org_name": "Canonical",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://job-boards.greenhouse.io/canonical/jobs/5560182",
+      "apply_url": "https://job-boards.greenhouse.io/canonical/jobs/5560182",
+      "source_name": "Canonical(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-08-05",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:10+08:00",
+      "last_seen_at": "2026-11-18T17:49:58+08:00",
+      "content_hash": "aa02eafaf3b3a9e225d1e7ae38c585206bdb65bf47ceb45f661789465590048d",
+      "summary": "Canonical's Device Delivery Team works with tier-1 OEM and ODM customers to pre-load Ubuntu Desktop and Ubuntu Core, bringing Ubuntu directly to millions of users. As a ​Software Engineering Manager​ you will lead and manage the software engineering team to deliver OEM enablement projects. This fast-paced environment requires excellent time management, deep knowledge of the Linux system​, low-level debugging, critic…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "全员远程优先 (Remote-First)",
+        "养老与医疗保险",
+        "带薪年假与育儿假"
+      ],
+      "enterprise_meta": {
+        "company_id": "canonical-ubuntu",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "线下办公",
+        "department": "Devices Engineering",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "全员远程优先 (Remote-First)",
+            "evidence_quote": "Canonical has been a remote-first company since its inception in 2004.",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "养老与医疗保险",
+            "evidence_quote": "Pension and medical insurance",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "带薪年假与育儿假",
+            "evidence_quote": "Annual holiday leave",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "年度2000美元学习预算",
+            "evidence_quote": "Personal learning and development budget of USD 2,000 per year",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-canonical-ubuntu-5660661",
+      "category": "enterprise",
+      "title": "Open Source Networking Software Engineer - ToR Switch / SmartNIC / DPU",
+      "org_name": "Canonical",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://job-boards.greenhouse.io/canonical/jobs/5660661",
+      "apply_url": "https://job-boards.greenhouse.io/canonical/jobs/5660661",
+      "source_name": "Canonical(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-08-05",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:10+08:00",
+      "last_seen_at": "2026-11-18T17:49:58+08:00",
+      "content_hash": "102cc4d8ee93aa096b33954a5cf3218e0d54b8deaeaf48f1496574c1f9ba59d9",
+      "summary": "Software has moved to play a central role in network technology. From outstanding routing implementations like Bird and FRR to overlay networking technology such as OVN/OVS and Cilium, from kernel with SwitchDev to userspace with DPDK, from P4 to OpenFlow, the relationship between network innovation and software continues to deepen. We are building teams to bring the very best open source networking software to mark…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "混合办公",
+        "学习发展预算",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "canonical-ubuntu",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "混合办公",
+        "department": "Devices Engineering",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "学习发展预算",
+            "evidence_quote": "Personal learning and development budget of USD 2,000 per year",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/5660661"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "Annual holiday leave",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/5660661"
+          },
+          {
+            "tag": "弹性工作",
+            "evidence_quote": "Canonical is a pioneering tech firm at the forefront of the global move to open source. As the company that publishes Ubuntu, one of the most important open source projects and the platform for AI, IoT and the cloud, we are changing the world every day. We recruit on a global ba…",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/5660661"
+          },
+          {
+            "tag": "全员远程优先 (Remote-First)",
+            "evidence_quote": "Canonical has been a remote-first company since its inception in 2004.",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "养老与医疗保险",
+            "evidence_quote": "Pension and medical insurance",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-canonical-ubuntu-5396437",
+      "category": "enterprise",
+      "title": "PC Platforms Kernel Engineer - Ubuntu Linux",
+      "org_name": "Canonical",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://job-boards.greenhouse.io/canonical/jobs/5396437",
+      "apply_url": "https://job-boards.greenhouse.io/canonical/jobs/5396437",
+      "source_name": "Canonical(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-08-05",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:10+08:00",
+      "last_seen_at": "2026-11-18T17:49:58+08:00",
+      "content_hash": "8984c6834da4771dc5700590c9489c6d93f90e7029b675a518bcc063c186c3f2",
+      "summary": "Are you fascinated by the chance to make a real impact on millions of Ubuntu users? We are looking for a passionate Linux kernel engineer to join our team and help us bring Ubuntu to the next generation of hardware. In this role, you will be responsible for developing and maintaining high-quality kernel support for a wide range of hardware devices. You will also work with upstream developers and driver vendors to in…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "学习发展预算",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "canonical-ubuntu",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "线下办公",
+        "department": "Devices Engineering",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "学习发展预算",
+            "evidence_quote": "Personal learning and development budget of 2,000USD per annum",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/5396437"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "Annual holiday leave",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/5396437"
+          },
+          {
+            "tag": "弹性工作",
+            "evidence_quote": "Canonical has been a remote-first company since its inception in 2004.​ Work at Canonical is a step into the future, and will challenge you to think differently, work smarter, learn new skills, and raise your game. Canonical provides a unique window into the world of 21st-centur…",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/5396437"
+          },
+          {
+            "tag": "全员远程优先 (Remote-First)",
+            "evidence_quote": "Canonical has been a remote-first company since its inception in 2004.",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "养老与医疗保险",
+            "evidence_quote": "Pension and medical insurance",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-canonical-ubuntu-5560784",
+      "category": "enterprise",
+      "title": "Software Engineer, Ubuntu Commercial Computers",
+      "org_name": "Canonical",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://job-boards.greenhouse.io/canonical/jobs/5560784",
+      "apply_url": "https://job-boards.greenhouse.io/canonical/jobs/5560784",
+      "source_name": "Canonical(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-08-05",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:10+08:00",
+      "last_seen_at": "2026-11-18T17:49:58+08:00",
+      "content_hash": "b8138b3861b46ebbbb1de91d2a65cbaa818242fa5e94ce99f2dbc64bd715480c",
+      "summary": "Role Summary Canonical's OEM Delivery Team works with tier-one OEM, IHV, and ODM customers to pre-load Ubuntu Classic, Ubuntu Core, and bring Ubuntu directly to millions of users. You will have the opportunity to enable cutting edge technology with world leading partners, and become the first contributor to the innovation. As a Software Engineer, you will be responsible for technical aspects of ensuring that Ubuntu…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "全员远程优先 (Remote-First)",
+        "养老与医疗保险",
+        "带薪年假与育儿假"
+      ],
+      "enterprise_meta": {
+        "company_id": "canonical-ubuntu",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "线下办公",
+        "department": "Devices Engineering",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "全员远程优先 (Remote-First)",
+            "evidence_quote": "Canonical has been a remote-first company since its inception in 2004.",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "养老与医疗保险",
+            "evidence_quote": "Pension and medical insurance",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "带薪年假与育儿假",
+            "evidence_quote": "Annual holiday leave",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "年度2000美元学习预算",
+            "evidence_quote": "Personal learning and development budget of USD 2,000 per year",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-canonical-ubuntu-7102393",
+      "category": "enterprise",
+      "title": "Ubuntu Enablement Engineer",
+      "org_name": "Canonical",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://job-boards.greenhouse.io/canonical/jobs/7102393",
+      "apply_url": "https://job-boards.greenhouse.io/canonical/jobs/7102393",
+      "source_name": "Canonical(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-08-05",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:10+08:00",
+      "last_seen_at": "2026-11-18T17:49:58+08:00",
+      "content_hash": "20ea5bdba9b0b911481c64da18d78ecc3ad9043e7ea0859797e54ebeb95a81bb",
+      "summary": "Canonical is a leading provider of open source software and operating systems to the global enterprise and technology markets. Our platform, Ubuntu, is very widely used in breakthrough enterprise initiatives such as public cloud, data science, AI, engineering innovation, and IoT. Our customers include the world's leading public cloud and silicon providers, and industry leaders in many sectors. The company is a pione…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "学习发展预算",
+        "带薪年假",
+        "全员远程优先 (Remote-First)"
+      ],
+      "enterprise_meta": {
+        "company_id": "canonical-ubuntu",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "线下办公",
+        "department": "Devices Engineering",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "学习发展预算",
+            "evidence_quote": "Personal learning and development budget of USD 2,000 per year",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7102393"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "Annual holiday leave",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7102393"
+          },
+          {
+            "tag": "全员远程优先 (Remote-First)",
+            "evidence_quote": "Canonical has been a remote-first company since its inception in 2004.",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "养老与医疗保险",
+            "evidence_quote": "Pension and medical insurance",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "带薪年假与育儿假",
+            "evidence_quote": "Annual holiday leave",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-canonical-ubuntu-7965671",
+      "category": "enterprise",
+      "title": "Ubuntu Linux Kernel Test Engineer",
+      "org_name": "Canonical",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://job-boards.greenhouse.io/canonical/jobs/7965671",
+      "apply_url": "https://job-boards.greenhouse.io/canonical/jobs/7965671",
+      "source_name": "Canonical(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-08-05",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:10+08:00",
+      "last_seen_at": "2026-11-18T17:49:58+08:00",
+      "content_hash": "c8f32612538e725d1c0e513be48a0359e43fbd8ebaa80d63ec61c686437f117f",
+      "summary": "Ubuntu is the most widely used Linux distribution in the world, delivering kernels across a vast matrix of versions, architectures, and configurations – with up to 15 years of security and maintenance commitments for Long Term Support (LTS) releases. Ensuring the quality and reliability of these kernels demands a dedicated, systematic approach to testing at scale. The Canonical Kernel Team is looking for a Test Engi…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "混合办公",
+        "学习发展预算",
+        "带薪年假"
+      ],
+      "enterprise_meta": {
+        "company_id": "canonical-ubuntu",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "混合办公",
+        "department": "Devices Engineering",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "学习发展预算",
+            "evidence_quote": "Personal learning and development budget of 2,000USD per annum",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7965671"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "Annual holiday leave",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7965671"
+          },
+          {
+            "tag": "弹性工作",
+            "evidence_quote": "Canonical has been a remote-first company since its inception in 2004.​ Work at Canonical is a step into the future, and will challenge you to think differently, work smarter, learn new skills, and raise your game. Canonical provides a unique window into the world of 21st-centur…",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7965671"
+          },
+          {
+            "tag": "全员远程优先 (Remote-First)",
+            "evidence_quote": "Canonical has been a remote-first company since its inception in 2004.",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          },
+          {
+            "tag": "养老与医疗保险",
+            "evidence_quote": "Pension and medical insurance",
+            "evidence_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-mongodb-inc-8352010",
+      "category": "enterprise",
+      "title": "Account Development Representative",
+      "org_name": "MongoDB",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010",
+      "apply_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010",
+      "source_name": "MongoDB(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:12+08:00",
+      "last_seen_at": "2026-11-18T17:49:59+08:00",
+      "content_hash": "e3a4994c844467af59a0da985d16e690110fb691a4ec0bae29789b363c103d36",
+      "summary": "An Account Development Representative at MongoDB is the starting point for building a serious career in technology sales. This role is the foundation of our sales organization. You will partner closely with Account Executives to identify new opportunities within strategic accounts, helping drive meaningful pipeline and long-term customer growth. From day one, you will learn and apply structured sales frameworks incl…",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "弹性工作",
+        "混合办公",
+        "带薪年假",
+        "混合办公模式"
+      ],
+      "enterprise_meta": {
+        "company_id": "mongodb-inc",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "混合办公",
+        "department": "Sales Development",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "混合办公",
+            "evidence_quote": "We believe skill development accelerates when teams collaborate in person. This is a hybrid role based in Shanghai, China.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "From employee affinity groups, to fertility assistance and a generous parental leave policy",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010"
+          },
+          {
+            "tag": "混合办公模式",
+            "evidence_quote": "This is a hybrid role based in Shanghai, China.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010"
+          },
+          {
+            "tag": "带薪育儿假与员工关怀",
+            "evidence_quote": "From employee affinity groups, to fertility assistance and a generous parental leave policy, we value our employees’ wellbeing and want to support them along every step of their professional and personal journeys.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-mongodb-inc-6740470",
+      "category": "enterprise",
+      "title": "Enterprise Account Executive, Growth",
+      "org_name": "MongoDB",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://www.mongodb.com/careers/job/?gh_jid=6740470",
+      "apply_url": "https://www.mongodb.com/careers/job/?gh_jid=6740470",
+      "source_name": "MongoDB(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:12+08:00",
+      "last_seen_at": "2026-11-18T17:49:59+08:00",
+      "content_hash": "47b7fdcad1e7827abcddcc844b6458472c825a6ad6cc845592d59dd2f5653fd6",
+      "summary": "We’re looking for a hardworking, driven individual with superb energy, passion and initiative for new business acquisition. The Enterprise Account Executive role focuses exclusively on formulating and executing a sales strategy within an assigned territory, resulting in revenue growth and new customer acquisition. We are looking to speak to candidates who are based in Beijing, Shanghai or Shenzhen for our hybrid wor…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "混合办公",
+        "带薪年假",
+        "混合办公模式"
+      ],
+      "enterprise_meta": {
+        "company_id": "mongodb-inc",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "混合办公",
+        "department": "Sales Greater China",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "混合办公",
+            "evidence_quote": "We are looking to speak to candidates who are based in Beijing, Shanghai or Shenzhen for our hybrid working model.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=6740470"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "From employee affinity groups, to fertility assistance and a generous parental leave policy",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=6740470"
+          },
+          {
+            "tag": "混合办公模式",
+            "evidence_quote": "This is a hybrid role based in Shanghai, China.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010"
+          },
+          {
+            "tag": "带薪育儿假与员工关怀",
+            "evidence_quote": "From employee affinity groups, to fertility assistance and a generous parental leave policy, we value our employees’ wellbeing and want to support them along every step of their professional and personal journeys.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-mongodb-inc-6829771",
+      "category": "enterprise",
+      "title": "Enterprise Account Manager - OEM",
+      "org_name": "MongoDB",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://www.mongodb.com/careers/job/?gh_jid=6829771",
+      "apply_url": "https://www.mongodb.com/careers/job/?gh_jid=6829771",
+      "source_name": "MongoDB(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:12+08:00",
+      "last_seen_at": "2026-11-18T17:49:59+08:00",
+      "content_hash": "39934b20a83b6423e51e04a90942bf0909679404688c6446afa6ef4e7322cc57",
+      "summary": "We are looking for innovative, experienced sales individuals with extraordinary energy, passion, and initiative to drive partner awareness and channel new business for the fastest growing database in the world, MongoDB. The Manager of Cloud Partners role owns all the sales and channels related to our MongoDB as a Service partnerships in the region. This individual will be accountable for developing a strategy to gen…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "混合办公",
+        "带薪年假",
+        "混合办公模式"
+      ],
+      "enterprise_meta": {
+        "company_id": "mongodb-inc",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "混合办公",
+        "department": "Sales Greater China",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "混合办公",
+            "evidence_quote": "We are looking to speak to candidates who are based in Shanghai, Beijing and Shenzhen for our hybrid working model.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=6829771"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "From employee affinity groups, to fertility assistance and a generous parental leave policy",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=6829771"
+          },
+          {
+            "tag": "混合办公模式",
+            "evidence_quote": "This is a hybrid role based in Shanghai, China.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010"
+          },
+          {
+            "tag": "带薪育儿假与员工关怀",
+            "evidence_quote": "From employee affinity groups, to fertility assistance and a generous parental leave policy, we value our employees’ wellbeing and want to support them along every step of their professional and personal journeys.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-mongodb-inc-8141592",
+      "category": "enterprise",
+      "title": "Principal Partner Specialist",
+      "org_name": "MongoDB",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://www.mongodb.com/careers/job/?gh_jid=8141592",
+      "apply_url": "https://www.mongodb.com/careers/job/?gh_jid=8141592",
+      "source_name": "MongoDB(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:13+08:00",
+      "last_seen_at": "2026-11-18T17:49:59+08:00",
+      "content_hash": "2fcdd97b10fdfc7d5dda433d10b1ace71ee2f7322eb82845a0246b2b848943c1",
+      "summary": "We’re looking for a hardworking, driven Partner Sales Leader with superb energy, passion and initiative to drive partner awareness and channel new business for the fastest growing database on the planet, MongoDB. The Partner Sales team focuses exclusively on formulating and executing a pipeline generation strategy through Partners within assigned territories, resulting in aggressive pipeline growth and new customer…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "混合办公",
+        "带薪年假",
+        "混合办公模式"
+      ],
+      "enterprise_meta": {
+        "company_id": "mongodb-inc",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "混合办公",
+        "department": "APAC Partner Specialists",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "混合办公",
+            "evidence_quote": "We are looking to speak to candidates who are based in Beijing for our hybrid working model.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8141592"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "From employee affinity groups, to fertility assistance and a generous parental leave policy",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8141592"
+          },
+          {
+            "tag": "混合办公模式",
+            "evidence_quote": "This is a hybrid role based in Shanghai, China.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010"
+          },
+          {
+            "tag": "带薪育儿假与员工关怀",
+            "evidence_quote": "From employee affinity groups, to fertility assistance and a generous parental leave policy, we value our employees’ wellbeing and want to support them along every step of their professional and personal journeys.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-mongodb-inc-7157100",
+      "category": "enterprise",
+      "title": "Senior Solutions Architect",
+      "org_name": "MongoDB",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://www.mongodb.com/careers/job/?gh_jid=7157100",
+      "apply_url": "https://www.mongodb.com/careers/job/?gh_jid=7157100",
+      "source_name": "MongoDB(Greenhouse)",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-16",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:13+08:00",
+      "last_seen_at": "2026-11-18T17:49:59+08:00",
+      "content_hash": "53b5e5ccf94c9a6a60d8d2c33987e46b5b893b6c2d53b37a8465b9489c80305e",
+      "summary": "MongoDB’s mission is to empower innovators to create, transform, and disrupt industries by unleashing the power of software and data. We enable organizations of all sizes to easily build, scale, and run modern applications by helping them modernize legacy workloads, embrace innovation, and unleash AI. Our industry-leading developer data platform, MongoDB Atlas, is the only globally distributed, multi-cloud database…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "混合办公",
+        "带薪年假",
+        "混合办公模式"
+      ],
+      "enterprise_meta": {
+        "company_id": "mongodb-inc",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": "Solutions Architecture, APAC",
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "混合办公",
+            "evidence_quote": "We are looking to speak to candidates who are based in Beijing for our hybrid working model.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=7157100"
+          },
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "From employee affinity groups, to fertility assistance and a generous parental leave policy",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=7157100"
+          },
+          {
+            "tag": "混合办公模式",
+            "evidence_quote": "This is a hybrid role based in Shanghai, China.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010"
+          },
+          {
+            "tag": "带薪育儿假与员工关怀",
+            "evidence_quote": "From employee affinity groups, to fertility assistance and a generous parental leave policy, we value our employees’ wellbeing and want to support them along every step of their professional and personal journeys.",
+            "evidence_url": "https://www.mongodb.com/careers/job/?gh_jid=8352010"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-emq-technologies-97",
+      "category": "enterprise",
+      "title": "ISV 渠道销售经理",
+      "org_name": "杭州映云科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://careers.emqx.com/zh/job?id=97",
+      "apply_url": "https://careers.emqx.com/zh/job?id=97",
+      "source_name": "杭州映云科技有限公司(EMQ招聘官网)",
+      "source_type": "company_official",
+      "published_at": null,
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:13+08:00",
+      "last_seen_at": "2026-11-18T17:50:00+08:00",
+      "content_hash": "f6afd7cd68c2c202f94f8617e0053c5c8b4cd53785d9087353450d13b0ae8b99",
+      "summary": "工作地点：上海/杭州/南京（可选） 薪资范围：1.2万-2万 × 12-16薪（具体业绩及公司政策调整） 岗位职责： 1、ISV 生态拓展：负责全国内重点行业 ISV（独立软件开发商及集成商）的开拓、合作签约及长期关系维护，推动公司软件产品与 ISV 的技术适配及联合解决方案落地。 2、销售目标达成：对 ISV 合作伙伴的销售业绩（订单、回款）负责，完成公司制定的年度销售任务。 3、市场洞察与策略：分析行业趋势及竞品动态，优化合作模式，制定差异化的市场策略，提升公司在ISV生态中的影响力。 4、资源整合：协调内部售前、技术团队，为 ISV 提供培训、技术支持，推动产品集成及市场推广。 5、营销活动：组织行业峰会、技术交流会等活动，提升品牌曝光，挖掘潜在合作机会。 任职要求： 1、学历背景：统招本科及以上学历，计算机、市场营销或相关专业优先。 2、行业经验： ​ - 3-5年软件行业渠道销售经验，熟悉数据库、中间件、云计算等基础…",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "弹性工作",
+        "不打卡/拒绝996",
+        "支持远程协作办公",
+        "多城市办公",
+        "上海",
+        "杭州",
+        "南京"
+      ],
+      "enterprise_meta": {
+        "company_id": "emq-technologies",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": "1.2万-2万 × 12-16薪（具体业绩及公司政策调整）",
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "不打卡/拒绝996",
+            "evidence_quote": "拒绝无意义的打卡和「996」，我们希望你高效工作，同时也要追求丰富的人生。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "支持远程协作办公",
+            "evidence_quote": "不同 Office 间通过 Github、 Zoom、Slack 和 Jira 等工具远程协作与交流，全球化的高效合作使我们始终与世界同步。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "多城市办公",
+            "evidence_quote": "无论是一线都市北京、上海、深圳，还是风景宜人的杭州、昆明，亦或是诺贝尔奖的故乡斯德哥尔摩、IT 人的梦想之地硅谷，都可以有你的一席之地。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-emq-technologies-75",
+      "category": "enterprise",
+      "title": "KA 销售",
+      "org_name": "杭州映云科技有限公司",
+      "province": "广东省",
+      "city": "深圳市",
+      "source_url": "https://careers.emqx.com/zh/job?id=75",
+      "apply_url": "https://careers.emqx.com/zh/job?id=75",
+      "source_name": "杭州映云科技有限公司(EMQ招聘官网)",
+      "source_type": "company_official",
+      "published_at": null,
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:13+08:00",
+      "last_seen_at": "2026-11-18T17:50:00+08:00",
+      "content_hash": "05b7d185854477b3cbf75c2c53ca69d9d94958fe51c07096ac35a76e0c7e3caf",
+      "summary": "工作职责： 1、对国内外企业级软件市场和 IoT&5G 市场有深刻理解与业务洞察; 2、负责车联网行业的客户拓展与销售工作及负责车联网行业渠道商的拓展与合作； 3、做好销售计划和销售过程管理，全面负责产品与服务的销售任务完成； 4、配合公司运营部门进行市场活动的策划、组织与实施。 任职资格： 1、本科及以上学历，5年以上 IT 行业销售从业经验，具备优秀的客户开发能力与沟通/公关能力； 2、具有公司实际产品的销售全链路实战经验，可以在复杂环境下达成客户满意度； 3、为人正直，具有好的心态和抗压能力，优秀的团队合作精神，敏锐的商业触觉和客户服务意识； 4、熟悉物联网、IoT 接入等相关领域知识及应用场景，有订阅制销售经验者优先； 5、负责过软件产品的汽车行业并取得优异成绩者优先； 6、有创业公司经验者优先；",
+      "tags": [
+        "高福利民企",
+        "深圳市",
+        "弹性工作",
+        "不打卡/拒绝996",
+        "支持远程协作办公",
+        "多城市办公",
+        "深圳",
+        "广州"
+      ],
+      "enterprise_meta": {
+        "company_id": "emq-technologies",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "不打卡/拒绝996",
+            "evidence_quote": "拒绝无意义的打卡和「996」，我们希望你高效工作，同时也要追求丰富的人生。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "支持远程协作办公",
+            "evidence_quote": "不同 Office 间通过 Github、 Zoom、Slack 和 Jira 等工具远程协作与交流，全球化的高效合作使我们始终与世界同步。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "多城市办公",
+            "evidence_quote": "无论是一线都市北京、上海、深圳，还是风景宜人的杭州、昆明，亦或是诺贝尔奖的故乡斯德哥尔摩、IT 人的梦想之地硅谷，都可以有你的一席之地。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-emq-technologies-74",
+      "category": "enterprise",
+      "title": "Commericial 销售",
+      "org_name": "杭州映云科技有限公司",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://careers.emqx.com/zh/job?id=74",
+      "apply_url": "https://careers.emqx.com/zh/job?id=74",
+      "source_name": "杭州映云科技有限公司(EMQ招聘官网)",
+      "source_type": "company_official",
+      "published_at": null,
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:13+08:00",
+      "last_seen_at": "2026-11-18T17:50:00+08:00",
+      "content_hash": "5783a4172b7af07968ba7099dfc1602ba10606e74d62e074eea50fa116ca93f1",
+      "summary": "岗位职责： 1、负责所辖区内客户的开发、关系维护和良好沟通； 2、负责区域内所有项目的洽谈、项目执行及回款工作； 3、负责项目初期面向客户的产品讲解与交流工作； 4、收集市场信息，制定区域内的市场和销售计划； 5、掌握竞争对手的市场动态，为公司发展提供建议。 任职要求： 1、本科学历，计算机、软件工程、通讯或相关专业毕业； 2、有3年以上销售工作经验，或有区域客户开发和维系经历； 3、具有独立客户开拓能力、公关能力、谈判能力及一定的策划能力和组织能力，具备行业渠道拓展经验优先； 4、有国内公有云厂商及公有云合作伙伴，物联网，系统集成商、或基础软件行业销售经验优先； 5、熟悉物联网，工业互联网等行业，了解物联网行业方案销售，有农业、工业、气象、水利、环保、新能源、充电桩、新零售设备等行业智能化经验； 6、性格外向， 能够短期出差，具备一定的销售技巧及销售经验，勇于挑战目标，勤奋踏实而敏锐，可以承受一定压力",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "不打卡/拒绝996",
+        "支持远程协作办公",
+        "多城市办公",
+        "北京",
+        "上海",
+        "杭州"
+      ],
+      "enterprise_meta": {
+        "company_id": "emq-technologies",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "不打卡/拒绝996",
+            "evidence_quote": "拒绝无意义的打卡和「996」，我们希望你高效工作，同时也要追求丰富的人生。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "支持远程协作办公",
+            "evidence_quote": "不同 Office 间通过 Github、 Zoom、Slack 和 Jira 等工具远程协作与交流，全球化的高效合作使我们始终与世界同步。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "多城市办公",
+            "evidence_quote": "无论是一线都市北京、上海、深圳，还是风景宜人的杭州、昆明，亦或是诺贝尔奖的故乡斯德哥尔摩、IT 人的梦想之地硅谷，都可以有你的一席之地。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-emq-technologies-99",
+      "category": "enterprise",
+      "title": "财务总监",
+      "org_name": "杭州映云科技有限公司",
+      "province": "浙江省",
+      "city": "杭州市",
+      "source_url": "https://careers.emqx.com/zh/job?id=99",
+      "apply_url": "https://careers.emqx.com/zh/job?id=99",
+      "source_name": "杭州映云科技有限公司(EMQ招聘官网)",
+      "source_type": "company_official",
+      "published_at": null,
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:13+08:00",
+      "last_seen_at": "2026-11-18T17:50:00+08:00",
+      "content_hash": "7422fdeef7425b72d772b2eedfc868b1402afc6e65880b9d4a0684a81a3caf39",
+      "summary": "岗位职责 1、财务规划与资本运作 • 制定全球财务战略，优化资金配置，支持中国及海外业务扩张； • 监控现金流、预算执行及盈利能力，为管理层提供财务决策支持； • 主导公司 IPO 筹备工作，包括财务合规性梳理、上市架构设计、财务模型搭建及与投行/审计机构的对接。 2、全球财务运营管理 • 管理中国财务团队，同时支撑美国、欧洲、日本等区域财务工作，确保多国会计准则及税务合规； • 建立标准化财务流程（如收入确认、成本核算、合并报表），推动业财一体化系统建设； • 负责跨境资金调配、外汇风险管理及本地化税务筹划。 3、团队建设与风险管控 • 搭建全球化财务团队，培养专业人才，完善内控与审计机制； • 识别业务风险（如收入波动、汇率波动），制定应急预案。 任职要求 1、行业经验 • 5 年以上软件/科技行业财务管理经验，有云计算、基础软件或 SaaS 领域背景优先； • 主导或参与过A股/港股 IPO 全流程，熟悉资本市场运作规则…",
+      "tags": [
+        "高福利民企",
+        "杭州市",
+        "弹性工作",
+        "不打卡/拒绝996",
+        "支持远程协作办公",
+        "多城市办公",
+        "杭州"
+      ],
+      "enterprise_meta": {
+        "company_id": "emq-technologies",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "不打卡/拒绝996",
+            "evidence_quote": "拒绝无意义的打卡和「996」，我们希望你高效工作，同时也要追求丰富的人生。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "支持远程协作办公",
+            "evidence_quote": "不同 Office 间通过 Github、 Zoom、Slack 和 Jira 等工具远程协作与交流，全球化的高效合作使我们始终与世界同步。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "多城市办公",
+            "evidence_quote": "无论是一线都市北京、上海、深圳，还是风景宜人的杭州、昆明，亦或是诺贝尔奖的故乡斯德哥尔摩、IT 人的梦想之地硅谷，都可以有你的一席之地。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-emq-technologies-40",
+      "category": "enterprise",
+      "title": "Cloud 技术支持工程师",
+      "org_name": "杭州映云科技有限公司",
+      "province": "上海市",
+      "city": "上海市",
+      "source_url": "https://careers.emqx.com/zh/job?id=40",
+      "apply_url": "https://careers.emqx.com/zh/job?id=40",
+      "source_name": "杭州映云科技有限公司(EMQ招聘官网)",
+      "source_type": "company_official",
+      "published_at": null,
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:13+08:00",
+      "last_seen_at": "2026-11-18T17:50:00+08:00",
+      "content_hash": "f71978a84b1cd1af963ae19d2b3be7a2e77db6228d08723cd6bbb3aea8f70eb0",
+      "summary": "经验要求： 在校/应届 / 本科及以上 / IT技术支持 / 全职 职位描述： 1、帮助客户快速接入 EMQX Cloud，包括培训、指导、问题解答和技术支持 2、对日常项目的运行进行维护，实时远程技术支持与问题分析并记录，对客户满意度负责，不断提升服务品质 3、配合销售团队提供相关的技术应答、文档交付等工作 职位要求： 1、具有基础运维能力，熟练掌握 TCP/IP 协议以及 Linux 基本操作 2、对物联网平台、企业级软件平台、企业级中间件、数据库等有较为深入了解 3、具备企业技术支持或者售后的工作经验 4、具有优秀的语言表达能力和沟通能力，具备良好的写作能力和文档编写能力 5、具备优秀的快速学习和自我激励能力 6、可以接受短期出差",
+      "tags": [
+        "高福利民企",
+        "上海市",
+        "弹性工作",
+        "不打卡/拒绝996",
+        "支持远程协作办公",
+        "多城市办公",
+        "上海",
+        "杭州"
+      ],
+      "enterprise_meta": {
+        "company_id": "emq-technologies",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "不打卡/拒绝996",
+            "evidence_quote": "拒绝无意义的打卡和「996」，我们希望你高效工作，同时也要追求丰富的人生。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "支持远程协作办公",
+            "evidence_quote": "不同 Office 间通过 Github、 Zoom、Slack 和 Jira 等工具远程协作与交流，全球化的高效合作使我们始终与世界同步。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "多城市办公",
+            "evidence_quote": "无论是一线都市北京、上海、深圳，还是风景宜人的杭州、昆明，亦或是诺贝尔奖的故乡斯德哥尔摩、IT 人的梦想之地硅谷，都可以有你的一席之地。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-emq-technologies-68",
+      "category": "enterprise",
+      "title": "Erlang 高级开发工程师",
+      "org_name": "杭州映云科技有限公司",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://careers.emqx.com/zh/job?id=68",
+      "apply_url": "https://careers.emqx.com/zh/job?id=68",
+      "source_name": "杭州映云科技有限公司(EMQ招聘官网)",
+      "source_type": "company_official",
+      "published_at": null,
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:13+08:00",
+      "last_seen_at": "2026-11-18T17:50:00+08:00",
+      "content_hash": "8183891e4b299fadb8f2c5af674b7c13af84ee0fb2ad9274c119580cd21ca873",
+      "summary": "经验要求： 经验 3-5 年 / 本科及以上 / 全职 职位描述： 1、负责 EMQX 分布式消息系统的架构设计和研发，打造低延时、高可用、高扩展的物联网消息中间件 2、参与 EMQX 开源社区，支持来自全球社区用户问题和功能需求 3、负责本地大客户项目开发支持 任职要求： 1、3 年以上 Erlang 项目开发经验，熟悉 Erlang 函数型编程方法 2、熟悉函数式编程，并发编程、分布式系统基本原理 3、熟悉常见开源项目集群架构，例如 Redis、Cassandra、Kafka 集群模式 4、熟悉网络协议栈，比如 TCP/IP 协议、MQTT 协议、HTTP 协议等 5、熟悉 Linux 环境及常用命令 6、积极乐观，责任心强，具有良好的团队沟通与协作能力 加分项： 1、使用 GitHub 并发表过原创内容或为开源项目做过贡献 2、千万级并发集群经验，理解 Netsplit 处理、Raft 或 Paxos 一致性协议 3、了…",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "不打卡/拒绝996",
+        "支持远程协作办公",
+        "多城市办公",
+        "北京",
+        "上海",
+        "杭州"
+      ],
+      "enterprise_meta": {
+        "company_id": "emq-technologies",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "不打卡/拒绝996",
+            "evidence_quote": "拒绝无意义的打卡和「996」，我们希望你高效工作，同时也要追求丰富的人生。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "支持远程协作办公",
+            "evidence_quote": "不同 Office 间通过 Github、 Zoom、Slack 和 Jira 等工具远程协作与交流，全球化的高效合作使我们始终与世界同步。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "多城市办公",
+            "evidence_quote": "无论是一线都市北京、上海、深圳，还是风景宜人的杭州、昆明，亦或是诺贝尔奖的故乡斯德哥尔摩、IT 人的梦想之地硅谷，都可以有你的一席之地。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-emq-technologies-66",
+      "category": "enterprise",
+      "title": "SaaS 软件销售",
+      "org_name": "杭州映云科技有限公司",
+      "province": "北京市",
+      "city": "北京市",
+      "source_url": "https://careers.emqx.com/zh/job?id=66",
+      "apply_url": "https://careers.emqx.com/zh/job?id=66",
+      "source_name": "杭州映云科技有限公司(EMQ招聘官网)",
+      "source_type": "company_official",
+      "published_at": null,
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:13+08:00",
+      "last_seen_at": "2026-11-18T17:50:00+08:00",
+      "content_hash": "80e47cdcf0612f666fa5a1c010860857a6a8852f7f27760f13ea562357630dee",
+      "summary": "经验要求： 经验1-3年 / 本科及以上 / 全职 职位描述： 1、负责 EMQX Cloud 产品的在线销售工作，包括在线客户的回访、沟通、报价单制作、商务合同签订及跟踪客户回款。 2、深入分析客户真实需求，为客户项目制定合理解决方案并完成相应文档编写。 3、同线下销售人员配合, 寻找战略级客户和大型客户线索并完成销售业绩。 4、维护现有存量客户，建立长期合作关系，挖掘客户的最大商业潜力。 5、配合运营部门完成在线客户线索和销售数据的统计与分析。 6、搜集与总结客户需求，与产品、研发团队配合，持续改进公司产品。 任职要求： 1、本科学历，热爱销售工作，有强烈的事业心、责任心，富有团队合作精神。 2、亲和力强，具有良好的沟通能力、语言表达能力、销售技巧及公关能力。 3、具有1年以上软件销售经验，有企业软件、物联网相关行业软硬件销售经验优先。 4、具备物联网、云等基础知识者优先。 5、计算机相关专业优先。",
+      "tags": [
+        "高福利民企",
+        "北京市",
+        "弹性工作",
+        "不打卡/拒绝996",
+        "支持远程协作办公",
+        "多城市办公",
+        "北京",
+        "上海",
+        "深圳"
+      ],
+      "enterprise_meta": {
+        "company_id": "emq-technologies",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "未明确",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "不打卡/拒绝996",
+            "evidence_quote": "拒绝无意义的打卡和「996」，我们希望你高效工作，同时也要追求丰富的人生。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "支持远程协作办公",
+            "evidence_quote": "不同 Office 间通过 Github、 Zoom、Slack 和 Jira 等工具远程协作与交流，全球化的高效合作使我们始终与世界同步。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          },
+          {
+            "tag": "多城市办公",
+            "evidence_quote": "无论是一线都市北京、上海、深圳，还是风景宜人的杭州、昆明，亦或是诺贝尔奖的故乡斯德哥尔摩、IT 人的梦想之地硅谷，都可以有你的一席之地。",
+            "evidence_url": "https://careers.emqx.com/zh"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-dify-langgenius-63588073-79b8-40a6-806a-e18c78bb8be4",
+      "category": "enterprise",
+      "title": "AI 解决方案实习生",
+      "org_name": "苏州语灵人工智能科技有限公司",
+      "province": "江苏省",
+      "city": "苏州市",
+      "source_url": "https://join.dify.ai/roles#63588073-79b8-40a6-806a-e18c78bb8be4",
+      "apply_url": "https://join.dify.ai/roles",
+      "source_name": "苏州语灵人工智能科技有限公司(Dify招聘官网)",
+      "source_type": "company_official",
+      "published_at": "2026-11-06",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:16+08:00",
+      "last_seen_at": "2026-11-18T17:50:02+08:00",
+      "content_hash": "ab782854e5c4a3bada268a3cb25cecdbcb22599c3a6b3eccf81f7c111ffdd9d0",
+      "summary": "团队概述 Dify 是开源 AI 应用开发平台，帮助开发者和企业构建、部署与迭代 AI 应用。我们的解决方案架构师与企业客户及生态伙伴合作，通过场景验证、应用演示和技术培训，帮助他们理解并应用 Dify 的产品能力。 你将与解决方案架构师一起，参与真实企业 AI 场景与生态合作项目，积累应用开发、技术验证及面向客户与伙伴的实践经验。 职位概述 作为 AI 解决方案实习生，你将主要参与场景验证及探索性技术工作，包括 AI 应用 Demo 开发、客户与伙伴培训技术支持，以及生态伙伴技术验证。 在解决方案架构师指导下，你将参与从需求梳理、应用搭建、代码开发和系统集成，到技术验证、演示与文档交付的完整过程，将明确的业务需求转化为可运行、可演示、可复用的成果。 本岗位为苏州全日制到岗实习，不限生源地，能长期连续实习者优先。 岗位职责 AI 应用 Demo 开发与演示内容制作： 跟进 Dify 产品新特性，根据明确的业务场景和需求，协助完…",
+      "tags": [
+        "高福利民企",
+        "苏州市",
+        "弹性工作",
+        "混合与远程办公",
+        "每月首个周一自主日",
+        "探索四天工作制愿景"
+      ],
+      "enterprise_meta": {
+        "company_id": "dify-langgenius",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": null,
+        "remote_policy": "线下办公",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "混合与远程办公",
+            "evidence_quote": "Hybrid policy: in-office when collaboration matters, remote when it doesn't.",
+            "evidence_url": "https://join.dify.ai/"
+          },
+          {
+            "tag": "每月首个周一自主日",
+            "evidence_quote": "The first Monday of every month belongs to you — no sprint tasks, no standups, nothing you owe anyone.",
+            "evidence_url": "https://join.dify.ai/"
+          },
+          {
+            "tag": "探索四天工作制愿景",
+            "evidence_quote": "It's also the first step toward something we've always meant to get to: a 4-day work week. We haven't forgotten.",
+            "evidence_url": "https://join.dify.ai/"
+          },
+          {
+            "tag": "补充商业保险与年度体检",
+            "evidence_quote": "身心健康支持 | Mental and Physical Health Support：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+            "evidence_url": "https://join.dify.ai/roles"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-dify-langgenius-73922442-a7ce-4b35-b95b-c8aa023e1e85",
+      "category": "enterprise",
+      "title": "解决方案工程师",
+      "org_name": "苏州语灵人工智能科技有限公司",
+      "province": "江苏省",
+      "city": "苏州市",
+      "source_url": "https://join.dify.ai/roles#73922442-a7ce-4b35-b95b-c8aa023e1e85",
+      "apply_url": "https://join.dify.ai/roles",
+      "source_name": "苏州语灵人工智能科技有限公司(Dify招聘官网)",
+      "source_type": "company_official",
+      "published_at": "2026-11-06",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:16+08:00",
+      "last_seen_at": "2026-11-18T17:50:02+08:00",
+      "content_hash": "42d5c7127e3e93223492f816b3cf634c03d80d58ac386adce22d1c1dbcd2fe9f",
+      "summary": "工作生活平衡 | Work-Life Balance ：混合工作政策 · 节日福利 · 搬家补贴 竞争力的薪酬体系 | Competitive Salary ：具市场竞争力的薪资架构 · 早期期权 身心健康支持 | Mental and Physical Health Support ：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴 学习与发展 | Learning and Development ：IDP · ¥2000/月语言学习补贴 · Duolingo English Test · Udemy 课程学习 · CliftonStrengths® 天赋优势测评指南 · 赴美英语学习资助计划 团队活动 | Team Building ：疯狂星期四 · 俱乐部 · 年度团建 · Minecraft Gaming 智能硬件与设施 | AI and Facilities ：Macbook · $…",
+      "tags": [
+        "高福利民企",
+        "苏州市",
+        "弹性工作",
+        "混合办公",
+        "补充医疗",
+        "年度体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "dify-langgenius",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": "架构 · 早期期权",
+        "remote_policy": "混合办公",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "混合办公",
+            "evidence_quote": "：混合工作政策 · 节日福利 · 搬家补贴",
+            "evidence_url": "https://join.dify.ai/roles#73922442-a7ce-4b35-b95b-c8aa023e1e85"
+          },
+          {
+            "tag": "补充医疗",
+            "evidence_quote": "：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+            "evidence_url": "https://join.dify.ai/roles#73922442-a7ce-4b35-b95b-c8aa023e1e85"
+          },
+          {
+            "tag": "年度体检",
+            "evidence_quote": "：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+            "evidence_url": "https://join.dify.ai/roles#73922442-a7ce-4b35-b95b-c8aa023e1e85"
+          },
+          {
+            "tag": "学习发展预算",
+            "evidence_quote": "：IDP · ¥2000/月语言学习补贴 · Duolingo English Test · Udemy 课程学习 · CliftonStrengths® 天赋优势测评指南 · 赴美英语学习资助计划",
+            "evidence_url": "https://join.dify.ai/roles#73922442-a7ce-4b35-b95b-c8aa023e1e85"
+          },
+          {
+            "tag": "混合与远程办公",
+            "evidence_quote": "Hybrid policy: in-office when collaboration matters, remote when it doesn't.",
+            "evidence_url": "https://join.dify.ai/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-dify-langgenius-185ca864-cf73-4422-adf7-df4bf5662de1",
+      "category": "enterprise",
+      "title": "技术销售",
+      "org_name": "苏州语灵人工智能科技有限公司",
+      "province": "江苏省",
+      "city": "苏州市",
+      "source_url": "https://join.dify.ai/roles#185ca864-cf73-4422-adf7-df4bf5662de1",
+      "apply_url": "https://join.dify.ai/roles",
+      "source_name": "苏州语灵人工智能科技有限公司(Dify招聘官网)",
+      "source_type": "company_official",
+      "published_at": "2026-11-06",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:16+08:00",
+      "last_seen_at": "2026-11-18T17:50:02+08:00",
+      "content_hash": "0119c0aef97c5c7dfbb8c3e89eaf6994e7361afd0f08af15806cea074c289e64",
+      "summary": "工作生活平衡 | Work-Life Balance ：混合工作政策 · 节日福利 · 搬家补贴 竞争力的薪酬体系 | Competitive Salary ：具市场竞争力的薪资架构 · 早期期权 身心健康支持 | Mental and Physical Health Support ：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴 学习与发展 | Learning and Development ：IDP · ¥2000/月语言学习补贴 · Duolingo English Test · Udemy 课程学习 · CliftonStrengths® 天赋优势测评指南 · 赴美英语学习资助计划 团队活动 | Team Building ：疯狂星期四 · 俱乐部 · 年度团建 · Minecraft Gaming 智能硬件与设施 | AI and Facilities ：Macbook · $…",
+      "tags": [
+        "高福利民企",
+        "苏州市",
+        "弹性工作",
+        "混合办公",
+        "补充医疗",
+        "年度体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "dify-langgenius",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": "架构 · 早期期权",
+        "remote_policy": "混合办公",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "混合办公",
+            "evidence_quote": "：混合工作政策 · 节日福利 · 搬家补贴",
+            "evidence_url": "https://join.dify.ai/roles#185ca864-cf73-4422-adf7-df4bf5662de1"
+          },
+          {
+            "tag": "补充医疗",
+            "evidence_quote": "：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+            "evidence_url": "https://join.dify.ai/roles#185ca864-cf73-4422-adf7-df4bf5662de1"
+          },
+          {
+            "tag": "年度体检",
+            "evidence_quote": "：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+            "evidence_url": "https://join.dify.ai/roles#185ca864-cf73-4422-adf7-df4bf5662de1"
+          },
+          {
+            "tag": "学习发展预算",
+            "evidence_quote": "：IDP · ¥2000/月语言学习补贴 · Duolingo English Test · Udemy 课程学习 · CliftonStrengths® 天赋优势测评指南 · 赴美英语学习资助计划",
+            "evidence_url": "https://join.dify.ai/roles#185ca864-cf73-4422-adf7-df4bf5662de1"
+          },
+          {
+            "tag": "混合与远程办公",
+            "evidence_quote": "Hybrid policy: in-office when collaboration matters, remote when it doesn't.",
+            "evidence_url": "https://join.dify.ai/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-dify-langgenius-11392631-d9e1-4893-a819-5f09d5591bd4",
+      "category": "enterprise",
+      "title": "Forward Deployed Engineer",
+      "org_name": "苏州语灵人工智能科技有限公司",
+      "province": "江苏省",
+      "city": "苏州市",
+      "source_url": "https://join.dify.ai/roles#11392631-d9e1-4893-a819-5f09d5591bd4",
+      "apply_url": "https://join.dify.ai/roles",
+      "source_name": "苏州语灵人工智能科技有限公司(Dify招聘官网)",
+      "source_type": "company_official",
+      "published_at": "2026-11-06",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:16+08:00",
+      "last_seen_at": "2026-11-18T17:50:02+08:00",
+      "content_hash": "a93495fb8630993453d42d2a3e189e66efa6a675f87bded64b4aa9e7517c4a2e",
+      "summary": "工作生活平衡 | Work-Life Balance ：混合工作政策 · 节日福利 · 搬家补贴 竞争力的薪酬体系 | Competitive Salary ：具市场竞争力的薪资架构 · 早期期权 身心健康支持 | Mental and Physical Health Support ：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴 学习与发展 | Learning and Development ：IDP · ¥2000/月语言学习补贴 · Duolingo English Test · Udemy 课程学习 · CliftonStrengths® 天赋优势测评指南 · 赴美英语学习资助计划 团队活动 | Team Building ：疯狂星期四 · 俱乐部 · 年度团建 · Minecraft Gaming 智能硬件与设施 | AI and Facilities ：Macbook · $…",
+      "tags": [
+        "高福利民企",
+        "苏州市",
+        "弹性工作",
+        "混合办公",
+        "补充医疗",
+        "年度体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "dify-langgenius",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": "架构 · 早期期权",
+        "remote_policy": "线下办公",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "混合办公",
+            "evidence_quote": "：混合工作政策 · 节日福利 · 搬家补贴",
+            "evidence_url": "https://join.dify.ai/roles#11392631-d9e1-4893-a819-5f09d5591bd4"
+          },
+          {
+            "tag": "补充医疗",
+            "evidence_quote": "：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+            "evidence_url": "https://join.dify.ai/roles#11392631-d9e1-4893-a819-5f09d5591bd4"
+          },
+          {
+            "tag": "年度体检",
+            "evidence_quote": "：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+            "evidence_url": "https://join.dify.ai/roles#11392631-d9e1-4893-a819-5f09d5591bd4"
+          },
+          {
+            "tag": "学习发展预算",
+            "evidence_quote": "：IDP · ¥2000/月语言学习补贴 · Duolingo English Test · Udemy 课程学习 · CliftonStrengths® 天赋优势测评指南 · 赴美英语学习资助计划",
+            "evidence_url": "https://join.dify.ai/roles#11392631-d9e1-4893-a819-5f09d5591bd4"
+          },
+          {
+            "tag": "混合与远程办公",
+            "evidence_quote": "Hybrid policy: in-office when collaboration matters, remote when it doesn't.",
+            "evidence_url": "https://join.dify.ai/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-dify-langgenius-2099d88f-0f92-4bf8-a78a-3cafb07feaef",
+      "category": "enterprise",
+      "title": "内容运营",
+      "org_name": "苏州语灵人工智能科技有限公司",
+      "province": "江苏省",
+      "city": "苏州市",
+      "source_url": "https://join.dify.ai/roles#2099d88f-0f92-4bf8-a78a-3cafb07feaef",
+      "apply_url": "https://join.dify.ai/roles",
+      "source_name": "苏州语灵人工智能科技有限公司(Dify招聘官网)",
+      "source_type": "company_official",
+      "published_at": "2026-11-06",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:16+08:00",
+      "last_seen_at": "2026-11-18T17:50:02+08:00",
+      "content_hash": "02408660526b92a454f68a9d3871eeefd1b6109971e034433581675083dd2705",
+      "summary": "工作生活平衡 | Work-Life Balance ：混合工作政策 · 节日福利 · 搬家补贴 竞争力的薪酬体系 | Competitive Salary ：具市场竞争力的薪资架构 · 早期期权 身心健康支持 | Mental and Physical Health Support ：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴 学习与发展 | Learning and Development ：IDP · ¥2000/月语言学习补贴 · Duolingo English Test · Udemy 课程学习 · CliftonStrengths® 天赋优势测评指南 · 赴美英语学习资助计划 团队活动 | Team Building ：疯狂星期四 · 俱乐部 · 年度团建 · Minecraft Gaming 智能硬件与设施 | AI and Facilities ：Macbook · $…",
+      "tags": [
+        "高福利民企",
+        "苏州市",
+        "弹性工作",
+        "混合办公",
+        "补充医疗",
+        "年度体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "dify-langgenius",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": "架构 · 早期期权",
+        "remote_policy": "混合办公",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "混合办公",
+            "evidence_quote": "：混合工作政策 · 节日福利 · 搬家补贴",
+            "evidence_url": "https://join.dify.ai/roles#2099d88f-0f92-4bf8-a78a-3cafb07feaef"
+          },
+          {
+            "tag": "补充医疗",
+            "evidence_quote": "：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+            "evidence_url": "https://join.dify.ai/roles#2099d88f-0f92-4bf8-a78a-3cafb07feaef"
+          },
+          {
+            "tag": "年度体检",
+            "evidence_quote": "：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+            "evidence_url": "https://join.dify.ai/roles#2099d88f-0f92-4bf8-a78a-3cafb07feaef"
+          },
+          {
+            "tag": "学习发展预算",
+            "evidence_quote": "：IDP · ¥2000/月语言学习补贴 · Duolingo English Test · Udemy 课程学习 · CliftonStrengths® 天赋优势测评指南 · 赴美英语学习资助计划",
+            "evidence_url": "https://join.dify.ai/roles#2099d88f-0f92-4bf8-a78a-3cafb07feaef"
+          },
+          {
+            "tag": "混合与远程办公",
+            "evidence_quote": "Hybrid policy: in-office when collaboration matters, remote when it doesn't.",
+            "evidence_url": "https://join.dify.ai/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-dify-langgenius-6f24d035-c10e-448b-8fa2-77617076b464",
+      "category": "enterprise",
+      "title": "产品营销负责人",
+      "org_name": "苏州语灵人工智能科技有限公司",
+      "province": "江苏省",
+      "city": "苏州市",
+      "source_url": "https://join.dify.ai/roles#6f24d035-c10e-448b-8fa2-77617076b464",
+      "apply_url": "https://join.dify.ai/roles",
+      "source_name": "苏州语灵人工智能科技有限公司(Dify招聘官网)",
+      "source_type": "company_official",
+      "published_at": "2026-11-06",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:16+08:00",
+      "last_seen_at": "2026-11-18T17:50:02+08:00",
+      "content_hash": "f4dbf21a1e781998057a8db90c21aff818a5e2c2c2b7ff521a0fbcf06408f1a6",
+      "summary": "工作生活平衡 | Work-Life Balance ：混合工作政策 · 节日福利 · 搬家补贴 竞争力的薪酬体系 | Competitive Salary ：具市场竞争力的薪资架构 · 早期期权 身心健康支持 | Mental and Physical Health Support ：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴 学习与发展 | Learning and Development ：IDP · ¥2000/月语言学习补贴 · Duolingo English Test · Udemy 课程学习 · CliftonStrengths® 天赋优势测评指南 · 赴美英语学习资助计划 团队活动 | Team Building ：疯狂星期四 · 俱乐部 · 年度团建 · Minecraft Gaming 智能硬件与设施 | AI and Facilities ：Macbook · $…",
+      "tags": [
+        "高福利民企",
+        "苏州市",
+        "弹性工作",
+        "混合办公",
+        "补充医疗",
+        "年度体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "dify-langgenius",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": "架构 · 早期期权",
+        "remote_policy": "混合办公",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "混合办公",
+            "evidence_quote": "：混合工作政策 · 节日福利 · 搬家补贴",
+            "evidence_url": "https://join.dify.ai/roles#6f24d035-c10e-448b-8fa2-77617076b464"
+          },
+          {
+            "tag": "补充医疗",
+            "evidence_quote": "：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+            "evidence_url": "https://join.dify.ai/roles#6f24d035-c10e-448b-8fa2-77617076b464"
+          },
+          {
+            "tag": "年度体检",
+            "evidence_quote": "：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+            "evidence_url": "https://join.dify.ai/roles#6f24d035-c10e-448b-8fa2-77617076b464"
+          },
+          {
+            "tag": "学习发展预算",
+            "evidence_quote": "：IDP · ¥2000/月语言学习补贴 · Duolingo English Test · Udemy 课程学习 · CliftonStrengths® 天赋优势测评指南 · 赴美英语学习资助计划",
+            "evidence_url": "https://join.dify.ai/roles#6f24d035-c10e-448b-8fa2-77617076b464"
+          },
+          {
+            "tag": "混合与远程办公",
+            "evidence_quote": "Hybrid policy: in-office when collaboration matters, remote when it doesn't.",
+            "evidence_url": "https://join.dify.ai/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-dify-langgenius-b8925633-aba4-42e9-a615-039af4364e50",
+      "category": "enterprise",
+      "title": "UI/UX 设计师",
+      "org_name": "苏州语灵人工智能科技有限公司",
+      "province": "江苏省",
+      "city": "苏州市",
+      "source_url": "https://join.dify.ai/roles#b8925633-aba4-42e9-a615-039af4364e50",
+      "apply_url": "https://join.dify.ai/roles",
+      "source_name": "苏州语灵人工智能科技有限公司(Dify招聘官网)",
+      "source_type": "company_official",
+      "published_at": "2026-11-06",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T17:48:16+08:00",
+      "last_seen_at": "2026-11-18T17:50:02+08:00",
+      "content_hash": "1ab925c7d48af063a4ec829dd487c923fbb500ad6f25808e7e60a45144b16732",
+      "summary": "工作生活平衡 | Work-Life Balance ：混合工作政策 · 节日福利 · 搬家补贴 竞争力的薪酬体系 | Competitive Salary ：具市场竞争力的薪资架构 · 早期期权 身心健康支持 | Mental and Physical Health Support ：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴 学习与发展 | Learning and Development ：IDP · ¥2000/月语言学习补贴 · Duolingo English Test · Udemy 课程学习 · CliftonStrengths® 天赋优势测评指南 · 赴美英语学习资助计划 团队活动 | Team Building ：疯狂星期四 · 俱乐部 · 年度团建 · Minecraft Gaming 智能硬件与设施 | AI and Facilities ：Macbook · $…",
+      "tags": [
+        "高福利民企",
+        "苏州市",
+        "弹性工作",
+        "可远程",
+        "混合办公",
+        "补充医疗",
+        "年度体检"
+      ],
+      "enterprise_meta": {
+        "company_id": "dify-langgenius",
+        "work_schedule": "弹性工作",
+        "work_hours": null,
+        "salary_range": "架构 · 早期期权",
+        "remote_policy": "可远程",
+        "department": null,
+        "experience_req": null,
+        "education_req": null,
+        "benefits_verified": [
+          {
+            "tag": "混合办公",
+            "evidence_quote": "：混合工作政策 · 节日福利 · 搬家补贴",
+            "evidence_url": "https://join.dify.ai/roles#b8925633-aba4-42e9-a615-039af4364e50"
+          },
+          {
+            "tag": "补充医疗",
+            "evidence_quote": "：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+            "evidence_url": "https://join.dify.ai/roles#b8925633-aba4-42e9-a615-039af4364e50"
+          },
+          {
+            "tag": "年度体检",
+            "evidence_quote": "：补充商业保险 · 疫苗接种福利 · 年度体检 · EAP · ¥500/季健身补贴",
+            "evidence_url": "https://join.dify.ai/roles#b8925633-aba4-42e9-a615-039af4364e50"
+          },
+          {
+            "tag": "学习发展预算",
+            "evidence_quote": "：IDP · ¥2000/月语言学习补贴 · Duolingo English Test · Udemy 课程学习 · CliftonStrengths® 天赋优势测评指南 · 赴美英语学习资助计划",
+            "evidence_url": "https://join.dify.ai/roles#b8925633-aba4-42e9-a615-039af4364e50"
+          },
+          {
+            "tag": "混合与远程办公",
+            "evidence_quote": "Hybrid policy: in-office when collaboration matters, remote when it doesn't.",
+            "evidence_url": "https://join.dify.ai/"
+          }
+        ]
+      }
+    }
+  ]
 }

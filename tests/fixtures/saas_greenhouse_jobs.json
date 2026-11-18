@@ -1,0 +1,40 @@
+{
+  "jobs": [
+    {
+      "id": 7267406,
+      "title": "Beijing Office Administrator",
+      "absolute_url": "https://job-boards.greenhouse.io/canonical/jobs/7267406",
+      "location": {"name": "Office Based - Beijing, China"},
+      "departments": [{"id": 1, "name": "Operations"}],
+      "updated_at": "2026-11-11T06:46:53-05:00",
+      "content": "&lt;p&gt;Location: This is an office-based role based in Beijing.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Annual holiday leave&lt;/li&gt;&lt;li&gt;Pension and medical insurance&lt;/li&gt;&lt;li&gt;Personal learning and development budget of USD 2,000 per year&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Canonical has been a remote-first company since its inception in 2004.&lt;/p&gt;"
+    },
+    {
+      "id": 6994398,
+      "title": "Embedded Linux Field Engineer (Mandarin speaking)",
+      "absolute_url": "https://job-boards.greenhouse.io/canonical/jobs/6994398",
+      "location": {"name": "Home Based - APAC"},
+      "departments": [{"id": 2, "name": "Engineering"}],
+      "updated_at": "2026-11-10T10:00:00-05:00",
+      "content": "&lt;p&gt;The candidate needs to be fluent in Mandarin and willing to travel to China regularly.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Distributed work environment with twice-yearly team sprints in person&lt;/li&gt;&lt;/ul&gt;"
+    },
+    {
+      "id": 6861186,
+      "title": "Channel Partner Sales Executive, Japan",
+      "absolute_url": "https://job-boards.greenhouse.io/canonical/jobs/6861186",
+      "location": {"name": "Home Based - APAC"},
+      "departments": [{"id": 3, "name": "Sales"}],
+      "updated_at": "2026-10-16T12:01:09-04:00",
+      "content": "&lt;p&gt;Location: Based in Tokyo, Japan.&lt;/p&gt;"
+    },
+    {
+      "id": 9999001,
+      "title": "US East Account Executive",
+      "absolute_url": "https://job-boards.greenhouse.io/canonical/jobs/9999001",
+      "location": {"name": "Home Based - Americas"},
+      "departments": [{"id": 3, "name": "Sales"}],
+      "updated_at": "2026-10-15T12:00:00-04:00",
+      "content": "&lt;p&gt;Location: United States only.&lt;/p&gt;"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "lever-cn-001",
+    "text": "Senior Distributed Systems Engineer (China Remote)",
+    "hostedUrl": "https://jobs.lever.co/exampleco/lever-cn-001",
+    "applyUrl": "https://jobs.lever.co/exampleco/lever-cn-001/apply",
+    "workplaceType": "remote",
+    "createdAt": 1794100000000,
+    "categories": {
+      "location": "Shanghai, China",
+      "department": "Engineering"
+    },
+    "descriptionPlain": "Build cloud-native database storage engines remotely with China engineering team.",
+    "lists": [
+      {
+        "text": "Benefits",
+        "content": "<ul><li>Hybrid work model/Remote work opportunities available.</li><li>Paid time off, including vacation, bereavement, and sick days.</li></ul>"
+      }
+    ],
+    "additionalPlain": "Equal opportunity employer."
+  },
+  {
+    "id": "lever-us-002",
+    "text": "US Regional Controller",
+    "hostedUrl": "https://jobs.lever.co/exampleco/lever-us-002",
+    "applyUrl": "https://jobs.lever.co/exampleco/lever-us-002/apply",
+    "workplaceType": "onsite",
+    "createdAt": 1794000000000,
+    "categories": {
+      "location": "Redwood City, CA",
+      "department": "Finance"
+    },
+    "descriptionPlain": "Must work onsite in Redwood City, California.",
+    "lists": [],
+    "additionalPlain": ""
+  }
+]

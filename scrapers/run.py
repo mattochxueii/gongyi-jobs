@@ -36,11 +36,14 @@ def select_sources(
     sources: list[dict[str, Any]],
     source_id: str | None = None,
     include_disabled: bool = False,
+    category: str | None = None,
 ) -> list[dict[str, Any]]:
-    """Filter configured sources by source_id and enabled state."""
+    """Filter configured sources by source_id, category, and enabled state."""
     selected: list[dict[str, Any]] = []
     for src in sources:
         if source_id and src.get("source_id") != source_id:
+            continue
+        if category and src.get("category") != category:
             continue
         if not include_disabled and not source_id and not src.get("enabled", False):
             continue
@@ -52,6 +55,7 @@ def run_scrapers(
     *,
     root_dir: Path = ROOT_DIR,
     source_id: str | None = None,
+    category: str | None = None,
     dry_run: bool = False,
     include_disabled: bool = False,
     max_items: int = 5,
@@ -59,7 +63,12 @@ def run_scrapers(
 ) -> list[CrawlRunSummary]:
     """Run selected source adapters and return their CrawlRunSummary objects."""
     all_sources = load_sources_config(root_dir)
-    target_sources = select_sources(all_sources, source_id=source_id, include_disabled=include_disabled)
+    target_sources = select_sources(
+        all_sources,
+        source_id=source_id,
+        include_disabled=include_disabled,
+        category=category,
+    )
 
     if source_id and not target_sources:
         raise ValueError(f"Unknown source_id: {source_id!r}")
@@ -84,6 +93,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
         dest="source_id",
         default=None,
         help="Run a specific source_id from config/sources.json (runs all enabled sources if omitted).",
+    )
+    parser.add_argument(
+        "--category",
+        choices=["public_institution", "enterprise"],
+        default=None,
+        help="Filter configured sources by category.",
     )
     parser.add_argument(
         "--dry-run",
@@ -117,6 +132,7 @@ def main(argv: list[str] | None = None) -> int:
         summaries = run_scrapers(
             root_dir=ROOT_DIR,
             source_id=args.source_id,
+            category=args.category,
             dry_run=args.dry_run,
             include_disabled=args.include_disabled,
             max_items=args.max_items,
