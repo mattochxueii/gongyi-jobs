@@ -1,0 +1,700 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  getDeadlineInfo,
+  loadSiteData,
+  SOURCE_TYPE_LABELS,
+} from '../lib/data';
+import type { BianzhiType, EducationLevel, JobItem } from '../lib/types';
+
+const data = loadSiteData();
+const publicJobs = data.jobs.filter((j) => j.category === 'public_institution');
+
+const EDU_OPTIONS: EducationLevel[] = [
+  '不限',
+  '中专/高中',
+  '大专',
+  '本科',
+  '硕士',
+  '博士',
+  '见公告',
+];
+
+const BIANZHI_OPTIONS: BianzhiType[] = [
+  '全额拨款事业编',
+  '差额补贴事业编',
+  '自收自支事业编',
+  '控制数/备案制',
+  '公开招聘(具体见公告)',
+  '未知',
+];
+
+const citySet = new Set<string>();
+for (const job of publicJobs) {
+  if (job.city) citySet.add(job.city);
+}
+const availableCities = Array.from(citySet).sort((a, b) => a.localeCompare(b, 'zh-CN'));
+
+function buildSearchText(job: JobItem): string {
+  const pm = job.public_meta;
+  return [
+    job.title,
+    job.org_name,
+    job.province,
+    job.city,
+    job.district ?? '',
+    job.summary,
+    job.source_name,
+    ...(job.tags ?? []),
+    pm?.post_code ?? '',
+    pm?.department ?? '',
+    pm?.post_level ?? '',
+    pm?.bianzhi_type ?? '',
+    pm?.education_min ?? '',
+    pm?.degree_min ?? '',
+    pm?.announcement_title ?? '',
+    pm?.exam_type ?? '',
+    pm?.apply_method ?? '',
+    pm?.other_requirements ?? '',
+    ...(pm?.majors ?? []),
+  ]
+    .join(' ')
+    .toLowerCase();
+}
+
+function getFreshGradCode(val: boolean | null | undefined): string {
+  if (val === true) return 'true';
+  if (val === false) return 'false';
+  return 'unknown';
+}
+
+function getFreshGradLabel(val: boolean | null | undefined): string {
+  if (val === true) return '仅限应届生';
+  if (val === false) return '不限应届（含往届可报）';
+  return '应届要求见公告';
+}
+
+const sortedJobs = [...publicJobs].sort((a, b) => {
+  const aExpired = a.status !== 'active' ? 1 : 0;
+  const bExpired = b.status !== 'active' ? 1 : 0;
+  if (aExpired !== bExpired) return aExpired - bExpired;
+  const da = a.deadline_at ?? '9999-12-31';
+  const db = b.deadline_at ?? '9999-12-31';
+  if (da !== db) return da.localeCompare(db);
+  return (b.published_at ?? '').localeCompare(a.published_at ?? '');
+});
+---
+
+<BaseLayout
+  title="河南省事业编公开招考专区 · 豫聘公益导航"
+  description="河南省事业编及体制内公开招考岗位汇总：支持城市、最低学历、编制类型、是否限应届与关键字多维实时筛选，高亮报名截止倒计时并直达官方原文与附件。"
+  activeNav="public"
+  isPreviewFixtures={data.isPreviewFixtures}
+  latestUpdatedAt={data.latestUpdatedAt}
+>
+  <section class="bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-7 sm:py-9">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-teal-50 text-teal-800 border border-teal-200 text-xs font-medium mb-2">
+            首期试点：河南省
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+            事业编 / 公开招考专区
+          </h1>
+          <p class="mt-1.5 text-sm text-slate-600">
+            纯前端实时多维筛选 · 报名条件、笔面试节点与附件请点击「官方公告原文」核对确认。
+          </p>
+        </div>
+        <div class="text-xs sm:text-sm text-slate-600 bg-slate-50 px-3.5 py-2 rounded-lg border border-slate-200 tabular-nums shrink-0">
+          当前库内共 <strong class="text-slate-900">{publicJobs.length}</strong> 条事业编记录
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-7 space-y-6">
+    <section
+      aria-label="多维筛选面板"
+      class="bg-white rounded-xl border border-slate-200 p-4 sm:p-5 shadow-xs space-y-4"
+    >
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <div class="sm:col-span-2 lg:col-span-2">
+          <label for="filter-q" class="block text-xs font-medium text-slate-600 mb-1">
+            关键字 / 专业 / 单位
+          </label>
+          <input
+            id="filter-q"
+            type="search"
+            placeholder="例如：计算机、会计、省直、郑州市、0101..."
+            class="w-full px-3 py-2 bg-slate-50 focus:bg-white border border-slate-200 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+          />
+        </div>
+
+        <div>
+          <label for="filter-city" class="block text-xs font-medium text-slate-600 mb-1">
+            招录城市
+          </label>
+          <select
+            id="filter-city"
+            class="w-full px-3 py-2 bg-slate-50 focus:bg-white border border-slate-200 rounded-lg text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+          >
+            <option value="">全部城市</option>
+            {availableCities.map((city) => <option value={city}>{city}</option>)}
+          </select>
+        </div>
+
+        <div>
+          <label for="filter-edu" class="block text-xs font-medium text-slate-600 mb-1">
+            最低学历要求
+          </label>
+          <select
+            id="filter-edu"
+            class="w-full px-3 py-2 bg-slate-50 focus:bg-white border border-slate-200 rounded-lg text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+          >
+            <option value="">全部学历</option>
+            {EDU_OPTIONS.map((edu) => <option value={edu}>{edu}</option>)}
+          </select>
+        </div>
+
+        <div>
+          <label for="filter-bianzhi" class="block text-xs font-medium text-slate-600 mb-1">
+            编制类型
+          </label>
+          <select
+            id="filter-bianzhi"
+            class="w-full px-3 py-2 bg-slate-50 focus:bg-white border border-slate-200 rounded-lg text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+          >
+            <option value="">全部编制类型</option>
+            {BIANZHI_OPTIONS.map((b) => <option value={b}>{b}</option>)}
+          </select>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 border-t border-slate-100">
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="flex items-center gap-2">
+            <label for="filter-fresh" class="text-xs font-medium text-slate-600 shrink-0">
+              应届要求：
+            </label>
+            <select
+              id="filter-fresh"
+              class="px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+            >
+              <option value="">全部（不限）</option>
+              <option value="true">仅限应届生</option>
+              <option value="false">非仅限应届（含往届可报）</option>
+              <option value="unknown">未标注 / 见公告</option>
+            </select>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <label for="filter-sort" class="text-xs font-medium text-slate-600 shrink-0">
+              排序：
+            </label>
+            <select
+              id="filter-sort"
+              class="px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+            >
+              <option value="deadline">临近截止优先</option>
+              <option value="published">最新发布优先</option>
+            </select>
+          </div>
+
+          <label class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-slate-700 cursor-pointer select-none">
+            <input
+              id="filter-hide-expired"
+              type="checkbox"
+              class="rounded border-slate-300 text-teal-700 focus:ring-teal-600"
+            />
+            <span>仅看未截止岗位</span>
+          </label>
+        </div>
+
+        <div class="flex items-center justify-between sm:justify-end gap-3 text-xs sm:text-sm">
+          <span class="text-slate-600 tabular-nums">
+            匹配岗位：<strong id="public-match-count" class="text-slate-900">{sortedJobs.length}</strong> 条
+          </span>
+          <button
+            id="public-reset-btn"
+            type="button"
+            class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 text-xs font-medium transition-colors cursor-pointer"
+          >
+            重置筛选
+          </button>
+        </div>
+      </div>
+    </section>
+
+    {
+      sortedJobs.length === 0 ? (
+        <section class="bg-white rounded-xl border border-slate-200 p-8 sm:p-12 text-center space-y-3">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 text-slate-500 mx-auto">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h2 class="text-lg font-semibold text-slate-900">
+            数据初始化中 · 暂无事业编公开招考岗位
+          </h2>
+          <p class="text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
+            当前 <code class="px-1 py-0.5 rounded bg-slate-100 text-xs">data/jobs.json</code> 中暂未收录事业编记录。待河南人社厅及各地市官网增量采集入库后，岗位信息与附件将自动展示在此页面。
+          </p>
+          <div class="pt-2 flex flex-wrap justify-center gap-3">
+            <a
+              href="/about"
+              class="px-4 py-2 rounded-lg bg-teal-700 hover:bg-teal-800 text-white text-sm font-medium transition-colors"
+            >
+              查看采集与纠错说明
+            </a>
+            <a
+              href="/companies"
+              class="px-4 py-2 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-700 text-sm font-medium transition-colors"
+            >
+              浏览高福利民企专区
+            </a>
+          </div>
+        </section>
+      ) : (
+        <>
+          <div id="public-jobs-list" class="space-y-4">
+            {sortedJobs.map((job) => {
+              const pm = job.public_meta;
+              const dl = getDeadlineInfo(job.deadline_at, job.status);
+              const freshCode = getFreshGradCode(pm?.fresh_grad_only);
+              const freshLabel = getFreshGradLabel(pm?.fresh_grad_only);
+              const majors = pm?.majors ?? [];
+              const attachments = pm?.attachments ?? [];
+
+              let badgeColorClass = 'bg-slate-50 text-slate-700 border-slate-200';
+              if (dl.state === 'today') {
+                badgeColorClass = 'bg-rose-50 text-rose-700 border-rose-200 font-semibold';
+              } else if (dl.state === 'upcoming' && (dl.diffDays ?? 99) <= 3) {
+                badgeColorClass = 'bg-amber-50 text-amber-800 border-amber-200 font-semibold';
+              } else if (dl.state === 'upcoming') {
+                badgeColorClass = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+              } else if (dl.state === 'expired') {
+                badgeColorClass = 'bg-slate-100 text-slate-500 border-slate-200';
+              }
+
+              return (
+                <article
+                  class="js-public-card bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-xs hover:border-slate-300 transition-colors"
+                  data-city={job.city}
+                  data-edu={pm?.education_min ?? '见公告'}
+                  data-bianzhi={pm?.bianzhi_type ?? '未知'}
+                  data-fresh={freshCode}
+                  data-deadline={job.deadline_at ?? ''}
+                  data-status={job.status}
+                  data-published={job.published_at ?? ''}
+                  data-is-expired={dl.state === 'expired' ? '1' : '0'}
+                  data-search={buildSearchText(job)}
+                >
+                  <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+                    <div class="space-y-2 min-w-0">
+                      <div class="flex flex-wrap items-center gap-1.5 text-xs">
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">
+                          {job.city}
+                          {job.district ? ` · ${job.district}` : ''}
+                        </span>
+                        <span class="px-2 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200 font-medium">
+                          {pm?.bianzhi_type ?? '公开招聘(具体见公告)'}
+                        </span>
+                        <span class="px-2 py-0.5 rounded bg-sky-50 text-sky-800 border border-sky-200 font-medium">
+                          {pm?.education_min ?? '见公告'}
+                          {pm?.degree_min ? ` (${pm.degree_min})` : ''}
+                        </span>
+                        <span
+                          class:list={[
+                            'px-2 py-0.5 rounded border font-medium',
+                            pm?.fresh_grad_only === true
+                              ? 'bg-violet-50 text-violet-800 border-violet-200'
+                              : 'bg-slate-50 text-slate-600 border-slate-200',
+                          ]}
+                        >
+                          {freshLabel}
+                        </span>
+                        {pm?.headcount && (
+                          <span class="px-2 py-0.5 rounded bg-amber-50/70 text-amber-900 border border-amber-200/80 font-medium tabular-nums">
+                            招 {pm.headcount} 人
+                          </span>
+                        )}
+                        {pm?.post_code && (
+                          <span class="px-2 py-0.5 rounded bg-slate-50 text-slate-500 border border-slate-200 font-mono">
+                            岗码 {pm.post_code}
+                          </span>
+                        )}
+                      </div>
+
+                      <div>
+                        <h2 class="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                          {job.title}
+                        </h2>
+                        <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-sm text-slate-700">
+                          <span class="font-medium">{job.org_name}</span>
+                          {pm?.department && (
+                            <span class="text-slate-500">· {pm.department}</span>
+                          )}
+                          {pm?.post_level && (
+                            <span class="text-slate-500">· {pm.post_level}</span>
+                          )}
+                        </div>
+                        {pm?.announcement_title && (
+                          <p class="mt-1 text-xs text-slate-500">
+                            所属公告：{pm.announcement_title}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div class="flex sm:flex-col items-center sm:items-end justify-between gap-2 shrink-0">
+                      <span
+                        class={`js-deadline-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs sm:text-sm border tabular-nums ${badgeColorClass}`}
+                        data-deadline={job.deadline_at ?? ''}
+                        data-status={job.status}
+                      >
+                        <span class="font-normal text-xs opacity-80">报名截止：</span>
+                        <span class="js-deadline-text font-semibold">{dl.label}</span>
+                      </span>
+                      {job.published_at && (
+                        <span class="text-xs text-slate-400 tabular-nums">
+                          发布：{job.published_at}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <p class="mt-3 text-sm text-slate-700 leading-relaxed">
+                    {job.summary}
+                  </p>
+
+                  <div class="mt-4 grid grid-cols-2 lg:grid-cols-4 gap-2.5 bg-slate-50 rounded-lg border border-slate-200/80 p-3 text-xs">
+                    <div>
+                      <div class="text-slate-400">报名开始</div>
+                      <div class="mt-0.5 font-medium text-slate-800 tabular-nums">
+                        {pm?.apply_start_at ?? '详见公告'}
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-slate-400">报名截止</div>
+                      <div class="mt-0.5 font-medium text-slate-900 tabular-nums">
+                        {job.deadline_at ?? '详见公告'}
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-slate-400">笔试时间</div>
+                      <div class="mt-0.5 font-medium text-slate-800">
+                        {pm?.written_exam_time ?? '详见公告'}
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-slate-400">面试时间</div>
+                      <div class="mt-0.5 font-medium text-slate-800">
+                        {pm?.interview_time ?? '详见公告'}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-3.5 grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-slate-600">
+                    <div class="flex flex-wrap items-center gap-1.5">
+                      <span class="text-slate-400 shrink-0">专业要求：</span>
+                      {majors.length > 0 ? (
+                        majors.map((major) => (
+                          <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">
+                            {major}
+                          </span>
+                        ))
+                      ) : (
+                        <span class="text-slate-500">详见官方公告及职位表</span>
+                      )}
+                    </div>
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 md:justify-end">
+                      {pm?.age_limit && (
+                        <span>
+                          <span class="text-slate-400">年龄：</span>
+                          {pm.age_limit}
+                        </span>
+                      )}
+                      {pm?.political_status && (
+                        <span>
+                          <span class="text-slate-400">政治面貌：</span>
+                          {pm.political_status}
+                        </span>
+                      )}
+                      {pm?.exam_type && (
+                        <span>
+                          <span class="text-slate-400">考核：</span>
+                          {pm.exam_type}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {(pm?.apply_method || pm?.other_requirements) && (
+                    <div class="mt-2.5 text-xs text-slate-600 space-y-1">
+                      {pm?.apply_method && (
+                        <div>
+                          <span class="text-slate-400">报名方式：</span>
+                          {pm.apply_method}
+                        </div>
+                      )}
+                      {pm?.other_requirements && (
+                        <div>
+                          <span class="text-slate-400">其他条件：</span>
+                          {pm.other_requirements}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {attachments.length > 0 && (
+                    <div class="mt-4 pt-3 border-t border-slate-100">
+                      <div class="text-xs font-medium text-slate-500 mb-2">
+                        官方公告附件直达（{attachments.length}）
+                      </div>
+                      <ul class="flex flex-wrap gap-2">
+                        {attachments.map((att) => (
+                          <li>
+                            <a
+                              href={att.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-50 hover:bg-teal-50 border border-slate-200 hover:border-teal-300 text-xs text-slate-700 hover:text-teal-800 transition-colors"
+                            >
+                              {att.file_type && (
+                                <span class="px-1.5 py-0.5 rounded bg-white border border-slate-200 font-mono text-[10px] uppercase text-slate-500">
+                                  {att.file_type}
+                                </span>
+                              )}
+                              <span class="break-all">{att.name}</span>
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  <div class="mt-4 pt-3 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div class="text-xs text-slate-500">
+                      来源：{job.source_name}（{SOURCE_TYPE_LABELS[job.source_type]}）
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2">
+                      {job.apply_url && (
+                        <a
+                          href={job.apply_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-teal-700 hover:bg-teal-800 text-white text-xs font-medium transition-colors"
+                        >
+                          官方报名入口 ↗
+                        </a>
+                      )}
+                      <a
+                        href={job.source_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg border border-teal-700/30 bg-teal-50/70 hover:bg-teal-100/70 text-teal-800 text-xs font-medium transition-colors"
+                      >
+                        官方公告原文 ↗
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <section
+            id="public-empty-filter"
+            class="hidden bg-white rounded-xl border border-slate-200 p-8 sm:p-10 text-center space-y-3"
+          >
+            <h2 class="text-base sm:text-lg font-semibold text-slate-900">
+              暂无匹配岗位
+            </h2>
+            <p class="text-sm text-slate-600">
+              当前筛选条件下没有找到符合条件的事业编公开招考岗位，建议放宽关键字、学历或应届生限制后重试。
+            </p>
+            <div>
+              <button
+                id="public-empty-reset-btn"
+                type="button"
+                class="px-4 py-2 rounded-lg bg-teal-700 hover:bg-teal-800 text-white text-sm font-medium transition-colors cursor-pointer"
+              >
+                清空所有筛选条件
+              </button>
+            </div>
+          </section>
+        </>
+      )
+    }
+  </div>
+
+  <script is:inline>
+    (function () {
+      var listEl = document.getElementById('public-jobs-list');
+      if (!listEl) return;
+
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.js-public-card'));
+      var qInput = document.getElementById('filter-q');
+      var citySelect = document.getElementById('filter-city');
+      var eduSelect = document.getElementById('filter-edu');
+      var bianzhiSelect = document.getElementById('filter-bianzhi');
+      var freshSelect = document.getElementById('filter-fresh');
+      var sortSelect = document.getElementById('filter-sort');
+      var hideExpiredCheck = document.getElementById('filter-hide-expired');
+      var countEl = document.getElementById('public-match-count');
+      var emptyFilterEl = document.getElementById('public-empty-filter');
+      var resetBtn = document.getElementById('public-reset-btn');
+      var emptyResetBtn = document.getElementById('public-empty-reset-btn');
+
+      // 1. Update live countdown relative to Beijing Time (UTC+8)
+      var beijingToday = new Date(Date.now() + 8 * 3600000).toISOString().slice(0, 10);
+      var todayParts = beijingToday.split('-').map(Number);
+      var todayUtc = Date.UTC(todayParts[0], todayParts[1] - 1, todayParts[2]);
+
+      cards.forEach(function (card) {
+        var status = card.getAttribute('data-status') || '';
+        var deadline = card.getAttribute('data-deadline') || '';
+        var badge = card.querySelector('.js-deadline-badge');
+        var textSpan = card.querySelector('.js-deadline-text');
+        if (!badge || !textSpan) return;
+
+        var baseClass = 'js-deadline-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs sm:text-sm border tabular-nums ';
+        if (status === 'expired' || status === 'closed') {
+          card.setAttribute('data-is-expired', '1');
+          textSpan.textContent = status === 'closed' ? '已关闭' : '已截止';
+          badge.className = baseClass + 'bg-slate-100 text-slate-500 border-slate-200';
+          return;
+        }
+
+        if (/^\d{4}-\d{2}-\d{2}$/.test(deadline)) {
+          var p = deadline.split('-').map(Number);
+          var diff = Math.round((Date.UTC(p[0], p[1] - 1, p[2]) - todayUtc) / 86400000);
+          if (diff < 0) {
+            card.setAttribute('data-is-expired', '1');
+            textSpan.textContent = '已截止';
+            badge.className = baseClass + 'bg-slate-100 text-slate-500 border-slate-200';
+          } else if (diff === 0) {
+            card.setAttribute('data-is-expired', '0');
+            textSpan.textContent = '今日截止';
+            badge.className = baseClass + 'bg-rose-50 text-rose-700 border-rose-200 font-semibold';
+          } else if (diff <= 3) {
+            card.setAttribute('data-is-expired', '0');
+            textSpan.textContent = '剩 ' + diff + ' 天';
+            badge.className = baseClass + 'bg-amber-50 text-amber-800 border-amber-200 font-semibold';
+          } else {
+            card.setAttribute('data-is-expired', '0');
+            textSpan.textContent = '剩 ' + diff + ' 天';
+            badge.className = baseClass + 'bg-emerald-50 text-emerald-700 border-emerald-200';
+          }
+        } else {
+          card.setAttribute('data-is-expired', '0');
+          textSpan.textContent = '截止时间见公告';
+          badge.className = baseClass + 'bg-slate-50 text-slate-700 border-slate-200';
+        }
+      });
+
+      function sortCards() {
+        var mode = sortSelect ? sortSelect.value : 'deadline';
+        var sorted = cards.slice().sort(function (a, b) {
+          if (mode === 'published') {
+            var pa = a.getAttribute('data-published') || '';
+            var pb = b.getAttribute('data-published') || '';
+            return pb.localeCompare(pa);
+          }
+          var ea = a.getAttribute('data-is-expired') === '1' ? 1 : 0;
+          var eb = b.getAttribute('data-is-expired') === '1' ? 1 : 0;
+          if (ea !== eb) return ea - eb;
+          var da = a.getAttribute('data-deadline') || '9999-12-31';
+          var db = b.getAttribute('data-deadline') || '9999-12-31';
+          if (da !== db) return da.localeCompare(db);
+          var pA = a.getAttribute('data-published') || '';
+          var pB = b.getAttribute('data-published') || '';
+          return pB.localeCompare(pA);
+        });
+        sorted.forEach(function (card) {
+          listEl.appendChild(card);
+        });
+      }
+
+      function applyFilters() {
+        var q = (qInput && qInput.value ? qInput.value : '').trim().toLowerCase();
+        var city = citySelect ? citySelect.value : '';
+        var edu = eduSelect ? eduSelect.value : '';
+        var bianzhi = bianzhiSelect ? bianzhiSelect.value : '';
+        var fresh = freshSelect ? freshSelect.value : '';
+        var hideExpired = hideExpiredCheck ? hideExpiredCheck.checked : false;
+
+        var visibleCount = 0;
+        cards.forEach(function (card) {
+          var match = true;
+          if (city && card.getAttribute('data-city') !== city) match = false;
+          if (match && edu && card.getAttribute('data-edu') !== edu) match = false;
+          if (match && bianzhi && card.getAttribute('data-bianzhi') !== bianzhi) match = false;
+          if (match && fresh && card.getAttribute('data-fresh') !== fresh) match = false;
+          if (match && hideExpired && card.getAttribute('data-is-expired') === '1') match = false;
+          if (match && q) {
+            var hay = card.getAttribute('data-search') || '';
+            var terms = q.split(/\s+/).filter(Boolean);
+            for (var i = 0; i < terms.length; i++) {
+              if (hay.indexOf(terms[i]) === -1) {
+                match = false;
+                break;
+              }
+            }
+          }
+
+          card.classList.toggle('hidden', !match);
+          if (match) visibleCount++;
+        });
+
+        if (countEl) countEl.textContent = String(visibleCount);
+        if (emptyFilterEl) {
+          emptyFilterEl.classList.toggle('hidden', visibleCount > 0);
+        }
+      }
+
+      function resetAll() {
+        if (qInput) qInput.value = '';
+        if (citySelect) citySelect.value = '';
+        if (eduSelect) eduSelect.value = '';
+        if (bianzhiSelect) bianzhiSelect.value = '';
+        if (freshSelect) freshSelect.value = '';
+        if (hideExpiredCheck) hideExpiredCheck.checked = false;
+        if (sortSelect) sortSelect.value = 'deadline';
+        sortCards();
+        applyFilters();
+      }
+
+      // Initialize from URL query parameters (?q=...&city=...)
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var initQ = params.get('q');
+        var initCity = params.get('city');
+        if (initQ && qInput) qInput.value = initQ;
+        if (initCity && citySelect) citySelect.value = initCity;
+      } catch (e) {}
+
+      [qInput, citySelect, eduSelect, bianzhiSelect, freshSelect, hideExpiredCheck].forEach(
+        function (el) {
+          if (!el) return;
+          el.addEventListener('input', applyFilters);
+          el.addEventListener('change', applyFilters);
+        }
+      );
+
+      if (sortSelect) {
+        sortSelect.addEventListener('change', function () {
+          sortCards();
+          applyFilters();
+        });
+      }
+      if (resetBtn) resetBtn.addEventListener('click', resetAll);
+      if (emptyResetBtn) emptyResetBtn.addEventListener('click', resetAll);
+
+      sortCards();
+      applyFilters();
+    })();
+  </script>
+</BaseLayout>

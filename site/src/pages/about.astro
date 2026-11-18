@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { formatTimestampCST, loadSiteData } from '../lib/data';
+
+const data = loadSiteData();
+const latestUpdatedText = formatTimestampCST(data.latestUpdatedAt);
+---
+
+<BaseLayout
+  title="公益说明、客观溯源原则与纠错指引 · 豫聘公益导航"
+  description="了解豫聘公益导航的非营利定位、免责声明、数据客观溯源原则，以及如何提交信息纠错或推荐高福利民营企业。"
+  activeNav="about"
+  isPreviewFixtures={data.isPreviewFixtures}
+  latestUpdatedAt={data.latestUpdatedAt}
+>
+  <section class="bg-white border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
+      <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-teal-50 text-teal-800 border border-teal-200 text-xs font-medium mb-2">
+        公开透明 · 零商业利益关联
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+        公益说明与纠错指引
+      </h1>
+      <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+        站点最近同步时间：<span class="font-medium text-slate-800 tabular-nums">{latestUpdatedText}</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+    <section class="bg-white rounded-xl border border-slate-200 p-6 shadow-xs space-y-3">
+      <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+        <span class="w-1.5 h-5 rounded-full bg-teal-600" aria-hidden="true"></span>
+        一、公益定位与免责声明
+      </h2>
+      <div class="text-sm text-slate-600 leading-relaxed space-y-2.5">
+        <p>
+          1. <strong>纯公益静态聚合</strong>：本项目为非营利开源信息导航站，采用纯静态页面托管，不设后端服务器、不收集求职者个人简历、不收取求职者或招聘单位任何费用。
+        </p>
+        <p>
+          2. <strong>信息核实责任</strong>：本站所有岗位摘要、学历要求、报名时间节点及福利标签均提取自公开官方页面或附件，仅作检索便利之用。因官方公告可能发布补充通知或临时调整时间，<strong>实际报名资格、笔面试安排及劳动待遇请一律以官方原文及最终签署的合同为准</strong>。
+        </p>
+        <p>
+          3. <strong>无培训机构关联</strong>：本站不与任何公考培训机构、商业猎头或付费内推渠道合作，请求职者谨防任何以“包过”“内部指标”为名的收费诈骗。
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-xl border border-slate-200 p-6 shadow-xs space-y-4">
+      <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+        <span class="w-1.5 h-5 rounded-full bg-sky-600" aria-hidden="true"></span>
+        二、数据客观溯源与收录原则
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+        <div class="rounded-lg bg-slate-50 border border-slate-200/80 p-4 space-y-2">
+          <h3 class="font-semibold text-slate-900">事业编专区采集规范</h3>
+          <ul class="space-y-1.5 text-xs sm:text-sm text-slate-600 list-disc pl-4">
+            <li>首期聚焦<strong>河南省</strong>省直及各地市人社局、人事考试中心、公立高校与院所官网。</li>
+            <li>每条岗位必须附带有效的官方公告原文链接（<code class="text-xs bg-white px-1 py-0.5 rounded border border-slate-200">source_url</code>）与原始附件下载链接。</li>
+            <li>超过报名截止日期的岗位会自动标记为「已截止」并按月归档，避免过期信息干扰。</li>
+          </ul>
+        </div>
+
+        <div class="rounded-lg bg-slate-50 border border-slate-200/80 p-4 space-y-2">
+          <h3 class="font-semibold text-slate-900">高福利民企白名单规范</h3>
+          <ul class="space-y-1.5 text-xs sm:text-sm text-slate-600 list-disc pl-4">
+            <li><strong>正向客观原则</strong>：只记录明确公开休假与福利制度的白名单企业，绝不设立负面“黑名单”或发布主观情绪化评价。</li>
+            <li><strong>双证据强制约束</strong>：每一条福利标签都必须附带官方招聘页/JD 逐字原文引用（<code class="text-xs bg-white px-1 py-0.5 rounded border border-slate-200">evidence_quote</code>）与可点击的溯源链接。</li>
+            <li>如企业官方已撤下或调整相关福利描述，核实后将及时更新或移出白名单。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-xl border border-slate-200 p-6 shadow-xs space-y-5">
+      <div class="space-y-2">
+        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-1.5 h-5 rounded-full bg-emerald-600" aria-hidden="true"></span>
+          三、提交信息纠错 / 推荐高福利企业
+        </h2>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          本站数据由仓库中的结构化 JSON 与校验脚本严格维护。如发现公告链接失效、截止时间有误、岗位条件勘误，或希望推荐符合「周末双休 / 弹性工作 / 做四休三」的民营企业，请按下方模板整理资料并提交至项目仓库 Issue / Pull Request（或转交仓库维护者核验入库）。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="rounded-lg border border-slate-200 p-4 flex flex-col justify-between gap-3">
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded inline-block">
+              场景 A：信息纠错与过期反馈
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">发现错误或已提前截止？</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              请注明岗位/企业名称、当前页面展示的问题字段，并附上官方最新更正公告或失效说明链接，以便维护者快速修正或下线。
+            </p>
+          </div>
+          <button
+            type="button"
+            data-template-kind="correction"
+            class="js-copy-template w-full px-3.5 py-2 rounded-lg border border-slate-200 hover:border-teal-500 hover:bg-teal-50 text-xs font-medium text-slate-700 hover:text-teal-800 transition-colors cursor-pointer"
+          >
+            复制「信息纠错」Markdown 模板
+          </button>
+        </div>
+
+        <div class="rounded-lg border border-slate-200 p-4 flex flex-col justify-between gap-3">
+          <div class="space-y-2">
+            <div class="text-xs font-semibold text-sky-800 bg-sky-50 border border-sky-200 px-2.5 py-0.5 rounded inline-block">
+              场景 B：推荐高福利企业加入白名单
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">推荐身边靠谱的良心民企？</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              为保障客观公信力，推荐<strong>必须附带企业官网或官方招聘 SaaS 页面链接</strong>，以及其中明确写明双休、工时或特色福利的<strong>原文摘录</strong>。无官方出处的口头传言暂无法收录。
+            </p>
+          </div>
+          <button
+            type="button"
+            data-template-kind="nominate"
+            class="js-copy-template w-full px-3.5 py-2 rounded-lg bg-teal-700 hover:bg-teal-800 text-xs font-medium text-white transition-colors cursor-pointer"
+          >
+            复制「推荐好企业」Markdown 模板
+          </button>
+        </div>
+      </div>
+
+      <div id="copy-feedback-toast" class="hidden rounded-lg bg-emerald-50 border border-emerald-200 px-4 py-2.5 text-xs text-emerald-800 font-medium">
+        已复制模板内容到剪贴板，可直接粘贴至 GitHub Issue 或提交记录中。
+      </div>
+
+      <div class="rounded-lg bg-slate-50 border border-slate-200 p-4 space-y-2">
+        <div class="text-xs font-semibold text-slate-700">模板预览</div>
+        <pre id="template-preview" class="text-xs text-slate-600 whitespace-pre-wrap font-mono leading-relaxed overflow-x-auto"></pre>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var templates = {
+        correction: [
+          '### [信息纠错] 岗位 / 企业名称',
+          '- **所属专区**：事业编专区 / 高福利民企专区',
+          '- **条目名称或 ID**：',
+          '- **问题描述**：（例如：报名已提前截止 / 链接 404 / 学历条件与附件不符 / 福利描述已变更）',
+          '- **官方更正依据链接**：https://...',
+          '- **补充说明**：',
+        ].join('\n'),
+        nominate: [
+          '### [推荐好企业] 企业全称',
+          '- **企业全称**：',
+          '- **所在城市与行业**：（例如：郑州市 · 软件服务）',
+          '- **休假制度**：周末双休 / 弹性工作 / 做四休三',
+          '- **官方招聘主页链接**：https://...',
+          '- **福利标签与官网原文逐字引用（必填）**：',
+          '  - 福利标签：例如“周末双休”',
+          '  - 官网原文引用：“……”',
+          '  - 原文页面链接：https://...',
+        ].join('\n'),
+      };
+
+      var previewEl = document.getElementById('template-preview');
+      var toastEl = document.getElementById('copy-feedback-toast');
+      var buttons = document.querySelectorAll('.js-copy-template');
+
+      if (previewEl) {
+        previewEl.textContent = templates.nominate;
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var kind = btn.getAttribute('data-template-kind') || 'nominate';
+          var text = templates[kind] || templates.nominate;
+          if (previewEl) previewEl.textContent = text;
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () {
+              if (toastEl) toastEl.classList.remove('hidden');
+            }).catch(function () {});
+          } else {
+            if (toastEl) toastEl.classList.remove('hidden');
+          }
+        });
+      });
+    })();
+  </script>
+</BaseLayout>

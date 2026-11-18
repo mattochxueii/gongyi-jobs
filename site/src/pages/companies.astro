@@ -1,0 +1,758 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  getDeadlineInfo,
+  loadSiteData,
+  SAAS_PLATFORM_LABELS,
+  SOURCE_TYPE_LABELS,
+} from '../lib/data';
+import type { CompanyItem, CompanyWorkSchedule, JobItem } from '../lib/types';
+
+const data = loadSiteData();
+const companies = data.companies;
+const enterpriseJobs = data.jobs.filter((j) => j.category === 'enterprise');
+
+const SCHEDULE_OPTIONS: CompanyWorkSchedule[] = [
+  '周末双休',
+  '弹性工作',
+  '做四休三',
+  '其他',
+];
+
+const citySet = new Set<string>();
+const industrySet = new Set<string>();
+const benefitSet = new Set<string>();
+
+for (const c of companies) {
+  for (const city of c.cities ?? []) {
+    if (city) citySet.add(city);
+  }
+  if (c.industry) industrySet.add(c.industry);
+  for (const claim of c.benefit_claims ?? []) {
+    if (claim.label) benefitSet.add(claim.label);
+  }
+}
+
+for (const job of enterpriseJobs) {
+  if (job.city) citySet.add(job.city);
+  for (const b of job.enterprise_meta?.benefits_verified ?? []) {
+    if (b.tag) benefitSet.add(b.tag);
+  }
+}
+
+const availableCities = Array.from(citySet).sort((a, b) => a.localeCompare(b, 'zh-CN'));
+const availableIndustries = Array.from(industrySet).sort((a, b) => a.localeCompare(b, 'zh-CN'));
+const availableBenefits = Array.from(benefitSet).sort((a, b) => a.localeCompare(b, 'zh-CN'));
+
+const jobsByCompanyId = new Map<string, JobItem[]>();
+const knownCompanyIds = new Set(companies.map((c) => c.company_id));
+const orphanJobs: JobItem[] = [];
+
+for (const job of enterpriseJobs) {
+  const cid = job.enterprise_meta?.company_id;
+  if (cid && knownCompanyIds.has(cid)) {
+    const existing = jobsByCompanyId.get(cid) ?? [];
+    existing.push(job);
+    jobsByCompanyId.set(cid, existing);
+  } else {
+    orphanJobs.push(job);
+  }
+}
+
+function buildCompanySchedules(company: CompanyItem, jobs: JobItem[]): string[] {
+  const set = new Set<string>([company.work_schedule]);
+  for (const j of jobs) {
+    if (j.enterprise_meta?.work_schedule) {
+      set.add(j.enterprise_meta.work_schedule);
+    }
+  }
+  return Array.from(set);
+}
+
+function buildCompanyCities(company: CompanyItem, jobs: JobItem[]): string[] {
+  const set = new Set<string>(company.cities ?? []);
+  for (const j of jobs) {
+    if (j.city) set.add(j.city);
+  }
+  return Array.from(set);
+}
+
+function buildCompanyBenefits(company: CompanyItem, jobs: JobItem[]): string[] {
+  const set = new Set<string>();
+  for (const claim of company.benefit_claims ?? []) {
+    if (claim.label) set.add(claim.label);
+  }
+  for (const j of jobs) {
+    for (const b of j.enterprise_meta?.benefits_verified ?? []) {
+      if (b.tag) set.add(b.tag);
+    }
+  }
+  return Array.from(set);
+}
+
+function buildCompanySearchText(company: CompanyItem, jobs: JobItem[]): string {
+  const parts: string[] = [
+    company.name,
+    ...(company.aliases ?? []),
+    company.industry,
+    ...(company.cities ?? []),
+    company.work_schedule,
+    company.notes ?? '',
+  ];
+  for (const claim of company.benefit_claims ?? []) {
+    parts.push(claim.label, claim.evidence_quote);
+  }
+  for (const j of jobs) {
+    parts.push(
+      j.title,
+      j.city,
+      j.district ?? '',
+      j.summary,
+      ...(j.tags ?? []),
+      j.enterprise_meta?.department ?? '',
+      j.enterprise_meta?.work_schedule ?? '',
+      j.enterprise_meta?.work_hours ?? '',
+      j.enterprise_meta?.remote_policy ?? '',
+    );
+    for (const b of j.enterprise_meta?.benefits_verified ?? []) {
+      parts.push(b.tag, b.evidence_quote);
+    }
+  }
+  return parts.join(' ').toLowerCase();
+}
+
+function buildJobSearchText(job: JobItem, companyName: string): string {
+  const em = job.enterprise_meta;
+  const parts: string[] = [
+    companyName,
+    job.title,
+    job.city,
+    job.district ?? '',
+    job.summary,
+    ...(job.tags ?? []),
+    em?.department ?? '',
+    em?.work_schedule ?? '',
+    em?.work_hours ?? '',
+    em?.remote_policy ?? '',
+    em?.salary_range ?? '',
+    em?.experience_req ?? '',
+    em?.education_req ?? '',
+  ];
+  for (const b of em?.benefits_verified ?? []) {
+    parts.push(b.tag, b.evidence_quote);
+  }
+  return parts.join(' ').toLowerCase();
+}
+
+const sortedCompanies = [...companies].sort((a, b) => {
+  if (a.status !== b.status) return a.status === 'active' ? -1 : 1;
+  const aj = (jobsByCompanyId.get(a.company_id) ?? []).length;
+  const bj = (jobsByCompanyId.get(b.company_id) ?? []).length;
+  if (aj !== bj) return bj - aj;
+  return a.name.localeCompare(b.name, 'zh-CN');
+});
+---
+
+<BaseLayout
+  title="高福利民营企业白名单专区 · 豫聘公益导航"
+  description="高福利民营企业白名单与在招岗位展示：支持休假制度（周末双休/弹性工作/做四休三）、城市、行业与福利标签筛选，每条福利标签均附官网原文引用与溯源链接。"
+  activeNav="companies"
+  isPreviewFixtures={data.isPreviewFixtures}
+  latestUpdatedAt={data.latestUpdatedAt}
+>
+  <section class="bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-7 sm:py-9">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-800 border border-sky-200 text-xs font-medium mb-2">
+            正向客观收录 · 每项福利均附官网原文证据
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+            高福利民企白名单专区
+          </h1>
+          <p class="mt-1.5 text-sm text-slate-600">
+            绝不发布无依据传言或情绪化黑名单 · 点击每条福利旁的「溯源链接」即可直达官方原始说明页。
+          </p>
+        </div>
+        <div class="text-xs sm:text-sm text-slate-600 bg-slate-50 px-3.5 py-2 rounded-lg border border-slate-200 tabular-nums shrink-0">
+          白名单企业 <strong class="text-slate-900">{companies.length}</strong> 家 · 在招岗位 <strong class="text-slate-900">{enterpriseJobs.length}</strong> 个
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-7 space-y-6">
+    <section
+      aria-label="民企白名单多维筛选"
+      class="bg-white rounded-xl border border-slate-200 p-4 sm:p-5 shadow-xs space-y-4"
+    >
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <div class="sm:col-span-2 lg:col-span-1">
+          <label for="comp-filter-q" class="block text-xs font-medium text-slate-600 mb-1">
+            关键字搜索
+          </label>
+          <input
+            id="comp-filter-q"
+            type="search"
+            placeholder="企业名、岗位、福利原文..."
+            class="w-full px-3 py-2 bg-slate-50 focus:bg-white border border-slate-200 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+          />
+        </div>
+
+        <div>
+          <label for="comp-filter-schedule" class="block text-xs font-medium text-slate-600 mb-1">
+            休假制度
+          </label>
+          <select
+            id="comp-filter-schedule"
+            class="w-full px-3 py-2 bg-slate-50 focus:bg-white border border-slate-200 rounded-lg text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+          >
+            <option value="">全部休假制度</option>
+            {SCHEDULE_OPTIONS.map((s) => <option value={s}>{s}</option>)}
+          </select>
+        </div>
+
+        <div>
+          <label for="comp-filter-city" class="block text-xs font-medium text-slate-600 mb-1">
+            办公城市
+          </label>
+          <select
+            id="comp-filter-city"
+            class="w-full px-3 py-2 bg-slate-50 focus:bg-white border border-slate-200 rounded-lg text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+          >
+            <option value="">全部城市</option>
+            {availableCities.map((c) => <option value={c}>{c}</option>)}
+          </select>
+        </div>
+
+        <div>
+          <label for="comp-filter-industry" class="block text-xs font-medium text-slate-600 mb-1">
+            所属行业
+          </label>
+          <select
+            id="comp-filter-industry"
+            class="w-full px-3 py-2 bg-slate-50 focus:bg-white border border-slate-200 rounded-lg text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+          >
+            <option value="">全部行业</option>
+            {availableIndustries.map((ind) => <option value={ind}>{ind}</option>)}
+          </select>
+        </div>
+
+        <div>
+          <label for="comp-filter-benefit" class="block text-xs font-medium text-slate-600 mb-1">
+            已核验福利标签
+          </label>
+          <select
+            id="comp-filter-benefit"
+            class="w-full px-3 py-2 bg-slate-50 focus:bg-white border border-slate-200 rounded-lg text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+          >
+            <option value="">全部福利标签</option>
+            {availableBenefits.map((tag) => <option value={tag}>{tag}</option>)}
+          </select>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 border-t border-slate-100 text-xs sm:text-sm">
+        <div class="text-slate-600 tabular-nums">
+          匹配白名单企业：<strong id="comp-match-count" class="text-slate-900">{sortedCompanies.length}</strong> 家
+          <span class="mx-1.5 text-slate-300">|</span>
+          关联在招岗位：<strong id="comp-job-match-count" class="text-slate-900">{enterpriseJobs.length}</strong> 个
+        </div>
+        <button
+          id="comp-reset-btn"
+          type="button"
+          class="self-start sm:self-auto px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 text-xs font-medium transition-colors cursor-pointer"
+        >
+          重置筛选
+        </button>
+      </div>
+    </section>
+
+    {
+      sortedCompanies.length === 0 && orphanJobs.length === 0 ? (
+        <section class="bg-white rounded-xl border border-slate-200 p-8 sm:p-12 text-center space-y-3">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 text-slate-500 mx-auto">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <h2 class="text-lg font-semibold text-slate-900">
+            数据初始化中 · 暂无高福利民企白名单记录
+          </h2>
+          <p class="text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
+            当前 <code class="px-1 py-0.5 rounded bg-slate-100 text-xs">data/companies.json</code> 暂为空数组。所有拟入库企业均需经官网招聘原文引用与来源链接双重核验。如果您了解符合双休或高福利标准的企业，欢迎前往公益说明页提交推荐线索。
+          </p>
+          <div class="pt-2 flex flex-wrap justify-center gap-3">
+            <a
+              href="/about"
+              class="px-4 py-2 rounded-lg bg-teal-700 hover:bg-teal-800 text-white text-sm font-medium transition-colors"
+            >
+              推荐好企业 / 提交纠错
+            </a>
+            <a
+              href="/public"
+              class="px-4 py-2 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-700 text-sm font-medium transition-colors"
+            >
+              浏览事业编专区
+            </a>
+          </div>
+        </section>
+      ) : (
+        <>
+          <div id="companies-list" class="space-y-6">
+            {sortedCompanies.map((company) => {
+              const jobs = jobsByCompanyId.get(company.company_id) ?? [];
+              const schedules = buildCompanySchedules(company, jobs);
+              const cities = buildCompanyCities(company, jobs);
+              const benefits = buildCompanyBenefits(company, jobs);
+
+              return (
+                <article
+                  class="js-company-card bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-xs space-y-5"
+                  data-schedules={JSON.stringify(schedules)}
+                  data-cities={JSON.stringify(cities)}
+                  data-industry={company.industry}
+                  data-benefits={JSON.stringify(benefits)}
+                  data-search={buildCompanySearchText(company, jobs)}
+                >
+                  <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-slate-100">
+                    <div class="space-y-2">
+                      <div class="flex flex-wrap items-center gap-2">
+                        <span class="px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-800 border border-sky-200 text-xs font-semibold">
+                          {company.work_schedule}
+                        </span>
+                        <span class="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">
+                          {company.industry}
+                        </span>
+                        <span class="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 text-xs">
+                          {company.cities.join(' · ')}
+                        </span>
+                        <span class="px-2 py-0.5 rounded-md bg-slate-50 text-slate-500 border border-slate-200 text-xs">
+                          {SAAS_PLATFORM_LABELS[company.saas_platform]}
+                        </span>
+                        {company.status === 'paused' && (
+                          <span class="px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200 text-xs">
+                            暂停采集更新
+                          </span>
+                        )}
+                      </div>
+
+                      <div>
+                        <h2 class="text-xl font-bold text-slate-900">
+                          {company.name}
+                        </h2>
+                        {company.aliases && company.aliases.length > 0 && (
+                          <p class="mt-0.5 text-xs text-slate-500">
+                            常用简称：{company.aliases.join(' / ')}
+                          </p>
+                        )}
+                      </div>
+                      {company.notes && (
+                        <p class="text-xs text-slate-500">{company.notes}</p>
+                      )}
+                    </div>
+
+                    <div class="shrink-0">
+                      <a
+                        href={company.career_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium transition-colors"
+                      >
+                        企业官方招聘主页 ↗
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="space-y-2.5">
+                    <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      官网福利核验与原文证据（{company.benefit_claims.length} 项）
+                    </h3>
+                    <div class="grid grid-cols-1 gap-2.5">
+                      {company.benefit_claims.map((claim) => (
+                        <div class="rounded-lg bg-emerald-50/40 border border-emerald-200/80 p-3 sm:p-3.5 flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+                          <div class="space-y-1.5 min-w-0">
+                            <div class="flex flex-wrap items-center gap-2">
+                              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-100/80 text-emerald-900 text-xs font-semibold">
+                                <span aria-hidden="true">✓</span>
+                                {claim.label}
+                              </span>
+                              <span class="text-xs text-slate-500 tabular-nums">
+                                核验于 {claim.verified_at}
+                              </span>
+                            </div>
+                            <blockquote class="text-xs sm:text-sm text-slate-700 leading-relaxed border-l-2 border-emerald-400 pl-2.5">
+                              “{claim.evidence_quote}”
+                            </blockquote>
+                          </div>
+                          <a
+                            href={claim.evidence_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="shrink-0 self-start inline-flex items-center gap-1 px-2.5 py-1.5 rounded-md bg-white hover:bg-emerald-50 border border-emerald-300/80 text-emerald-800 text-xs font-medium transition-colors"
+                          >
+                            原文溯源链接 ↗
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div class="space-y-3 pt-2">
+                    <div class="flex items-center justify-between">
+                      <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                        关联在招岗位明细（{jobs.length}）
+                      </h3>
+                    </div>
+
+                    {jobs.length === 0 ? (
+                      <div class="rounded-lg bg-slate-50 border border-slate-200/80 px-4 py-3 text-xs text-slate-600">
+                        当前暂未自动同步到该企业的具体细分职位卡片，请直接点击上方「企业官方招聘主页」浏览实时岗位列表。
+                      </div>
+                    ) : (
+                      <div class="space-y-3">
+                        {jobs.map((job) => {
+                          const em = job.enterprise_meta;
+                          const dl = job.deadline_at
+                            ? getDeadlineInfo(job.deadline_at, job.status)
+                            : null;
+                          const jobBenefitTags = (em?.benefits_verified ?? []).map((b) => b.tag);
+                          return (
+                            <div
+                              class="js-enterprise-job rounded-lg bg-slate-50/70 border border-slate-200 p-4 space-y-3"
+                              data-city={job.city}
+                              data-schedule={em?.work_schedule ?? company.work_schedule}
+                              data-benefits={JSON.stringify(jobBenefitTags)}
+                              data-search={buildJobSearchText(job, company.name)}
+                            >
+                              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                                <div>
+                                  <div class="flex flex-wrap items-center gap-1.5 text-xs mb-1">
+                                    <span class="px-2 py-0.5 rounded bg-white border border-slate-200 text-slate-700 font-medium">
+                                      {job.city}
+                                      {job.district ? ` · ${job.district}` : ''}
+                                    </span>
+                                    {em?.work_schedule && (
+                                      <span class="px-2 py-0.5 rounded bg-sky-50 border border-sky-200 text-sky-800 font-medium">
+                                        {em.work_schedule}
+                                      </span>
+                                    )}
+                                    {em?.remote_policy && (
+                                      <span class="px-2 py-0.5 rounded bg-white border border-slate-200 text-slate-600">
+                                        {em.remote_policy}
+                                      </span>
+                                    )}
+                                    {em?.salary_range && (
+                                      <span class="px-2 py-0.5 rounded bg-amber-50 border border-amber-200 text-amber-900 font-medium tabular-nums">
+                                        {em.salary_range}
+                                      </span>
+                                    )}
+                                  </div>
+                                  <h4 class="text-base font-bold text-slate-900">
+                                    {job.title}
+                                  </h4>
+                                  <div class="mt-0.5 flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-slate-500">
+                                    {em?.department && <span>部门：{em.department}</span>}
+                                    {em?.experience_req && <span>经验：{em.experience_req}</span>}
+                                    {em?.education_req && <span>学历：{em.education_req}</span>}
+                                    {em?.work_hours && <span>工时：{em.work_hours}</span>}
+                                  </div>
+                                </div>
+
+                                <div class="flex flex-wrap items-center gap-2 shrink-0">
+                                  {dl && (
+                                    <span class="px-2 py-0.5 rounded bg-white border border-slate-200 text-xs text-slate-600 tabular-nums">
+                                      截止：{job.deadline_at}（{dl.label}）
+                                    </span>
+                                  )}
+                                  <span class="text-xs text-slate-400">
+                                    {SOURCE_TYPE_LABELS[job.source_type]}
+                                  </span>
+                                </div>
+                              </div>
+
+                              <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                                {job.summary}
+                              </p>
+
+                              {em && em.benefits_verified.length > 0 && (
+                                <div class="space-y-2">
+                                  <div class="text-xs font-medium text-slate-500">
+                                    岗位 JD 福利标签与原文引用：
+                                  </div>
+                                  <div class="space-y-2">
+                                    {em.benefits_verified.map((b) => {
+                                      const evUrl = b.evidence_url ?? job.source_url;
+                                      return (
+                                        <div class="rounded-md bg-white border border-slate-200 p-2.5 flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                                          <div class="space-y-1 min-w-0">
+                                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200 text-xs font-semibold">
+                                              <span aria-hidden="true">✓</span>
+                                              {b.tag}
+                                            </span>
+                                            <p class="text-xs text-slate-600 leading-relaxed">
+                                              原文引用：“{b.evidence_quote}”
+                                            </p>
+                                          </div>
+                                          <a
+                                            href={evUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="shrink-0 self-start text-xs font-medium text-teal-700 hover:text-teal-800 underline underline-offset-2"
+                                          >
+                                            {b.evidence_url ? '证据溯源 ↗' : '岗位原文 ↗'}
+                                          </a>
+                                        </div>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+                              )}
+
+                              <div class="pt-2 border-t border-slate-200/70 flex flex-wrap items-center justify-between gap-2">
+                                <span class="text-xs text-slate-500">
+                                  来源：{job.source_name}
+                                </span>
+                                <div class="flex flex-wrap gap-2">
+                                  {job.apply_url && (
+                                    <a
+                                      href={job.apply_url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      class="px-3 py-1.5 rounded-md bg-teal-700 hover:bg-teal-800 text-white text-xs font-medium transition-colors"
+                                    >
+                                      官方投递入口 ↗
+                                    </a>
+                                  )}
+                                  <a
+                                    href={job.source_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="px-3 py-1.5 rounded-md bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium transition-colors"
+                                  >
+                                    查看岗位原文 ↗
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <section
+            id="companies-empty-filter"
+            class="hidden bg-white rounded-xl border border-slate-200 p-8 sm:p-10 text-center space-y-3"
+          >
+            <h2 class="text-base sm:text-lg font-semibold text-slate-900">
+              暂无匹配的白名单企业或岗位
+            </h2>
+            <p class="text-sm text-slate-600">
+              当前筛选条件下没有找到符合要求的企业或福利标签，可尝试放宽休假制度、城市或关键字限制。
+            </p>
+            <div>
+              <button
+                id="comp-empty-reset-btn"
+                type="button"
+                class="px-4 py-2 rounded-lg bg-teal-700 hover:bg-teal-800 text-white text-sm font-medium transition-colors cursor-pointer"
+              >
+                清空所有筛选条件
+              </button>
+            </div>
+          </section>
+
+          {orphanJobs.length > 0 && (
+            <section class="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-xs space-y-4">
+              <h2 class="text-base font-bold text-slate-900">
+                其他已核验在招企业岗位（{orphanJobs.length}）
+              </h2>
+              <div class="space-y-3">
+                {orphanJobs.map((job) => {
+                  const em = job.enterprise_meta;
+                  return (
+                    <div class="rounded-lg bg-slate-50 border border-slate-200 p-4 space-y-2.5">
+                      <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                          <h3 class="text-base font-bold text-slate-900">{job.title}</h3>
+                          <div class="text-xs text-slate-600">
+                            {job.org_name} · {job.city}
+                            {em?.work_schedule ? ` · ${em.work_schedule}` : ''}
+                          </div>
+                        </div>
+                        <a
+                          href={job.source_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-xs font-medium text-slate-700 hover:bg-slate-100"
+                        >
+                          查看岗位原文 ↗
+                        </a>
+                      </div>
+                      <p class="text-xs sm:text-sm text-slate-700">{job.summary}</p>
+                      {em && em.benefits_verified.length > 0 && (
+                        <div class="space-y-1.5">
+                          {em.benefits_verified.map((b) => (
+                            <div class="rounded bg-white border border-slate-200 p-2 text-xs flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                              <div>
+                                <span class="font-semibold text-teal-800">✓ {b.tag}</span>
+                                <span class="text-slate-600 ml-2">“{b.evidence_quote}”</span>
+                              </div>
+                              <a
+                                href={b.evidence_url ?? job.source_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-teal-700 underline shrink-0"
+                              >
+                                证据溯源 ↗
+                              </a>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+        </>
+      )
+    }
+  </div>
+
+  <script is:inline>
+    (function () {
+      var listEl = document.getElementById('companies-list');
+      if (!listEl) return;
+
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.js-company-card'));
+      var qInput = document.getElementById('comp-filter-q');
+      var scheduleSelect = document.getElementById('comp-filter-schedule');
+      var citySelect = document.getElementById('comp-filter-city');
+      var industrySelect = document.getElementById('comp-filter-industry');
+      var benefitSelect = document.getElementById('comp-filter-benefit');
+      var countEl = document.getElementById('comp-match-count');
+      var jobCountEl = document.getElementById('comp-job-match-count');
+      var emptyFilterEl = document.getElementById('companies-empty-filter');
+      var resetBtn = document.getElementById('comp-reset-btn');
+      var emptyResetBtn = document.getElementById('comp-empty-reset-btn');
+
+      function parseListAttr(el, name) {
+        try {
+          var raw = el.getAttribute(name);
+          return raw ? JSON.parse(raw) : [];
+        } catch (e) {
+          return [];
+        }
+      }
+
+      function matchesTerms(hay, terms) {
+        for (var i = 0; i < terms.length; i++) {
+          if (hay.indexOf(terms[i]) === -1) return false;
+        }
+        return true;
+      }
+
+      function applyFilters() {
+        var q = (qInput && qInput.value ? qInput.value : '').trim().toLowerCase();
+        var terms = q ? q.split(/\s+/).filter(Boolean) : [];
+        var schedule = scheduleSelect ? scheduleSelect.value : '';
+        var city = citySelect ? citySelect.value : '';
+        var industry = industrySelect ? industrySelect.value : '';
+        var benefit = benefitSelect ? benefitSelect.value : '';
+
+        var visibleCompanies = 0;
+        var visibleJobs = 0;
+
+        cards.forEach(function (card) {
+          var schedules = parseListAttr(card, 'data-schedules');
+          var cities = parseListAttr(card, 'data-cities');
+          var benefits = parseListAttr(card, 'data-benefits');
+          var cardIndustry = card.getAttribute('data-industry') || '';
+          var cardSearch = card.getAttribute('data-search') || '';
+
+          var match = true;
+          if (schedule && schedules.indexOf(schedule) === -1) match = false;
+          if (match && city && cities.indexOf(city) === -1) match = false;
+          if (match && industry && cardIndustry !== industry) match = false;
+          if (match && benefit && benefits.indexOf(benefit) === -1) match = false;
+          if (match && terms.length > 0 && !matchesTerms(cardSearch, terms)) match = false;
+
+          card.classList.toggle('hidden', !match);
+
+          if (match) {
+            visibleCompanies++;
+            var jobEls = Array.prototype.slice.call(card.querySelectorAll('.js-enterprise-job'));
+            jobEls.forEach(function (jobEl) {
+              var jobCity = jobEl.getAttribute('data-city') || '';
+              var jobSchedule = jobEl.getAttribute('data-schedule') || '';
+              var jobBenefits = parseListAttr(jobEl, 'data-benefits');
+              var jobSearch = jobEl.getAttribute('data-search') || '';
+
+              var jobMatch = true;
+              if (city && jobCity !== city) jobMatch = false;
+              if (jobMatch && schedule && jobSchedule !== schedule) jobMatch = false;
+              if (jobMatch && benefit && jobBenefits.indexOf(benefit) === -1) {
+                // If company-level claim matched the benefit, keep job visible unless another job-specific filter excluded it
+                if (benefits.indexOf(benefit) === -1) jobMatch = false;
+              }
+              if (jobMatch && terms.length > 0 && !matchesTerms(jobSearch, terms)) {
+                // If keyword matched company metadata (not specific job), still show jobs under matched company
+                jobMatch = true;
+              }
+
+              jobEl.classList.toggle('hidden', !jobMatch);
+              if (jobMatch) visibleJobs++;
+            });
+          } else {
+            var hiddenJobs = card.querySelectorAll('.js-enterprise-job');
+            hiddenJobs.forEach(function (j) {
+              j.classList.add('hidden');
+            });
+          }
+        });
+
+        if (countEl) countEl.textContent = String(visibleCompanies);
+        if (jobCountEl) jobCountEl.textContent = String(visibleJobs);
+        if (emptyFilterEl) {
+          emptyFilterEl.classList.toggle('hidden', visibleCompanies > 0);
+        }
+      }
+
+      function resetAll() {
+        if (qInput) qInput.value = '';
+        if (scheduleSelect) scheduleSelect.value = '';
+        if (citySelect) citySelect.value = '';
+        if (industrySelect) industrySelect.value = '';
+        if (benefitSelect) benefitSelect.value = '';
+        applyFilters();
+      }
+
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var initQ = params.get('q');
+        var initSchedule = params.get('schedule');
+        if (initQ && qInput) qInput.value = initQ;
+        if (initSchedule && scheduleSelect) scheduleSelect.value = initSchedule;
+      } catch (e) {}
+
+      [qInput, scheduleSelect, citySelect, industrySelect, benefitSelect].forEach(
+        function (el) {
+          if (!el) return;
+          el.addEventListener('input', applyFilters);
+          el.addEventListener('change', applyFilters);
+        }
+      );
+
+      if (resetBtn) resetBtn.addEventListener('click', resetAll);
+      if (emptyResetBtn) emptyResetBtn.addEventListener('click', resetAll);
+
+      applyFilters();
+    })();
+  </script>
+</BaseLayout>

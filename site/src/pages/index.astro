@@ -1,0 +1,399 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  formatTimestampCST,
+  getDeadlineInfo,
+  loadSiteData,
+} from '../lib/data';
+
+const data = loadSiteData();
+const publicJobs = data.jobs.filter((j) => j.category === 'public_institution');
+const enterpriseJobs = data.jobs.filter((j) => j.category === 'enterprise');
+const activePublicJobs = publicJobs.filter((j) => j.status === 'active');
+const activeCompanies = data.companies.filter((c) => c.status === 'active');
+const activeEnterpriseJobs = enterpriseJobs.filter((j) => j.status === 'active');
+
+const isCompletelyEmpty = data.jobs.length === 0 && data.companies.length === 0;
+const latestUpdatedText = formatTimestampCST(data.latestUpdatedAt);
+
+const previewPublicJobs = [...activePublicJobs]
+  .sort((a, b) => {
+    const da = a.deadline_at ?? '9999-12-31';
+    const db = b.deadline_at ?? '9999-12-31';
+    return da.localeCompare(db);
+  })
+  .slice(0, 3);
+
+const previewCompanies = activeCompanies.slice(0, 3);
+---
+
+<BaseLayout
+  title="豫聘公益导航 · 河南事业编公开招考与高福利民企白名单"
+  activeNav="home"
+  isPreviewFixtures={data.isPreviewFixtures}
+  latestUpdatedAt={data.latestUpdatedAt}
+>
+  <section class="bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-medium mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-teal-600" aria-hidden="true"></span>
+          纯公益 · 纯静态零后端 · 官方直链溯源
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight leading-snug">
+          公开、可溯源的招聘信息导航
+        </h1>
+        <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
+          本项目是一个开源、非营利的静态招聘聚合站点，专注于两件事：
+          <strong class="font-semibold text-slate-800">河南省事业编/体制内公开招考信息汇总</strong>（直链人社官网与岗位表附件），以及
+          <strong class="font-semibold text-slate-800">高福利民营企业白名单</strong>（只做正向客观收录，每一条双休或福利标签均附官方原文引用与来源链接）。
+        </p>
+
+        <form
+          id="home-quick-search"
+          action="/public"
+          method="get"
+          class="mt-7 bg-slate-50 p-2 sm:p-2.5 rounded-xl border border-slate-200 shadow-xs"
+        >
+          <div class="flex flex-col sm:flex-row gap-2">
+            <label for="home-q" class="sr-only">搜索岗位、专业、城市或企业</label>
+            <input
+              id="home-q"
+              name="q"
+              type="search"
+              placeholder="输入关键字：如 郑州、计算机、全额、双休、胖东来..."
+              class="flex-1 min-w-0 px-3.5 py-2.5 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+            />
+            <div class="flex items-center gap-2">
+              <label for="home-target" class="sr-only">选择搜索专区</label>
+              <select
+                id="home-target"
+                class="px-3 py-2.5 bg-white border border-slate-200 rounded-lg text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+              >
+                <option value="/public">搜事业编专区</option>
+                <option value="/companies">搜高福利民企</option>
+              </select>
+              <button
+                type="submit"
+                class="px-5 py-2.5 rounded-lg bg-teal-700 hover:bg-teal-800 text-white text-sm font-medium transition-colors shrink-0 cursor-pointer"
+              >
+                快速检索
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <a
+          href="/public"
+          class="group p-4 sm:p-5 rounded-xl bg-slate-50/80 hover:bg-white border border-slate-200 hover:border-teal-300 transition-all"
+        >
+          <div class="text-xs font-medium text-slate-500 flex items-center justify-between">
+            <span>活跃事业编岗位（河南试点）</span>
+            <span class="text-teal-700 group-hover:translate-x-0.5 transition-transform">进入 →</span>
+          </div>
+          <div class="mt-2 flex items-baseline gap-2">
+            <span class="text-2xl sm:text-3xl font-bold text-slate-900 tabular-nums">
+              {activePublicJobs.length}
+            </span>
+            <span class="text-xs text-slate-500">
+              {publicJobs.length > activePublicJobs.length
+                ? `条在招（含归档共 ${publicJobs.length} 条）`
+                : '条'}
+            </span>
+          </div>
+        </a>
+
+        <a
+          href="/companies"
+          class="group p-4 sm:p-5 rounded-xl bg-slate-50/80 hover:bg-white border border-slate-200 hover:border-teal-300 transition-all"
+        >
+          <div class="text-xs font-medium text-slate-500 flex items-center justify-between">
+            <span>高福利白名单民企</span>
+            <span class="text-teal-700 group-hover:translate-x-0.5 transition-transform">进入 →</span>
+          </div>
+          <div class="mt-2 flex items-baseline gap-2">
+            <span class="text-2xl sm:text-3xl font-bold text-slate-900 tabular-nums">
+              {activeCompanies.length}
+            </span>
+            <span class="text-xs text-slate-500">
+              家（关联在招岗位 {activeEnterpriseJobs.length} 个）
+            </span>
+          </div>
+        </a>
+
+        <a
+          href="/about"
+          class="group p-4 sm:p-5 rounded-xl bg-slate-50/80 hover:bg-white border border-slate-200 hover:border-teal-300 transition-all"
+        >
+          <div class="text-xs font-medium text-slate-500 flex items-center justify-between">
+            <span>最近数据更新（北京时间）</span>
+            <span class="text-teal-700 group-hover:translate-x-0.5 transition-transform">原则 →</span>
+          </div>
+          <div class="mt-2 text-lg sm:text-xl font-semibold text-slate-900 tabular-nums">
+            {latestUpdatedText}
+          </div>
+          <div class="mt-0.5 text-xs text-slate-500">
+            Git 数据驱动 · 自动校验入库
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+    {
+      isCompletelyEmpty && (
+        <section class="rounded-xl bg-white border border-slate-200 p-6 sm:p-8 shadow-xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+            <div class="space-y-2 max-w-2xl">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-800 border border-sky-200 text-xs font-medium">
+                数据初始化中
+              </div>
+              <h2 class="text-lg font-semibold text-slate-900">
+                当前数据集处于初始化状态（暂无已入库岗位与白名单企业）
+              </h2>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                站点静态底座已就绪。为坚持“零虚构数据、每条信息可溯源”的公益底线，当前 <code class="px-1 py-0.5 rounded bg-slate-100 text-xs">data/jobs.json</code> 与 <code class="px-1 py-0.5 rounded bg-slate-100 text-xs">data/companies.json</code> 暂为空数组。随着采集与核验流水线运行，真实岗位将自动同步至本页。
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2.5 shrink-0">
+              <a
+                href="/about"
+                class="px-4 py-2 rounded-lg bg-teal-700 hover:bg-teal-800 text-white text-sm font-medium transition-colors"
+              >
+                了解收录与推荐规范
+              </a>
+              <a
+                href="/public"
+                class="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium transition-colors"
+              >
+                查看专区界面
+              </a>
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <section aria-labelledby="zones-heading">
+      <div class="flex items-center justify-between mb-4">
+        <h2 id="zones-heading" class="text-lg sm:text-xl font-bold text-slate-900">
+          两大核心专区
+        </h2>
+        <span class="text-xs text-slate-500">纯前端实时检索 · 无需登录</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <article class="bg-white rounded-xl border border-slate-200 p-6 shadow-xs flex flex-col justify-between hover:border-teal-300 transition-colors">
+          <div>
+            <div class="flex items-center justify-between gap-3">
+              <span class="px-2.5 py-1 rounded-md bg-teal-50 text-teal-800 border border-teal-200 text-xs font-medium">
+                体制内 / 公开招考
+              </span>
+              <span class="text-xs text-slate-500 tabular-nums">
+                当前活跃 {activePublicJobs.length} 项
+              </span>
+            </div>
+            <h3 class="mt-4 text-xl font-bold text-slate-900">
+              河南省事业编公开招考专区
+            </h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+              汇总河南省人社厅、省人事考试中心及各地市官方公开招聘公告。清晰提取编制类型、最低学历、是否限应届、专业要求与笔面试节点，助您快速定位适配岗位。
+            </p>
+            <ul class="mt-4 space-y-1.5 text-xs text-slate-600">
+              <li class="flex items-center gap-2">
+                <span class="text-teal-700 font-bold">✓</span>
+                <span>城市、学历、编制类型、是否限应届多维实时筛选</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-teal-700 font-bold">✓</span>
+                <span>动态高亮“报名截止倒计时”（剩X天 / 今日截止 / 已截止）</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-teal-700 font-bold">✓</span>
+                <span>官方公告原文、网报入口及岗位表附件直达外链</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <a
+              href="/public"
+              class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2.5 rounded-lg bg-teal-700 hover:bg-teal-800 text-white text-sm font-medium transition-colors"
+            >
+              进入事业编专区 →
+            </a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-xl border border-slate-200 p-6 shadow-xs flex flex-col justify-between hover:border-sky-300 transition-colors">
+          <div>
+            <div class="flex items-center justify-between gap-3">
+              <span class="px-2.5 py-1 rounded-md bg-sky-50 text-sky-800 border border-sky-200 text-xs font-medium">
+                正向核验白名单
+              </span>
+              <span class="text-xs text-slate-500 tabular-nums">
+                白名单企业 {activeCompanies.length} 家
+              </span>
+            </div>
+            <h3 class="mt-4 text-xl font-bold text-slate-900">
+              高福利民营企业白名单专区
+            </h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+              拒绝情绪化吐槽与无依据传言，仅收录在官网或官方招聘渠道明确写出周末双休、弹性工作、做四休三或高福利承诺的民营企业及其在招岗位。
+            </p>
+            <ul class="mt-4 space-y-1.5 text-xs text-slate-600">
+              <li class="flex items-center gap-2">
+                <span class="text-sky-700 font-bold">✓</span>
+                <span>按休假制度（双休/弹性/做四休三）、城市、行业与福利标签筛选</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-sky-700 font-bold">✓</span>
+                <span>每条福利标签旁强制展示官网原文逐字引用（evidence_quote）</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-sky-700 font-bold">✓</span>
+                <span>附带核验日期与可点击官网溯源链接，公开透明可查证</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <a
+              href="/companies"
+              class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium transition-colors"
+            >
+              进入高福利民企专区 →
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    {
+      (previewPublicJobs.length > 0 || previewCompanies.length > 0) && (
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {previewPublicJobs.length > 0 && (
+            <div class="bg-white rounded-xl border border-slate-200 p-5 sm:p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-bold text-slate-900">近期事业编招考速览</h3>
+                <a href="/public" class="text-xs font-medium text-teal-700 hover:text-teal-800">
+                  查看全部 →
+                </a>
+              </div>
+              <div class="divide-y divide-slate-100">
+                {previewPublicJobs.map((job) => {
+                  const dl = getDeadlineInfo(job.deadline_at, job.status);
+                  return (
+                    <div class="py-3 first:pt-0 last:pb-0 flex items-start justify-between gap-3">
+                      <div class="min-w-0">
+                        <a
+                          href={`/public?q=${encodeURIComponent(job.title)}`}
+                          class="text-sm font-semibold text-slate-900 hover:text-teal-700 line-clamp-1"
+                        >
+                          {job.title}
+                        </a>
+                        <div class="mt-0.5 text-xs text-slate-500 truncate">
+                          {job.org_name} · {job.city} · {job.public_meta?.bianzhi_type ?? '公开招聘'}
+                        </div>
+                      </div>
+                      <span
+                        class="js-deadline-badge shrink-0 px-2 py-0.5 rounded text-xs font-medium border tabular-nums bg-slate-50 text-slate-700 border-slate-200"
+                        data-deadline={job.deadline_at ?? ''}
+                        data-status={job.status}
+                      >
+                        {dl.label}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {previewCompanies.length > 0 && (
+            <div class="bg-white rounded-xl border border-slate-200 p-5 sm:p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-bold text-slate-900">白名单高福利民企速览</h3>
+                <a href="/companies" class="text-xs font-medium text-teal-700 hover:text-teal-800">
+                  查看全部 →
+                </a>
+              </div>
+              <div class="divide-y divide-slate-100">
+                {previewCompanies.map((company) => (
+                  <div class="py-3 first:pt-0 last:pb-0 space-y-1.5">
+                    <div class="flex items-center justify-between gap-2">
+                      <a
+                        href={`/companies?q=${encodeURIComponent(company.name)}`}
+                        class="text-sm font-semibold text-slate-900 hover:text-teal-700 truncate"
+                      >
+                        {company.name}
+                      </a>
+                      <span class="shrink-0 px-2 py-0.5 rounded bg-sky-50 text-sky-800 border border-sky-200 text-xs font-medium">
+                        {company.work_schedule}
+                      </span>
+                    </div>
+                    <div class="text-xs text-slate-500">
+                      {company.industry} · {company.cities.join(' / ')}
+                    </div>
+                    {company.benefit_claims[0] && (
+                      <p class="text-xs text-slate-600 bg-slate-50 border-l-2 border-teal-500 pl-2.5 py-1 rounded-r line-clamp-2">
+                        “{company.benefit_claims[0].evidence_quote}”
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      )
+    }
+  </div>
+
+  <script is:inline>
+    (function () {
+      var form = document.getElementById('home-quick-search');
+      var target = document.getElementById('home-target');
+      if (form && target) {
+        target.addEventListener('change', function () {
+          form.setAttribute('action', target.value || '/public');
+        });
+      }
+
+      var beijingToday = new Date(Date.now() + 8 * 3600000).toISOString().slice(0, 10);
+      var badges = document.querySelectorAll('.js-deadline-badge');
+      badges.forEach(function (el) {
+        var status = el.getAttribute('data-status') || '';
+        var deadline = el.getAttribute('data-deadline') || '';
+        if (status === 'expired' || status === 'closed') {
+          el.textContent = status === 'closed' ? '已关闭' : '已截止';
+          el.className = 'js-deadline-badge shrink-0 px-2 py-0.5 rounded text-xs font-medium border tabular-nums bg-slate-100 text-slate-500 border-slate-200';
+          return;
+        }
+        if (/^\d{4}-\d{2}-\d{2}$/.test(deadline)) {
+          var dParts = deadline.split('-').map(Number);
+          var tParts = beijingToday.split('-').map(Number);
+          var diff = Math.round(
+            (Date.UTC(dParts[0], dParts[1] - 1, dParts[2]) -
+              Date.UTC(tParts[0], tParts[1] - 1, tParts[2])) /
+              86400000
+          );
+          if (diff < 0) {
+            el.textContent = '已截止';
+            el.className = 'js-deadline-badge shrink-0 px-2 py-0.5 rounded text-xs font-medium border tabular-nums bg-slate-100 text-slate-500 border-slate-200';
+          } else if (diff === 0) {
+            el.textContent = '今日截止';
+            el.className = 'js-deadline-badge shrink-0 px-2 py-0.5 rounded text-xs font-semibold border tabular-nums bg-rose-50 text-rose-700 border-rose-200';
+          } else if (diff <= 3) {
+            el.textContent = '剩 ' + diff + ' 天';
+            el.className = 'js-deadline-badge shrink-0 px-2 py-0.5 rounded text-xs font-semibold border tabular-nums bg-amber-50 text-amber-800 border-amber-200';
+          } else {
+            el.textContent = '剩 ' + diff + ' 天';
+            el.className = 'js-deadline-badge shrink-0 px-2 py-0.5 rounded text-xs font-medium border tabular-nums bg-emerald-50 text-emerald-700 border-emerald-200';
+          }
+        }
+      });
+    })();
+  </script>
+</BaseLayout>

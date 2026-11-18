@@ -1,0 +1,180 @@
+---
+import '../styles/global.css';
+import { formatTimestampCST } from '../lib/data';
+
+interface Props {
+  title: string;
+  description?: string;
+  activeNav: 'home' | 'public' | 'companies' | 'about';
+  isPreviewFixtures?: boolean;
+  latestUpdatedAt?: string | null;
+}
+
+const {
+  title,
+  description = '纯静态公益招聘信息聚合导航：聚焦河南省事业编公开招考与高福利民营企业白名单，坚持官方直链与原文证据溯源。',
+  activeNav,
+  isPreviewFixtures = false,
+  latestUpdatedAt = null,
+} = Astro.props;
+
+const navItems = [
+  { key: 'home', href: '/', label: '首页概览' },
+  { key: 'public', href: '/public', label: '事业编专区' },
+  { key: 'companies', href: '/companies', label: '高福利民企' },
+  { key: 'about', href: '/about', label: '公益说明与纠错' },
+] as const;
+
+const formattedTime = formatTimestampCST(latestUpdatedAt);
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Cpath d='M9 16.5L14 21.5L23.5 11' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body class="min-h-screen flex flex-col bg-slate-50 text-slate-800">
+    {
+      isPreviewFixtures && (
+        <div class="bg-amber-50 border-b border-amber-200 px-4 py-2 text-xs sm:text-sm text-amber-900 text-center">
+          <span class="font-semibold">开发预览模式（PREVIEW_FIXTURES=1）：</span>
+          当前展示 <code class="px-1.5 py-0.5 rounded bg-amber-100/80 font-mono text-xs">tests/fixtures/</code> 中的本地测试样例数据，非正式线上数据集。
+        </div>
+      )
+    }
+
+    <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center justify-between h-16 gap-4">
+          <a href="/" class="flex items-center gap-2.5 min-w-0 group">
+            <span
+              class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-teal-700 text-white font-bold text-base shrink-0 shadow-xs group-hover:bg-teal-800 transition-colors"
+              aria-hidden="true"
+            >
+              豫
+            </span>
+            <div class="min-w-0">
+              <div class="font-semibold text-slate-900 text-base leading-tight truncate">
+                豫聘公益导航
+              </div>
+              <div class="text-xs text-slate-500 truncate hidden sm:block">
+                河南事业编 · 高福利民企白名单
+              </div>
+            </div>
+          </a>
+
+          <nav aria-label="主导航" class="hidden md:flex items-center gap-1.5">
+            {
+              navItems.map((item) => {
+                const isActive = activeNav === item.key;
+                return (
+                  <a
+                    href={item.href}
+                    aria-current={isActive ? 'page' : undefined}
+                    class:list={[
+                      'px-3.5 py-2 rounded-lg text-sm font-medium transition-colors',
+                      isActive
+                        ? 'bg-teal-50 text-teal-800 border border-teal-200/80'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100',
+                    ]}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })
+            }
+          </nav>
+
+          <button
+            type="button"
+            id="mobile-menu-toggle"
+            aria-expanded="false"
+            aria-controls="mobile-nav-panel"
+            class="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200"
+          >
+            <span class="sr-only">打开导航菜单</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <nav
+          id="mobile-nav-panel"
+          aria-label="移动端主导航"
+          class="hidden md:hidden pb-3 pt-1 border-t border-slate-100 space-y-1"
+        >
+          {
+            navItems.map((item) => {
+              const isActive = activeNav === item.key;
+              return (
+                <a
+                  href={item.href}
+                  aria-current={isActive ? 'page' : undefined}
+                  class:list={[
+                    'block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors',
+                    isActive
+                      ? 'bg-teal-50 text-teal-800 border border-teal-200/80'
+                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900',
+                  ]}
+                >
+                  {item.label}
+                </a>
+              );
+            })
+          }
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="mt-16 bg-white border-t border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm text-slate-500">
+          <div class="space-y-1">
+            <p class="font-medium text-slate-700">
+              豫聘公益导航 · 纯静态开源招聘信息聚合站
+            </p>
+            <p class="text-xs leading-relaxed text-slate-500">
+              坚持非营利、零费用、官方直链溯源与客观原文核验原则。不参与招聘过程，报名请以官方原文为准。
+            </p>
+          </div>
+          <div class="flex flex-col sm:items-end gap-1.5 text-xs">
+            <div class="text-slate-600 tabular-nums">
+              数据最近同步：<span class="font-medium text-slate-800">{formattedTime}</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+              <a href="/public" class="hover:text-teal-700 transition-colors">事业编专区</a>
+              <a href="/companies" class="hover:text-teal-700 transition-colors">高福利民企</a>
+              <a href="/about" class="hover:text-teal-700 transition-colors">免责声明与纠错</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (function () {
+        var btn = document.getElementById('mobile-menu-toggle');
+        var panel = document.getElementById('mobile-nav-panel');
+        if (!btn || !panel) return;
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          panel.classList.toggle('hidden');
+        });
+      })();
+    </script>
+  </body>
+</html>

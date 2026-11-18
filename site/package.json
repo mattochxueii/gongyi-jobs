@@ -1,0 +1,17 @@
+{
+  "name": "gongyi-jobs-site",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node ./scripts/astro-cli.mjs dev",
+    "build": "node ./scripts/astro-cli.mjs build",
+    "preview": "node ./scripts/astro-cli.mjs preview",
+    "astro": "node ./scripts/astro-cli.mjs"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "astro": "^7.4.12",
+    "tailwindcss": "^4.3.5"
+  }
+}

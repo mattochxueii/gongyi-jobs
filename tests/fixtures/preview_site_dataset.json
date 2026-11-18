@@ -1,0 +1,341 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-18T12:48:00+08:00",
+  "companies": [
+    {
+      "company_id": "pangdonglai-retail",
+      "name": "许昌市胖东来商贸集团有限公司",
+      "aliases": ["胖东来", "胖东来商贸"],
+      "industry": "零售商贸",
+      "cities": ["许昌市", "新乡市"],
+      "career_url": "https://www.pangdonglai.com/careers",
+      "saas_platform": "custom",
+      "work_schedule": "周末双休",
+      "benefit_claims": [
+        {
+          "label": "每年带薪年假40天+",
+          "evidence_quote": "官方公开招聘简章原文：每周工作时间不超过40小时，享有长带薪年休假及周二闭店休息制度",
+          "evidence_url": "https://www.pangdonglai.com/careers/notice-2026",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "工时不超过40小时",
+          "evidence_quote": "官网人才理念原文：保证员工每周工作时间不超过40小时，拒绝超时加班",
+          "evidence_url": "https://www.pangdonglai.com/careers/notice-2026",
+          "verified_at": "2026-11-18"
+        }
+      ],
+      "status": "active",
+      "notes": "预览样例数据：用于演示零售商贸类企业白名单卡片与多条福利证据展示。"
+    },
+    {
+      "company_id": "zhongyuan-flex-tech",
+      "name": "中原云测科技有限公司（预览样例）",
+      "aliases": ["中原云测"],
+      "industry": "软件与信息技术",
+      "cities": ["郑州市", "洛阳市"],
+      "career_url": "https://example.com/zhongyuan-tech/careers",
+      "saas_platform": "moka",
+      "work_schedule": "弹性工作",
+      "benefit_claims": [
+        {
+          "label": "周末双休",
+          "evidence_quote": "官方招聘页原文：全员实行周末双休制，法定节假日严格按国家规定执行",
+          "evidence_url": "https://example.com/zhongyuan-tech/careers/benefits",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "弹性打卡+混合办公",
+          "evidence_quote": "官方JD原文：早9:00-10:30弹性上班，每周可申请1天居家远程办公，不打卡考勤",
+          "evidence_url": "https://example.com/zhongyuan-tech/careers/benefits",
+          "verified_at": "2026-11-18"
+        },
+        {
+          "label": "六险一金",
+          "evidence_quote": "入职即按全额工资基数缴纳五险一金及补充商业医疗保险",
+          "evidence_url": "https://example.com/zhongyuan-tech/careers/benefits",
+          "verified_at": "2026-11-18"
+        }
+      ],
+      "status": "active",
+      "notes": "仅用于 PREVIEW_FIXTURES=1 本地开发样式预览。"
+    },
+    {
+      "company_id": "henan-fourday-studio",
+      "name": "豫文数字创意工坊（预览样例）",
+      "industry": "文化创意与设计",
+      "cities": ["郑州市"],
+      "career_url": "https://example.com/henan-studio/join",
+      "saas_platform": "feishu",
+      "work_schedule": "做四休三",
+      "benefit_claims": [
+        {
+          "label": "做四休三",
+          "evidence_quote": "官网公告原文：自2025年起全员试行并转正周一至周四工作制，周五至周日固定休息，薪资不降",
+          "evidence_url": "https://example.com/henan-studio/join/four-day-week",
+          "verified_at": "2026-11-15"
+        }
+      ],
+      "status": "active",
+      "notes": "仅用于 PREVIEW_FIXTURES=1 本地开发样式预览（测试暂未抓到在招岗位时的白名单企业卡片展示）。"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "pub-henan-2026-1001",
+      "category": "public_institution",
+      "title": "省直某中心信息技术岗",
+      "org_name": "河南省某直属事业单位",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": "金水区",
+      "source_url": "https://hrss.henan.gov.cn/2026/1118/announce_1001.html",
+      "apply_url": "http://www.hnrsks.com/apply/2026",
+      "source_name": "河南省人力资源和社会保障厅",
+      "source_type": "gov_official",
+      "published_at": "2026-11-18",
+      "deadline_at": "2026-11-26",
+      "status": "active",
+      "scraped_at": "2026-11-18T10:00:00+08:00",
+      "last_seen_at": "2026-11-18T10:00:00+08:00",
+      "content_hash": "a1b2c3d4e5f60001",
+      "summary": "省直全额拨款事业编2人，本科及以上，计算机科学与技术等专业。",
+      "tags": ["全额拨款事业编", "郑州", "计算机", "本科"],
+      "public_meta": {
+        "post_code": "0101",
+        "department": "省直某事业单位信息中心",
+        "post_level": "专业技术岗（初级）",
+        "bianzhi_type": "全额拨款事业编",
+        "headcount": 2,
+        "education_min": "本科",
+        "degree_min": "学士及以上",
+        "majors": ["计算机科学与技术", "软件工程", "网络工程"],
+        "fresh_grad_only": false,
+        "age_limit": "35周岁以下",
+        "political_status": "不限",
+        "exam_type": "笔试+面试",
+        "apply_method": "网上报名（河南人事考试网）",
+        "apply_start_at": "2026-11-20",
+        "written_exam_time": "2026-12-12 09:00-11:00",
+        "interview_time": "2026年12月下旬",
+        "announcement_title": "2026年河南省直属事业单位公开招聘工作人员公告",
+        "attachments": [
+          {
+            "name": "附件1：2026年河南省直属事业单位公开招聘岗位信息表.xlsx",
+            "url": "https://hrss.henan.gov.cn/upload/202611/henan_2026_posts.xlsx",
+            "file_type": "xlsx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-2026-1002",
+      "category": "public_institution",
+      "title": "高校辅导员及宣传干事岗（预览样例）",
+      "org_name": "河南某省属本科院校",
+      "province": "河南省",
+      "city": "开封市",
+      "district": "龙亭区",
+      "source_url": "https://hrss.henan.gov.cn/2026/1110/announce_1002.html",
+      "apply_url": "http://www.hnrsks.com/apply/2026-kaifeng",
+      "source_name": "河南省人力资源和社会保障厅",
+      "source_type": "institution_official",
+      "published_at": "2026-11-10",
+      "deadline_at": "2026-11-18",
+      "status": "active",
+      "scraped_at": "2026-11-18T09:00:00+08:00",
+      "last_seen_at": "2026-11-18T11:30:00+08:00",
+      "content_hash": "b2c3d4e5f6001002",
+      "summary": "限2026届应届硕士毕业生报考，中共党员，汉语言文学、马克思主义理论、新闻传播学类专业。",
+      "tags": ["仅限应届", "硕士", "开封", "高校"],
+      "public_meta": {
+        "post_code": "KF-201",
+        "department": "党委学生工作部",
+        "post_level": "管理岗/专技岗",
+        "bianzhi_type": "全额拨款事业编",
+        "headcount": 4,
+        "education_min": "硕士",
+        "degree_min": "硕士及以上",
+        "majors": ["汉语言文学", "马克思主义理论", "新闻传播学"],
+        "fresh_grad_only": true,
+        "age_limit": "30周岁以下",
+        "political_status": "中共党员（含预备党员）",
+        "exam_type": "免笔试（直接面试考核）",
+        "apply_method": "官网招聘系统在线报名",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试（资格审查后公布面试名单）",
+        "interview_time": "2026-11-29 08:30",
+        "other_requirements": "需具有高校学生干部经历不少于1年",
+        "announcement_title": "2026年河南某省属本科院校公开招聘硕士辅导员公告",
+        "attachments": [
+          {
+            "name": "附件1：公开招聘报名表及诚信承诺书.docx",
+            "url": "https://hrss.henan.gov.cn/upload/202611/kaifeng_form.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "附件2：招聘岗位计划一览表.pdf",
+            "url": "https://hrss.henan.gov.cn/upload/202611/kaifeng_plan.pdf",
+            "file_type": "pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-2026-1003",
+      "category": "public_institution",
+      "title": "县区基层卫生院临床护理岗（预览样例）",
+      "org_name": "许昌市某县区卫生健康系统下属单位",
+      "province": "河南省",
+      "city": "许昌市",
+      "district": "魏都区",
+      "source_url": "https://hrss.henan.gov.cn/2026/1116/announce_1003.html",
+      "source_name": "许昌市人社局官网",
+      "source_type": "gov_official",
+      "published_at": "2026-11-16",
+      "deadline_at": "2026-12-20",
+      "status": "active",
+      "scraped_at": "2026-11-18T08:00:00+08:00",
+      "last_seen_at": "2026-11-18T11:30:00+08:00",
+      "content_hash": "c3d4e5f600001003",
+      "summary": "控制数/备案制招聘8人，大专及以上学历，护理学专业，须持护士执业资格证。",
+      "tags": ["控制数/备案制", "许昌", "大专", "医疗卫生"],
+      "public_meta": {
+        "post_code": "XC-08",
+        "department": "临床护理部",
+        "post_level": "专业技术十二级",
+        "bianzhi_type": "控制数/备案制",
+        "headcount": 8,
+        "education_min": "大专",
+        "majors": ["护理学", "助产学"],
+        "fresh_grad_only": null,
+        "age_limit": "35周岁以下",
+        "political_status": "不限",
+        "exam_type": "职业能力测验+专业知识笔试+技能实操",
+        "apply_method": "现场确认或网上预报名",
+        "apply_start_at": "2026-11-22",
+        "written_exam_time": "报名结束后一周公布（预计12月中旬）",
+        "interview_time": "笔试成绩公布后另行通知",
+        "other_requirements": "须取得护士执业资格证书或考试合格证明",
+        "announcement_title": "2026年许昌市魏都区医疗卫生机构公开招聘工作人员简章",
+        "attachments": [
+          {
+            "name": "附件：医疗卫生招聘职位表.xlsx",
+            "url": "https://hrss.henan.gov.cn/upload/202611/xuchang_medical.xlsx",
+            "file_type": "xlsx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-2026-0999",
+      "category": "public_institution",
+      "title": "市属医院财务核算岗",
+      "org_name": "洛阳市某公立医院",
+      "province": "河南省",
+      "city": "洛阳市",
+      "source_url": "https://hrss.henan.gov.cn/2026/1001/announce_0999.html",
+      "source_name": "河南省人力资源和社会保障厅",
+      "source_type": "gov_official",
+      "published_at": "2026-10-01",
+      "deadline_at": "2026-10-15",
+      "status": "expired",
+      "scraped_at": "2026-10-01T10:00:00+08:00",
+      "last_seen_at": "2026-10-10T10:00:00+08:00",
+      "content_hash": "f9e8d7c6b5a40999",
+      "summary": "差额补贴事业编1人，会计学、财务管理专业。",
+      "tags": ["事业编", "洛阳", "财务"],
+      "public_meta": {
+        "post_code": "0203",
+        "department": "财务科",
+        "post_level": "专业技术岗",
+        "bianzhi_type": "差额补贴事业编",
+        "headcount": 1,
+        "education_min": "本科",
+        "majors": ["会计学", "财务管理"],
+        "fresh_grad_only": false,
+        "attachments": []
+      }
+    },
+    {
+      "id": "ent-pdl-2026-0001",
+      "category": "enterprise",
+      "title": "食品安全检测专员",
+      "org_name": "许昌市胖东来商贸集团有限公司",
+      "province": "河南省",
+      "city": "许昌市",
+      "source_url": "https://www.pangdonglai.com/careers/job-food-safety",
+      "apply_url": "https://www.pangdonglai.com/careers/apply/food-safety",
+      "source_name": "胖东来官方招聘",
+      "source_type": "company_official",
+      "published_at": "2026-11-10",
+      "deadline_at": "2026-12-10",
+      "status": "active",
+      "scraped_at": "2026-11-18T11:00:00+08:00",
+      "last_seen_at": "2026-11-18T11:00:00+08:00",
+      "content_hash": "1122334455667788",
+      "summary": "食品科学与工程相关专业，官方明确每周工时不超过40小时、带薪年假。",
+      "tags": ["高福利民企", "许昌", "带薪年假"],
+      "enterprise_meta": {
+        "company_id": "pangdonglai-retail",
+        "work_schedule": "周末双休",
+        "work_hours": "每周不超过40小时，周二固定闭店休息",
+        "salary_range": "7000-9000元/月",
+        "remote_policy": "线下办公",
+        "department": "品控检测部",
+        "experience_req": "1年以上经验或优秀应届生",
+        "education_req": "本科及以上",
+        "benefits_verified": [
+          {
+            "tag": "每年带薪年假40天+",
+            "evidence_quote": "官方公开招聘简章原文：每周工作时间不超过40小时，享有长带薪年休假及周二闭店休息制度",
+            "evidence_url": "https://www.pangdonglai.com/careers/notice-2026"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ent-zy-2026-0002",
+      "category": "enterprise",
+      "title": "全栈研发工程师（Go / TypeScript）（预览样例）",
+      "org_name": "中原云测科技有限公司（预览样例）",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": "郑东新区",
+      "source_url": "https://example.com/zhongyuan-tech/careers/job-fullstack",
+      "apply_url": "https://example.com/zhongyuan-tech/careers/apply/fullstack",
+      "source_name": "中原云测Moka招聘门户",
+      "source_type": "verified_saas",
+      "published_at": "2026-11-15",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-18T11:30:00+08:00",
+      "last_seen_at": "2026-11-18T11:30:00+08:00",
+      "content_hash": "2233445566778899",
+      "summary": "负责企业级测试平台研发，官方JD明确周末双休、弹性上班与每周1天居家办公。",
+      "tags": ["弹性工作", "混合办公", "周末双休", "六险一金"],
+      "enterprise_meta": {
+        "company_id": "zhongyuan-flex-tech",
+        "work_schedule": "弹性工作",
+        "work_hours": "09:00-10:30 弹性到岗，每日工作7.5小时",
+        "salary_range": "15k-24k·14薪",
+        "remote_policy": "混合办公",
+        "department": "平台研发部",
+        "experience_req": "2-5年研发经验",
+        "education_req": "本科及以上",
+        "benefits_verified": [
+          {
+            "tag": "弹性打卡+混合办公",
+            "evidence_quote": "岗位JD原文：早9:00-10:30弹性上班，每周可申请1天居家远程办公，不打卡考勤",
+            "evidence_url": "https://example.com/zhongyuan-tech/careers/job-fullstack"
+          },
+          {
+            "tag": "六险一金",
+            "evidence_quote": "岗位JD原文：入职即按全额工资基数缴纳五险一金及补充商业医疗保险",
+            "evidence_url": "https://example.com/zhongyuan-tech/careers/benefits"
+          }
+        ]
+      }
+    }
+  ]
+}

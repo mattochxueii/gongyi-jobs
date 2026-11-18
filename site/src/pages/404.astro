@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { loadSiteData } from '../lib/data';
+
+const data = loadSiteData();
+---
+
+<BaseLayout
+  title="页面未找到 (404) · 豫聘公益导航"
+  activeNav="home"
+  isPreviewFixtures={data.isPreviewFixtures}
+  latestUpdatedAt={data.latestUpdatedAt}
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-20 text-center space-y-5">
+    <div class="text-5xl font-bold text-slate-300 tabular-nums">404</div>
+    <h1 class="text-2xl font-bold text-slate-900">未找到您访问的页面</h1>
+    <p class="text-sm text-slate-600">
+      该页面地址可能已失效或不存在，您可以返回首页或直接进入两大核心专区浏览岗位信息。
+    </p>
+    <div class="pt-2 flex flex-wrap justify-center gap-3">
+      <a
+        href="/"
+        class="px-4 py-2 rounded-lg bg-teal-700 hover:bg-teal-800 text-white text-sm font-medium transition-colors"
+      >
+        返回首页
+      </a>
+      <a
+        href="/public"
+        class="px-4 py-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-sm font-medium transition-colors"
+      >
+        事业编专区
+      </a>
+      <a
+        href="/companies"
+        class="px-4 py-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-sm font-medium transition-colors"
+      >
+        高福利民企
+      </a>
+    </div>
+  </div>
+</BaseLayout>
