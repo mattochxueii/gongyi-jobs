@@ -67,6 +67,7 @@
           "properties": {
             "post_code": { "type": ["string", "null"], "maxLength": 60 },
             "department": { "type": ["string", "null"], "maxLength": 120 },
+            "post_level": { "type": ["string", "null"], "maxLength": 80 },
             "bianzhi_type": {
               "type": "string",
               "enum": [
@@ -83,13 +84,19 @@
               "type": "string",
               "enum": ["不限", "中专/高中", "大专", "本科", "硕士", "博士", "见公告"]
             },
+            "degree_min": { "type": ["string", "null"], "maxLength": 60 },
             "majors": {
               "type": "array",
               "items": { "type": "string", "minLength": 1, "maxLength": 100 }
             },
             "fresh_grad_only": { "type": ["boolean", "null"] },
             "age_limit": { "type": ["string", "null"], "maxLength": 80 },
+            "political_status": { "type": ["string", "null"], "maxLength": 60 },
             "exam_type": { "type": ["string", "null"], "maxLength": 120 },
+            "apply_method": { "type": ["string", "null"], "maxLength": 160 },
+            "apply_start_at": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+            "written_exam_time": { "type": ["string", "null"], "maxLength": 120 },
+            "interview_time": { "type": ["string", "null"], "maxLength": 120 },
             "other_requirements": { "type": ["string", "null"], "maxLength": 300 },
             "announcement_title": { "type": ["string", "null"], "maxLength": 240 },
             "attachments": {
@@ -100,7 +107,8 @@
                 "additionalProperties": false,
                 "properties": {
                   "name": { "type": "string", "minLength": 1, "maxLength": 200 },
-                  "url": { "type": "string", "format": "uri" }
+                  "url": { "type": "string", "format": "uri" },
+                  "file_type": { "type": ["string", "null"], "maxLength": 20 }
                 }
               }
             }
@@ -116,6 +124,7 @@
               "type": "string",
               "enum": ["周末双休", "弹性工作", "做四休三", "大小周", "单休", "未明确"]
             },
+            "work_hours": { "type": ["string", "null"], "maxLength": 100 },
             "salary_range": { "type": ["string", "null"], "maxLength": 80 },
             "remote_policy": {
               "type": "string",
@@ -123,6 +132,7 @@
             },
             "department": { "type": ["string", "null"], "maxLength": 100 },
             "experience_req": { "type": ["string", "null"], "maxLength": 80 },
+            "education_req": { "type": ["string", "null"], "maxLength": 60 },
             "benefits_verified": {
               "type": "array",
               "items": {
@@ -131,7 +141,8 @@
                 "additionalProperties": false,
                 "properties": {
                   "tag": { "type": "string", "minLength": 1, "maxLength": 40 },
-                  "evidence_quote": { "type": "string", "minLength": 2, "maxLength": 300 }
+                  "evidence_quote": { "type": "string", "minLength": 2, "maxLength": 300 },
+                  "evidence_url": { "type": ["string", "null"], "format": "uri" }
                 }
               }
             }

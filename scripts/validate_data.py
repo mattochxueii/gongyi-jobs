@@ -70,6 +70,16 @@ def _check_non_empty_str(obj: dict[str, Any], key: str, prefix: str, errors: lis
         errors.append(f"{prefix}.{key} exceeds max length {max_len}")
 
 
+def _check_optional_str(obj: dict[str, Any], key: str, prefix: str, errors: list[str], max_len: int = 500) -> None:
+    val = obj.get(key)
+    if val is None:
+        return
+    if not isinstance(val, str) or not val.strip():
+        errors.append(f"{prefix}.{key} must be a non-empty string or null")
+    elif len(val) > max_len:
+        errors.append(f"{prefix}.{key} exceeds max length {max_len}")
+
+
 def _check_enum(obj: dict[str, Any], key: str, allowed: set[str], prefix: str, errors: list[str]) -> None:
     val = obj.get(key)
     if val not in allowed:
@@ -151,42 +161,74 @@ def _validate_public_meta(meta: Any, prefix: str, errors: list[str]) -> None:
         errors.append(f"{prefix}.public_meta must be an object")
         return
 
+    p_prefix = f"{prefix}.public_meta"
     required = {"bianzhi_type", "education_min", "majors", "attachments"}
     optional = {
         "post_code",
         "department",
+        "post_level",
         "headcount",
+        "degree_min",
         "fresh_grad_only",
         "age_limit",
+        "political_status",
         "exam_type",
+        "apply_method",
+        "apply_start_at",
+        "written_exam_time",
+        "interview_time",
         "other_requirements",
         "announcement_title",
     }
-    _check_allowed_keys(meta, required, optional, f"{prefix}.public_meta", errors)
-    _check_enum(meta, "bianzhi_type", BIANZHI_TYPES, f"{prefix}.public_meta", errors)
-    _check_enum(meta, "education_min", EDU_LEVELS, f"{prefix}.public_meta", errors)
+    _check_allowed_keys(meta, required, optional, p_prefix, errors)
+    _check_enum(meta, "bianzhi_type", BIANZHI_TYPES, p_prefix, errors)
+    _check_enum(meta, "education_min", EDU_LEVELS, p_prefix, errors)
+
+    for opt_key, max_len in (
+        ("post_code", 60),
+        ("department", 120),
+        ("post_level", 80),
+        ("degree_min", 60),
+        ("age_limit", 80),
+        ("political_status", 60),
+        ("exam_type", 120),
+        ("apply_method", 160),
+        ("written_exam_time", 120),
+        ("interview_time", 120),
+        ("other_requirements", 300),
+        ("announcement_title", 240),
+    ):
+        _check_optional_str(meta, opt_key, p_prefix, errors, max_len)
+
+    if meta.get("apply_start_at") is not None and not _is_valid_date(meta.get("apply_start_at")):
+        errors.append(f"{p_prefix}.apply_start_at must be YYYY-MM-DD or null")
+
+    fresh_grad = meta.get("fresh_grad_only")
+    if fresh_grad is not None and not isinstance(fresh_grad, bool):
+        errors.append(f"{p_prefix}.fresh_grad_only must be a boolean or null")
 
     majors = meta.get("majors")
-    if not isinstance(majors, list) or not all(isinstance(m, str) and m.strip() for m in majors):
-        errors.append(f"{prefix}.public_meta.majors must be a list of non-empty strings")
+    if not isinstance(majors, list) or not all(isinstance(m, str) and 1 <= len(m.strip()) <= 100 for m in majors):
+        errors.append(f"{p_prefix}.majors must be a list of non-empty strings")
 
     headcount = meta.get("headcount")
     if headcount is not None and (isinstance(headcount, bool) or not isinstance(headcount, int) or headcount < 1):
-        errors.append(f"{prefix}.public_meta.headcount must be a positive integer or null")
+        errors.append(f"{p_prefix}.headcount must be a positive integer or null")
 
     attachments = meta.get("attachments")
     if not isinstance(attachments, list):
-        errors.append(f"{prefix}.public_meta.attachments must be a list")
+        errors.append(f"{p_prefix}.attachments must be a list")
     else:
         for a_idx, att in enumerate(attachments):
-            a_prefix = f"{prefix}.public_meta.attachments[{a_idx}]"
+            a_prefix = f"{p_prefix}.attachments[{a_idx}]"
             if not isinstance(att, dict):
                 errors.append(f"{a_prefix} must be an object")
                 continue
-            _check_allowed_keys(att, {"name", "url"}, set(), a_prefix, errors)
+            _check_allowed_keys(att, {"name", "url"}, {"file_type"}, a_prefix, errors)
             _check_non_empty_str(att, "name", a_prefix, errors, 200)
             if not _is_valid_uri(att.get("url")):
                 errors.append(f"{a_prefix}.url must be a valid http/https URI")
+            _check_optional_str(att, "file_type", a_prefix, errors, 20)
 
 
 def _validate_enterprise_meta(
@@ -199,31 +241,43 @@ def _validate_enterprise_meta(
         errors.append(f"{prefix}.enterprise_meta must be an object")
         return
 
+    e_prefix = f"{prefix}.enterprise_meta"
     required = {"company_id", "work_schedule", "benefits_verified", "remote_policy"}
-    optional = {"salary_range", "department", "experience_req"}
-    _check_allowed_keys(meta, required, optional, f"{prefix}.enterprise_meta", errors)
+    optional = {"work_hours", "salary_range", "department", "experience_req", "education_req"}
+    _check_allowed_keys(meta, required, optional, e_prefix, errors)
 
     cid = meta.get("company_id")
     if not isinstance(cid, str) or not cid.strip():
-        errors.append(f"{prefix}.enterprise_meta.company_id must be a non-empty string")
+        errors.append(f"{e_prefix}.company_id must be a non-empty string")
     elif cid not in known_company_ids:
-        errors.append(f"{prefix}.enterprise_meta.company_id ({cid!r}) does not exist in companies.json")
+        errors.append(f"{e_prefix}.company_id ({cid!r}) does not exist in companies.json")
 
-    _check_enum(meta, "work_schedule", JOB_SCHEDULES, f"{prefix}.enterprise_meta", errors)
-    _check_enum(meta, "remote_policy", REMOTE_POLICIES, f"{prefix}.enterprise_meta", errors)
+    _check_enum(meta, "work_schedule", JOB_SCHEDULES, e_prefix, errors)
+    _check_enum(meta, "remote_policy", REMOTE_POLICIES, e_prefix, errors)
+
+    for opt_key, max_len in (
+        ("work_hours", 100),
+        ("salary_range", 80),
+        ("department", 100),
+        ("experience_req", 80),
+        ("education_req", 60),
+    ):
+        _check_optional_str(meta, opt_key, e_prefix, errors, max_len)
 
     benefits = meta.get("benefits_verified")
     if not isinstance(benefits, list):
-        errors.append(f"{prefix}.enterprise_meta.benefits_verified must be a list")
+        errors.append(f"{e_prefix}.benefits_verified must be a list")
     else:
         for b_idx, benefit in enumerate(benefits):
-            b_prefix = f"{prefix}.enterprise_meta.benefits_verified[{b_idx}]"
+            b_prefix = f"{e_prefix}.benefits_verified[{b_idx}]"
             if not isinstance(benefit, dict):
                 errors.append(f"{b_prefix} must be an object")
                 continue
-            _check_allowed_keys(benefit, {"tag", "evidence_quote"}, set(), b_prefix, errors)
+            _check_allowed_keys(benefit, {"tag", "evidence_quote"}, {"evidence_url"}, b_prefix, errors)
             _check_non_empty_str(benefit, "tag", b_prefix, errors, 40)
             _check_non_empty_str(benefit, "evidence_quote", b_prefix, errors, 300)
+            if benefit.get("evidence_url") is not None and not _is_valid_uri(benefit.get("evidence_url")):
+                errors.append(f"{b_prefix}.evidence_url must be a valid http/https URI or null")
 
 
 def _validate_job(

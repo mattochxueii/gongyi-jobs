@@ -1,0 +1,136 @@
+{
+  "companies": [
+    {
+      "company_id": "pangdonglai-retail",
+      "name": "许昌市胖东来商贸集团有限公司",
+      "industry": "零售商贸",
+      "cities": ["许昌市", "新乡市"],
+      "career_url": "https://www.pangdonglai.com/careers",
+      "saas_platform": "custom",
+      "work_schedule": "周末双休",
+      "benefit_claims": [
+        {
+          "label": "每年带薪年假40天+",
+          "evidence_quote": "官方公开招聘简章原文：每周工作时间不超过40小时，享有长带薪年休假及周二闭店休息制度",
+          "evidence_url": "https://www.pangdonglai.com/careers/notice-2026",
+          "verified_at": "2026-11-18"
+        }
+      ],
+      "status": "active"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "pub-henan-2026-1001",
+      "category": "public_institution",
+      "title": "省直某中心信息技术岗",
+      "org_name": "河南省某直属事业单位",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": "金水区",
+      "source_url": "https://hrss.henan.gov.cn/2026/1118/announce_1001.html",
+      "apply_url": "http://www.hnrsks.com/apply/2026",
+      "source_name": "河南省人力资源和社会保障厅",
+      "source_type": "gov_official",
+      "published_at": "2026-11-18",
+      "deadline_at": "2026-11-26",
+      "status": "active",
+      "scraped_at": "2026-11-18T10:00:00+08:00",
+      "last_seen_at": "2026-11-18T10:00:00+08:00",
+      "content_hash": "a1b2c3d4e5f60001",
+      "summary": "省直全额拨款事业编2人，本科及以上，计算机科学与技术等专业。",
+      "tags": ["全额拨款事业编", "郑州", "计算机", "本科"],
+      "public_meta": {
+        "post_code": "0101",
+        "department": "省直某事业单位信息中心",
+        "post_level": "专业技术岗（初级）",
+        "bianzhi_type": "全额拨款事业编",
+        "headcount": 2,
+        "education_min": "本科",
+        "degree_min": "学士及以上",
+        "majors": ["计算机科学与技术", "软件工程", "网络工程"],
+        "fresh_grad_only": false,
+        "age_limit": "35周岁以下",
+        "political_status": "不限",
+        "exam_type": "笔试+面试",
+        "apply_method": "网上报名（河南人事考试网）",
+        "apply_start_at": "2026-11-20",
+        "written_exam_time": "2026-12-12 09:00-11:00",
+        "interview_time": "2026年12月下旬",
+        "announcement_title": "2026年河南省直属事业单位公开招聘工作人员公告",
+        "attachments": [
+          {
+            "name": "附件1：2026年河南省直属事业单位公开招聘岗位信息表.xlsx",
+            "url": "https://hrss.henan.gov.cn/upload/202611/henan_2026_posts.xlsx",
+            "file_type": "xlsx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-2026-0999",
+      "category": "public_institution",
+      "title": "市属医院财务核算岗",
+      "org_name": "洛阳市某公立医院",
+      "province": "河南省",
+      "city": "洛阳市",
+      "source_url": "https://hrss.henan.gov.cn/2026/1001/announce_0999.html",
+      "source_name": "河南省人力资源和社会保障厅",
+      "source_type": "gov_official",
+      "published_at": "2026-10-01",
+      "deadline_at": "2026-10-15",
+      "status": "active",
+      "scraped_at": "2026-10-01T10:00:00+08:00",
+      "last_seen_at": "2026-10-10T10:00:00+08:00",
+      "content_hash": "f9e8d7c6b5a40999",
+      "summary": "差额补贴事业编1人，会计学、财务管理专业。",
+      "tags": ["事业编", "洛阳", "财务"],
+      "public_meta": {
+        "post_code": "0203",
+        "department": "财务科",
+        "post_level": "专业技术岗",
+        "bianzhi_type": "差额补贴事业编",
+        "headcount": 1,
+        "education_min": "本科",
+        "majors": ["会计学", "财务管理"],
+        "attachments": []
+      }
+    },
+    {
+      "id": "ent-pdl-2026-0001",
+      "category": "enterprise",
+      "title": "食品安全检测专员",
+      "org_name": "许昌市胖东来商贸集团有限公司",
+      "province": "河南省",
+      "city": "许昌市",
+      "source_url": "https://www.pangdonglai.com/careers/job-food-safety",
+      "source_name": "胖东来官方招聘",
+      "source_type": "company_official",
+      "published_at": "2026-11-10",
+      "deadline_at": "2026-12-10",
+      "status": "active",
+      "scraped_at": "2026-11-18T11:00:00+08:00",
+      "last_seen_at": "2026-11-18T11:00:00+08:00",
+      "content_hash": "1122334455667788",
+      "summary": "食品科学与工程相关专业，官方明确每周工时不超过40小时、带薪年假。",
+      "tags": ["高福利民企", "许昌", "带薪年假"],
+      "enterprise_meta": {
+        "company_id": "pangdonglai-retail",
+        "work_schedule": "周末双休",
+        "work_hours": "每周不超过40小时，周二固定闭店休息",
+        "salary_range": "7000-9000元/月",
+        "remote_policy": "线下办公",
+        "department": "品控检测部",
+        "experience_req": "1年以上经验或优秀应届生",
+        "education_req": "本科及以上",
+        "benefits_verified": [
+          {
+            "tag": "带薪年假",
+            "evidence_quote": "官方公开招聘简章原文：每周工作时间不超过40小时，享有长带薪年休假及周二闭店休息制度",
+            "evidence_url": "https://www.pangdonglai.com/careers/notice-2026"
+          }
+        ]
+      }
+    }
+  ]
+}

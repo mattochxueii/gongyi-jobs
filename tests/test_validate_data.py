@@ -93,11 +93,28 @@ class ValidateDataTests(unittest.TestCase):
                             "tags": ["全额事业编", "郑州", "计算机"],
                             "public_meta": {
                                 "post_code": "10101",
+                                "department": "省直某事业单位信息中心",
+                                "post_level": "专业技术岗（初级）",
                                 "bianzhi_type": "全额拨款事业编",
                                 "headcount": 2,
                                 "education_min": "本科",
+                                "degree_min": "学士及以上",
                                 "majors": ["计算机科学与技术", "软件工程"],
-                                "attachments": [],
+                                "fresh_grad_only": False,
+                                "age_limit": "35周岁以下（1990年1月1日以后出生）",
+                                "political_status": "不限",
+                                "exam_type": "笔试+面试",
+                                "apply_method": "网上报名（河南人事考试网）",
+                                "apply_start_at": "2026-11-20",
+                                "written_exam_time": "2026-12-12 09:00-11:00",
+                                "interview_time": "2026年12月下旬（详见面试通知单）",
+                                "attachments": [
+                                    {
+                                        "name": "附件1：2026年公开招聘岗位信息表.xlsx",
+                                        "url": "https://hrss.henan.gov.cn/att1.xlsx",
+                                        "file_type": "xlsx",
+                                    }
+                                ],
                             },
                         },
                         {
@@ -119,9 +136,15 @@ class ValidateDataTests(unittest.TestCase):
                             "enterprise_meta": {
                                 "company_id": "acme-tech",
                                 "work_schedule": "周末双休",
+                                "work_hours": "09:00-18:00，不打卡",
                                 "remote_policy": "混合办公",
+                                "education_req": "本科及以上",
                                 "benefits_verified": [
-                                    {"tag": "周末双休", "evidence_quote": "JD原文：周末双休，不鼓励无效加班"}
+                                    {
+                                        "tag": "周末双休",
+                                        "evidence_quote": "JD原文：周末双休，不鼓励无效加班",
+                                        "evidence_url": "https://example.com/careers/job-1",
+                                    }
                                 ],
                             },
                         },
@@ -129,6 +152,103 @@ class ValidateDataTests(unittest.TestCase):
                 },
             )
             self.assertEqual(validate_workspace(root), [])
+
+    def test_rejects_invalid_extended_public_and_enterprise_fields(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _write_json(root / "config" / "sources.json", {"schema_version": "1.0", "sources": []})
+            _write_json(
+                root / "data" / "companies.json",
+                {
+                    "schema_version": "1.0",
+                    "updated_at": "2026-11-18T12:00:00+08:00",
+                    "items": [
+                        {
+                            "company_id": "acme-tech",
+                            "name": "测试科技",
+                            "industry": "软件服务",
+                            "cities": ["郑州市"],
+                            "career_url": "https://example.com/careers",
+                            "saas_platform": "moka",
+                            "work_schedule": "周末双休",
+                            "benefit_claims": [
+                                {
+                                    "label": "周末双休",
+                                    "evidence_quote": "官网原文：周末双休",
+                                    "evidence_url": "https://example.com/careers",
+                                    "verified_at": "2026-11-18",
+                                }
+                            ],
+                            "status": "active",
+                        }
+                    ],
+                },
+            )
+            _write_json(
+                root / "data" / "jobs.json",
+                {
+                    "schema_version": "1.0",
+                    "updated_at": "2026-11-18T12:00:00+08:00",
+                    "items": [
+                        {
+                            "id": "pub-bad-date",
+                            "category": "public_institution",
+                            "title": "测试事业编",
+                            "org_name": "测试单位",
+                            "province": "河南省",
+                            "city": "郑州市",
+                            "source_url": "https://hrss.henan.gov.cn/1.html",
+                            "source_name": "河南省人社厅",
+                            "source_type": "gov_official",
+                            "status": "active",
+                            "scraped_at": "2026-11-18T12:00:00+08:00",
+                            "last_seen_at": "2026-11-18T12:00:00+08:00",
+                            "content_hash": "12345678",
+                            "summary": "摘要",
+                            "tags": ["测试"],
+                            "public_meta": {
+                                "bianzhi_type": "全额拨款事业编",
+                                "education_min": "本科",
+                                "majors": ["不限"],
+                                "apply_start_at": "2026/11/20",
+                                "attachments": [],
+                            },
+                        },
+                        {
+                            "id": "ent-bad-ev-url",
+                            "category": "enterprise",
+                            "title": "测试民企岗",
+                            "org_name": "测试科技",
+                            "province": "河南省",
+                            "city": "郑州市",
+                            "source_url": "https://example.com/job",
+                            "source_name": "测试科技",
+                            "source_type": "company_official",
+                            "status": "active",
+                            "scraped_at": "2026-11-18T12:00:00+08:00",
+                            "last_seen_at": "2026-11-18T12:00:00+08:00",
+                            "content_hash": "87654321",
+                            "summary": "摘要",
+                            "tags": ["双休"],
+                            "enterprise_meta": {
+                                "company_id": "acme-tech",
+                                "work_schedule": "周末双休",
+                                "remote_policy": "线下办公",
+                                "benefits_verified": [
+                                    {
+                                        "tag": "双休",
+                                        "evidence_quote": "原文双休",
+                                        "evidence_url": "not-a-uri",
+                                    }
+                                ],
+                            },
+                        },
+                    ],
+                },
+            )
+            errs = validate_workspace(root)
+            self.assertTrue(any("apply_start_at must be YYYY-MM-DD" in e for e in errs))
+            self.assertTrue(any("evidence_url must be a valid http/https URI" in e for e in errs))
 
     def test_rejects_missing_company_fk_and_mixed_meta(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
