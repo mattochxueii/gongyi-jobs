@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Raw scraped caches & inbox (do not commit huge raw files or temporary attachments)
+raw_inbox/*
+!raw_inbox/.gitkeep
+data/raw_cache/
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+
+# Node / Frontend
+site/node_modules/
+site/dist/
+site/.astro/
+.env
+.env.*
+
+# OS / Editors
+.DS_Store
+Thumbs.db

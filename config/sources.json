@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "source_id": "henan_hrss_gov",
+      "name": "河南省人力资源和社会保障厅",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "全省",
+      "adapter": "henan_hrss",
+      "base_url": "https://hrss.henan.gov.cn",
+      "list_urls": [],
+      "enabled": false,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "根域名已核验；待战役2/3实测确认“事业单位公开招聘/公示公告”具体栏目列表页URL后将 enabled 设为 true。"
+    },
+    {
+      "source_id": "henan_rsks",
+      "name": "河南省人事考试中心（河南人事考试网）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "全省",
+      "adapter": "henan_rsks",
+      "base_url": "http://www.hnrsks.com",
+      "list_urls": [],
+      "enabled": false,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "根域名已核验；待战役2/3实测确认具体事业单位招聘栏目入口与附件格式后启用。"
+    }
+  ]
+}

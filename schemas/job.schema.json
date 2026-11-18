@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gongyi-jobs.local/schemas/job.schema.json",
+  "title": "JobDataset",
+  "type": "object",
+  "required": ["schema_version", "updated_at", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "items": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/jobItem" }
+    }
+  },
+  "$defs": {
+    "jobItem": {
+      "type": "object",
+      "required": [
+        "id",
+        "category",
+        "title",
+        "org_name",
+        "province",
+        "city",
+        "source_url",
+        "source_name",
+        "source_type",
+        "status",
+        "scraped_at",
+        "last_seen_at",
+        "content_hash",
+        "summary",
+        "tags"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 4, "maxLength": 128 },
+        "category": { "type": "string", "enum": ["public_institution", "enterprise"] },
+        "title": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "org_name": { "type": "string", "minLength": 1, "maxLength": 150 },
+        "province": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "city": { "type": "string", "minLength": 1, "maxLength": 60 },
+        "district": { "type": ["string", "null"], "maxLength": 60 },
+        "source_url": { "type": "string", "format": "uri" },
+        "apply_url": { "type": ["string", "null"], "format": "uri" },
+        "source_name": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "source_type": {
+          "type": "string",
+          "enum": ["gov_official", "institution_official", "company_official", "verified_saas"]
+        },
+        "published_at": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "deadline_at": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "status": { "type": "string", "enum": ["active", "expired", "closed"] },
+        "scraped_at": { "type": "string", "format": "date-time" },
+        "last_seen_at": { "type": "string", "format": "date-time" },
+        "content_hash": { "type": "string", "minLength": 8, "maxLength": 128 },
+        "summary": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 40 }
+        },
+        "public_meta": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["bianzhi_type", "education_min", "majors", "attachments"],
+          "properties": {
+            "post_code": { "type": ["string", "null"], "maxLength": 60 },
+            "department": { "type": ["string", "null"], "maxLength": 120 },
+            "bianzhi_type": {
+              "type": "string",
+              "enum": [
+                "全额拨款事业编",
+                "差额补贴事业编",
+                "自收自支事业编",
+                "控制数/备案制",
+                "公开招聘(具体见公告)",
+                "未知"
+              ]
+            },
+            "headcount": { "type": ["integer", "null"], "minimum": 1 },
+            "education_min": {
+              "type": "string",
+              "enum": ["不限", "中专/高中", "大专", "本科", "硕士", "博士", "见公告"]
+            },
+            "majors": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1, "maxLength": 100 }
+            },
+            "fresh_grad_only": { "type": ["boolean", "null"] },
+            "age_limit": { "type": ["string", "null"], "maxLength": 80 },
+            "exam_type": { "type": ["string", "null"], "maxLength": 120 },
+            "other_requirements": { "type": ["string", "null"], "maxLength": 300 },
+            "announcement_title": { "type": ["string", "null"], "maxLength": 240 },
+            "attachments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name", "url"],
+                "additionalProperties": false,
+                "properties": {
+                  "name": { "type": "string", "minLength": 1, "maxLength": 200 },
+                  "url": { "type": "string", "format": "uri" }
+                }
+              }
+            }
+          }
+        },
+        "enterprise_meta": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["company_id", "work_schedule", "benefits_verified", "remote_policy"],
+          "properties": {
+            "company_id": { "type": "string", "minLength": 1, "maxLength": 80 },
+            "work_schedule": {
+              "type": "string",
+              "enum": ["周末双休", "弹性工作", "做四休三", "大小周", "单休", "未明确"]
+            },
+            "salary_range": { "type": ["string", "null"], "maxLength": 80 },
+            "remote_policy": {
+              "type": "string",
+              "enum": ["线下办公", "混合办公", "可远程", "未明确"]
+            },
+            "department": { "type": ["string", "null"], "maxLength": 100 },
+            "experience_req": { "type": ["string", "null"], "maxLength": 80 },
+            "benefits_verified": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["tag", "evidence_quote"],
+                "additionalProperties": false,
+                "properties": {
+                  "tag": { "type": "string", "minLength": 1, "maxLength": 40 },
+                  "evidence_quote": { "type": "string", "minLength": 2, "maxLength": 300 }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
