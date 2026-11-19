@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-18T18:10:15+08:00",
+  "updated_at": "2026-11-19T20:58:41+08:00",
   "items": [
     {
       "id": "ent-songmics-home-7709015140973218057",
@@ -4016,6 +4016,1817 @@
             "name": "许昌职业技术学院2026年第二批考核招聘博士研究生报名表.xlsx",
             "url": "https://rsj.xuchang.gov.cn/uploadfile/a0c7a07e-468e-4c2b-80ae-c964c487cdd4/20261104173416509.xlsx",
             "file_type": "xlsx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-c5f9052859e7-01",
+      "category": "public_institution",
+      "title": "2026年第二批公开招聘科研岗位工作人员（博士）",
+      "org_name": "平原实验室",
+      "province": "河南省",
+      "city": "新乡市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/ff3f0412cc084d44b86bc32bb1ce9da2.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-13",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:41:57+08:00",
+      "last_seen_at": "2026-11-19T20:41:57+08:00",
+      "content_hash": "c5f9052859e7775d4390642a9b5d7ccf7da34d07776d48c18399869453e29f30",
+      "summary": "平原实验室（河南新乡，省属新型研发机构，事业编制100名）2026年第二批公开招聘博士科研人员3名，聚焦传染病、重大慢病及精神类疾病创新药物研发。采用面试考核（含10-20分钟专业答辩PPT），工资待遇按河南省事业单位有关规定执行，岗位详情见附件1(.doc)。",
+      "tags": [
+        "新乡市",
+        "省属实验室",
+        "博士研究生",
+        "创新药物研发",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "生物医药科研团队（详见附件1）",
+        "post_level": "科研岗位工作人员（博士）",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 3,
+        "education_min": "博士",
+        "degree_min": "博士学位",
+        "majors": [
+          "生物医药及相关研究领域（具体专业方向见附件1岗位信息表）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "一般不超过43周岁（1982年11月1日以后出生）",
+        "political_status": null,
+        "exam_type": "面试考核（综合素质测评及10-20分钟专业答辩PPT，60分合格）",
+        "apply_method": "电子邮件报名（发至 zhaopin_pylab@163.com，以姓名-毕业学校-专业-团队方向命名）",
+        "apply_start_at": "2026-11-13",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批适时组织",
+        "other_requirements": "须在SCI收录期刊发表重要论文；每人限报1个应聘岗位。咨询电话：0373-3323022；实验室网址：http://www.htu.edu.cn/pylab。",
+        "announcement_title": "平原实验室2026年第二批公开招聘工作人员（博士）公告",
+        "attachments": [
+          {
+            "name": "岗位信息表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261113/1794555718292084031.doc",
+            "file_type": "doc"
+          },
+          {
+            "name": "实验室2026年公开招聘科研岗位工作人员报名表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261113/1794555751194004646.doc",
+            "file_type": "doc"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-23c95afca25f-01",
+      "category": "public_institution",
+      "title": "专业技术岗（中级）— 博士及博士后科研人才",
+      "org_name": "中原纯化制程实验室",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/4364b495e97741dca12384f49d8c403d.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-13",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:42:07+08:00",
+      "last_seen_at": "2026-11-19T20:42:07+08:00",
+      "content_hash": "23c95afca25f2626b8f8070a16d28189f24ef9d8ffbc46493e9d72847255860a",
+      "summary": "中原纯化制程实验室（河南省科学院、郑州大学牵头建设，经费差额拨款）2026年公开招聘专业技术岗（中级）7名，面向材料、化学、物理、电子、集成电路、计算机等18个理工学科博士或出站博士后。",
+      "tags": [
+        "郑州市",
+        "省科学院",
+        "差额补贴事业编",
+        "博士后/博士",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "河南省科学院中原纯化制程实验室",
+        "post_level": "专业技术岗（中级）",
+        "bianzhi_type": "差额补贴事业编",
+        "headcount": 7,
+        "education_min": "博士",
+        "degree_min": "博士研究生（博士或博士后出站人员）",
+        "majors": [
+          "冶金工程(0806)",
+          "材料科学与工程(0805)",
+          "化学工程与技术(0817)",
+          "地质学(0709)",
+          "地球物理学(0708)",
+          "地质资源与地质工程(0818)",
+          "环境科学与工程(0830)",
+          "化学(0703)",
+          "物理学(0702)",
+          "计算机科学与技术(0812)",
+          "软件工程(0835)",
+          "光学工程(0803)",
+          "电子科学与技术(0809)",
+          "矿业工程(0819)",
+          "材料与化工(0856)",
+          "集成电路科学与工程(1401)",
+          "资源与环境(0857)",
+          "仪器科学与技术(0804)"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "不超过38周岁（1987年11月1日及以后出生）",
+        "political_status": null,
+        "exam_type": "面试为主（满分100分，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（简历与学历学位压缩包发至 zypm@hnas.ac.cn）",
+        "apply_start_at": "2026-11-13",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批通知",
+        "other_requirements": "经费供给形式：差额拨款。咨询电话：0371-67787957；监督电话：0371-65722587；河南省科学院网址：https://www.hnskxy.com/。",
+        "announcement_title": "中原纯化制程实验室2026年公开招聘工作人员公告",
+        "attachments": [
+          {
+            "name": "岗位信息表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261113/1794555198463086900.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-23c95afca25f-02",
+      "category": "public_institution",
+      "title": "专业技术岗（副高）— 博士且具副高级以上职称",
+      "org_name": "中原纯化制程实验室",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/4364b495e97741dca12384f49d8c403d.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-13",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:42:07+08:00",
+      "last_seen_at": "2026-11-19T20:42:07+08:00",
+      "content_hash": "23c95afca25f2626b8f8070a16d28189f24ef9d8ffbc46493e9d72847255860a",
+      "summary": "中原纯化制程实验室（河南省科学院主管，经费差额拨款）公开招聘专业技术岗（副高）3名，要求博士研究生并具有副高级以上职称及相关工作经验，年龄放宽至48周岁以内。",
+      "tags": [
+        "郑州市",
+        "省科学院",
+        "差额补贴事业编",
+        "副高级职称",
+        "高层次人才"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "河南省科学院中原纯化制程实验室",
+        "post_level": "专业技术岗（副高）",
+        "bianzhi_type": "差额补贴事业编",
+        "headcount": 3,
+        "education_min": "博士",
+        "degree_min": "博士研究生并具有副高级以上职称",
+        "majors": [
+          "冶金工程(0806)",
+          "材料科学与工程(0805)",
+          "化学工程与技术(0817)",
+          "地质学(0709)",
+          "地球物理学(0708)",
+          "地质资源与地质工程(0818)",
+          "环境科学与工程(0830)",
+          "化学(0703)",
+          "物理学(0702)",
+          "计算机科学与技术(0812)",
+          "软件工程(0835)",
+          "光学工程(0803)",
+          "电子科学与技术(0809)",
+          "矿业工程(0819)",
+          "材料与化工(0856)",
+          "集成电路科学与工程(1401)",
+          "资源与环境(0857)",
+          "仪器科学与技术(0804)"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "不超过48周岁（1977年11月1日及以后出生）",
+        "political_status": null,
+        "exam_type": "面试为主（满分100分，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（简历与学历学位压缩包发至 zypm@hnas.ac.cn）",
+        "apply_start_at": "2026-11-13",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批通知",
+        "other_requirements": "须具备副高级以上职称及相关工作经验；经费供给形式：差额拨款。咨询电话：0371-67787957。",
+        "announcement_title": "中原纯化制程实验室2026年公开招聘工作人员公告",
+        "attachments": [
+          {
+            "name": "岗位信息表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261113/1794555198463086900.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-haut-ee58eb02f6f1-01",
+      "category": "public_institution",
+      "title": "2026年公开招聘专业技术岗中级（博士研究生，100名）",
+      "org_name": "河南工业大学",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": null,
+      "source_url": "https://rsc.haut.edu.cn/info/1005/14631.htm",
+      "apply_url": "http://haut.zp.kooci.net",
+      "source_name": "河南工业大学人事处（人才招聘）",
+      "source_type": "institution_official",
+      "published_at": "2026-11-11",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:46:45+08:00",
+      "last_seen_at": "2026-11-19T20:46:45+08:00",
+      "content_hash": "ee58eb02f6f1bb7832f95881a7d852feaab036ffec01a6728fa019361a7e04a6",
+      "summary": "河南工业大学（省教育厅主管，事业全供）2026年计划招聘专业技术岗中级100名，要求博士研究生、博士学位，涵盖食品科学与工程（双一流创建学科）、机械、电子信息、计算机、经管、人文法学、药学等81个学科专业，2026年度有效。",
+      "tags": [
+        "郑州市",
+        "高校事业全供",
+        "博士研究生",
+        "百人计划",
+        "网上系统报名"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "全校各教学科研单位",
+        "post_level": "专业技术岗中级",
+        "bianzhi_type": "全额拨款事业编",
+        "headcount": 100,
+        "education_min": "博士",
+        "degree_min": "博士研究生、博士学位",
+        "majors": [
+          "哲学/经济学/金融/应用统计/数字经济(01-02类)",
+          "法学/政治学/社会学/马理论/知识产权(03类)",
+          "教育学/心理学/体育学/中国文学/外语/新闻(04-05类)",
+          "数学/物理/化学/天文/生物/统计学(07类)",
+          "机械/力学/光学/仪器/材料/动力/电气(0801-0808)",
+          "电子信息/通信/控制/计算机/软件/网安(0809-0839)",
+          "土木/化工/轻工/农业工程/环境/安全(0814-0859)",
+          "食品科学与工程(0832)/食品与营养(0955)/农牧植保",
+          "中医学/药学/中药学(1005/1007/1008)",
+          "管理科学与工程/工商/公管/会计/工程管理(12类)",
+          "艺术学/戏剧影视/设计学/集成电路/智能科学(13-14类)"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "博士一般不超过38周岁（1987年11月1日及以后出生）",
+        "political_status": null,
+        "exam_type": "分批面试考核（满分100分，低于60分不予聘用）",
+        "apply_method": "网上系统报名（登录 http://haut.zp.kooci.net 提交材料）",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批实施，招满为止",
+        "other_requirements": "经费供给形式：事业全供；81个一级学科及专业学位完整代码见附件1。咨询：0371-67756896；监督：0371-69691970。",
+        "announcement_title": "河南工业大学2026年公开招聘工作人员公告",
+        "attachments": [
+          {
+            "name": "河南工业大学2026年公开招聘工作人员一览表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387811182086738.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-haut-ee58eb02f6f1-02",
+      "category": "public_institution",
+      "title": "2026年公开招聘专业技术岗副高级/正高级（含硕士+高级职称，20名）",
+      "org_name": "河南工业大学",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": null,
+      "source_url": "https://rsc.haut.edu.cn/info/1005/14631.htm",
+      "apply_url": "http://haut.zp.kooci.net",
+      "source_name": "河南工业大学人事处（人才招聘）",
+      "source_type": "institution_official",
+      "published_at": "2026-11-11",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:46:45+08:00",
+      "last_seen_at": "2026-11-19T20:46:45+08:00",
+      "content_hash": "ee58eb02f6f1bb7832f95881a7d852feaab036ffec01a6728fa019361a7e04a6",
+      "summary": "河南工业大学（事业全供）公开招聘专业技术岗副高级15名、正高级5名，共20名，学历要求硕士研究生、硕士学位及以上并具备对应副高级或正高级职称，涵盖工科、理学、人文社科及医药管理81个学科。",
+      "tags": [
+        "郑州市",
+        "高校事业全供",
+        "高级职称",
+        "硕士可报",
+        "网上系统报名"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "全校各教学科研单位",
+        "post_level": "专业技术岗副高级/正高级",
+        "bianzhi_type": "全额拨款事业编",
+        "headcount": 20,
+        "education_min": "硕士",
+        "degree_min": "硕士及以上学位（副高级15名/正高级5名）",
+        "majors": [
+          "哲学/经济学/金融/应用统计/数字经济(01-02类)",
+          "法学/政治学/社会学/马理论/知识产权(03类)",
+          "教育学/心理学/体育学/中国文学/外语/新闻(04-05类)",
+          "数学/物理/化学/天文/生物/统计学(07类)",
+          "机械/力学/光学/仪器/材料/动力/电气(0801-0808)",
+          "电子信息/通信/控制/计算机/软件/网安(0809-0839)",
+          "土木/化工/轻工/农业工程/环境/安全(0814-0859)",
+          "食品科学与工程(0832)/食品与营养(0955)/农牧植保",
+          "中医学/药学/中药学(1005/1007/1008)",
+          "管理科学与工程/工商/公管/会计/工程管理(12类)",
+          "艺术学/戏剧影视/设计学/集成电路/智能科学(13-14类)"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "副高级及以上职称一般不超过43周岁（1982年11月1日及以后出生）",
+        "political_status": null,
+        "exam_type": "分批面试考核（满分100分，低于60分不予聘用）",
+        "apply_method": "网上系统报名（登录 http://haut.zp.kooci.net 提交材料）",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批实施，招满为止",
+        "other_requirements": "岗位2（副高15名）应具备副高级职称，岗位3（正高5名）应具备正高级职称；经费供给：事业全供。咨询：0371-67756896。",
+        "announcement_title": "河南工业大学2026年公开招聘工作人员公告",
+        "attachments": [
+          {
+            "name": "河南工业大学2026年公开招聘工作人员一览表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387811182086738.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-02242f8a1db6-01",
+      "category": "public_institution",
+      "title": "2026年公开招聘博士等高层次人才（中级90名/副高7名/正高3名）",
+      "org_name": "许昌学院",
+      "province": "河南省",
+      "city": "许昌市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/dc96420304ca4658ba46aa698ea2c84d.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-11",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:42:23+08:00",
+      "last_seen_at": "2026-11-19T20:42:23+08:00",
+      "content_hash": "02242f8a1db6808177b2cee35182ab88a162033d2308d0ed3bc4ed6f5923af35",
+      "summary": "许昌学院（省属全日制公办本科）2026年计划公开招聘博士等高层次人才100名（中级90名、副高7名、正高3名），涵盖十大学科门类及文史/数理/电气/机电/信息/化工/食品医药/医学院等20个用人部门，2026年度可随时报名。",
+      "tags": [
+        "许昌市",
+        "省属本科",
+        "博士研究生",
+        "百人计划",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "全校20个二级学院及科研中心",
+        "post_level": "专业技术中级(90)/副高(7)/正高(3)",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 100,
+        "education_min": "博士",
+        "degree_min": "博士研究生（副高/正高岗须兼备相应职称资格）",
+        "majors": [
+          "中国语言文学/新闻/历史/艺术/戏剧影视(05-06/13类)",
+          "马克思主义理论/政治学/党史党建/哲学/外语(01/03/05)",
+          "教育学/心理学/体育学(04类)",
+          "法学/纪检监察/法律/知识产权/经管审计(02/03/12类)",
+          "数学/物理学/化学/生物学/统计学(07类)",
+          "电气/控制/计算机/通信/软件/网安/电子信息(08类)",
+          "机械/仪器/航空宇航/材料/生物医学工程/能源化工",
+          "测绘/遥感/轻工/食品/农林/土木水利/环保(08-09类)",
+          "智能科学与技术/纳米/集成电路/密码(14类)",
+          "医学(10)"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "原则上不超过43周岁（1982年11月1日以后出生）",
+        "political_status": null,
+        "exam_type": "试讲方式面试考核（满分100分，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（同时发至用人单位邮箱和人事处 xcxyrsc8820@126.com）",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批不定期启动，招满为止",
+        "other_requirements": "邮件命名：应聘岗位+学历+专业+学校+姓名；高端人才引进不受专业岗位和人数限制。咨询：0374-2996675；监督：0374-2968928。",
+        "announcement_title": "许昌学院2026年公开招聘工作人员公告",
+        "attachments": [
+          {
+            "name": "许昌学院2026年公开招聘工作人员（博士岗位）一览表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794388188895033293.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "许昌学院2026年公开招聘博士研究生用人单位联系方式",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794388205389087888.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-17e5c73b86de-01",
+      "category": "public_institution",
+      "title": "2026年公开招聘高层次人才（博士，中级34名/副高2名）",
+      "org_name": "商丘师范学院",
+      "province": "河南省",
+      "city": "商丘市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/0ba5d37fcd4f4b5a89523af73b72b33a.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-11",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:42:41+08:00",
+      "last_seen_at": "2026-11-19T20:42:41+08:00",
+      "content_hash": "17e5c73b86deb6875986d56ce5b567c36e77d5acccd42259d5385d55aef107a5",
+      "summary": "商丘师范学院（省属公办本科，河南省示范性应用型本科高校）2026年公开招聘高层次博士人才36名（中级34名、副高2名），覆盖人文、传媒、法学、经管、数统、电气、物电、化工、计科、软件、低空技术等21个学院。",
+      "tags": [
+        "商丘市",
+        "省属本科",
+        "博士研究生",
+        "高校教师",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "全校21个二级教学学院",
+        "post_level": "专业技术中级(34)/副高级(2)",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 36,
+        "education_min": "博士",
+        "degree_min": "博士研究生（副高级岗须具备副高级职称）",
+        "majors": [
+          "中国语言文学/新闻传播/中国史/考古/世界史(05-06类)",
+          "法学/社会学/社会工作/公共管理/马克思主义理论(03/12)",
+          "经济学/管理学(02/12)/数学/统计学(0701/0714)",
+          "电气工程/控制/光学/物理/电子/信息通信(07-08类)",
+          "化学/材料/药学(0703/0805/1007)",
+          "外国语言文学/翻译/教育学/心理学/体育(04-05类)",
+          "生物学/生物工程/食品/畜牧学(0710/0832/0836/0905)",
+          "计算机科学与技术/软件工程(0812/0835)",
+          "地理/生态/测绘/遥感/农资环境/城乡规划/建筑土木(07-09)",
+          "艺术学/音乐/美术书法/设计学/戏剧影视(13-14类)"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "一般43周岁以下（1982年11月1日及以后出生）",
+        "political_status": null,
+        "exam_type": "试讲及综合性考核（课程试讲、答辩、心理测试，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（发至各学院邮箱和人事处 rsc@sqnu.edu.cn，附附件2报名表）",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批实施，招满为止",
+        "other_requirements": "邮件命名：姓名+专业+学历+应聘岗位；2026年度有效。咨询电话：0370-3109116；监督电话：0370-3111066。",
+        "announcement_title": "商丘师范学院2026年公开招聘高层次人才公告",
+        "attachments": [
+          {
+            "name": "商丘师范学院2026年高层次人才引进计划表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794388059091059080.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "商丘师范学院高层次人才报名表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794388075483008770.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-4b755e6e16ec-01",
+      "category": "public_institution",
+      "title": "2026年公开招聘博士研究生专职教师（14名，贯穿全年报名）",
+      "org_name": "河南警察学院",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/f8284e0b225346058cac8bf85d8167c6.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-11",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:43:09+08:00",
+      "last_seen_at": "2026-11-19T20:43:09+08:00",
+      "content_hash": "4b755e6e16ec54b34b7833e7c92f99c144dc1923237e4f00b55e1c42c5bea80e",
+      "summary": "河南警察学院2026年面向社会公开招聘专职教师（专业技术中级）14名，招聘博士研究生或已出站博士后，覆盖马克思主义学院、侦查系、治安系、法律系、网安系、交管系、刑科系、经侦系等12个教研系部，贯穿2026年全年报名。",
+      "tags": [
+        "郑州市",
+        "公安高校",
+        "人民警察警衔",
+        "博士研究生",
+        "贯穿全年"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "马克思主义学院/侦查系/网安系等12个系部",
+        "post_level": "专职教师（专业技术中级）",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 14,
+        "education_min": "博士",
+        "degree_min": "博士研究生或已出站博士后",
+        "majors": [
+          "法学(0301)/公安学(0306)",
+          "马克思主义理论(0305)/民族学(0304)",
+          "政治学(0302)/社会学(0303)/国家安全学(1402)",
+          "计算机科学与技术(0812)/网络空间安全(0839)",
+          "电子科学与技术(0809)/信息与通信工程(0810)/电子信息(0854)",
+          "控制科学与工程(0811)/智能科学与技术(1405)/安全科学与工程(0837)",
+          "公安技术(0838)/航空宇航(0825)/遥感(1404)/环境(0830)",
+          "管理科学与工程(1201)/信息资源管理(1205)/艺术学(1301)"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "博士1987年11月1日及以后、博士后1982年11月1日及以后出生",
+        "political_status": "符合公安机关人民警察政治考察要求（马院岗限中共党员）",
+        "exam_type": "课程试讲面试+公安机关体能测评（试讲低于60分淘汰）",
+        "apply_method": "电子邮件报名（同时发至人事处 rcyj@hnp.edu.cn 和应聘部门邮箱）",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试（试讲+体能测评）",
+        "interview_time": "贯穿2026年全年分批次面试",
+        "other_requirements": "最低服务期8年；符合警衔评授标准授予人民警察警衔；须逐一扫描PDF打包提交。咨询：0371-56817109；监督：0371-56817177。",
+        "announcement_title": "河南警察学院2026年公开招聘博士研究生公告",
+        "attachments": [
+          {
+            "name": "河南警察学院2026年博士研究生引进计划表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387924621044920.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南警察学院2026年博士研究生引进报名登记表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387940974001105.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "应聘人员诚信承诺书",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387956585002214.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-37e3950261dd-01a",
+      "category": "public_institution",
+      "title": "河南省地质研究院公开招聘专业技术中级岗（博士研究生，10名）",
+      "org_name": "河南省地质研究院",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": "管城回族区",
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/72c3f5b1d0ef4a158eaf2ce161846445.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-11",
+      "deadline_at": "2026-11-30",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:43:37+08:00",
+      "last_seen_at": "2026-11-19T20:43:37+08:00",
+      "content_hash": "37e3950261ddd78e1ff98175cf523bbbd8b2a84f44f0c86bda6f44af2c393c01",
+      "summary": "河南省地质局直属副厅级公益二类事业单位，开展全省地质调查与地球系统科学研究。本次拟面向社会公开招聘博士研究生10名（专业技术中级岗），11月30日报名截止，采用统一面试考核（低于60分不予聘用）。",
+      "tags": [
+        "郑州市",
+        "省地质局",
+        "公益事业单位",
+        "博士研究生",
+        "11月30日截止"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "河南省地质研究院",
+        "post_level": "专业技术 中级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 10,
+        "education_min": "博士",
+        "degree_min": "博士研究生 博士学位",
+        "majors": [
+          "地质资源与地质工程（0818）",
+          "地质学（0709）",
+          "化学工程与技术（0817）",
+          "地球物理学（0708）",
+          "生态学（0713）",
+          "环境科学与工程（0830）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "1982年11月1日之后出生",
+        "political_status": null,
+        "exam_type": "统一面试考核（百分制，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（发至 hnsdzyjy@163.com，主题：应聘岗位+姓名+学位+专业+毕业学校）",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试",
+        "interview_time": "官网另行通知",
+        "other_requirements": "高等教育各学历层次专业一致或相近。联系人：管老师 13903828167；地址：郑州市管城回族区金水东路16号；局咨询：0371-67712570。",
+        "announcement_title": "河南省地质局所属事业单位2026年公开招聘高层次人才公告",
+        "attachments": [
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才岗位信息表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387664128067705.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才报名表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387683016033496.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才招聘单位网址、邮箱、联系人及咨询电话",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387699847057170.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-37e3950261dd-01b",
+      "category": "public_institution",
+      "title": "河南省地质研究院公开招聘专业技术副高级岗（高级工程师，10名）",
+      "org_name": "河南省地质研究院",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": "管城回族区",
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/72c3f5b1d0ef4a158eaf2ce161846445.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-11",
+      "deadline_at": "2026-11-30",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:43:37+08:00",
+      "last_seen_at": "2026-11-19T20:43:37+08:00",
+      "content_hash": "37e3950261ddd78e1ff98175cf523bbbd8b2a84f44f0c86bda6f44af2c393c01",
+      "summary": "河南省地质局直属副厅级公益二类事业单位，开展全省地质调查与地球系统科学研究。本次面向社会公开招聘高级工程师10名（专业技术副高级岗），本科及以上学历并持有对应高级工程师及以上职称即可报考，11月30日截止报名。",
+      "tags": [
+        "郑州市",
+        "省地质局",
+        "高级工程师",
+        "本科可报",
+        "11月30日截止"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "河南省地质研究院",
+        "post_level": "专业技术 副高级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 10,
+        "education_min": "本科",
+        "degree_min": "高级工程师（本科及以上学历）",
+        "majors": [
+          "地质工程（081401）",
+          "资源勘查工程（081403）",
+          "勘查技术与工程（081402）",
+          "地球物理学（070801）",
+          "地质学（070901）",
+          "地球化学（070902）",
+          "环境工程（082502）",
+          "测绘工程（081201）",
+          "计算机科学与技术/电子信息工程"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "1982年11月1日之后出生",
+        "political_status": null,
+        "exam_type": "统一面试考核（百分制，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（发至 hnsdzyjy@163.com，主题：应聘岗位+姓名+学位+专业+毕业学校）",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试",
+        "interview_time": "官网另行通知",
+        "other_requirements": "本科及以上学历，具有地质/生态环境/测绘地信/计算机相关高级工程师及以上职称。联系人：管老师 13903828167；地址：郑州市管城回族区金水东路16号；局咨询：0371-67712570。",
+        "announcement_title": "河南省地质局所属事业单位2026年公开招聘高层次人才公告",
+        "attachments": [
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才岗位信息表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387664128067705.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才报名表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387683016033496.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才招聘单位网址、邮箱、联系人及咨询电话",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387699847057170.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-37e3950261dd-02a",
+      "category": "public_institution",
+      "title": "河南省地质局矿产资源勘查中心公开招聘专业技术中级岗（博士研究生，9名）",
+      "org_name": "河南省地质局矿产资源勘查中心",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": "管城回族区",
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/72c3f5b1d0ef4a158eaf2ce161846445.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-11",
+      "deadline_at": "2026-11-30",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:43:37+08:00",
+      "last_seen_at": "2026-11-19T20:43:37+08:00",
+      "content_hash": "37e3950261ddd78e1ff98175cf523bbbd8b2a84f44f0c86bda6f44af2c393c01",
+      "summary": "河南省地质局直属正处级公益一类事业单位，承担战略性矿产勘查与航空物探遥感任务。本次拟面向社会公开招聘博士研究生9名（专业技术中级岗），11月30日报名截止，采用统一面试考核（低于60分不予聘用）。",
+      "tags": [
+        "郑州市",
+        "省地质局",
+        "公益事业单位",
+        "博士研究生",
+        "11月30日截止"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "河南省地质局矿产资源勘查中心",
+        "post_level": "专业技术 中级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 9,
+        "education_min": "博士",
+        "degree_min": "博士研究生 博士学位",
+        "majors": [
+          "地质学（0709）",
+          "地质资源与地质工程（0818）",
+          "地质工程（0857）",
+          "地球物理学（0708）",
+          "地理学（0705）",
+          "测绘科学与技术（0816）",
+          "资源与环境（0857）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "1982年11月1日之后出生",
+        "political_status": null,
+        "exam_type": "统一面试考核（百分制，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（发至 776837023@qq.com，主题：应聘岗位+姓名+学位+专业+毕业学校）",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试",
+        "interview_time": "官网另行通知",
+        "other_requirements": "高等教育各学历层次专业一致或相近。联系人：李老师 15838358879；地址：郑州市管城回族区榆林南路30号；局咨询：0371-67712570。",
+        "announcement_title": "河南省地质局所属事业单位2026年公开招聘高层次人才公告",
+        "attachments": [
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才岗位信息表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387664128067705.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才报名表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387683016033496.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才招聘单位网址、邮箱、联系人及咨询电话",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387699847057170.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-37e3950261dd-02b",
+      "category": "public_institution",
+      "title": "河南省地质局矿产资源勘查中心公开招聘专业技术副高级岗（高级工程师，14名）",
+      "org_name": "河南省地质局矿产资源勘查中心",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": "管城回族区",
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/72c3f5b1d0ef4a158eaf2ce161846445.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-11",
+      "deadline_at": "2026-11-30",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:43:37+08:00",
+      "last_seen_at": "2026-11-19T20:43:37+08:00",
+      "content_hash": "37e3950261ddd78e1ff98175cf523bbbd8b2a84f44f0c86bda6f44af2c393c01",
+      "summary": "河南省地质局直属正处级公益一类事业单位，承担战略性矿产勘查与航空物探遥感任务。本次面向社会公开招聘高级工程师14名（专业技术副高级岗），本科及以上学历并持有对应高级工程师及以上职称即可报考，11月30日截止报名。",
+      "tags": [
+        "郑州市",
+        "省地质局",
+        "高级工程师",
+        "本科可报",
+        "11月30日截止"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "河南省地质局矿产资源勘查中心",
+        "post_level": "专业技术 副高级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 14,
+        "education_min": "本科",
+        "degree_min": "高级工程师（本科及以上学历）",
+        "majors": [
+          "地质学/地球化学（0709/070902）",
+          "资源勘查工程（081403）",
+          "地质工程（081401）",
+          "地球信息科学与技术/地球物理学",
+          "勘查技术与工程（081402）",
+          "地下水科学与工程/水文与水资源工程",
+          "工程管理（120103）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "1982年11月1日之后出生",
+        "political_status": null,
+        "exam_type": "统一面试考核（百分制，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（发至 776837023@qq.com，主题：应聘岗位+姓名+学位+专业+毕业学校）",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试",
+        "interview_time": "官网另行通知",
+        "other_requirements": "本科及以上学历，具有地质/水文地质/工程勘察类相关高级工程师及以上职称。联系人：李老师 15838358879；地址：郑州市管城回族区榆林南路30号；局咨询：0371-67712570。",
+        "announcement_title": "河南省地质局所属事业单位2026年公开招聘高层次人才公告",
+        "attachments": [
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才岗位信息表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387664128067705.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才报名表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387683016033496.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才招聘单位网址、邮箱、联系人及咨询电话",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387699847057170.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-37e3950261dd-03a",
+      "category": "public_institution",
+      "title": "河南省地质局生态环境地质服务中心公开招聘专业技术中级岗（博士研究生，17名）",
+      "org_name": "河南省地质局生态环境地质服务中心",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": "金水区",
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/72c3f5b1d0ef4a158eaf2ce161846445.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-11",
+      "deadline_at": "2026-11-30",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:43:37+08:00",
+      "last_seen_at": "2026-11-19T20:43:37+08:00",
+      "content_hash": "37e3950261ddd78e1ff98175cf523bbbd8b2a84f44f0c86bda6f44af2c393c01",
+      "summary": "河南省地质局直属正处级公益一类事业单位，承担生态环境地质与水资源调查评价任务。本次拟面向社会公开招聘博士研究生17名（专业技术中级岗），11月30日报名截止，采用统一面试考核（低于60分不予聘用）。",
+      "tags": [
+        "郑州市",
+        "省地质局",
+        "公益事业单位",
+        "博士研究生",
+        "11月30日截止"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "河南省地质局生态环境地质服务中心",
+        "post_level": "专业技术 中级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 17,
+        "education_min": "博士",
+        "degree_min": "博士研究生 博士学位",
+        "majors": [
+          "地质资源与地质工程（0818）",
+          "地质学（0709）",
+          "环境科学与工程（0830）",
+          "资源与环境（0857）",
+          "林业（0954）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "1982年11月1日之后出生",
+        "political_status": null,
+        "exam_type": "统一面试考核（百分制，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（发至 stzxzrk@163.com，主题：应聘岗位+姓名+学位+专业+毕业学校）",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试",
+        "interview_time": "官网另行通知",
+        "other_requirements": "高等教育各学历层次专业一致或相近。联系人：王老师 13673637640；地址：郑州市金水区南阳路56号；局咨询：0371-67712570。",
+        "announcement_title": "河南省地质局所属事业单位2026年公开招聘高层次人才公告",
+        "attachments": [
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才岗位信息表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387664128067705.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才报名表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387683016033496.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才招聘单位网址、邮箱、联系人及咨询电话",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387699847057170.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-37e3950261dd-03b",
+      "category": "public_institution",
+      "title": "河南省地质局生态环境地质服务中心公开招聘专业技术副高级岗（高级工程师，3名）",
+      "org_name": "河南省地质局生态环境地质服务中心",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": "金水区",
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/72c3f5b1d0ef4a158eaf2ce161846445.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-11",
+      "deadline_at": "2026-11-30",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:43:37+08:00",
+      "last_seen_at": "2026-11-19T20:43:37+08:00",
+      "content_hash": "37e3950261ddd78e1ff98175cf523bbbd8b2a84f44f0c86bda6f44af2c393c01",
+      "summary": "河南省地质局直属正处级公益一类事业单位，承担生态环境地质与水资源调查评价任务。本次面向社会公开招聘高级工程师3名（专业技术副高级岗），本科及以上学历并持有对应高级工程师及以上职称即可报考，11月30日截止报名。",
+      "tags": [
+        "郑州市",
+        "省地质局",
+        "高级工程师",
+        "本科可报",
+        "11月30日截止"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "河南省地质局生态环境地质服务中心",
+        "post_level": "专业技术 副高级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 3,
+        "education_min": "本科",
+        "degree_min": "高级工程师（本科及以上学历）",
+        "majors": [
+          "地下水科学与工程（081404T）",
+          "艺术设计（130501）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "1982年11月1日之后出生",
+        "political_status": null,
+        "exam_type": "统一面试考核（百分制，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（发至 stzxzrk@163.com，主题：应聘岗位+姓名+学位+专业+毕业学校）",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试",
+        "interview_time": "官网另行通知",
+        "other_requirements": "本科及以上学历，具有水工环专业高级工程师及以上职称。联系人：王老师 13673637640；地址：郑州市金水区南阳路56号；局咨询：0371-67712570。",
+        "announcement_title": "河南省地质局所属事业单位2026年公开招聘高层次人才公告",
+        "attachments": [
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才岗位信息表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387664128067705.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才报名表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387683016033496.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才招聘单位网址、邮箱、联系人及咨询电话",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387699847057170.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-37e3950261dd-04a",
+      "category": "public_institution",
+      "title": "河南省地质局地质灾害防治中心公开招聘专业技术中级岗（博士研究生，15名）",
+      "org_name": "河南省地质局地质灾害防治中心",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": "管城回族区",
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/72c3f5b1d0ef4a158eaf2ce161846445.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-11",
+      "deadline_at": "2026-11-30",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:43:37+08:00",
+      "last_seen_at": "2026-11-19T20:43:37+08:00",
+      "content_hash": "37e3950261ddd78e1ff98175cf523bbbd8b2a84f44f0c86bda6f44af2c393c01",
+      "summary": "河南省地质局直属正处级公益一类事业单位，承担全省地质灾害调查监测与治理应急工作。本次拟面向社会公开招聘博士研究生15名（专业技术中级岗），11月30日报名截止，采用统一面试考核（低于60分不予聘用）。",
+      "tags": [
+        "郑州市",
+        "省地质局",
+        "公益事业单位",
+        "博士研究生",
+        "11月30日截止"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "河南省地质局地质灾害防治中心",
+        "post_level": "专业技术 中级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 15,
+        "education_min": "博士",
+        "degree_min": "博士研究生 博士学位",
+        "majors": [
+          "地质资源与地质工程（0818）",
+          "地质学（0709）",
+          "化学（0703）",
+          "环境科学与工程（0830/0776）",
+          "资源与环境（0857）",
+          "矿业工程（0819）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "1982年11月1日之后出生",
+        "political_status": null,
+        "exam_type": "统一面试考核（百分制，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（发至 dzfzrsk@163.com，主题：应聘岗位+姓名+学位+专业+毕业学校）",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试",
+        "interview_time": "官网另行通知",
+        "other_requirements": "高等教育各学历层次专业一致或相近。联系人：高老师 17760796677；地址：郑州市管城回族区榆林南路30号；局咨询：0371-67712570。",
+        "announcement_title": "河南省地质局所属事业单位2026年公开招聘高层次人才公告",
+        "attachments": [
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才岗位信息表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387664128067705.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才报名表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387683016033496.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才招聘单位网址、邮箱、联系人及咨询电话",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387699847057170.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-37e3950261dd-04b",
+      "category": "public_institution",
+      "title": "河南省地质局地质灾害防治中心公开招聘专业技术副高级岗（高级工程师，5名）",
+      "org_name": "河南省地质局地质灾害防治中心",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": "管城回族区",
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/72c3f5b1d0ef4a158eaf2ce161846445.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-11",
+      "deadline_at": "2026-11-30",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:43:37+08:00",
+      "last_seen_at": "2026-11-19T20:43:37+08:00",
+      "content_hash": "37e3950261ddd78e1ff98175cf523bbbd8b2a84f44f0c86bda6f44af2c393c01",
+      "summary": "河南省地质局直属正处级公益一类事业单位，承担全省地质灾害调查监测与治理应急工作。本次面向社会公开招聘高级工程师5名（专业技术副高级岗），本科及以上学历并持有对应高级工程师及以上职称即可报考，11月30日截止报名。",
+      "tags": [
+        "郑州市",
+        "省地质局",
+        "高级工程师",
+        "本科可报",
+        "11月30日截止"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "河南省地质局地质灾害防治中心",
+        "post_level": "专业技术 副高级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 5,
+        "education_min": "本科",
+        "degree_min": "高级工程师（本科及以上学历）",
+        "majors": [
+          "采矿工程（081501）",
+          "安全工程（082901）",
+          "环境工程（082502）",
+          "地质学（070901）",
+          "土木工程（081001）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "1982年11月1日之后出生",
+        "political_status": null,
+        "exam_type": "统一面试考核（百分制，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（发至 dzfzrsk@163.com，主题：应聘岗位+姓名+学位+专业+毕业学校）",
+        "apply_start_at": "2026-11-11",
+        "written_exam_time": "免笔试",
+        "interview_time": "官网另行通知",
+        "other_requirements": "本科及以上学历，具有矿山安全/通用工程安全/市政公用工程/地质矿产/岩土工程高级工程师及以上职称。联系人：高老师 17760796677；地址：郑州市管城回族区榆林南路30号；局咨询：0371-67712570。",
+        "announcement_title": "河南省地质局所属事业单位2026年公开招聘高层次人才公告",
+        "attachments": [
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才岗位信息表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387664128067705.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才报名表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387683016033496.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省地质局所属事业单位2026年公开招聘高层次人才招聘单位网址、邮箱、联系人及咨询电话",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387699847057170.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-6c5858907681-01",
+      "category": "public_institution",
+      "title": "2026年公开招聘博士研究生（专业技术中级，25名）",
+      "org_name": "河南科技大学",
+      "province": "河南省",
+      "city": "洛阳市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/1f2be0e4c58947128dac2b1018761410.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-09-30",
+      "deadline_at": "2026-11-30",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:44:22+08:00",
+      "last_seen_at": "2026-11-19T20:44:22+08:00",
+      "content_hash": "6c5858907681d78f21f1f5afeee46ca4efd2ed3833aabd929a2e2bdde8a3ca29",
+      "summary": "河南科技大学（洛阳市，省“双一流”创建重点高校）2026年公开招聘博士25名（党委本科生/研究生工作部、国际合作与交流部），须在辅导员岗位工作一定年限后可按条件转其他岗位，报名截止2026年11月30日。",
+      "tags": [
+        "洛阳市",
+        "省属重点大学",
+        "博士辅导员",
+        "中共党员",
+        "11月30日截止"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "党委本科生工作部/党委研究生工作部/国际合作与交流部",
+        "post_level": "专业技术 中级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 25,
+        "education_min": "博士",
+        "degree_min": "博士研究生（须于2026年12月31日前取得学历学位）",
+        "majors": [
+          "马克思主义理论（0305）",
+          "教育学（0401，高等教育学）",
+          "心理学（0402）及学校现有相关专业",
+          "国际中文教育（0453）",
+          "外国语言文学（0502）",
+          "计算机科学与技术（0812）",
+          "基础医学（1001）/临床医学（1002）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "不超过38周岁（1987年9月1日及以后出生）",
+        "political_status": "中共党员（含预备党员）",
+        "exam_type": "面试考核（试讲、答辩、实操等，低于60分淘汰）",
+        "apply_method": "电子邮件报名（合并PDF发至各部门邮箱 sxjy@haust.edu.cn / 9903932@haust.edu.cn / liuhong_mm@126.com）",
+        "apply_start_at": "2026-09-30",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批不定期启动",
+        "other_requirements": "亦发布于河南科技大学人事处 https://rsc.haust.edu.cn/info/1027/8254.htm；需以第一作者发表高水平/CSSCI论文。咨询：0379-65627196。",
+        "announcement_title": "河南科技大学2026年公开招聘博士研究生公告",
+        "attachments": [
+          {
+            "name": "河南科技大学2026年博士招聘一览表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20260930/1790762340352021726.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南科技大学2026年博士报名登记表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20260930/1790762354617056618.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "诚信承诺书",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20260930/1790762368953038478.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-6bc582160996-01",
+      "category": "public_institution",
+      "title": "2026年公开招聘博士研究生（医疗及科研39个科室，55名）",
+      "org_name": "郑州大学第二附属医院",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/96c0414b5b294e0186391375f327d357.html",
+      "apply_url": "https://f.wps.cn/g/Fbe3zD7t",
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-09-30",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:43:53+08:00",
+      "last_seen_at": "2026-11-19T20:43:53+08:00",
+      "content_hash": "6bc582160996f4cc92c2d66841dbb3ed23f19f69666e5cce96a20c7d96c2f343",
+      "summary": "郑州大学第二附属医院（三甲综合医院，经八路/南阳路/经开区三院区）2026年公开招聘博士研究生55名（专业技术中级），覆盖心血管/神经/普外/妇产/口腔/重症/麻醉/科研实验室等39个科室，2026年度有效，截止12月31日。",
+      "tags": [
+        "郑州市",
+        "三甲医院",
+        "郑大附院",
+        "博士研究生",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "重症/心内/神内/普外/妇产/医学影像等39个临床科研部门",
+        "post_level": "专业技术中级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 55,
+        "education_min": "博士",
+        "degree_min": "博士研究生（医疗岗具医师资格证、规培证优先）",
+        "majors": [
+          "内科学/心血管/老年/神经病学/肿瘤学（1051/1002）",
+          "外科学/泌尿/普外/胸外/神外/心外（105111/100210）",
+          "重症医学/急诊医学/麻醉学（1051/1002）",
+          "妇产科学/生殖医学/眼科学/口腔医学（1051/1052）",
+          "影像医学与核医学/超声医学（100207/105124）",
+          "基础医学/公共卫生/卫生统计学/生物学（1001/1004/0710）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "38周岁以下（1987年9月1日以后出生）",
+        "political_status": null,
+        "exam_type": "面试考核（满分100分，低于60分不予录取）",
+        "apply_method": "两步报名（填报 https://f.wps.cn/g/Fbe3zD7t + 发报名表至 zdefyrczp@163.com）",
+        "apply_start_at": "2026-09-30",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批面试，招满为止",
+        "other_requirements": "每人限报1个岗位；邮件命名：岗位序号+岗位+专业+姓名。咨询：0371-63936327；监督：0371-63861051。",
+        "announcement_title": "郑州大学第二附属医院2026年公开招聘博士研究生公告",
+        "attachments": [
+          {
+            "name": "附件1郑州大学第二附属医院2026年公开招聘博士研究生一览表.docx",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20260930/1790762557076055570.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "附件2应聘报名表.docx",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20260930/1790762565041022815.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-9c759cc59ba8-01",
+      "category": "public_institution",
+      "title": "校本部各二级教学科研单位博士岗（专业技术中级及正副高，99名）",
+      "org_name": "河南医药大学（含附属医院）",
+      "province": "河南省",
+      "city": "新乡市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/b33db5c78bb0497bba3fdc46590051f0.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-09-30",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:44:42+08:00",
+      "last_seen_at": "2026-11-19T20:44:42+08:00",
+      "content_hash": "9c759cc59ba8fcb7ab7eb67958d84d7e279a117ffc04b85d2294e3d101ffffaa",
+      "summary": "河南医药大学（原新乡医学院）校本部基础医学院、公卫、药学院、医学技术、护理、口腔、生命科学、心理、外语、医学工程、马院及科研中心等19个单位公开招聘博士99名，涵盖医学/药学/生物/心理/外语/工程等学科，至2026年12月31日有效。",
+      "tags": [
+        "新乡市",
+        "公办本科医学院",
+        "博士研究生",
+        "教学科研",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "基础/公卫/药/护理/口腔/生科/心理/医学工程等19个院系中心",
+        "post_level": "专业技术岗中级/副高/正高",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 99,
+        "education_min": "博士",
+        "degree_min": "博士研究生（正高/副高岗须具对应高级职称）",
+        "majors": [
+          "基础医学/临床医学/口腔医学/法医学（1001/1002/1003/1012）",
+          "公共卫生与预防医学/药学/中药学/护理学（1004/1007/1008/1011）",
+          "生物学/生物与医药/生物工程/材料科学/化学（0710/0860/0805）",
+          "生物医学工程/机械/电子/计算机/数学（0831/0802/0812/0701）",
+          "心理学/马克思主义理论/哲学/法学/外语/管理学/体育学"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "一般不超过38周岁（1987年9月1日及以后出生，高级职称及急需可放宽）",
+        "political_status": null,
+        "exam_type": "综合考核（面试方式，满分100分，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（电话联系并发送材料至附件各招聘单位邮箱）",
+        "apply_start_at": "2026-09-30",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批组织考核",
+        "other_requirements": "每人限报1个岗位，命名格式：姓名+应聘二级教学科研单位+专业。咨询：0373-3831169；监督：0373-3029443。",
+        "announcement_title": "河南医药大学（含附属医院）2026年公开招聘博士公告",
+        "attachments": [
+          {
+            "name": "《河南医药大学（含附属医院）2026年各二级教学科研单位博士引进计划》",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20260930/1790762070738026437.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-9c759cc59ba8-02",
+      "category": "public_institution",
+      "title": "本科生学院、研究生学院专职辅导员岗（博士・不限专业，17名）",
+      "org_name": "河南医药大学（含附属医院）",
+      "province": "河南省",
+      "city": "新乡市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/b33db5c78bb0497bba3fdc46590051f0.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-09-30",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:44:42+08:00",
+      "last_seen_at": "2026-11-19T20:44:42+08:00",
+      "content_hash": "9c759cc59ba8fcb7ab7eb67958d84d7e279a117ffc04b85d2294e3d101ffffaa",
+      "summary": "河南医药大学本科生学院（10名）与研究生学院（7名）公开招聘专职辅导员（专业技术岗中级）共17名，明确不限博士专业（要求中共党员/预备党员），自公告发布至2026年12月31日有效。",
+      "tags": [
+        "新乡市",
+        "高校辅导员",
+        "不限专业",
+        "博士研究生",
+        "中共党员"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "本科生学院（10名）、研究生学院（7名）",
+        "post_level": "专业技术岗中级（辅导员）",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 17,
+        "education_min": "博士",
+        "degree_min": "博士研究生",
+        "majors": [
+          "不限专业（辅导员岗，要求中共党员/含预备党员）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "一般不超过38周岁（1987年9月1日及以后出生）",
+        "political_status": "中共党员（含中共预备党员）",
+        "exam_type": "综合考核（满分100分，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（本科生学院 bksxyjyk405@163.com；研究生学院 yjsxsgz@xxmu.edu.cn）",
+        "apply_start_at": "2026-09-30",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批组织考核",
+        "other_requirements": "本科生学院联系邹洁副院长 0373-3831617；研究生学院联系于云鹏副院长 0373-3029940；学校咨询：0373-3831169。",
+        "announcement_title": "河南医药大学（含附属医院）2026年公开招聘博士公告",
+        "attachments": [
+          {
+            "name": "《河南医药大学（含附属医院）2026年各二级教学科研单位博士引进计划》",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20260930/1790762070738026437.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-9c759cc59ba8-03",
+      "category": "public_institution",
+      "title": "第一/第二/第三附属医院博士引进岗（56名）",
+      "org_name": "河南医药大学（含附属医院）",
+      "province": "河南省",
+      "city": "新乡市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/b33db5c78bb0497bba3fdc46590051f0.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-09-30",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:44:42+08:00",
+      "last_seen_at": "2026-11-19T20:44:42+08:00",
+      "content_hash": "9c759cc59ba8fcb7ab7eb67958d84d7e279a117ffc04b85d2294e3d101ffffaa",
+      "summary": "河南医药大学第一附属医院（27名）、第二附属医院（13名）、第三附属医院（16名）2026年公开招聘博士共56名，涉及临床医学、精神医学、基础医学、药学、口腔、公卫、生物医学工程、人工智能及心理学等方向。",
+      "tags": [
+        "新乡市",
+        "高校附属医院",
+        "博士研究生",
+        "医疗科研",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "第一/第二/第三附属医院",
+        "post_level": "专业技术岗中级(53)/正高(3)",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 56,
+        "education_min": "博士",
+        "degree_min": "博士研究生（正高级岗须具有正高级职称）",
+        "majors": [
+          "临床医学（1002/1051，含精神病学/神经病学/外科学等）",
+          "基础医学（1001）/中医学（1057）/口腔医学（1003/1052）",
+          "药学（1007/1055）/医学技术（1058）/护理学（1011/1054）",
+          "公共卫生与预防医学（1004/1053）/生物医学工程（0831）",
+          "生物学（0710）/电子信息（0854）/心理学（0402）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "一般不超过38周岁（1987年9月1日及以后出生，高级职称可放宽）",
+        "political_status": null,
+        "exam_type": "综合考核（满分100分，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（一附院 rskxx@163.com；二附院 rsk3938@126.com；三附院 sfyrsk@xxmu.edu.cn）",
+        "apply_start_at": "2026-09-30",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批组织考核",
+        "other_requirements": "一附院 0373-4402512；二附院 0373-3373869；三附院 0373-3029613；学校人才处咨询 0373-3831169。",
+        "announcement_title": "河南医药大学（含附属医院）2026年公开招聘博士公告",
+        "attachments": [
+          {
+            "name": "《河南医药大学（含附属医院）2026年各二级教学科研单位博士引进计划》",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20260930/1790762070738026437.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-b50f100b941b-01",
+      "category": "public_institution",
+      "title": "2026年高层次人才引进—博士研究生专技中级岗（64名）",
+      "org_name": "周口师范学院",
+      "province": "河南省",
+      "city": "周口市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/fbcc72e1f06e4a208053042cbe5b8222.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-09-30",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:44:34+08:00",
+      "last_seen_at": "2026-11-19T20:44:34+08:00",
+      "content_hash": "b50f100b941b67796111528320576f1226e6af90b42e9fc5777aeff8581e7d5c",
+      "summary": "周口师范学院（省属公办本科）2026年公开招聘博士研究生专技中级岗64名，覆盖数学、物理、机电、计科、人工智能、生农、化学、教育、文学、新闻、经管、政法、马院、外语、音乐、农高区研究院等22个部门，2026年度有效。",
+      "tags": [
+        "周口市",
+        "省属本科",
+        "博士研究生",
+        "高校教师",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "全校22个教学院部及重点实验室",
+        "post_level": "专业技术岗中级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 64,
+        "education_min": "博士",
+        "degree_min": "博士研究生",
+        "majors": [
+          "数学/物理/化学/生物学/统计学（07类）",
+          "机械/电气/控制/电子信息/计算机/软件/网安（08类）",
+          "材料科学与工程/化工/生物医学工程/食品/土木（08类）",
+          "作物学/植物保护/农业/园艺/药学（09-10类）",
+          "教育学/心理学/体育学/中国语言文学/外语/新闻（04-05类）",
+          "应用经济学/法学/马理论/管理/会计审计/艺术（02/03/12/13）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "理工科一般38周岁以内、文科一般43周岁以内",
+        "political_status": null,
+        "exam_type": "面试考核（试讲、答辩等，满分100分，低于60分淘汰）",
+        "apply_method": "电子邮件报名（发至各学院邮箱并抄送人事处 zhaopin@zknu.edu.cn）",
+        "apply_start_at": "2026-09-30",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批实施，招满为止",
+        "other_requirements": "邮件命名：应聘学院（部门）+姓名+博士院校+专业方向。咨询：0394-8178656；监督：0394-8178170。",
+        "announcement_title": "周口师范学院2026年公开招聘高层次人才公告",
+        "attachments": [
+          {
+            "name": "周口师范学院2026年高层次人才引进一览表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20260930/1790762216711044685.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-b50f100b941b-02",
+      "category": "public_institution",
+      "title": "2026年高层次人才引进—副高级职称专技岗（本科及以上，6名）",
+      "org_name": "周口师范学院",
+      "province": "河南省",
+      "city": "周口市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/fbcc72e1f06e4a208053042cbe5b8222.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-09-30",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:44:34+08:00",
+      "last_seen_at": "2026-11-19T20:44:34+08:00",
+      "content_hash": "b50f100b941b67796111528320576f1226e6af90b42e9fc5777aeff8581e7d5c",
+      "summary": "周口师范学院2026年高层次人才引进中的3个副高级职称专技岗（机械与电气工程学院1名、美术/设计学院4名、图书馆1名），明确本科及以上学历且具备副高级职称即可报考，2026年度有效。",
+      "tags": [
+        "周口市",
+        "副高级职称",
+        "本科可报",
+        "高校招聘",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "机械与电气工程学院(1)/美术学院设计学院(4)/图书馆(1)",
+        "post_level": "专业技术岗副高级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 6,
+        "education_min": "本科",
+        "degree_min": "本科及以上学历（应具备副高级职称）",
+        "majors": [
+          "物理/化学/机械/材料/电气/控制/土木类（机电学院1名）",
+          "城乡规划学/美术与书法/设计/美术学类（美设学院4名）",
+          "信息资源管理/图书情报与档案管理（图书馆1名）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "理工科一般38周岁以内、文科一般43周岁以内（优秀可放宽）",
+        "political_status": null,
+        "exam_type": "面试考核（试讲、答辩等，满分100分，低于60分淘汰）",
+        "apply_method": "电子邮件报名（发至学院邮箱并抄送 zhaopin@zknu.edu.cn）",
+        "apply_start_at": "2026-09-30",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批实施，招满为止",
+        "other_requirements": "机电学院 zhangchengguang@126.com；美设学院 zksanglin@163.com；图书馆 20011026@zknu.edu.cn。咨询：0394-8178656。",
+        "announcement_title": "周口师范学院2026年公开招聘高层次人才公告",
+        "attachments": [
+          {
+            "name": "周口师范学院2026年高层次人才引进一览表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20260930/1790762216711044685.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-bbc12e25d9d0-01",
+      "category": "public_institution",
+      "title": "2026年公开招聘博士研究生专技中级岗（16个院部，36名）",
+      "org_name": "中原工学院",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/5a7724e002d54a3885aee27d08d37664.html",
+      "apply_url": null,
+      "source_name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "source_type": "gov_official",
+      "published_at": "2026-09-30",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:44:04+08:00",
+      "last_seen_at": "2026-11-19T20:44:04+08:00",
+      "content_hash": "bbc12e25d9d0ec7b6a1a7c28c353d66cf66ee0b04d09e0a53664a72ca2737b3a",
+      "summary": "中原工学院（河南省博士学位授予重点立项建设高校）2026年面向社会公开招聘博士研究生36名（专技中级岗），涵盖自动化与电气、信息通信、集成电路、人工智能、网安、计算机、纺织电子、马院等16个院部，2026年度有效。",
+      "tags": [
+        "郑州市",
+        "省属本科",
+        "博士研究生",
+        "电子信息特色",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "自动化/信通/集成电路/AI/网安/马院等16个院部",
+        "post_level": "专技岗位 中级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 36,
+        "education_min": "博士",
+        "degree_min": "博士研究生、博士学位",
+        "majors": [
+          "控制科学与工程/电气/交通运输/仪器科学（0804/0808/0811/0823）",
+          "信息与通信/电子科学/集成电路（0809/0810/1401/0854）",
+          "计算机/软件/网安/密码/智能科学（0812/0835/0839/1405/1452）",
+          "纺织科学/材料/化工/化学/数学力学（0701/0703/0805/0817/0821）",
+          "马克思主义理论/哲学/法学/社会学（马院限中共党员）",
+          "工商/公管/应用经济/新闻传播/艺术/外语/土木工程管理"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "一般不超过38周岁（1987年9月1日及以后出生）",
+        "political_status": "马克思主义学院岗须为中共党员",
+        "exam_type": "面试考核（满分100分，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（同时发送至各学院邮箱及人事处 rsc@zut.edu.cn）",
+        "apply_start_at": "2026-09-30",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批不定期启动，招满为止",
+        "other_requirements": "邮件命名：姓名+应聘学院（部门）+博士院校+专业方向。咨询：0371-62506820；监督：0371-62506905。",
+        "announcement_title": "中原工学院2026年公开招聘博士研究生公告",
+        "attachments": [
+          {
+            "name": "中原工学院2026年博士研究生招聘计划一览表",
+            "url": "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20260930/1790762486642085957.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-zz-8539c10017c6-01",
+      "category": "public_institution",
+      "title": "2026年公开招聘高层次人才（A01-A11岗，35名）",
+      "org_name": "郑州师范学院",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": null,
+      "source_url": "https://public.zhengzhou.gov.cn/D1703X/10119081.jhtml",
+      "apply_url": null,
+      "source_name": "郑州市人力资源和社会保障局（招录公告）",
+      "source_type": "gov_official",
+      "published_at": "2026-06-23",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:46:20+08:00",
+      "last_seen_at": "2026-11-19T20:46:20+08:00",
+      "content_hash": "8539c10017c647c94cb13926759d297895dcea0cc061b9ac9ba780789e228f22",
+      "summary": "郑州师范学院（公办全日制本科，硕士授权重点立项单位）2026年公开招聘领军/拔尖/骨干/博士等高层次人才35名（专业技术岗位十三级及以上），涵盖经管、法政马院、教育、文史、数理化生、信息工学、中药、艺术与智能科学，至2026年12月31日有效。",
+      "tags": [
+        "郑州市",
+        "公办本科",
+        "博士研究生",
+        "高校教师",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": "A01-A11",
+        "department": "全校各二级学院",
+        "post_level": "专业技术岗位十三级及以上",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 35,
+        "education_min": "博士",
+        "degree_min": "博士研究生学历并获得博士学位",
+        "majors": [
+          "经济学/管理学（02/12）",
+          "政治学/社会学/马理论/社会工作（0302/0303/0305/0352）",
+          "教育学/历史学/中国语言文学/外语/新闻（04/05/06）",
+          "数学/物理/化学/地理/大气科学/生物/统计（07类）",
+          "计算机/软件/网安/控制/电子信息/光电/化工/智能科学（08/14）",
+          "中药学（1008）/艺术学（13）/设计学（1403）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "博士原则上不超过38周岁（1987年6月1日及以后出生）",
+        "political_status": null,
+        "exam_type": "试讲及综合性考核（满分100分，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（发送简历及附件2报名表至 rsc@zznu.edu.cn）",
+        "apply_start_at": "2026-06-23",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批组织考核，招满为止",
+        "other_requirements": "邮件主题标明：应聘学院+专业+姓名；自发布至2026年12月31日前有效。咨询：0371-65502693；监督：0371-65502889。",
+        "announcement_title": "郑州师范学院2026年公开招聘高层次人才公告",
+        "attachments": [
+          {
+            "name": "附件1 郑州师范学院2026年公开招聘高层次人才计划表.docx",
+            "url": "https://public.zhengzhou.gov.cn/attachment/%E9%99%84%E4%BB%B61%20%E9%83%91%E5%B7%9E%E5%B8%88%E8%8C%83%E5%AD%A6%E9%99%A22026%E5%B9%B4%E5%85%AC%E5%BC%80%E6%8B%9B%E8%81%98%E9%AB%98%E5%B1%82%E6%AC%A1%E4%BA%BA%E6%89%8D%E8%AE%A1%E5%88%92%E8%A1%A8.docx?rolg-ucWlmgdEp-uDWb8qBSEWpqOvSN749owmHg1wEdmyHx4ErrpxZzxMwweGBcAH1tyvQoB0xOaR-IXeS485MkdQbN_dVjG",
+            "file_type": "docx"
+          },
+          {
+            "name": "附件2 郑州师范学院2026年公开招聘高层次人才报名表.docx",
+            "url": "https://public.zhengzhou.gov.cn/attachment/%E9%99%84%E4%BB%B62%20%E9%83%91%E5%B7%9E%E5%B8%88%E8%8C%83%E5%AD%A6%E9%99%A22026%E5%B9%B4%E5%85%AC%E5%BC%80%E6%8B%9B%E8%81%98%E9%AB%98%E5%B1%82%E6%AC%A1%E4%BA%BA%E6%89%8D%E6%8A%A5%E5%90%8D%E8%A1%A8.docx?krgjFYbjNBAkmPx2FAtjNEIhbHZC5tLMcgzOFMeZUKPAxEN1vraG9CdcKvjliBG3NnijZzauyePJU_3_WagIEJn5GapL_JQo",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-zz-c0446354da37-01",
+      "category": "public_institution",
+      "title": "2026年公开招聘工作人员（博士01-08岗，含5名不限专业辅导员，15名）",
+      "org_name": "郑州旅游职业学院",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": "郑东新区",
+      "source_url": "https://public.zhengzhou.gov.cn/D1703X/10149300.jhtml",
+      "apply_url": "http://zp.zztrc.edu.cn",
+      "source_name": "郑州市人力资源和社会保障局（招录公告）",
+      "source_type": "gov_official",
+      "published_at": "2026-07-10",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:44:57+08:00",
+      "last_seen_at": "2026-11-19T20:44:57+08:00",
+      "content_hash": "c0446354da375cc2c955b20dedf64d2aa4eca1138257fe45f603edb3202972d3",
+      "summary": "郑州旅游职业学院（公办高职，双高工程建设院校）2026年公开招聘博士工作人员15名（专技十三级及以上），其中08岗招5名专职辅导员（不限专业、中共党员），其余涉及动力电气、设计学、食品生物、茶学、工商管理、智能科学、马理论，至2026年12月31日有效。",
+      "tags": [
+        "郑州市",
+        "公办高职",
+        "博士研究生",
+        "含不限专业辅导员",
+        "网上报名"
+      ],
+      "public_meta": {
+        "post_code": "01-08",
+        "department": "专任教师岗(10名) / 专职辅导员08岗(5名)",
+        "post_level": "专业技术岗位十三级及以上",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 15,
+        "education_min": "博士",
+        "degree_min": "博士研究生学历、博士学位",
+        "majors": [
+          "01岗：动力工程/电气/控制/交通/机械工程（1名）",
+          "02岗：设计学（视觉/交互方向，2名）",
+          "03-04岗：食品科学/生物工程/生物与医药/园艺学茶学（2名）",
+          "05-06岗：工商管理/管科/信息资源管理/智能科学（3名）",
+          "07岗：马克思主义理论/哲学/政治/党史党建（2名，党员）",
+          "08岗：专业不限（专职辅导员，5名，中共党员）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "不超过43周岁（1982年7月1日及以后出生）",
+        "political_status": "07岗和08岗要求中共党员",
+        "exam_type": "面试（试讲40%+学术答辩60%，低于60分不予聘用）",
+        "apply_method": "网上实名注册报名（登录 http://zp.zztrc.edu.cn 上传扫描件）",
+        "apply_start_at": "2026-07-10",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批组织面试，招满为止",
+        "other_requirements": "08岗专职辅导员需入住学生宿舍；各学习阶段专业需相同或相近；校址郑东新区金龙路188号。咨询：0371-61130057。",
+        "announcement_title": "郑州旅游职业学院2026年公开招聘工作人员（博士）公告",
+        "attachments": [
+          {
+            "name": "附件：郑州旅游职业学院2026年公开招聘工作人员（博士）岗位信息表.docx",
+            "url": "https://public.zhengzhou.gov.cn/attachment/%E9%99%84%E4%BB%B6%EF%BC%9A%E9%83%91%E5%B7%9E%E6%97%85%E6%B8%B8%E8%81%8C%E4%B8%9A%E5%AD%A6%E9%99%A22026%E5%B9%B4%E5%85%AC%E5%BC%80%E6%8B%9B%E8%81%98%E5%B7%A5%E4%BD%9C%E4%BA%BA%E5%91%98%EF%BC%88%E5%8D%9A%E5%A3%AB%EF%BC%89%E5%B2%97%E4%BD%8D%E4%BF%A1%E6%81%AF%E8%A1%A8.docx?3JeY7k0gPHFbfYiWqLsuj6Kj0v7pJ30dPD-A2VjazFElKLmVB3iDovujcuX_n_GHe6L9rLSvaJZ2TB5lPGIEzozOzLbG48M4",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-zz-6de0e22fddee-01",
+      "category": "public_institution",
+      "title": "2026年度公开招聘高层次人才（博士或硕士+高级职称，22名）",
+      "org_name": "郑州职业技术学院",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": null,
+      "source_url": "https://zzrs.zhengzhou.gov.cn/zlgg/10124375.jhtml",
+      "apply_url": null,
+      "source_name": "郑州市人力资源和社会保障局（招录公告）",
+      "source_type": "gov_official",
+      "published_at": "2026-06-26",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-19T20:46:07+08:00",
+      "last_seen_at": "2026-11-19T20:46:07+08:00",
+      "content_hash": "6de0e22fddee91744d55460e5594b6c18a767739365e6319792012c535328571",
+      "summary": "郑州职业技术学院（郑州市属公办高职）2026年度公开招聘高层次人才22名，涵盖智能制造、物联网、生命健康、财经等二级学院，全日制博士或具备高校教授/行业企业高级职称的硕士及以上人员可报，自发布至2026年12月31日有效（岗位表见附件1.xls）。",
+      "tags": [
+        "郑州市",
+        "公办高职",
+        "高级职称硕士可报",
+        "博士研究生",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "二级学院（具体计划见附件1.xls）",
+        "post_level": "高层次人才专技岗",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 22,
+        "education_min": "硕士",
+        "degree_min": "全日制博士学位，或硕士以上学历且具高级/教授职称",
+        "majors": [
+          "高层次人才岗位对应专业（详见附件1岗位计划表.xls）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "博士原则上38周岁以下、高级职称43周岁以下、正高可放宽至50周岁",
+        "political_status": null,
+        "exam_type": "面试（试讲40%+学术答辩60%，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（合并PDF发至相关用人单位邮箱，标题：应聘专业+姓名）",
+        "apply_start_at": "2026-06-26",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批次启动，招满即止",
+        "other_requirements": "须提供无犯罪记录证明；攻读博士累计不超8年；待遇详见附件4人才引进办法.pdf。咨询：0371-64966918；监督：0371-65001768。",
+        "announcement_title": "郑州职业技术学院2026年度公开招聘高层次人才公告",
+        "attachments": [
+          {
+            "name": "附件_1：附件1：郑州职业技术学院2026年度高层次人才岗位计划表.xls",
+            "url": "https://zzrs.zhengzhou.gov.cn/attachment/%E9%99%84%E4%BB%B61%EF%BC%9A%E9%83%91%E5%B7%9E%E8%81%8C%E4%B8%9A%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A22026%E5%B9%B4%E5%BA%A6%E9%AB%98%E5%B1%82%E6%AC%A1%E4%BA%BA%E6%89%8D%E5%B2%97%E4%BD%8D%E8%AE%A1%E5%88%92%E8%A1%A8.xls?Jydd1UCKMHENWHEGiCrMRifhmyhSNjQ87GEAPajd9Bj-gPAmvYHtMnZctxRoKnINIbYv96q1gT9kD_899nFfAGkMBBg=",
+            "file_type": "xls"
+          },
+          {
+            "name": "附件_2：附件2：郑州职业技术学院2026年度高层次人才报名登记表.docx",
+            "url": "https://zzrs.zhengzhou.gov.cn/attachment/%E9%99%84%E4%BB%B62%EF%BC%9A%E9%83%91%E5%B7%9E%E8%81%8C%E4%B8%9A%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A22026%E5%B9%B4%E5%BA%A6%E9%AB%98%E5%B1%82%E6%AC%A1%E4%BA%BA%E6%89%8D%E6%8A%A5%E5%90%8D%E7%99%BB%E8%AE%B0%E8%A1%A8.docx?6wfcA0GYJGidUx3TcybUIOaYp06RCyuPoKFS31sJTnJhmbryAqe4-XAVzfZ3XPt5r8a5wShApy5nRkPC94vywAMJNKLt",
+            "file_type": "docx"
+          },
+          {
+            "name": "附件_3：附件3：郑州职业技术学院2026年度高层次人才报名信息统计表.doc",
+            "url": "https://zzrs.zhengzhou.gov.cn/attachment/%E9%99%84%E4%BB%B63%EF%BC%9A%E9%83%91%E5%B7%9E%E8%81%8C%E4%B8%9A%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A22026%E5%B9%B4%E5%BA%A6%E9%AB%98%E5%B1%82%E6%AC%A1%E4%BA%BA%E6%89%8D%E6%8A%A5%E5%90%8D%E4%BF%A1%E6%81%AF%E7%BB%9F%E8%AE%A1%E8%A1%A8.doc?J06gzuCsIGcCm-p_z4kS3yZi5P5GQL2H_5jAt4mJcTXLG1fp24yGu8g4qHhruL85yu_J335az_QxU7ex6RbF4GwPrio=",
+            "file_type": "doc"
+          },
+          {
+            "name": "附件_4：附件4：郑州职业技术学院高层次人才引进办法（试行）.pdf",
+            "url": "https://zzrs.zhengzhou.gov.cn/attachment/%E9%99%84%E4%BB%B64%EF%BC%9A%E9%83%91%E5%B7%9E%E8%81%8C%E4%B8%9A%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2%E9%AB%98%E5%B1%82%E6%AC%A1%E4%BA%BA%E6%89%8D%E5%BC%95%E8%BF%9B%E5%8A%9E%E6%B3%95%EF%BC%88%E8%AF%95%E8%A1%8C%EF%BC%89.pdf?0-6I6OWTZVWrmR_XFIdvlDYcv6fWo_F_5heMQ3WKFywgKq9UMgL1zDP5shwxtkwmB2UrxH-gBoiMObqrK7CDoD0LfoA=",
+            "file_type": "pdf"
           }
         ]
       }

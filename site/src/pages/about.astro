@@ -74,12 +74,32 @@ const latestUpdatedText = formatTimestampCST(data.latestUpdatedAt);
 
     <section class="bg-white rounded-xl border border-slate-200 p-6 shadow-xs space-y-5">
       <div class="space-y-2">
-        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-          <span class="w-1.5 h-5 rounded-full bg-emerald-600" aria-hidden="true"></span>
-          三、提交信息纠错 / 推荐高福利企业
-        </h2>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="w-1.5 h-5 rounded-full bg-emerald-600" aria-hidden="true"></span>
+            三、提交信息纠错 / 推荐高福利企业
+          </h2>
+          <a
+            href="https://github.com/mattochxueii/gongyi-jobs/issues/new"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium transition-colors self-start sm:self-auto shrink-0"
+          >
+            前往 GitHub 提交 Issue
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
         <p class="text-sm text-slate-600 leading-relaxed">
-          本站数据由仓库中的结构化 JSON 与校验脚本严格维护。如发现公告链接失效、截止时间有误、岗位条件勘误，或希望推荐符合「周末双休 / 弹性工作 / 做四休三」的民营企业，请按下方模板整理资料并提交至项目仓库 Issue / Pull Request（或转交仓库维护者核验入库）。
+          本站数据由仓库中的结构化 JSON 与校验脚本严格维护。如发现公告链接失效、截止时间有误、岗位条件勘误，或希望推荐符合「周末双休 / 弹性工作 / 做四休三」的民营企业，请复制下方对应模板后前往
+          <a
+            href="https://github.com/mattochxueii/gongyi-jobs/issues/new"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-medium text-teal-700 hover:text-teal-800 underline underline-offset-2"
+          >
+            GitHub Issue 反馈入口
+          </a>
+          一键提交（亦欢迎直接提交 Pull Request）。
         </p>
       </div>
 
@@ -94,13 +114,23 @@ const latestUpdatedText = formatTimestampCST(data.latestUpdatedAt);
               请注明岗位/企业名称、当前页面展示的问题字段，并附上官方最新更正公告或失效说明链接，以便维护者快速修正或下线。
             </p>
           </div>
-          <button
-            type="button"
-            data-template-kind="correction"
-            class="js-copy-template w-full px-3.5 py-2 rounded-lg border border-slate-200 hover:border-teal-500 hover:bg-teal-50 text-xs font-medium text-slate-700 hover:text-teal-800 transition-colors cursor-pointer"
-          >
-            复制「信息纠错」Markdown 模板
-          </button>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <button
+              type="button"
+              data-template-kind="correction"
+              class="js-copy-template flex-1 px-3.5 py-2 rounded-lg border border-slate-200 hover:border-teal-500 hover:bg-teal-50 text-xs font-medium text-slate-700 hover:text-teal-800 transition-colors cursor-pointer"
+            >
+              复制「信息纠错」模板
+            </button>
+            <a
+              href="https://github.com/mattochxueii/gongyi-jobs/issues/new"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-1 px-3.5 py-2 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-xs font-medium text-slate-700 transition-colors shrink-0"
+            >
+              直达提交 ↗
+            </a>
+          </div>
         </div>
 
         <div class="rounded-lg border border-slate-200 p-4 flex flex-col justify-between gap-3">
@@ -113,18 +143,37 @@ const latestUpdatedText = formatTimestampCST(data.latestUpdatedAt);
               为保障客观公信力，推荐<strong>必须附带企业官网或官方招聘 SaaS 页面链接</strong>，以及其中明确写明双休、工时或特色福利的<strong>原文摘录</strong>。无官方出处的口头传言暂无法收录。
             </p>
           </div>
-          <button
-            type="button"
-            data-template-kind="nominate"
-            class="js-copy-template w-full px-3.5 py-2 rounded-lg bg-teal-700 hover:bg-teal-800 text-xs font-medium text-white transition-colors cursor-pointer"
-          >
-            复制「推荐好企业」Markdown 模板
-          </button>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <button
+              type="button"
+              data-template-kind="nominate"
+              class="js-copy-template flex-1 px-3.5 py-2 rounded-lg bg-teal-700 hover:bg-teal-800 text-xs font-medium text-white transition-colors cursor-pointer"
+            >
+              复制「推荐好企业」模板
+            </button>
+            <a
+              href="https://github.com/mattochxueii/gongyi-jobs/issues/new"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-1 px-3.5 py-2 rounded-lg border border-teal-200 bg-teal-50 hover:bg-teal-100 text-xs font-medium text-teal-800 transition-colors shrink-0"
+            >
+              直达提交 ↗
+            </a>
+          </div>
         </div>
       </div>
 
       <div id="copy-feedback-toast" class="hidden rounded-lg bg-emerald-50 border border-emerald-200 px-4 py-2.5 text-xs text-emerald-800 font-medium">
-        已复制模板内容到剪贴板，可直接粘贴至 GitHub Issue 或提交记录中。
+        已复制模板内容到剪贴板，请点击
+        <a
+          href="https://github.com/mattochxueii/gongyi-jobs/issues/new"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline font-semibold hover:text-emerald-950"
+        >
+          GitHub Issue 新建页
+        </a>
+        粘贴并提交。
       </div>
 
       <div class="rounded-lg bg-slate-50 border border-slate-200 p-4 space-y-2">

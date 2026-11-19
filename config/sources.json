@@ -87,6 +87,103 @@
       "notes": "实测事业单位招录考试JSON接口(resourceItem=310902)及详情接口getContentInfo可用，支持fileDownloadServlet动态附件下载。"
     },
     {
+      "source_id": "henan_jyt_gov",
+      "name": "河南省教育厅（主站受CDN阻断）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "全省",
+      "adapter": "henan_hrss",
+      "base_url": "https://jyt.henan.gov.cn",
+      "list_urls": [],
+      "enabled": false,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测 jyt.henan.gov.cn 被网宿CDN返回403阻断；同步实测南阳(403)、开封(TLS/403)、安阳(超时)、郑州人事考试网(超时)不可直抓。省属高校招聘改由已核验200 OK的省人社厅业务专栏(henan_hrss_ywzl)及高校官网直采。"
+    },
+    {
+      "source_id": "henan_hrss_ywzl",
+      "name": "河南省人社厅业务专栏（省属高校及科研院所招聘）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "全省",
+      "adapter": "henan_hrss_ywzl",
+      "base_url": "https://ywzl.hrss.henan.gov.cn",
+      "list_urls": [
+        "https://ywzl.hrss.henan.gov.cn/viewCmsCac.do?cacId=4aef1408279926e601279e53eac517a5"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测返回200 OK（绕开主站CDN阻断），汇聚2026年11月省属高校、省实验室及地质局等活跃公开招聘公告及.docx岗位表。"
+    },
+    {
+      "source_id": "henan_zhengzhou_rsj",
+      "name": "郑州市人力资源和社会保障局（招录公告）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "郑州市",
+      "adapter": "henan_zhengzhou_rsj",
+      "base_url": "https://zzrs.zhengzhou.gov.cn",
+      "list_urls": [
+        "https://zzrs.zhengzhou.gov.cn/zlgg/index.jhtml",
+        "https://zzrs.zhengzhou.gov.cn/zlgg/index_2.jhtml"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测招录公告栏目200 OK（www.zzrsks.com.cn超时不可用）；列表兼容 zzrs.zhengzhou.gov.cn 与 public.zhengzhou.gov.cn 正文详情页。"
+    },
+    {
+      "source_id": "henan_pingdingshan_rsj",
+      "name": "平顶山市人力资源和社会保障局（机关事业单位招录）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "平顶山市",
+      "adapter": "henan_pingdingshan_rsj",
+      "base_url": "https://rsj.pds.gov.cn",
+      "list_urls": [
+        "https://rsj.pds.gov.cn/channels/13460.html",
+        "https://rsj.pds.gov.cn/channels/13460_2.html"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测机关事业单位招录栏目200 OK，自动过滤拟聘用公示与体检考察公告；新乡人社局(hrss.xinxiang.gov.cn)通知栏目200 OK但近期仅含公示与工伤通知，暂未单列。"
+    },
+    {
+      "source_id": "henan_haut_rsc",
+      "name": "河南工业大学人事处（人才招聘）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "郑州市",
+      "adapter": "henan_haut_rsc",
+      "base_url": "https://rsc.haut.edu.cn",
+      "list_urls": [
+        "https://rsc.haut.edu.cn/rczp.htm",
+        "https://rsc.haut.edu.cn/tzgg.htm"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测200 OK，11月11日发布2026年公开招聘工作人员公告（120名，2026年度有效）并附省人社厅标准.docx岗位表。"
+    },
+    {
+      "source_id": "henan_haust_rsc",
+      "name": "河南科技大学人事处（招聘公告）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "洛阳市",
+      "adapter": "henan_haust_rsc",
+      "base_url": "https://rsc.haust.edu.cn",
+      "list_urls": [
+        "https://rsc.haust.edu.cn/rczp/zpgg.htm"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测200 OK，含2026年度博士招聘公告（25名，报名截止2026-11-30）及.docx岗位一览表下载附件。"
+    },
+    {
       "source_id": "ent_songmics_feishu",
       "name": "致欧家居科技股份有限公司（飞书招聘）",
       "category": "enterprise",

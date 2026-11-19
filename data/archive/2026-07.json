@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-19T20:58:41+08:00",
+  "items": [
+    {
+      "id": "pub-henan-pds-56e0de82c799-01",
+      "category": "public_institution",
+      "title": "2026年度高层次人才公开招聘（博士及出站博士后，20名）",
+      "org_name": "尧山实验室",
+      "province": "河南省",
+      "city": "平顶山市",
+      "district": null,
+      "source_url": "https://rsj.pds.gov.cn/contents/13460/748309.html",
+      "apply_url": null,
+      "source_name": "平顶山市人力资源和社会保障局（机关事业单位招录）",
+      "source_type": "gov_official",
+      "published_at": "2026-06-23",
+      "deadline_at": "2026-07-24",
+      "status": "expired",
+      "scraped_at": "2026-11-19T20:46:36+08:00",
+      "last_seen_at": "2026-11-19T20:46:36+08:00",
+      "content_hash": "56e0de82c79966d5737da9e8babdf886c2bf04e8e2bfeab69fa6be8eb8edc607",
+      "summary": "尧山实验室2026年度面向社会公开招聘博士研究生及博士后出站人员共20名（专业技术岗，纳入平顶山市事业单位编制管理，服务期5年），报名时间为2026年6月24日至7月24日（已截止，仅作历史公告归档）。",
+      "tags": [
+        "平顶山市",
+        "科研实验室",
+        "入编",
+        "博士研究生",
+        "已截止归档"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "科研岗位（具体见附件1）",
+        "post_level": "专业技术岗位",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 20,
+        "education_min": "博士",
+        "degree_min": "博士学位或出站博士后",
+        "majors": [
+          "高层次科研岗位对应专业（详见附件1需求表）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "博士40周岁以下、出站博士后45周岁以下",
+        "political_status": null,
+        "exam_type": "专业面试50%+综合评议50%",
+        "apply_method": "电子邮件报名（发至 yaoshanlab@163.com）",
+        "apply_start_at": "2026-06-24",
+        "written_exam_time": "免笔试",
+        "interview_time": "另行通知",
+        "other_requirements": "纳入平顶山市事业单位编制管理；咨询电话：0375-2657503。",
+        "announcement_title": "尧山实验室2026年度高层次人才公开招聘方案",
+        "attachments": [
+          {
+            "name": "附件1：尧山实验室高层次人才公开招聘岗位需求表.doc",
+            "url": "https://rsj.pds.gov.cn/upload/files/2026/6/附件1：尧山实验室高层次人才公开招聘岗位需求表.doc",
+            "file_type": "doc"
+          },
+          {
+            "name": "附件2：尧山实验室高层次人才公开招聘应聘人员信息汇总表.xlsx",
+            "url": "https://rsj.pds.gov.cn/upload/files/2026/6/附件2：尧山实验室高层次人才公开招聘应聘人员信息汇总表.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "附件3：尧山实验室高层次人才公开招聘应聘人员报名表.docx",
+            "url": "https://rsj.pds.gov.cn/upload/files/2026/6/附件3：尧山实验室高层次人才公开招聘应聘人员报名表.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -5,6 +5,7 @@ from __future__ import annotations
 import html as html_lib
 import json
 import re
+from typing import Any
 from urllib.parse import parse_qs, urljoin, urlparse
 
 from bs4 import BeautifulSoup
@@ -29,6 +30,9 @@ POST_EXAM_EXCLUDE_KEYWORDS = (
     "拟聘用",
     "拟录用",
     "拟招聘人员",
+    "拟聘人员",
+    "聘用人员名单",
+    "录用人员名单",
     "拟安置",
     "拟加分",
     "体检",
@@ -37,6 +41,9 @@ POST_EXAM_EXCLUDE_KEYWORDS = (
     "考察",
     "政审",
     "成绩",
+    "笔试成绩",
+    "合格分数线",
+    "最低合格分数线",
     "面试",
     "资格复审",
     "资格确认",
@@ -192,8 +199,15 @@ def _is_direct_binary_url(url: str) -> bool:
 
 
 def _extract_date_near_link(a_tag: Any) -> str | None:
-    if a_tag.parent is not None:
-        text = a_tag.parent.get_text(" ", strip=True)
+    candidates: list[Any] = [a_tag]
+    if a_tag.parent is not None and len(a_tag.parent.find_all("a", href=True)) <= 2:
+        candidates.append(a_tag.parent)
+    row_parent = a_tag.find_parent(("li", "tr"))
+    if row_parent is not None and row_parent not in candidates and len(row_parent.find_all("a", href=True)) <= 3:
+        candidates.append(row_parent)
+
+    for container in candidates:
+        text = container.get_text(" ", strip=True)
         m = _INLINE_DATE_RE.search(text)
         if m:
             return f"{int(m.group(1)):04d}-{int(m.group(2)):02d}-{int(m.group(3)):02d}"
@@ -204,11 +218,26 @@ class HenanGovBaseAdapter(BaseScraperAdapter):
     """Shared base for Henan provincial and municipal recruitment adapters."""
 
     allow_out_of_province: bool = True
+    allowed_hosts: tuple[str, ...] = ()
 
     def should_keep_title(self, title: str, *, page_url: str = "") -> bool:
         if not self.filter_by_keywords:
             return True
         return is_recruitment_announcement(title, allow_out_of_province=self.allow_out_of_province)
+
+    def _is_allowed_host(self, netloc: str) -> bool:
+        allowed: set[str] = set()
+        if self.base_url:
+            base_host = urlparse(self.base_url).netloc.lower()
+            if base_host:
+                allowed.add(base_host)
+        allowed.update(h.lower() for h in self.allowed_hosts if h)
+        return not allowed or netloc.lower() in allowed
+
+    def _extract_stub_title_and_date(self, a_tag: Any) -> tuple[str, str | None]:
+        title = re.sub(r"\s+", " ", str(a_tag.get("title") or a_tag.get_text(" ", strip=True))).strip()
+        pub_date = _extract_date_near_link(a_tag)
+        return title, pub_date
 
     def _collect_stubs_from_containers(
         self,
@@ -217,8 +246,8 @@ class HenanGovBaseAdapter(BaseScraperAdapter):
         *,
         container_selectors: tuple[str, ...],
         require_date_or_pattern: re.Pattern[str] | None = None,
+        detail_path_pattern: re.Pattern[str] | None = None,
     ) -> list[AnnouncementStub]:
-        base_host = urlparse(self.base_url).netloc.lower()
         stubs: list[AnnouncementStub] = []
         seen_urls: set[str] = set()
 
@@ -238,16 +267,17 @@ class HenanGovBaseAdapter(BaseScraperAdapter):
             parsed = urlparse(full_url)
             if parsed.scheme not in {"http", "https"}:
                 continue
-            if base_host and parsed.netloc.lower() != base_host:
+            if not self._is_allowed_host(parsed.netloc):
                 continue
             if _is_direct_binary_url(full_url):
                 continue
+            if detail_path_pattern and not detail_path_pattern.search(parsed.path):
+                continue
 
-            title = re.sub(r"\s+", " ", str(a_tag.get("title") or a_tag.get_text(" ", strip=True))).strip()
+            title, pub_date = self._extract_stub_title_and_date(a_tag)
             if len(title) < 6:
                 continue
 
-            pub_date = _extract_date_near_link(a_tag)
             if require_date_or_pattern and pub_date is None and not require_date_or_pattern.search(parsed.path):
                 continue
             if not self.should_keep_title(title, page_url=page_url):
@@ -458,4 +488,126 @@ class HenanZhoukouRsksAdapter(HenanGovBaseAdapter):
         ]
         if named_atts:
             html_res.attachments = named_atts
+        return html_res
+
+
+class HenanHrssYwzlAdapter(HenanGovBaseAdapter):
+    """Adapter for Henan HRSS Business Column public-institution recruitment (ywzl.hrss.henan.gov.cn)."""
+
+    adapter_name = "henan_hrss_ywzl"
+    detail_title_selectors = ("div.title7", ".title7", "h1", "meta[name='ArticleTitle']", "title")
+    detail_content_selectors = ("#zwxinx", "td.context6", ".article-content", ".content")
+    _DETAIL_PATH_RE = re.compile(r"/sitegroup/root/html/[^/]+/[0-9a-f]+\.html$", re.IGNORECASE)
+
+    def parse_list_page(self, html: str, page_url: str) -> list[AnnouncementStub]:
+        soup = BeautifulSoup(html or "", "html.parser")
+        return self._collect_stubs_from_containers(
+            soup,
+            page_url,
+            container_selectors=("td.xin2zuo table tr",),
+            detail_path_pattern=self._DETAIL_PATH_RE,
+        )
+
+
+class HenanZhengzhouRsjAdapter(HenanGovBaseAdapter):
+    """Adapter for Zhengzhou HRSS Bureau recruitment column (zzrs.zhengzhou.gov.cn)."""
+
+    adapter_name = "henan_zhengzhou_rsj"
+    allowed_hosts = ("zzrs.zhengzhou.gov.cn", "public.zhengzhou.gov.cn")
+    detail_title_selectors = (".big-title", ".content-title", "meta[name='ArticleTitle']", "h1", "title")
+    detail_content_selectors = (".news_content_content", ".content-txt", "#zoom", ".article-content")
+    _DETAIL_PATH_RE = re.compile(r"/\d+\.jhtml$", re.IGNORECASE)
+
+    def _extract_stub_title_and_date(self, a_tag: Any) -> tuple[str, str | None]:
+        span = a_tag.select_one("span")
+        em = a_tag.select_one("em")
+        raw_title = a_tag.get("title") or (span.get_text(" ", strip=True) if span else a_tag.get_text(" ", strip=True))
+        title = re.sub(r"\s+", " ", str(raw_title)).strip()
+        pub_date = _extract_date_near_link(em or a_tag)
+        return title, pub_date
+
+    def parse_list_page(self, html: str, page_url: str) -> list[AnnouncementStub]:
+        soup = BeautifulSoup(html or "", "html.parser")
+        return self._collect_stubs_from_containers(
+            soup,
+            page_url,
+            container_selectors=("ul.news-list",),
+            detail_path_pattern=self._DETAIL_PATH_RE,
+        )
+
+
+class HenanPingdingshanRsjAdapter(HenanGovBaseAdapter):
+    """Adapter for Pingdingshan HRSS Bureau recruitment column (rsj.pds.gov.cn)."""
+
+    adapter_name = "henan_pingdingshan_rsj"
+    detail_title_selectors = ("h1.title", "meta[name='ArticleTitle']", "h1", "title")
+    detail_content_selectors = ("div.article", ".content", "#Content")
+    _DETAIL_PATH_RE = re.compile(r"/contents/\d+/\d+\.html$", re.IGNORECASE)
+
+    def parse_list_page(self, html: str, page_url: str) -> list[AnnouncementStub]:
+        soup = BeautifulSoup(html or "", "html.parser")
+        return self._collect_stubs_from_containers(
+            soup,
+            page_url,
+            container_selectors=("ul.channel-list li",),
+            detail_path_pattern=self._DETAIL_PATH_RE,
+        )
+
+
+class HenanHautRscAdapter(HenanGovBaseAdapter):
+    """Adapter for Henan University of Technology HR Office (rsc.haut.edu.cn)."""
+
+    adapter_name = "henan_haut_rsc"
+    detail_title_selectors = ("h1", "meta[name='pageTitle']", "title")
+    detail_content_selectors = ("#vsb_content", ".v_news_content", ".sub_main_content")
+    _DETAIL_PATH_RE = re.compile(r"(/info/|/nry\.jsp)", re.IGNORECASE)
+
+    def should_keep_title(self, title: str, *, page_url: str = "") -> bool:
+        if title.strip().startswith("["):
+            return False
+        return super().should_keep_title(title, page_url=page_url)
+
+    def parse_list_page(self, html: str, page_url: str) -> list[AnnouncementStub]:
+        soup = BeautifulSoup(html or "", "html.parser")
+        return self._collect_stubs_from_containers(
+            soup,
+            page_url,
+            container_selectors=("div.sub_main_list li",),
+            detail_path_pattern=self._DETAIL_PATH_RE,
+        )
+
+    def clean_html_result(
+        self,
+        html_res: HtmlExtractionResult,
+        stub: AnnouncementStub,
+    ) -> HtmlExtractionResult:
+        if html_res.title:
+            html_res.title = re.sub(r"-河南工业大学人事处$", "", html_res.title).strip()
+        return html_res
+
+
+class HenanHaustRscAdapter(HenanGovBaseAdapter):
+    """Adapter for Henan University of Science and Technology HR Office (rsc.haust.edu.cn)."""
+
+    adapter_name = "henan_haust_rsc"
+    detail_title_selectors = ("h3", "meta[name='pageTitle']", "h1", "title")
+    detail_content_selectors = (".contentr-con-con", ".v_news_content", ".contentr-con")
+    _DETAIL_PATH_RE = re.compile(r"/info/\d+/\d+\.htm$", re.IGNORECASE)
+
+    def parse_list_page(self, html: str, page_url: str) -> list[AnnouncementStub]:
+        soup = BeautifulSoup(html or "", "html.parser")
+        return self._collect_stubs_from_containers(
+            soup,
+            page_url,
+            container_selectors=("ul.article-list li",),
+            detail_path_pattern=self._DETAIL_PATH_RE,
+        )
+
+    def clean_html_result(
+        self,
+        html_res: HtmlExtractionResult,
+        stub: AnnouncementStub,
+    ) -> HtmlExtractionResult:
+        if html_res.title:
+            html_res.title = re.sub(r"-河南科技大学人事处$", "", html_res.title).strip()
         return html_res

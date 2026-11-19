@@ -12,10 +12,15 @@ import httpx
 
 from scrapers.base import (
     ADAPTER_REGISTRY,
+    HenanHaustRscAdapter,
+    HenanHautRscAdapter,
     HenanHrssAdapter,
+    HenanHrssYwzlAdapter,
     HenanLuoyangRsksAdapter,
+    HenanPingdingshanRsjAdapter,
     HenanRsksAdapter,
     HenanXuchangRsjAdapter,
+    HenanZhengzhouRsjAdapter,
     HenanZhoukouRsksAdapter,
     classify_announcement_title,
     get_adapter_class,
@@ -90,10 +95,15 @@ class HenanAdaptersTests(unittest.TestCase):
     def test_adapter_registry_lookup(self) -> None:
         expected = {
             "henan_hrss": HenanHrssAdapter,
+            "henan_hrss_ywzl": HenanHrssYwzlAdapter,
             "henan_rsks": HenanRsksAdapter,
             "henan_luoyang_rsks": HenanLuoyangRsksAdapter,
             "henan_xuchang_rsj": HenanXuchangRsjAdapter,
             "henan_zhoukou_rsks": HenanZhoukouRsksAdapter,
+            "henan_zhengzhou_rsj": HenanZhengzhouRsjAdapter,
+            "henan_pingdingshan_rsj": HenanPingdingshanRsjAdapter,
+            "henan_haut_rsc": HenanHautRscAdapter,
+            "henan_haust_rsc": HenanHaustRscAdapter,
         }
         for key, cls in expected.items():
             self.assertIn(key, ADAPTER_REGISTRY)
@@ -123,6 +133,20 @@ class HenanAdaptersTests(unittest.TestCase):
         self.assertEqual(
             classify_announcement_title("关于做好2026年度执业药师职业资格考试考务工作的通知"),
             "post_exam_notice",
+        )
+        self.assertEqual(
+            classify_announcement_title("关于2026年郑州市事业单位公开招聘（市级联考）笔试最低合格分数线的公告"),
+            "post_exam_notice",
+        )
+        self.assertEqual(
+            classify_announcement_title("2024年博士研究生公开招聘第三批聘用人员名单公示"),
+            "post_exam_notice",
+        )
+        self.assertFalse(
+            is_recruitment_announcement("关于2026年郑州市事业单位公开招聘（市级联考）笔试最低合格分数线的公告")
+        )
+        self.assertFalse(
+            is_recruitment_announcement("2024年博士研究生公开招聘第三批聘用人员名单公示")
         )
         self.assertEqual(
             classify_announcement_title("关于2026年度许昌市第一批一次性扩岗补助发放企业名单的公示"),
@@ -368,6 +392,148 @@ class HenanAdaptersTests(unittest.TestCase):
                 self.assertIn("省直岗位表", zk_txt)
                 self.assertIn("笔试考试大纲.docx", zk_txt)
                 self.assertNotIn("old.xls", zk_txt)
+
+    def test_new_henan_adapters_offline(self) -> None:
+        ywzl_list = (FIXTURES_DIR / "henan_ywzl_list.html").read_text(encoding="utf-8")
+        ywzl_detail = (FIXTURES_DIR / "henan_ywzl_detail.html").read_text(encoding="utf-8")
+        zz_list = (FIXTURES_DIR / "henan_zhengzhou_list.html").read_text(encoding="utf-8")
+        zz_detail = (FIXTURES_DIR / "henan_zhengzhou_detail_public.html").read_text(encoding="utf-8")
+        pds_list = (FIXTURES_DIR / "henan_pingdingshan_list.html").read_text(encoding="utf-8")
+        haut_list = (FIXTURES_DIR / "henan_haut_list.html").read_text(encoding="utf-8")
+        haust_list = (FIXTURES_DIR / "henan_haust_list.html").read_text(encoding="utf-8")
+
+        xlsx_bytes = self.binary_paths["xlsx"].read_bytes()
+        docx_bytes = self.binary_paths["docx"].read_bytes()
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            store = CrawlStateStore(root_dir=root)
+
+            # 1. Henan HRSS Business Column (ywzl.hrss.henan.gov.cn)
+            ywzl_cfg = {
+                "source_id": "henan_hrss_ywzl",
+                "name": "河南省人社厅业务专栏",
+                "base_url": "https://ywzl.hrss.henan.gov.cn",
+                "list_urls": ["https://ywzl.hrss.henan.gov.cn/viewCmsCac.do?cacId=4aef1408279926e601279e53eac517a5"],
+            }
+            ywzl_routes = {
+                ywzl_cfg["list_urls"][0]: ("text/html; charset=utf-8", ywzl_list.encode("utf-8")),
+                "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/4aef1408279926e601279e53eac517a5/72c3f5b1d0ef4a158eaf2ce161846445.html": (
+                    "text/html; charset=utf-8",
+                    ywzl_detail.encode("utf-8"),
+                ),
+                "https://ywzl.hrss.henan.gov.cn/ueditor/jsp/upload/file/20261111/1794387664128067705.docx": (
+                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                    docx_bytes,
+                ),
+            }
+
+            def ywzl_handler(req: httpx.Request) -> httpx.Response:
+                u = str(req.url)
+                if u in ywzl_routes:
+                    ct, b = ywzl_routes[u]
+                    return httpx.Response(200, headers={"Content-Type": ct}, content=b)
+                return httpx.Response(404)
+
+            with PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(ywzl_handler)) as c:
+                ywzl_adapter = HenanHrssYwzlAdapter(ywzl_cfg, http_client=c, state_store=store)
+                ywzl_stubs = ywzl_adapter.parse_list_page(ywzl_list, ywzl_cfg["list_urls"][0])
+                self.assertEqual(len(ywzl_stubs), 2)
+                self.assertEqual(ywzl_stubs[0].published_at, "2026-11-13")
+                self.assertEqual(ywzl_stubs[1].published_at, "2026-11-11")
+                res = ywzl_adapter.process_detail_page(ywzl_stubs[1], fetch_attachments=True)
+                self.assertEqual(res.status, "new")
+                assert res.inbox_path is not None
+                txt = res.inbox_path.read_text(encoding="utf-8")
+                self.assertIn("title: 河南省地质局所属事业单位2026年公开招聘高层次人才公告", txt)
+                self.assertIn("报考人员须具备本科及以上学历", txt)
+
+            # 2. Zhengzhou HRSS (multi-host zzrs.zhengzhou.gov.cn + public.zhengzhou.gov.cn)
+            zz_cfg = {
+                "source_id": "henan_zhengzhou_rsj",
+                "name": "郑州市人社局",
+                "base_url": "https://zzrs.zhengzhou.gov.cn",
+                "list_urls": ["https://zzrs.zhengzhou.gov.cn/zlgg/index.jhtml"],
+            }
+            zz_routes = {
+                "https://zzrs.zhengzhou.gov.cn/zlgg/index.jhtml": ("text/html; charset=utf-8", zz_list.encode("utf-8")),
+                "https://public.zhengzhou.gov.cn/D1703X/10149300.jhtml": ("text/html; charset=utf-8", zz_detail.encode("utf-8")),
+                "https://public.zhengzhou.gov.cn/upload/posts.docx": (
+                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                    docx_bytes,
+                ),
+            }
+
+            def zz_handler(req: httpx.Request) -> httpx.Response:
+                u = str(req.url)
+                if u in zz_routes:
+                    ct, b = zz_routes[u]
+                    return httpx.Response(200, headers={"Content-Type": ct}, content=b)
+                return httpx.Response(404)
+
+            with PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(zz_handler)) as c:
+                zz_adapter = HenanZhengzhouRsjAdapter(zz_cfg, http_client=c, state_store=store)
+                zz_stubs = zz_adapter.parse_list_page(zz_list, zz_cfg["list_urls"][0])
+                self.assertEqual(len(zz_stubs), 2)
+                self.assertEqual(zz_stubs[0].title, "郑州旅游职业学院2026年公开招聘工作人员（博士）公告")
+                self.assertEqual(zz_stubs[0].published_at, "2026-07-10")
+                self.assertEqual(zz_stubs[1].url, "https://zzrs.zhengzhou.gov.cn/zlgg/10124375.jhtml")
+                zz_res = zz_adapter.process_detail_page(zz_stubs[0], fetch_attachments=True)
+                self.assertEqual(zz_res.status, "new")
+                assert zz_res.inbox_path is not None
+                zz_txt = zz_res.inbox_path.read_text(encoding="utf-8")
+                self.assertIn("title: 郑州旅游职业学院2026年公开招聘工作人员（博士）公告", zz_txt)
+                self.assertIn("郑州旅游职业学院岗位信息表.docx", zz_txt)
+
+            # 3. Pingdingshan HRSS (ul.channel-list)
+            pds_cfg = {
+                "source_id": "henan_pingdingshan_rsj",
+                "name": "平顶山市人社局",
+                "base_url": "https://rsj.pds.gov.cn",
+                "list_urls": ["https://rsj.pds.gov.cn/channels/13460.html"],
+            }
+            pds_adapter = HenanPingdingshanRsjAdapter(
+                pds_cfg,
+                http_client=PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(lambda r: httpx.Response(200, content=xlsx_bytes))),
+                state_store=store,
+            )
+            pds_stubs = pds_adapter.parse_list_page(pds_list, pds_cfg["list_urls"][0])
+            self.assertEqual(len(pds_stubs), 1)
+            self.assertEqual(pds_stubs[0].title, "尧山实验室2026年度高层次人才公开招聘方案")
+            self.assertEqual(pds_stubs[0].published_at, "2026-06-23")
+
+            # 4. HAUT & HAUST university HR adapters
+            haut_cfg = {
+                "source_id": "henan_haut_rsc",
+                "name": "河南工业大学人事处",
+                "base_url": "https://rsc.haut.edu.cn",
+                "list_urls": ["https://rsc.haut.edu.cn/rczp.htm"],
+            }
+            haut_adapter = HenanHautRscAdapter(
+                haut_cfg,
+                http_client=PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(lambda r: httpx.Response(404))),
+                state_store=store,
+            )
+            haut_stubs = haut_adapter.parse_list_page(haut_list, haut_cfg["list_urls"][0])
+            self.assertEqual(len(haut_stubs), 1)
+            self.assertEqual(haut_stubs[0].title, "河南工业大学2026年公开招聘工作人员公告")
+            self.assertEqual(haut_stubs[0].published_at, "2026-11-11")
+
+            haust_cfg = {
+                "source_id": "henan_haust_rsc",
+                "name": "河南科技大学人事处",
+                "base_url": "https://rsc.haust.edu.cn",
+                "list_urls": ["https://rsc.haust.edu.cn/rczp/zpgg.htm"],
+            }
+            haust_adapter = HenanHaustRscAdapter(
+                haust_cfg,
+                http_client=PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(lambda r: httpx.Response(404))),
+                state_store=store,
+            )
+            haust_stubs = haust_adapter.parse_list_page(haust_list, haust_cfg["list_urls"][0])
+            self.assertEqual(len(haust_stubs), 1)
+            self.assertEqual(haust_stubs[0].title, "河南科技大学2026年度博士招聘公告")
+            self.assertEqual(haust_stubs[0].published_at, "2026-09-30")
 
 
 if __name__ == "__main__":
