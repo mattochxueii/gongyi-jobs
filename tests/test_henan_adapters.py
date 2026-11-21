@@ -12,16 +12,24 @@ import httpx
 
 from scrapers.base import (
     ADAPTER_REGISTRY,
+    BodaUniversityAdapter,
+    EpointGovAdapter,
     HenanHaustRscAdapter,
     HenanHautRscAdapter,
     HenanHrssAdapter,
     HenanHrssYwzlAdapter,
+    HenanJiyuanRsjAdapter,
     HenanLuoyangRsksAdapter,
     HenanPingdingshanRsjAdapter,
     HenanRsksAdapter,
+    HenanSanmenxiaRsjAdapter,
+    HenanShangqiuRsksAdapter,
+    HenanXinxiangRsjAdapter,
     HenanXuchangRsjAdapter,
     HenanZhengzhouRsjAdapter,
     HenanZhoukouRsksAdapter,
+    LongsiGovAdapter,
+    TrsWcmGovAdapter,
     classify_announcement_title,
     get_adapter_class,
     is_recruitment_announcement,
@@ -102,12 +110,22 @@ class HenanAdaptersTests(unittest.TestCase):
             "henan_zhoukou_rsks": HenanZhoukouRsksAdapter,
             "henan_zhengzhou_rsj": HenanZhengzhouRsjAdapter,
             "henan_pingdingshan_rsj": HenanPingdingshanRsjAdapter,
+            "henan_xinxiang_rsj": HenanXinxiangRsjAdapter,
+            "henan_sanmenxia_rsj": HenanSanmenxiaRsjAdapter,
+            "henan_shangqiu_rsks": HenanShangqiuRsksAdapter,
+            "henan_jiyuan_rsj": HenanJiyuanRsjAdapter,
             "henan_haut_rsc": HenanHautRscAdapter,
             "henan_haust_rsc": HenanHaustRscAdapter,
         }
         for key, cls in expected.items():
             self.assertIn(key, ADAPTER_REGISTRY)
             self.assertIs(get_adapter_class(key), cls)
+
+        self.assertTrue(issubclass(HenanXuchangRsjAdapter, EpointGovAdapter))
+        self.assertTrue(issubclass(HenanHautRscAdapter, BodaUniversityAdapter))
+        self.assertTrue(issubclass(HenanHaustRscAdapter, BodaUniversityAdapter))
+        self.assertTrue(issubclass(HenanXinxiangRsjAdapter, LongsiGovAdapter))
+        self.assertTrue(issubclass(HenanJiyuanRsjAdapter, TrsWcmGovAdapter))
 
     def test_title_classification_and_filtering(self) -> None:
         self.assertEqual(
@@ -158,6 +176,11 @@ class HenanAdaptersTests(unittest.TestCase):
         )
         self.assertFalse(is_recruitment_announcement("西部某市公安局招聘辅警公告"))
         self.assertFalse(is_recruitment_announcement("某市公安局公开招聘警务辅助人员公告"))
+        self.assertFalse(is_recruitment_announcement("【就业专项活动】金秋揽才 筑梦济源 ——济源示范区2026年招才引智暨高校毕业生网..."))
+        self.assertFalse(is_recruitment_announcement("2026年清明会招聘活动、送岗进社区招聘活动"))
+        self.assertFalse(is_recruitment_announcement("2026年河南省新乡市事业单位公开招聘联考综合类、卫生类分组公告"))
+        self.assertFalse(is_recruitment_announcement("河南省社会保险中心2026年信息化建设项目招标代理机构选聘竞争性磋商公告"))
+        self.assertFalse(is_recruitment_announcement("关于商丘市2026年高校毕业生“三支一扶”计划招募笔试定补资金发放及补报银行卡信息的通知"))
         self.assertFalse(is_recruitment_announcement("2027年度宁夏招录选调生公告", allow_out_of_province=False))
         self.assertFalse(is_recruitment_announcement("北京市各级机关2027年度考试录用公务员公告", allow_out_of_province=False))
         self.assertTrue(is_recruitment_announcement("河南省2026年大学生乡村医生专项计划公开招聘公告", allow_out_of_province=False))
@@ -534,6 +557,176 @@ class HenanAdaptersTests(unittest.TestCase):
             self.assertEqual(len(haust_stubs), 1)
             self.assertEqual(haust_stubs[0].title, "河南科技大学2026年度博士招聘公告")
             self.assertEqual(haust_stubs[0].published_at, "2026-09-30")
+
+    def test_campaign_5b_municipal_adapters_and_cms_bases_offline(self) -> None:
+        xx_list = (FIXTURES_DIR / "henan_xinxiang_list.html").read_text(encoding="utf-8")
+        xx_detail = (FIXTURES_DIR / "henan_xinxiang_detail.html").read_text(encoding="utf-8")
+        smx_list = (FIXTURES_DIR / "henan_sanmenxia_list.html").read_text(encoding="utf-8")
+        smx_detail = (FIXTURES_DIR / "henan_sanmenxia_detail.html").read_text(encoding="utf-8")
+        sq_list = (FIXTURES_DIR / "henan_shangqiu_list.html").read_text(encoding="utf-8")
+        sq_detail = (FIXTURES_DIR / "henan_shangqiu_detail.html").read_text(encoding="utf-8")
+        jy_tzgg = (FIXTURES_DIR / "henan_jiyuan_list_tzgg.html").read_text(encoding="utf-8")
+        jy_rsks = (FIXTURES_DIR / "henan_jiyuan_list_rsks.html").read_text(encoding="utf-8")
+        jy_detail = (FIXTURES_DIR / "henan_jiyuan_detail.html").read_text(encoding="utf-8")
+
+        xlsx_bytes = self.binary_paths["xlsx"].read_bytes()
+        docx_bytes = self.binary_paths["docx"].read_bytes()
+        pdf_bytes = _build_tounicode_pdf_bytes()
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            store = CrawlStateStore(root_dir=root)
+
+            # 1. Xinxiang (LongsiGovAdapter)
+            xx_cfg = {
+                "source_id": "henan_xinxiang_rsj",
+                "name": "新乡市人社局",
+                "base_url": "https://hrss.xinxiang.gov.cn",
+                "list_urls": ["https://hrss.xinxiang.gov.cn/xwzx/tzgg/index.html"],
+            }
+            xx_routes = {
+                "https://hrss.xinxiang.gov.cn/xwzx/tzgg/index.html": ("text/html; charset=utf-8", xx_list.encode("utf-8")),
+                "https://hrss.xinxiang.gov.cn/xwzx/tzgg/1297375.html": ("text/html; charset=utf-8", xx_detail.encode("utf-8")),
+                "https://hrss.xinxiang.gov.cn/group3/M00/00/D5/posts.xlsx": ("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", xlsx_bytes),
+                "https://hrss.xinxiang.gov.cn/group3/M00/00/D5/guide.docx": ("application/vnd.openxmlformats-officedocument.wordprocessingml.document", docx_bytes),
+            }
+
+            def xx_handler(req: httpx.Request) -> httpx.Response:
+                u = str(req.url)
+                if u in xx_routes:
+                    ct, b = xx_routes[u]
+                    return httpx.Response(200, headers={"Content-Type": ct}, content=b)
+                return httpx.Response(404)
+
+            with PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(xx_handler)) as c:
+                xx_adapter = HenanXinxiangRsjAdapter(xx_cfg, http_client=c, state_store=store)
+                xx_stubs = xx_adapter.parse_list_page(xx_list, xx_cfg["list_urls"][0])
+                self.assertEqual(len(xx_stubs), 2)
+                self.assertEqual(xx_stubs[0].title, "河南省2026年高校毕业生“三支一扶”计划招募公告")
+                self.assertEqual(xx_stubs[0].published_at, "2026-08-08")
+                self.assertEqual(xx_stubs[1].title, "2026年河南省新乡市事业单位公开招聘联考工作的公告")
+                xx_res = xx_adapter.process_detail_page(xx_stubs[0], fetch_attachments=True)
+                self.assertEqual(xx_res.status, "new")
+                assert xx_res.inbox_path is not None
+                xx_txt = xx_res.inbox_path.read_text(encoding="utf-8")
+                self.assertIn("省直岗位表", xx_txt)
+                self.assertIn("报考指南", xx_txt)
+
+            # 2. Sanmenxia (host filter + badge strip + "首页轮播" title guard)
+            smx_cfg = {
+                "source_id": "henan_sanmenxia_rsj",
+                "name": "三门峡市人社局",
+                "base_url": "https://rsj.smx.gov.cn",
+                "list_urls": ["https://rsj.smx.gov.cn/600/0000/zhengfuxinxi-1.html"],
+            }
+            smx_routes = {
+                "https://rsj.smx.gov.cn/600/0000/zhengfuxinxi-1.html": ("text/html; charset=utf-8", smx_list.encode("utf-8")),
+                "http://rsj.smx.gov.cn/600/2026/4/2250752.html": ("text/html; charset=utf-8", smx_detail.encode("utf-8")),
+                "https://minio.smxzhcs.cn/smxol-pre/posts.xlsx": ("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", xlsx_bytes),
+                "https://minio.smxzhcs.cn/smxol-pre/guide.docx": ("application/vnd.openxmlformats-officedocument.wordprocessingml.document", docx_bytes),
+            }
+
+            def smx_handler(req: httpx.Request) -> httpx.Response:
+                u = str(req.url)
+                if u in smx_routes:
+                    ct, b = smx_routes[u]
+                    return httpx.Response(200, headers={"Content-Type": ct}, content=b)
+                return httpx.Response(404)
+
+            with PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(smx_handler)) as c:
+                smx_adapter = HenanSanmenxiaRsjAdapter(smx_cfg, http_client=c, state_store=store)
+                smx_stubs = smx_adapter.parse_list_page(smx_list, smx_cfg["list_urls"][0])
+                self.assertEqual(len(smx_stubs), 1)
+                self.assertEqual(
+                    smx_stubs[0].title,
+                    "中共三门峡市委组织部 三门峡市人力资源和社会保障局2026年河南省（三门峡市）事业单位公开招聘联考工作公告",
+                )
+                self.assertEqual(smx_stubs[0].published_at, "2026-04-22")
+                smx_res = smx_adapter.process_detail_page(smx_stubs[0], fetch_attachments=True)
+                self.assertEqual(smx_res.status, "new")
+                assert smx_res.inbox_path is not None
+                smx_txt = smx_res.inbox_path.read_text(encoding="utf-8")
+                self.assertNotIn("首页轮播", smx_txt)
+                self.assertIn("学历要求专科、本科及硕士", smx_txt)
+                self.assertIn("省直岗位表", smx_txt)
+
+            # 3. Shangqiu (query-based detail_url_pattern)
+            sq_cfg = {
+                "source_id": "henan_shangqiu_rsks",
+                "name": "商丘市人事考试中心",
+                "base_url": "http://www.sqrsks.cn",
+                "list_urls": ["http://www.sqrsks.cn/index.php?s=index/category/index&id=22"],
+            }
+            sq_routes = {
+                "http://www.sqrsks.cn/index.php?s=index/category/index&id=22": ("text/html; charset=utf-8", sq_list.encode("utf-8")),
+                "http://www.sqrsks.cn/index.php?s=index/show/index&id=1337": ("text/html; charset=utf-8", sq_detail.encode("utf-8")),
+                "http://www.sqrsks.cn/uploads/file/20260423/posts.xlsx": ("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", xlsx_bytes),
+                "http://www.sqrsks.cn/uploads/file/20260422/guide.docx": ("application/vnd.openxmlformats-officedocument.wordprocessingml.document", docx_bytes),
+            }
+
+            def sq_handler(req: httpx.Request) -> httpx.Response:
+                u = str(req.url)
+                if u in sq_routes:
+                    ct, b = sq_routes[u]
+                    return httpx.Response(200, headers={"Content-Type": ct}, content=b)
+                return httpx.Response(404)
+
+            with PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(sq_handler)) as c:
+                sq_adapter = HenanShangqiuRsksAdapter(sq_cfg, http_client=c, state_store=store)
+                sq_stubs = sq_adapter.parse_list_page(sq_list, sq_cfg["list_urls"][0])
+                self.assertEqual(len(sq_stubs), 2)
+                self.assertEqual(sq_stubs[0].title, "关于组织实施2026年乡村振兴村级协理员专项计划的公告")
+                self.assertEqual(sq_stubs[1].title, "2026年河南省（商丘市）事业单位公开招聘联考公告")
+                sq_res = sq_adapter.process_detail_page(sq_stubs[1], fetch_attachments=True)
+                self.assertEqual(sq_res.status, "new")
+                assert sq_res.inbox_path is not None
+                sq_txt = sq_res.inbox_path.read_text(encoding="utf-8")
+                self.assertIn("title: 2026年河南省（商丘市）事业单位公开招聘联考公告", sq_txt)
+                self.assertIn("省直岗位表", sq_txt)
+
+            # 4. Jiyuan (TrsWcmGovAdapter: 2-digit list date + dual list templates)
+            jy_cfg = {
+                "source_id": "henan_jiyuan_rsj",
+                "name": "济源示范区人社局",
+                "base_url": "https://rbj.jiyuan.gov.cn",
+                "list_urls": [
+                    "https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/",
+                    "https://rbj.jiyuan.gov.cn/rsks/gggs_ks/",
+                ],
+            }
+            jy_routes = {
+                "https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/": ("text/html; charset=utf-8", jy_tzgg.encode("utf-8")),
+                "https://rbj.jiyuan.gov.cn/rsks/gggs_ks/": ("text/html; charset=utf-8", jy_rsks.encode("utf-8")),
+                "https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1012339.html": ("text/html; charset=utf-8", jy_detail.encode("utf-8")),
+                "https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/P020261109.pdf": ("application/pdf", pdf_bytes),
+            }
+
+            def jy_handler(req: httpx.Request) -> httpx.Response:
+                u = str(req.url)
+                if u in jy_routes:
+                    ct, b = jy_routes[u]
+                    return httpx.Response(200, headers={"Content-Type": ct}, content=b)
+                return httpx.Response(404)
+
+            with PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(jy_handler)) as c:
+                jy_adapter = HenanJiyuanRsjAdapter(jy_cfg, http_client=c, state_store=store)
+                tzgg_stubs = jy_adapter.parse_list_page(jy_tzgg, jy_cfg["list_urls"][0])
+                self.assertEqual(len(tzgg_stubs), 2)
+                self.assertEqual(tzgg_stubs[0].title, "济源示范区招聘2027届国家公费师范毕业生公告")
+                self.assertEqual(tzgg_stubs[0].published_at, "2026-11-09")
+                self.assertEqual(tzgg_stubs[1].title, "济源产城融合示范区 2026年第四批公益性岗位招聘公告")
+                self.assertEqual(tzgg_stubs[1].published_at, "2026-10-26")
+
+                rsks_stubs = jy_adapter.parse_list_page(jy_rsks, jy_cfg["list_urls"][1])
+                self.assertEqual(rsks_stubs, [])
+
+                jy_res = jy_adapter.process_detail_page(tzgg_stubs[0], fetch_attachments=True)
+                self.assertEqual(jy_res.status, "new")
+                assert jy_res.inbox_path is not None
+                jy_txt = jy_res.inbox_path.read_text(encoding="utf-8")
+                self.assertIn("title: 济源示范区招聘2027届国家公费师范毕业生公告", jy_txt)
+                self.assertIn("2027届公费师范生岗位需求表.pdf", jy_txt)
+                self.assertIn("岗位", jy_txt)
 
 
 if __name__ == "__main__":
