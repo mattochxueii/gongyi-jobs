@@ -49,6 +49,11 @@ SOURCE_TO_COMPANY_ID: dict[str, str] = {
     "ent_autobio_hotjob": "autobio-zhengzhou",
     "ent_popmart_beisen": "popmart-inc",
     "ent_iflytek_beisen": "iflytek-inc",
+    "ent_rigol_feishu": "rigol-inc",
+    "ent_sosen_beisen": "sosen-inc",
+    "ent_juicedata_jobs": "juicedata-inc",
+    "ent_keyence_beisen": "keyence-china",
+    "ent_auxgroup_beisen": "auxgroup-inc",
 }
 
 _PLATFORM_LABELS: dict[str, str] = {
@@ -60,6 +65,7 @@ _PLATFORM_LABELS: dict[str, str] = {
     "moka": "Moka招聘",
     "emq_jobs": "EMQ招聘官网",
     "dify_jobs": "Dify招聘官网",
+    "juicefs_jobs": "官网直招",
     "hanwei_jobs": "官网直招",
     "gltech_jobs": "官网直招",
     "suntront_jobs": "官网直招",
@@ -93,6 +99,7 @@ _CITY_TO_PROVINCE: dict[str, str] = {
     "重庆市": "重庆市",
     "深圳市": "广东省",
     "广州市": "广东省",
+    "中山市": "广东省",
     "珠海市": "广东省",
     "东莞市": "广东省",
     "佛山市": "广东省",
@@ -167,6 +174,7 @@ _CITY_ALIAS_PATTERNS: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("上海市", ("上海", "shanghai")),
     ("深圳市", ("深圳", "shenzhen")),
     ("广州市", ("广州", "guangzhou")),
+    ("中山市", ("中山", "zhongshan")),
     ("珠海市", ("珠海", "zhuhai")),
     ("东莞市", ("东莞", "dongguan")),
     ("佛山市", ("佛山", "foshan")),
@@ -259,6 +267,52 @@ _CHINA_OR_GLOBAL_REMOTE_RE = re.compile(
 )
 _SALARY_RE = re.compile(r"薪资(?:范围|待遇)?[：:\s]*([^\n\r。；;]{3,50})")
 _WORK_HOURS_RE = re.compile(r"(?:工作时间|上班时间)[：:\s]*([^\n\r。；;]{4,60})")
+
+_SALARY_KEEP_ANCHOR_RE = re.compile(
+    r"^(月薪|年薪|综合收入|年收入|日薪|时薪|底薪|安家费|安家补贴|购房补贴|住房补贴|生活补助|实习补贴|实习津贴)$",
+    re.I,
+)
+_SALARY_ANCHOR_RE = re.compile(
+    r"(?P<anchor>综合薪资|综合薪酬|综合收入|期望薪资|薪资范围|薪资区间|薪资标准|薪资待遇|薪资水平|薪资体系|薪资结构|薪资"
+    r"|薪酬范围|薪酬标准|薪酬待遇|薪酬|工资待遇|基本工资|月薪|年薪|年收入|底薪|日薪|时薪"
+    r"|实习薪资|实习工资|实习补贴|实习津贴|实习待遇|安家费|安家补贴|购房补贴|住房补贴|生活补助"
+    r"|Salary|Compensation|Pay(?:\s+range)?)"
+    r"(?P<gap>[^\n\r。；;】\]]{0,26}?)"
+    r"(?P<val>(?:保底|税前|约|可达|高达|最高)?\s*(?:[￥¥$]|RMB|CNY)?\s*\d+(?:\.\d+)?(?:\s*[kKwW万元块])?"
+    r"(?:\s*[-~～至到/]\s*(?:保底|税前)?\s*(?:[￥¥$]|RMB|CNY)?\s*\d+(?:\.\d+)?\s*\+?)?"
+    r"\s*(?:元|RMB|CNY|\$|￥|¥|k|K|w|W|万|千|块|薪)(?:[^\n\r。；;]{0,36}))",
+    re.I,
+)
+_STANDALONE_SALARY_RE = re.compile(
+    r"(?:(?:税前|约)?\s*(?:[￥¥$]|RMB|CNY)?\s*\d+(?:\.\d+)?(?:\s*[kK])?\s*[-~～至到]\s*\d+(?:\.\d+)?\s*[kK]\s*(?:/\s*[月年]|\s*[*×x]\s*\d+(?:\s*[-~～]\s*\d+)?薪)?(?![a-zA-Z0-9×x*]))"
+    r"|(?:(?:税前|约)?\s*(?:[￥¥$]|RMB|CNY)?\s*\d+(?:\.\d+)?(?:\s*(?:万元?|W|w))?\s*[-~～至到]\s*\d+(?:\.\d+)?\s*(?:万元?|W|w)\s*(?:/\s*[年月]|元\s*/\s*[年月]|\s*[*×x]\s*\d+(?:\s*[-~～]\s*\d+)?薪))"
+    r"|(?:(?<!\d)\d{4,6}(?:\s*元)?\s*[-~～至到]\s*\d{4,6}\s*元\s*/\s*[月年天日])"
+    r"|(?:(?<!\d)\d{2,4}\s*元\s*/\s*(?:天|日|小时)(?:\s*(?:实习|兼职)?(?:补贴|津贴|薪资))?)"
+    r"|(?:(?:时薪|日薪)\s*\d+(?:\.\d+)?(?:\s*[-~～]\s*\d+(?:\.\d+)?)?\s*元(?:\s*[每/一]?(?:小时|天|日))?)",
+    re.I,
+)
+_DEGREE_SALARY_RE = re.compile(
+    r"(?:本科|硕士|博士)[^\n\r。；;]{0,8}\d+(?:\.\d+)?(?:\s*[万wWkK元])?(?:\s*[-~～至到]\s*\d+(?:\.\d+)?)?\s*(?:万|W|w|k|K|元)"
+    r"(?:\s*[·、,，/]\s*(?:本科|硕士|博士)[^\n\r。；;]{0,8}\d+(?:\.\d+)?(?:\s*[万wWkK元])?(?:\s*[-~～至到]\s*\d+(?:\.\d+)?)?\s*(?:万|W|w|k|K|元)){0,2}",
+    re.I,
+)
+_SALARY_UNIT_RE = re.compile(r"(?:[kKwW万千元块￥¥$]|薪|RMB|CNY|USD|/月|/年|/天|/日|小时)", re.I)
+_KPI_OR_SPEC_NOISE_RE = re.compile(
+    r"(?:合同额|签约额|销售额|营业额|业绩指标|年度任务|完成任务|项目额|项目总额|项目规模|流水|GMV|融资|\d+\s*[kK]\s*[×xX*]\s*\d+\s*[kK]|\d+\s*kV|\d+\s*[kKmMgGtT][bB])",
+    re.I,
+)
+_PERK_NOISE_RE = re.compile(
+    r"(?:健身|语言学习|AI\s*体验|团建|旅游|免费体检|年度体检|购机|书费|咖啡|下午茶|活动经费|内推)",
+    re.I,
+)
+_INTERN_ALLOWANCE_RE = re.compile(r"(?:实习|日薪|时薪|安家|购房|住房|生活补助|薪酬|月薪|年薪|工资|薪资)")
+_NEGOTIABLE_ONLY_RE = re.compile(r"^(?:薪资|薪酬|年薪|月薪|工资|待遇)?[：:\s]*(?:面议|薪资面议|一人一议|具体面谈|negotiable|tbd)[！!。~]*$", re.I)
+_COMPANY_POLICY_SALARY_MAP: dict[str, str] = {
+    # Verified on Beisen campus resource https://portal-oss.zhiye.com/612085/resource/4dda6986-d78a-48e2-8c8c-3e3f57c2fbee.html
+    "sosen-inc": "官网校招政策：综合年薪8-15万元/年（深圳房补1200元/月）",
+    # Verified on Beisen campus resource https://portal-oss.zhiye.com/106200/resource/1487c8bc-9ba6-4abd-850d-c201d23e8d20.html
+    "auxgroup-inc": "官网校招政策：13-14薪+额外激励，优秀者首年可破50万",
+}
 
 _JD_BENEFIT_RULES: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("周末双休", re.compile(r"(周末双休|双休)")),
@@ -407,10 +461,191 @@ def _clip(text: str, max_len: int) -> str:
     return cleaned[: max(0, max_len - 1)].rstrip() + "…"
 
 
+def _clean_salary_candidate(raw: str) -> str | None:
+    """Validate and concisely normalize a candidate salary expression; return None for non-numeric text."""
+    s = re.sub(r"[ \t\u00a0\u3000]+", " ", (raw or "").strip())
+    s = re.sub(r"^[：:\-\s]+", "", s)
+    s = re.sub(r"[~。；;！!\s]+$", "", s)
+    if not s or _NEGOTIABLE_ONLY_RE.match(s):
+        return None
+    # Reject strings without explicit digits or compensation units (blocks '架构 · 早期期权', '福利】', etc.)
+    if not re.search(r"\d", s) or not _SALARY_UNIT_RE.search(s):
+        return None
+    if _KPI_OR_SPEC_NOISE_RE.search(s):
+        return None
+    if _PERK_NOISE_RE.search(s) and not _INTERN_ALLOWANCE_RE.search(s):
+        return None
+
+    # Trim non-numeric trailing clauses/notes such as '详情面谈（不定时工作制）' or '，以及早期员工丰厚期权'
+    s = re.split(r"(?:详情面谈|详情面议|具体面议|具体面谈)", s, maxsplit=1)[0].strip()
+    parts = [p.strip() for p in re.split(r"[，,]", s) if p.strip()]
+    kept_parts: list[str] = []
+    for idx, part in enumerate(parts):
+        if idx == 0 or re.search(r"\d", part) or re.match(r"^(?:月度发放|多薪|含补贴|含奖金)", part):
+            kept_parts.append(part)
+        else:
+            break
+    s = "，".join(kept_parts)
+    s = re.sub(r"(\d+(?:\.\d+)?(?:[-~～]\d+(?:\.\d+)?)?\s*万元?)之间$", r"\1", s)
+    s = re.sub(r"(?:\s*[（(][^）)]*(?:具体|视个人|根据不同城市|不定时)[^）)]*[）)])+$", "", s)
+    s = re.sub(r"[，,：:\s]+$", "", s).strip()
+    # Clean stray unmatched closing brackets at tail
+    if s.endswith(("）", ")")) and s.count("(") + s.count("（") < s.count(")") + s.count("）"):
+        s = s[:-1].strip()
+    # Ensure pure 'N年' work experience never slips past
+    if re.search(r"\d+\s*[-~～]?\s*\d*\s*年以上?(?:工作)?经验", s) and not re.search(r"[kKwW万元￥¥$薪]", s):
+        return None
+    if not re.search(r"\d", s) or not _SALARY_UNIT_RE.search(s):
+        return None
+    return _clip(s, 80)
+
+
+def extract_salary_range(
+    plain_text: str,
+    *,
+    salary_hint: str | None = None,
+    policy_salary: str | None = None,
+) -> str | None:
+    """Extract normalized salary_range from API hint, JD text, or official policy attribution."""
+    if salary_hint:
+        cleaned_hint = _clean_salary_candidate(salary_hint)
+        if cleaned_hint:
+            return cleaned_hint
+
+    text = strip_html_text(plain_text) if plain_text else ""
+    if text:
+        lines = [ln.strip() for ln in re.split(r"[\n\r]+", text) if ln.strip()]
+
+        # 1) Degree-tiered salary standards (e.g. '本科15万·硕士20万', '本科20-30万，硕士30-50万')
+        for ln in lines:
+            if _PERK_NOISE_RE.search(ln) and not _INTERN_ALLOWANCE_RE.search(ln):
+                continue
+            m_deg = _DEGREE_SALARY_RE.search(ln)
+            if m_deg and ("硕士" in m_deg.group(0) or "博士" in m_deg.group(0) or re.search(r"年薪|薪酬|月薪|本科\d", ln)):
+                cleaned = _clean_salary_candidate(m_deg.group(0))
+                if cleaned:
+                    return cleaned
+
+        # 2) Explicit anchored salary clauses (keeps meaningful period anchors such as 年薪/月薪/日薪/时薪/安家费)
+        for ln in lines:
+            if _PERK_NOISE_RE.search(ln) and not _INTERN_ALLOWANCE_RE.search(ln):
+                continue
+            if _KPI_OR_SPEC_NOISE_RE.search(ln) and not re.search(r"(?:月薪|年薪|薪资|薪酬|底薪|日薪|时薪)", ln):
+                continue
+            for m in _SALARY_ANCHOR_RE.finditer(ln):
+                anchor = m.group("anchor").strip()
+                gap = m.group("gap").strip()
+                val = m.group("val").strip()
+                # Tightly re-anchor if gap itself contains a tighter salary keyword (e.g. '薪资体系：基本工资...年薪保底40W')
+                sub_matches = list(
+                    re.finditer(
+                        r"(月薪|年薪|综合收入|年收入|日薪|时薪|底薪|基本工资|实习补贴|实习津贴|实习薪资|安家费|安家补贴|购房补贴|住房补贴)",
+                        gap,
+                    )
+                )
+                if sub_matches:
+                    last_sub = sub_matches[-1]
+                    anchor = last_sub.group(1)
+                    gap = gap[last_sub.end() :].strip(" ：:\t")
+                # Prefer direct anchor+val when gap is descriptive prose like '基本工资+奖金激励，' or '大部分销售员的...在'
+                val_clean = re.sub(r"^(?:在|为|达|到)\s*", "", val)
+                if _SALARY_KEEP_ANCHOR_RE.match(anchor) and not val_clean.lower().startswith(anchor.lower()):
+                    if gap in {"", ":", "：", "： ", "范围", "待遇", "约为", "约"} or re.match(r"^(?:在|为|是)$", gap):
+                        candidate = f"{anchor}：{val_clean}" if "：" not in anchor and not val_clean.startswith(("：", ":")) else f"{anchor}{val_clean}"
+                    elif len(gap) <= 6 and not any(ch in gap for ch in "+，,"):
+                        candidate = f"{anchor}{gap}{val_clean}"
+                    else:
+                        candidate = f"{anchor}{val_clean}"
+                else:
+                    candidate = val_clean
+                cleaned = _clean_salary_candidate(candidate)
+                if cleaned:
+                    return cleaned
+
+        # 3) Unanchored unambiguous numeric salary expressions (e.g. '30K~40K/月', '税前5k-7k', '8-15k', '160元/天 实习津贴')
+        for ln in lines:
+            if _PERK_NOISE_RE.search(ln) and not _INTERN_ALLOWANCE_RE.search(ln):
+                continue
+            if _KPI_OR_SPEC_NOISE_RE.search(ln):
+                continue
+            m_std = _STANDALONE_SALARY_RE.search(ln)
+            if m_std:
+                cleaned = _clean_salary_candidate(m_std.group(0))
+                if cleaned:
+                    return cleaned
+
+    if policy_salary and not re.search(r"(?:博士|该岗位|本岗位)[^\n]{0,12}(?:薪资面议|一人一议)", text):
+        return _clip(policy_salary, 80)
+    return None
+
+
+def _format_num_clean(val: Any) -> str | None:
+    try:
+        num = float(val)
+    except (TypeError, ValueError):
+        return None
+    if num <= 0:
+        return None
+    if num.is_integer():
+        return str(int(num))
+    return f"{num:.1f}".rstrip("0").rstrip(".")
+
+
+def _format_feishu_salary(job_post_info: dict[str, Any] | None) -> str | None:
+    """Format Feishu Hire job_post_info.min_salary / max_salary (Monthly salary range)."""
+    if not isinstance(job_post_info, dict):
+        return None
+    cur = job_post_info.get("currency")
+    if cur not in (None, 0, 1, "1", "CNY", "RMB"):
+        return None
+    lo = _format_num_clean(job_post_info.get("min_salary"))
+    hi = _format_num_clean(job_post_info.get("max_salary"))
+    if not lo and not hi:
+        return None
+    if lo and hi:
+        if float(lo) >= 1000 or float(hi) >= 1000:
+            return f"{lo}元/月" if lo == hi else f"{lo}-{hi}元/月"
+        return f"{lo}K/月" if lo == hi else f"{lo}K-{hi}K/月"
+    if lo:
+        return f"{lo}+元/月" if float(lo) >= 1000 else f"{lo}K+/月"
+    assert hi is not None
+    return f"最高{hi}元/月" if float(hi) >= 1000 else f"最高{hi}K/月"
+
+
+def _format_moka_salary(item: dict[str, Any]) -> str | None:
+    """Format structured Moka init-data salary fields if populated."""
+    raw_sal = str(item.get("salary") or "").strip()
+    if raw_sal:
+        cleaned = _clean_salary_candidate(raw_sal)
+        if cleaned:
+            return cleaned
+    lo = _format_num_clean(item.get("minSalary"))
+    hi = _format_num_clean(item.get("maxSalary"))
+    if not lo and not hi:
+        return None
+    pay_period = str(item.get("payPeriod") or "").lower()
+    suffix = "/年" if "year" in pay_period or "年" in pay_period else "/月"
+    unit = str(item.get("salaryUnit") or "").strip()
+    if lo and hi:
+        if float(lo) >= 1000 or float(hi) >= 1000:
+            return f"{lo}-{hi}{unit or '元'}{suffix}"
+        if "w" in unit.lower() or "万" in unit:
+            return f"{lo}-{hi}万{suffix}"
+        return f"{lo}K-{hi}K{suffix}"
+    bound = f"{lo}+" if lo else f"最高{hi}"
+    num_v = float(lo or hi or 0)
+    if num_v >= 1000:
+        return f"{bound}{unit or '元'}{suffix}"
+    return f"{bound}K{suffix}"
+
+
 def _extract_jd_signals(
     plain_text: str,
     source_url: str,
     company_profile: dict[str, Any],
+    *,
+    salary_hint: str | None = None,
+    policy_salary: str | None = None,
 ) -> tuple[str, str | None, str | None, list[dict[str, Any]]]:
     """Extract verified work_schedule, work_hours, salary_range, and benefits_verified from JD + company claims."""
     lines = [ln.strip() for ln in re.split(r"[\n\r]+", plain_text) if ln.strip()]
@@ -463,14 +698,18 @@ def _extract_jd_signals(
     if m_hours:
         work_hours = _clip(m_hours.group(1), 100)
 
-    salary_range: str | None = None
-    m_sal = _SALARY_RE.search(plain_text)
-    if m_sal:
-        salary_range = _clip(m_sal.group(1), 80)
+    salary_range = extract_salary_range(
+        plain_text,
+        salary_hint=salary_hint,
+        policy_salary=policy_salary,
+    )
 
     comp_sched = str(company_profile.get("work_schedule") or "其他")
     if "周末双休" in plain_text or "双休" in plain_text:
         job_schedule = "周末双休"
+    elif "不定时工作制" in plain_text and comp_sched == "周末双休":
+        # Role explicitly states irregular working hours in its own JD despite company general claim
+        job_schedule = "未明确"
     elif comp_sched in {"周末双休", "弹性工作", "做四休三"}:
         job_schedule = comp_sched
     elif any(k in plain_text.lower() for k in ("弹性工作", "弹性办公", "不打卡", "remote-first", "flexible working")):
@@ -495,7 +734,7 @@ def _infer_remote_policy(location_text: str, body_text: str) -> str:
         return "线下办公"
     if loc_l.strip() == "hybrid" or any(
         k in loc_l + " " + body_l[:1500]
-        for k in ("混合办公", "混合工作", "hybrid working", "hybrid model", "hybrid role")
+        for k in ("混合办公", "混合工作", "hybrid working", "hybrid model", "hybrid role", "申请远程")
     ):
         return "混合办公"
     if any(k in loc_l + " " + body_l[:1200] for k in ("远程办公", "remote-first", "globally remote", "home based - apac")):
@@ -593,6 +832,8 @@ class SaasBaseAdapter(BaseScraperAdapter):
         experience_req: str | None = None,
         extra_tags: list[str] | None = None,
         company_profile: dict[str, Any] | None = None,
+        salary_hint: str | None = None,
+        policy_salary: str | None = None,
     ) -> dict[str, Any]:
         company = company_profile or self._resolve_company_profile()
         company_id = str(company["company_id"])
@@ -604,6 +845,8 @@ class SaasBaseAdapter(BaseScraperAdapter):
             body_text,
             source_url,
             company,
+            salary_hint=salary_hint,
+            policy_salary=policy_salary,
         )
         remote_policy = _infer_remote_policy(location_text, body_text)
 
@@ -761,6 +1004,44 @@ class FeishuHireAdapter(SaasBaseAdapter):
         path_seg = urlparse(portal_url).path.strip("/").split("/")[0]
         return path_seg or "index"
 
+    @staticmethod
+    def _extract_portal_salary_policies(portal_html: str) -> tuple[dict[str, str], set[str]]:
+        """Extract degree-tiered campus policies and explicit negotiable-role exclusions from Feishu portal HTML."""
+        if not portal_html:
+            return {}, set()
+        unescaped = portal_html.replace('\\"', '"').replace("\\n", "\n")
+        policies: dict[str, str] = {}
+        negotiable_roles: set[str] = set()
+
+        m_rd = re.search(r"研发岗位[：:]\s*([^\n\"<]{6,60})", unescaped)
+        if m_rd and re.search(r"\d", m_rd.group(1)):
+            tier = re.sub(r"[，,]\s*博士.*$", "", m_rd.group(1)).strip(" ，,;；")
+            if tier:
+                policies["rd"] = _clip(f"官网校招政策：研发岗{tier}", 80)
+
+        m_mkt = re.search(r"营销岗位[：:]\s*([^\n\"<]{4,40})", unescaped)
+        if m_mkt and re.search(r"\d", m_mkt.group(1)):
+            policies["mkt"] = _clip(f"官网校招政策：营销岗{m_mkt.group(1).strip()}", 80)
+
+        for m_neg in re.finditer(r"⭐\s*([^\n:：\"<]{2,30})[：:]\s*[^\n\"<]{0,20}(?:薪资面议|一人一议)", unescaped):
+            negotiable_roles.add(m_neg.group(1).strip())
+
+        return policies, negotiable_roles
+
+    @staticmethod
+    def _pick_portal_policy(
+        title: str,
+        policies: dict[str, str],
+        negotiable_roles: set[str],
+    ) -> str | None:
+        if not policies or "实习" in title:
+            return None
+        if any(role in title for role in negotiable_roles):
+            return None
+        if any(k in title for k in ("营销", "销售", "市场", "商务")) and "mkt" in policies:
+            return policies["mkt"]
+        return policies.get("rd")
+
     def parse_posts_payload(
         self,
         posts: list[dict[str, Any]],
@@ -769,9 +1050,13 @@ class FeishuHireAdapter(SaasBaseAdapter):
         website_path: str,
         preferred_city: str | None = None,
         max_items: int = 12,
+        portal_policies: dict[str, str] | None = None,
+        negotiable_roles: set[str] | None = None,
     ) -> list[dict[str, Any]]:
         company = self._resolve_company_profile()
         candidates: list[tuple[int, dict[str, Any]]] = []
+        policies_map = portal_policies or {}
+        neg_set = negotiable_roles or set()
 
         for item in posts:
             if not isinstance(item, dict):
@@ -794,6 +1079,8 @@ class FeishuHireAdapter(SaasBaseAdapter):
             desc = str(item.get("description") or "").strip()
             req = str(item.get("requirement") or "").strip()
             full_body = "\n".join(part for part in (desc, req) if part)
+            api_salary = _format_feishu_salary(item.get("job_post_info"))
+            policy_salary = self._pick_portal_policy(title, policies_map, neg_set)
 
             detail_url = f"{portal_origin.rstrip('/')}/{website_path}/position/{jid}/detail"
             dept = (item.get("department_info") or {}).get("name") or (item.get("job_category") or {}).get("name")
@@ -817,6 +1104,8 @@ class FeishuHireAdapter(SaasBaseAdapter):
                 published_at=pub_date,
                 department=str(dept).strip() if dept else None,
                 company_profile=company,
+                salary_hint=api_salary,
+                policy_salary=policy_salary,
             )
             candidates.append((pref_rank, rec))
 
@@ -830,12 +1119,17 @@ class FeishuHireAdapter(SaasBaseAdapter):
         collected_posts: list[dict[str, Any]] = []
         portal_origin = self.base_url.rstrip("/")
         wpath = "index"
+        portal_policies: dict[str, str] = {}
+        negotiable_roles: set[str] = set()
 
         for portal_url in target_urls:
             parsed = urlparse(portal_url)
             portal_origin = f"{parsed.scheme}://{parsed.netloc}"
             page_resp = self.http_client.get(portal_url)
             wpath = self.extract_website_path(page_resp.text, page_resp.url)
+            p_pol, p_neg = self._extract_portal_salary_policies(page_resp.text)
+            portal_policies.update(p_pol)
+            negotiable_roles.update(p_neg)
 
             csrf_resp = self.http_client.request(
                 "POST",
@@ -885,6 +1179,8 @@ class FeishuHireAdapter(SaasBaseAdapter):
             website_path=wpath,
             preferred_city=preferred_city,
             max_items=max_items,
+            portal_policies=portal_policies,
+            negotiable_roles=negotiable_roles,
         )
 
 
@@ -1078,6 +1374,10 @@ class MokaAdapter(SaasBaseAdapter):
                 body_parts.append(f"办公地点：{address}")
             if item.get("commitment"):
                 body_parts.append(f"职位性质：{item['commitment']}")
+            if item.get("description"):
+                desc_txt = strip_html_text(str(item["description"]))
+                if desc_txt:
+                    body_parts.append(desc_txt)
 
             rec = self._build_job_record(
                 raw_id=jid,
@@ -1090,6 +1390,7 @@ class MokaAdapter(SaasBaseAdapter):
                 department=dept or (zhineng if zhineng and zhineng != "其它" else None),
                 city_id=city_id,
                 company_profile=company,
+                salary_hint=_format_moka_salary(item),
             )
             results.append(rec)
             if len(results) >= max_items:
@@ -1302,8 +1603,9 @@ class BeisenAdapter(SaasBaseAdapter):
             )
 
             extra_lines: list[str] = []
-            if item.get("Salary"):
-                extra_lines.append(f"薪资范围：{item['Salary']}")
+            sal_field = str(item.get("Salary") or "").strip()
+            if sal_field:
+                extra_lines.append(f"薪资范围：{sal_field}")
             if item.get("WorkTime"):
                 extra_lines.append(f"工作时间：{item['WorkTime']}")
             if item.get("Welfare"):
@@ -1314,6 +1616,15 @@ class BeisenAdapter(SaasBaseAdapter):
 
             pub_date = parse_date_value(item.get("PostDate")) or parse_date_value(item.get("ChangeDate"))
             detail_url = f"{portal_origin.rstrip('/')}/SocialDetail?id={raw_ad_id}"
+            company_id = str(company.get("company_id") or "")
+            raw_cat_id = str(item.get("CategoryId") or "").strip()
+            policy_salary = None
+            if (
+                company_id in _COMPANY_POLICY_SALARY_MAP
+                and "实习" not in title
+                and (raw_cat_id == "2" or "27届" in title or "2027" in title)
+            ):
+                policy_salary = _COMPANY_POLICY_SALARY_MAP[company_id]
 
             rec = self._build_job_record(
                 raw_id=raw_ad_id,
@@ -1327,6 +1638,8 @@ class BeisenAdapter(SaasBaseAdapter):
                 education_req=str(item.get("Degree") or "").strip() or None,
                 experience_req=str(item.get("YearsOfWorking") or "").strip() or None,
                 company_profile=company,
+                salary_hint=sal_field or None,
+                policy_salary=policy_salary,
             )
             records.append(rec)
 
@@ -1442,6 +1755,15 @@ class HotjobAdapter(SaasBaseAdapter):
 
             detail_url = f"{portal_origin.rstrip('/')}/{suite_key}/mc/detail?postId={post_id}&recruitType={rtype}"
             pub_date = parse_date_value(det.get("publishDate") or item.get("publishDate") or item.get("publishFirstDate"))
+            raw_sal = str(
+                det.get("salary")
+                or det.get("salaryStr")
+                or det.get("salaryName")
+                or item.get("salary")
+                or item.get("salaryStr")
+                or item.get("salaryName")
+                or ""
+            ).strip() or None
 
             rec = self._build_job_record(
                 raw_id=post_id,
@@ -1455,6 +1777,7 @@ class HotjobAdapter(SaasBaseAdapter):
                 education_req=str(det.get("education") or item.get("educationStr") or "").strip() or None,
                 experience_req=str(item.get("workYears") or "").strip() or None,
                 company_profile=company,
+                salary_hint=raw_sal,
             )
             records.append(rec)
 
@@ -1637,7 +1960,7 @@ class GltechJobsAdapter(SaasBaseAdapter):
                     loc_text = "合肥市"
                 elif "湖北" in loc_text:
                     loc_text = "武汉市"
-            if salary and salary not in body:
+            if salary and f"薪资待遇：{salary}" not in body:
                 body = f"薪资待遇：{salary}\n{body}"
 
             slug = hashlib.sha1(title.encode("utf-8")).hexdigest()[:8]
@@ -1654,6 +1977,7 @@ class GltechJobsAdapter(SaasBaseAdapter):
                 education_req=edu,
                 experience_req=exp,
                 company_profile=company,
+                salary_hint=salary,
             )
             results.append(rec)
 
@@ -1690,7 +2014,29 @@ class XyylJobsAdapter(SaasBaseAdapter):
                     urls.append(full)
         return urls
 
-    def parse_detail_html(self, html_text: str, detail_url: str) -> dict[str, Any] | None:
+    @staticmethod
+    def extract_policy_salary(rcwh_html: str) -> str | None:
+        """Extract verified salary + housing allowance standard from xyyl.com/rcwh.html."""
+        txt = strip_html_text(rcwh_html)
+        if not txt:
+            return None
+        m_sal = re.search(r"薪资待遇[：:\s]*(\d+[-~～]\d+\s*元\s*/\s*月)", txt)
+        m_house = re.search(r"(?:一次性)?购房补贴\s*(\d+[-~～]\d+\s*万元?)", txt)
+        if m_sal and m_house:
+            sal_s = m_sal.group(1).replace(" ", "")
+            house_s = m_house.group(1).replace(" ", "")
+            return _clip(f"官网人才政策：月薪{sal_s}（购房补贴{house_s}）", 80)
+        if m_sal:
+            return _clip(f"官网人才政策：月薪{m_sal.group(1).replace(' ', '')}", 80)
+        return None
+
+    def parse_detail_html(
+        self,
+        html_text: str,
+        detail_url: str,
+        *,
+        policy_salary: str | None = None,
+    ) -> dict[str, Any] | None:
         company = self._resolve_company_profile()
         soup = BeautifulSoup(html_text or "", "html.parser")
         for t in soup(["script", "style"]):
@@ -1744,6 +2090,7 @@ class XyylJobsAdapter(SaasBaseAdapter):
             education_req=edu_req,
             experience_req=exp_req,
             company_profile=company,
+            policy_salary=policy_salary,
         )
 
     def fetch_jobs(self, *, max_items: int = 12) -> list[dict[str, Any]]:
@@ -1751,6 +2098,13 @@ class XyylJobsAdapter(SaasBaseAdapter):
             urljoin(self.base_url.rstrip("/") + "/", "jrwm.html"),
             urljoin(self.base_url.rstrip("/") + "/", "xyzp.html"),
         ]
+        policy_salary: str | None = None
+        try:
+            rcwh_resp = self.http_client.get(urljoin(self.base_url.rstrip("/") + "/", "rcwh.html"))
+            policy_salary = self.extract_policy_salary(rcwh_resp.text)
+        except Exception:
+            policy_salary = None
+
         detail_urls: list[str] = []
         seen: set[str] = set()
         for lp in list_pages:
@@ -1763,7 +2117,7 @@ class XyylJobsAdapter(SaasBaseAdapter):
         results: list[dict[str, Any]] = []
         for du in detail_urls[: max(0, max_items)]:
             det_resp = self.http_client.get(du)
-            rec = self.parse_detail_html(det_resp.text, det_resp.url or du)
+            rec = self.parse_detail_html(det_resp.text, det_resp.url or du, policy_salary=policy_salary)
             if rec:
                 results.append(rec)
         return results
@@ -1803,19 +2157,22 @@ class WeihuaJobsAdapter(SaasBaseAdapter):
             if not jid or not title:
                 continue
             content_plain = strip_html_text(str(item.get("content") or ""))
+            content2_plain = strip_html_text(str(item.get("content2") or ""))
+            combined_content = "\n".join(p for p in (content2_plain, content_plain) if p)
+            loc_addr = str(item.get("address") or "").strip() or default_unit_city
             depart = str(item.get("depart") or unit_name).strip()
             num = str(item.get("num") or "").strip()
             prefix = f"招聘单位：{unit_name} | 部门：{depart}"
             if num:
                 prefix += f" | 招聘人数：{num}"
-            body = f"{prefix}\n{content_plain}" if content_plain else prefix
+            body = f"{prefix}\n{combined_content}" if combined_content else prefix
             detail_url = f"{portal_origin.rstrip('/')}/detail?id={jid}"
             rec = self._build_job_record(
                 raw_id=jid,
                 title=title,
                 source_url=detail_url,
                 apply_url=detail_url,
-                location_text=default_unit_city,
+                location_text=loc_addr,
                 body_text=body,
                 department=f"{unit_name}-{depart}" if depart != unit_name else unit_name,
                 company_profile=company,
@@ -1990,5 +2347,71 @@ class SuntrontJobsAdapter(SaasBaseAdapter):
 
     def fetch_jobs(self, *, max_items: int = 12) -> list[dict[str, Any]]:
         target = (self.list_urls or [urljoin(self.base_url.rstrip("/") + "/", "recruitment/recruitment-1.html")])[0]
+        resp = self.http_client.get(target)
+        return self.parse_portal_html(resp.text, resp.url or target, max_items=max_items)
+
+
+class JuicefsJobsAdapter(SaasBaseAdapter):
+    """Adapter for Juicedata / JuiceFS official careers page (juicefs.com/zh-cn/careers)."""
+
+    adapter_name = "juicefs_jobs"
+    source_type = "company_official"
+
+    def parse_portal_html(self, html_text: str, page_url: str, *, max_items: int = 12) -> list[dict[str, Any]]:
+        company = self._resolve_company_profile()
+        soup = BeautifulSoup(html_text or "", "html.parser")
+        for tag in soup(["script", "style", "nav", "footer"]):
+            tag.decompose()
+        lines = [ln.strip() for ln in soup.get_text("\n", strip=True).splitlines() if ln.strip()]
+        base_link = page_url.split("#", 1)[0]
+
+        duty_indices = [i for i, ln in enumerate(lines) if ln == "目标与职责" and i >= 1]
+        results: list[dict[str, Any]] = []
+        stop_tokens = {"产品", "文档", "资源", "社区", "公司", "热门主题"}
+
+        for k, start_idx in enumerate(duty_indices):
+            title = lines[start_idx - 1]
+            if not title or len(title) > 80:
+                continue
+            end_idx = duty_indices[k + 1] - 1 if k + 1 < len(duty_indices) else len(lines)
+            block: list[str] = []
+            seen_loc_section = False
+            after_loc_count = 0
+            for ln in lines[start_idx:end_idx]:
+                if seen_loc_section and (ln in stop_tokens or ln.startswith("Copyright ")):
+                    break
+                block.append(ln)
+                if ln == "工作地点与薪资":
+                    seen_loc_section = True
+                elif seen_loc_section:
+                    after_loc_count += 1
+                    if after_loc_count >= 3:
+                        break
+
+            loc_line = ""
+            for j, bln in enumerate(block):
+                if bln == "工作地点与薪资" and j + 1 < len(block):
+                    loc_line = block[j + 1]
+                    break
+            body = "\n".join(block)
+            slug = hashlib.sha1(title.encode("utf-8")).hexdigest()[:8]
+            detail_url = f"{base_link}#job-{slug}"
+            rec = self._build_job_record(
+                raw_id=f"{slug}-{k}",
+                title=title,
+                source_url=detail_url,
+                apply_url=base_link,
+                location_text=loc_line or "杭州市",
+                body_text=body,
+                company_profile=company,
+            )
+            results.append(rec)
+            if len(results) >= max_items:
+                break
+
+        return results
+
+    def fetch_jobs(self, *, max_items: int = 12) -> list[dict[str, Any]]:
+        target = (self.list_urls or [urljoin(self.base_url.rstrip("/") + "/", "zh-cn/careers")])[0]
         resp = self.http_client.get(target)
         return self.parse_portal_html(resp.text, resp.url or target, max_items=max_items)

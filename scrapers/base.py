@@ -34,6 +34,7 @@ from scrapers.adapters.saas import (
     GreenhouseAdapter,
     HanweiJobsAdapter,
     HotjobAdapter,
+    JuicefsJobsAdapter,
     LeverAdapter,
     LomonJobsAdapter,
     MokaAdapter,
@@ -80,6 +81,7 @@ ADAPTER_REGISTRY: dict[str, type[BaseScraperAdapter]] = {
     "xyyl_jobs": XyylJobsAdapter,
     "weihua_jobs": WeihuaJobsAdapter,
     "lomon_jobs": LomonJobsAdapter,
+    "juicefs_jobs": JuicefsJobsAdapter,
 }
 
 
@@ -118,6 +120,7 @@ __all__ = [
     "HenanZhengzhouRsjAdapter",
     "HenanZhoukouRsksAdapter",
     "HotjobAdapter",
+    "JuicefsJobsAdapter",
     "LeverAdapter",
     "LomonJobsAdapter",
     "LongsiGovAdapter",

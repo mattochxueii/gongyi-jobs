@@ -60,6 +60,7 @@ def run_scrapers(
     include_disabled: bool = False,
     max_items: int = 5,
     min_interval_sec: float = 1.0,
+    max_retries: int = 3,
 ) -> list[CrawlRunSummary]:
     """Run selected source adapters and return their CrawlRunSummary objects."""
     all_sources = load_sources_config(root_dir)
@@ -76,7 +77,7 @@ def run_scrapers(
     state_store = CrawlStateStore(root_dir=root_dir)
     summaries: list[CrawlRunSummary] = []
 
-    with PoliteHttpClient(min_interval_sec=min_interval_sec) as client:
+    with PoliteHttpClient(min_interval_sec=min_interval_sec, max_retries=max_retries) as client:
         for src_cfg in target_sources:
             adapter_cls = get_adapter_class(str(src_cfg.get("adapter", "generic_gov")))
             adapter = adapter_cls(src_cfg, http_client=client, state_store=state_store)
@@ -117,6 +118,18 @@ def build_arg_parser() -> argparse.ArgumentParser:
         help="Maximum detail pages to fetch per source (default: 5).",
     )
     parser.add_argument(
+        "--min-interval",
+        type=float,
+        default=1.0,
+        help="Minimum interval in seconds between requests to the same host (default: 1.0).",
+    )
+    parser.add_argument(
+        "--max-retries",
+        type=int,
+        default=3,
+        help="Maximum HTTP retry attempts per request (default: 3).",
+    )
+    parser.add_argument(
         "--expire-and-archive",
         action="store_true",
         help="Also mark deadline_at < today jobs as expired and archive them to data/archive/YYYY-MM.json.",
@@ -136,6 +149,8 @@ def main(argv: list[str] | None = None) -> int:
             dry_run=args.dry_run,
             include_disabled=args.include_disabled,
             max_items=args.max_items,
+            min_interval_sec=args.min_interval,
+            max_retries=args.max_retries,
         )
     except ValueError as exc:
         print(f"[ERROR] {exc}", file=sys.stderr)

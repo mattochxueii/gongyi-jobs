@@ -769,6 +769,183 @@
       ],
       "status": "active",
       "notes": "全国知名上市民企（002230.SZ），北森官招门户（含合肥总部及郑州等城市客户/研发岗）明确载明五险一金、补充商业保险、食堂、公寓与交通补贴。"
+    },
+    {
+      "company_id": "rigol-inc",
+      "name": "普源精电科技股份有限公司",
+      "aliases": [
+        "普源精电",
+        "RIGOL"
+      ],
+      "industry": "电子测量仪器与半导体芯片研发",
+      "cities": [
+        "苏州市",
+        "北京市",
+        "上海市",
+        "深圳市",
+        "西安市",
+        "多城市"
+      ],
+      "career_url": "https://rigolportal.jobs.feishu.cn/campus/",
+      "saas_platform": "feishu",
+      "work_schedule": "弹性工作",
+      "benefit_claims": [
+        {
+          "label": "多档弹性工时制度",
+          "evidence_quote": "公司根据各岗位特征，执行四种不同的工时制度，标准工时制：8:30~17:30，中午有1小时午餐和休息时间。在标准工作时间（8:30-17:30）基础上，允许弹性考勤时间：微弹性工作制：±1.5 小时弹性。半弹性工作制：±4.5 小时弹性。全弹性工作制：±12 小时弹性。",
+          "evidence_url": "https://rigolportal.jobs.feishu.cn/campus/",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "75分位薪酬与住房支持",
+          "evidence_quote": "岗位薪酬均值高于市场75分位，叠加股权激励、政府补贴及住房支持，物质回报与价值双赢。",
+          "evidence_url": "https://rigolportal.jobs.feishu.cn/campus/",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "研发营销起薪标准",
+          "evidence_quote": "⭐研发岗位：本科20-30万，硕士30-50万，博士及优秀者面议 ⭐营销岗位：20-35万",
+          "evidence_url": "https://rigolportal.jobs.feishu.cn/campus/",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "科创板上市企业（688337.SH），飞书招聘门户公开大量明确月薪范围（8K-30K/月）及本科20-30万、硕士30-50万校招起薪标准，并书面公布标准及±1.5h/±4.5h/±12h多档弹性工作制。"
+    },
+    {
+      "company_id": "sosen-inc",
+      "name": "深圳市崧盛电子股份有限公司",
+      "aliases": [
+        "崧盛股份",
+        "崧盛电子",
+        "SOSEN"
+      ],
+      "industry": "LED驱动电源与新能源电控",
+      "cities": [
+        "深圳市",
+        "中山市",
+        "多城市"
+      ],
+      "career_url": "https://sosen.zhiye.com/",
+      "saas_platform": "beisen",
+      "work_schedule": "周末双休",
+      "benefit_claims": [
+        {
+          "label": "双休工作制与加班调休",
+          "evidence_quote": "双休工作制，周末加班可以调休，未调休算加班费，除法定节假日外，可享受婚假、产假/陪产假、年假、病假等带薪假期",
+          "evidence_url": "https://portal-oss.zhiye.com/612085/resource/4dda6986-d78a-48e2-8c8c-3e3f57c2fbee.html",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "校招年薪五险一金与住房补贴",
+          "evidence_quote": "综合年薪：年薪 8-15万元/年 入职购买五险一金 ... 中山提供宿舍、深圳第一年提供住房补贴 1200/月 ... 工作满一年的员工享有新婚贺金 1000元",
+          "evidence_url": "https://portal-oss.zhiye.com/612085/resource/4dda6986-d78a-48e2-8c8c-3e3f57c2fbee.html",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "创业板上市高新企业（301002.SZ），北森官招门户与校招页明确载明双休工作制、加班调休或加班费、综合年薪8-15万元/年、深圳首年1200元/月房补及160元/天实习津贴。"
+    },
+    {
+      "company_id": "juicedata-inc",
+      "name": "杭州果汁数据科技有限公司",
+      "aliases": [
+        "Juicedata",
+        "JuiceFS"
+      ],
+      "industry": "云原生分布式存储",
+      "cities": [
+        "杭州市",
+        "北京市",
+        "上海市",
+        "深圳市",
+        "远程",
+        "多城市"
+      ],
+      "career_url": "https://juicefs.com/zh-cn/careers",
+      "saas_platform": "custom",
+      "work_schedule": "其他",
+      "benefit_claims": [
+        {
+          "label": "经验候选人可申请远程",
+          "evidence_quote": "工作地点在杭州，经验丰富的候选人可以申请远程",
+          "evidence_url": "https://juicefs.com/zh-cn/careers",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "公开月薪区间与早期期权",
+          "evidence_quote": "薪酬：30K-60K/月，以及早期员工丰厚期权",
+          "evidence_url": "https://juicefs.com/zh-cn/careers",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "开源分布式文件系统 JuiceFS 研发团队，官网招聘页公开所有在招岗位具体月薪范围（20K-40K/月至30K-60K/月）、早期员工期权及远程申请政策；官网未明文标注双休或固定工时。"
+    },
+    {
+      "company_id": "keyence-china",
+      "name": "基恩士（中国）有限公司",
+      "aliases": [
+        "基恩士",
+        "KEYENCE"
+      ],
+      "industry": "工业自动化传感器与精密测量",
+      "cities": [
+        "上海市",
+        "深圳市",
+        "多城市"
+      ],
+      "career_url": "https://keyence.zhiye.com/",
+      "saas_platform": "beisen",
+      "work_schedule": "周末双休",
+      "benefit_claims": [
+        {
+          "label": "周末双休与下班不打扰",
+          "evidence_quote": "周末双休，每天工作结束后也不会占用私人时间联络工作，可以将生活和工作完全分开，给大家足够的休息时间。",
+          "evidence_url": "https://www.keyence.com.cn/ss/careers/staff_jean.jsp",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "半年调薪商保与带薪年假",
+          "evidence_quote": "2. 晋升：每半年调薪&升职机会 3. 奖金：1年2次半年奖金 4. 保险：五险一金，补充商业保险 5. 假期：10-17天带薪假 6. 福利补贴：1年2次，国庆、春节前发放，总计8000-15000元不等",
+          "evidence_url": "https://keyence.zhiye.com/SocialDetail?id=390875628",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "官方招聘站载明周末双休及生活与工作分离文化，北森接口在招岗位逐条披露具体月薪/年薪区间、补充商业保险及节前福利补贴（注：特定出差售后/大客户岗JD注明需适应出差及不定时调配）。"
+    },
+    {
+      "company_id": "auxgroup-inc",
+      "name": "奥克斯集团有限公司",
+      "aliases": [
+        "奥克斯",
+        "AUX"
+      ],
+      "industry": "智能家电与电力装备制造",
+      "cities": [
+        "宁波市",
+        "多城市"
+      ],
+      "career_url": "https://auxgroup.zhiye.com/",
+      "saas_platform": "beisen",
+      "work_schedule": "周末双休",
+      "benefit_claims": [
+        {
+          "label": "双休与带薪年假福利",
+          "evidence_quote": "双休，带薪年假，享受国家规定的法定节假日；春节，端午，中秋等传统节日，有惊喜礼品相送。",
+          "evidence_url": "https://portal-oss.zhiye.com/106200/resource/1487c8bc-9ba6-4abd-850d-c201d23e8d20.html",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "13-14薪与试用期五险一金",
+          "evidence_quote": "13-14薪+额外激励+福利礼包，平均调薪1-2次/年(近3年人均收入每年提升7%)，优秀者薪资首年可突破50万；入职即签订正式的劳动合同，试用期即缴纳五险一金。",
+          "evidence_url": "https://portal-oss.zhiye.com/106200/resource/1487c8bc-9ba6-4abd-850d-c201d23e8d20.html",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "大型制造民企，北森校招门户载明双休、带薪年假、试用期即缴五险一金，并明确公开13-14薪及首年优秀校招生薪酬上限标准。"
     }
   ]
 }

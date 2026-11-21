@@ -784,6 +784,86 @@
       "url_verified": true,
       "fetch_interval_hours": 48,
       "notes": "外省全国补充企业（含郑州及合肥总部岗位），北森接口精选最新10条以内。"
+    },
+    {
+      "source_id": "ent_rigol_feishu",
+      "name": "普源精电科技股份有限公司（飞书招聘）",
+      "category": "enterprise",
+      "province": "江苏省",
+      "city": "多城市",
+      "adapter": "feishu_hire",
+      "base_url": "https://rigolportal.jobs.feishu.cn",
+      "list_urls": [
+        "https://rigolportal.jobs.feishu.cn/campus/"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "科创板上市测试测量仪器企业，飞书招聘公开多城市职位及结构化月薪范围，门户载明多档弹性工时与校招本硕起薪标准。"
+    },
+    {
+      "source_id": "ent_sosen_beisen",
+      "name": "深圳市崧盛电子股份有限公司（北森招聘）",
+      "category": "enterprise",
+      "province": "广东省",
+      "city": "深圳市",
+      "adapter": "beisen",
+      "base_url": "https://sosen.zhiye.com",
+      "list_urls": [
+        "https://sosen.zhiye.com/"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "北森官招公开双休工作制、综合年薪8-15万元/年、深圳住房补贴1200元/月及160元/天实习津贴。"
+    },
+    {
+      "source_id": "ent_juicedata_jobs",
+      "name": "杭州果汁数据科技有限公司（JuiceFS 官网直招）",
+      "category": "enterprise",
+      "province": "浙江省",
+      "city": "多城市",
+      "adapter": "juicefs_jobs",
+      "base_url": "https://juicefs.com",
+      "list_urls": [
+        "https://juicefs.com/zh-cn/careers"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "云原生分布式存储团队，官网直招页公开全部在招岗位月薪区间（20K-60K/月）、早期期权及远程申请选项。"
+    },
+    {
+      "source_id": "ent_keyence_beisen",
+      "name": "基恩士（中国）有限公司（北森招聘）",
+      "category": "enterprise",
+      "province": "上海市",
+      "city": "多城市",
+      "adapter": "beisen",
+      "base_url": "https://keyence.zhiye.com",
+      "list_urls": [
+        "https://keyence.zhiye.com/"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 48,
+      "notes": "官网招募站载明周末双休文化，北森接口岗逐条公开具体月薪/年薪数字及商业保险等福利。"
+    },
+    {
+      "source_id": "ent_auxgroup_beisen",
+      "name": "奥克斯集团有限公司（北森招聘）",
+      "category": "enterprise",
+      "province": "浙江省",
+      "city": "宁波市",
+      "adapter": "beisen",
+      "base_url": "https://auxgroup.zhiye.com",
+      "list_urls": [
+        "https://auxgroup.zhiye.com/"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 48,
+      "notes": "北森官招门户载明双休、带薪年假、试用期五险一金及13-14薪等校招政策。"
     }
   ]
 }
