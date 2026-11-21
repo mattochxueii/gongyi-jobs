@@ -1,9 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import {
+  ENTERPRISE_UNKNOWN_SALARY_LABEL,
+  ENTERPRISE_UNKNOWN_SALARY_TOOLTIP,
+  extractPublicSalaryHint,
+  formatExplicitSalaryBadge,
   formatTimestampCST,
   getDeadlineInfo,
+  hasExplicitSalary,
   loadSiteData,
+  PUBLIC_DEFAULT_TREATMENT_LABEL,
 } from '../lib/data';
 
 const data = loadSiteData();
@@ -12,17 +18,27 @@ const enterpriseJobs = data.jobs.filter((j) => j.category === 'enterprise');
 const activePublicJobs = publicJobs.filter((j) => j.status === 'active');
 const activeCompanies = data.companies.filter((c) => c.status === 'active');
 const activeEnterpriseJobs = enterpriseJobs.filter((j) => j.status === 'active');
+const explicitSalaryJobs = activeEnterpriseJobs.filter(hasExplicitSalary);
 
 const isCompletelyEmpty = data.jobs.length === 0 && data.companies.length === 0;
 const latestUpdatedText = formatTimestampCST(data.latestUpdatedAt);
 
 const previewPublicJobs = [...activePublicJobs]
   .sort((a, b) => {
+    const aHasHint = extractPublicSalaryHint(a.summary, a.public_meta?.other_requirements) ? 0 : 1;
+    const bHasHint = extractPublicSalaryHint(b.summary, b.public_meta?.other_requirements) ? 0 : 1;
+    if (aHasHint !== bHasHint) return aHasHint - bHasHint;
     const da = a.deadline_at ?? '9999-12-31';
     const db = b.deadline_at ?? '9999-12-31';
     return da.localeCompare(db);
   })
-  .slice(0, 3);
+  .slice(0, 4);
+
+const salaryPreviewJobs = activeEnterpriseJobs.filter(hasExplicitSalary).slice(0, 3);
+const noSalaryPreviewJobs = activeEnterpriseJobs
+  .filter((j) => !hasExplicitSalary(j))
+  .slice(0, Math.max(1, 4 - salaryPreviewJobs.length));
+const previewEnterpriseJobs = [...salaryPreviewJobs, ...noSalaryPreviewJobs].slice(0, 4);
 
 const previewCompanies = activeCompanies.slice(0, 3);
 ---
@@ -38,15 +54,15 @@ const previewCompanies = activeCompanies.slice(0, 3);
       <div class="max-w-3xl">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-medium mb-4">
           <span class="w-1.5 h-1.5 rounded-full bg-teal-600" aria-hidden="true"></span>
-          纯公益 · 纯静态零后端 · 官方直链溯源
+          纯公益 · 纯静态零后端 · 官方直链与薪资待遇显性溯源
         </div>
         <h1 class="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight leading-snug">
           公开、可溯源的招聘信息导航
         </h1>
         <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
           本项目是一个开源、非营利的静态招聘聚合站点，专注于两件事：
-          <strong class="font-semibold text-slate-800">河南省事业编/体制内公开招考信息汇总</strong>（直链人社官网与岗位表附件），以及
-          <strong class="font-semibold text-slate-800">高福利民营企业白名单</strong>（只做正向客观收录，每一条双休或福利标签均附官方原文引用与来源链接）。
+          <strong class="font-semibold text-slate-800">河南省事业编/体制内公开招考信息汇总</strong>（直链人社官网与岗位表附件、透明呈现编制与待遇说明），以及
+          <strong class="font-semibold text-slate-800">高福利民营企业白名单</strong>（只做正向客观收录，显性标注薪资范围或官网面议状态，每一条双休或福利标签均附官方原文引用与来源链接）。
         </p>
 
         <form
@@ -118,7 +134,7 @@ const previewCompanies = activeCompanies.slice(0, 3);
               {activeCompanies.length}
             </span>
             <span class="text-xs text-slate-500">
-              家（关联在招岗位 {activeEnterpriseJobs.length} 个）
+              家（在招 {activeEnterpriseJobs.length} 个 · 明码标薪 {explicitSalaryJobs.length} 个）
             </span>
           </div>
         </a>
@@ -182,7 +198,7 @@ const previewCompanies = activeCompanies.slice(0, 3);
         <h2 id="zones-heading" class="text-lg sm:text-xl font-bold text-slate-900">
           两大核心专区
         </h2>
-        <span class="text-xs text-slate-500">纯前端实时检索 · 无需登录</span>
+        <span class="text-xs text-slate-500">静态分片极速加载 · 实时筛选无需登录</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -200,16 +216,16 @@ const previewCompanies = activeCompanies.slice(0, 3);
               河南省事业编公开招考专区
             </h3>
             <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-              汇总河南省人社厅、省人事考试中心及各地市官方公开招聘公告。清晰提取编制类型、最低学历、是否限应届、专业要求与笔面试节点，助您快速定位适配岗位。
+              汇总河南省人社厅、省人事考试中心及各地市官方公开招聘公告。清晰提取编制类型、最低学历、是否限应届、专业要求、待遇标准与笔面试节点，助您快速定位适配岗位。
             </p>
             <ul class="mt-4 space-y-1.5 text-xs text-slate-600">
               <li class="flex items-center gap-2">
                 <span class="text-teal-700 font-bold">✓</span>
-                <span>城市、学历、编制类型、是否限应届多维实时筛选</span>
+                <span>城市、学历、编制类型、是否限应届多维实时筛选与分页</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-teal-700 font-bold">✓</span>
-                <span>动态高亮“报名截止倒计时”（剩X天 / 今日截止 / 已截止）</span>
+                <span>明确标注事业单位工资标准，智能提取年薪/安家费/科研启动费提示</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-teal-700 font-bold">✓</span>
@@ -246,24 +262,30 @@ const previewCompanies = activeCompanies.slice(0, 3);
             <ul class="mt-4 space-y-1.5 text-xs text-slate-600">
               <li class="flex items-center gap-2">
                 <span class="text-sky-700 font-bold">✓</span>
-                <span>按休假制度（双休/弹性/做四休三）、城市、行业与福利标签筛选</span>
+                <span>显性展示薪资徽章（已标明薪资琥珀色高亮 / 未公开透明标注面议）</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-sky-700 font-bold">✓</span>
-                <span>每条福利标签旁强制展示官网原文逐字引用（evidence_quote）</span>
+                <span>支持「仅看已标明薪资」一键过滤与「有明确薪资优先」排序</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-sky-700 font-bold">✓</span>
-                <span>附带核验日期与可点击官网溯源链接，公开透明可查证</span>
+                <span>每条福利标签旁强制展示官网原文逐字引用（evidence_quote）与溯源直链</span>
               </li>
             </ul>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-100">
+          <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-2.5">
             <a
               href="/companies"
-              class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium transition-colors"
+              class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium transition-colors"
             >
               进入高福利民企专区 →
+            </a>
+            <a
+              href="/companies?salary=1"
+              class="inline-flex items-center justify-center px-3.5 py-2.5 rounded-lg bg-amber-100 hover:bg-amber-200/80 text-amber-950 border border-amber-300 text-xs sm:text-sm font-semibold transition-colors"
+            >
+              💰 仅看明码标薪岗位（{explicitSalaryJobs.length}）
             </a>
           </div>
         </article>
@@ -271,39 +293,55 @@ const previewCompanies = activeCompanies.slice(0, 3);
     </section>
 
     {
-      (previewPublicJobs.length > 0 || previewCompanies.length > 0) && (
+      (previewPublicJobs.length > 0 || previewEnterpriseJobs.length > 0 || previewCompanies.length > 0) && (
         <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {previewPublicJobs.length > 0 && (
             <div class="bg-white rounded-xl border border-slate-200 p-5 sm:p-6">
               <div class="flex items-center justify-between mb-4">
                 <h3 class="text-base font-bold text-slate-900">近期事业编招考速览</h3>
                 <a href="/public" class="text-xs font-medium text-teal-700 hover:text-teal-800">
-                  查看全部 →
+                  查看全部 ({publicJobs.length}) →
                 </a>
               </div>
               <div class="divide-y divide-slate-100">
                 {previewPublicJobs.map((job) => {
                   const dl = getDeadlineInfo(job.deadline_at, job.status);
+                  const hint = extractPublicSalaryHint(
+                    job.summary,
+                    job.public_meta?.other_requirements,
+                  );
                   return (
-                    <div class="py-3 first:pt-0 last:pb-0 flex items-start justify-between gap-3">
-                      <div class="min-w-0">
-                        <a
-                          href={`/public?q=${encodeURIComponent(job.title)}`}
-                          class="text-sm font-semibold text-slate-900 hover:text-teal-700 line-clamp-1"
-                        >
-                          {job.title}
-                        </a>
-                        <div class="mt-0.5 text-xs text-slate-500 truncate">
-                          {job.org_name} · {job.city} · {job.public_meta?.bianzhi_type ?? '公开招聘'}
+                    <div class="py-3.5 first:pt-0 last:pb-0 space-y-2">
+                      <div class="flex items-start justify-between gap-3">
+                        <div class="min-w-0">
+                          <a
+                            href={`/public?q=${encodeURIComponent(job.title)}`}
+                            class="text-sm font-semibold text-slate-900 hover:text-teal-700 line-clamp-1"
+                          >
+                            {job.title}
+                          </a>
+                          <div class="mt-0.5 text-xs text-slate-500 truncate">
+                            {job.org_name} · {job.city} · {job.public_meta?.bianzhi_type ?? '公开招聘'}
+                          </div>
                         </div>
+                        <span
+                          class="js-deadline-badge shrink-0 px-2 py-0.5 rounded text-xs font-medium border tabular-nums bg-slate-50 text-slate-700 border-slate-200"
+                          data-deadline={job.deadline_at ?? ''}
+                          data-status={job.status}
+                        >
+                          {dl.label}
+                        </span>
                       </div>
-                      <span
-                        class="js-deadline-badge shrink-0 px-2 py-0.5 rounded text-xs font-medium border tabular-nums bg-slate-50 text-slate-700 border-slate-200"
-                        data-deadline={job.deadline_at ?? ''}
-                        data-status={job.status}
-                      >
-                        {dl.label}
-                      </span>
+                      <div class="flex flex-wrap items-center gap-1.5">
+                        <span class="inline-flex items-center px-2 py-0.5 rounded bg-teal-50/80 text-teal-900 border border-teal-200 text-xs font-medium">
+                          {PUBLIC_DEFAULT_TREATMENT_LABEL}
+                        </span>
+                      </div>
+                      {hint && (
+                        <div class="text-xs text-amber-900 bg-amber-50/90 border border-amber-200/80 px-2.5 py-1 rounded-md line-clamp-1">
+                          💡 待遇提示：{hint}
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -311,39 +349,87 @@ const previewCompanies = activeCompanies.slice(0, 3);
             </div>
           )}
 
-          {previewCompanies.length > 0 && (
-            <div class="bg-white rounded-xl border border-slate-200 p-5 sm:p-6">
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="text-base font-bold text-slate-900">白名单高福利民企速览</h3>
-                <a href="/companies" class="text-xs font-medium text-teal-700 hover:text-teal-800">
-                  查看全部 →
-                </a>
-              </div>
-              <div class="divide-y divide-slate-100">
-                {previewCompanies.map((company) => (
-                  <div class="py-3 first:pt-0 last:pb-0 space-y-1.5">
-                    <div class="flex items-center justify-between gap-2">
-                      <a
-                        href={`/companies?q=${encodeURIComponent(company.name)}`}
-                        class="text-sm font-semibold text-slate-900 hover:text-teal-700 truncate"
-                      >
-                        {company.name}
-                      </a>
-                      <span class="shrink-0 px-2 py-0.5 rounded bg-sky-50 text-sky-800 border border-sky-200 text-xs font-medium">
-                        {company.work_schedule}
-                      </span>
-                    </div>
-                    <div class="text-xs text-slate-500">
-                      {company.industry} · {company.cities.join(' / ')}
-                    </div>
-                    {company.benefit_claims[0] && (
-                      <p class="text-xs text-slate-600 bg-slate-50 border-l-2 border-teal-500 pl-2.5 py-1 rounded-r line-clamp-2">
-                        “{company.benefit_claims[0].evidence_quote}”
-                      </p>
-                    )}
+          {(previewEnterpriseJobs.length > 0 || previewCompanies.length > 0) && (
+            <div class="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 space-y-5">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-base font-bold text-slate-900">高福利民企在招岗位速览</h3>
+                  <a href="/companies" class="text-xs font-medium text-teal-700 hover:text-teal-800">
+                    全部企业与岗位 ({activeEnterpriseJobs.length}) →
+                  </a>
+                </div>
+                {previewEnterpriseJobs.length > 0 && (
+                  <div class="divide-y divide-slate-100">
+                    {previewEnterpriseJobs.map((job) => {
+                      const em = job.enterprise_meta;
+                      const salary = em?.salary_range?.trim() || null;
+                      return (
+                        <div class="py-3 first:pt-0 last:pb-0 space-y-1.5">
+                          <div class="flex flex-wrap items-start justify-between gap-2">
+                            <a
+                              href={`/companies?q=${encodeURIComponent(job.title)}`}
+                              class="text-sm font-semibold text-slate-900 hover:text-teal-700 line-clamp-1"
+                            >
+                              {job.title}
+                            </a>
+                            {salary ? (
+                              <span class="shrink-0 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-950 border border-amber-300 text-xs font-bold tabular-nums shadow-2xs">
+                                {formatExplicitSalaryBadge(salary)}
+                              </span>
+                            ) : (
+                              <span
+                                title={ENTERPRISE_UNKNOWN_SALARY_TOOLTIP}
+                                class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200 text-xs font-medium cursor-help"
+                              >
+                                {ENTERPRISE_UNKNOWN_SALARY_LABEL}
+                              </span>
+                            )}
+                          </div>
+                          <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                            <span class="font-medium text-slate-700">{job.org_name}</span>
+                            <span>· {job.city}</span>
+                            {em?.work_schedule && (
+                              <span class="px-1.5 py-0.5 rounded bg-sky-50 text-sky-800 border border-sky-200 font-medium">
+                                {em.work_schedule}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
-                ))}
+                )}
               </div>
+
+              {previewCompanies.length > 0 && (
+                <div class="pt-4 border-t border-slate-100">
+                  <div class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2.5">
+                    代表性白名单企业福利原文证据
+                  </div>
+                  <div class="space-y-2.5">
+                    {previewCompanies.map((company) => (
+                      <div class="rounded-lg bg-slate-50/80 border border-slate-200/80 p-3 space-y-1">
+                        <div class="flex items-center justify-between gap-2">
+                          <a
+                            href={`/companies?q=${encodeURIComponent(company.name)}`}
+                            class="text-xs sm:text-sm font-semibold text-slate-900 hover:text-teal-700 truncate"
+                          >
+                            {company.name}
+                          </a>
+                          <span class="shrink-0 px-2 py-0.5 rounded bg-sky-50 text-sky-800 border border-sky-200 text-xs font-medium">
+                            {company.work_schedule}
+                          </span>
+                        </div>
+                        {company.benefit_claims[0] && (
+                          <p class="text-xs text-slate-600 border-l-2 border-teal-500 pl-2 line-clamp-1">
+                            “{company.benefit_claims[0].evidence_quote}”
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </section>

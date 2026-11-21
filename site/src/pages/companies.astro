@@ -1,16 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import {
-  getDeadlineInfo,
+  hasExplicitSalary,
   loadSiteData,
-  SAAS_PLATFORM_LABELS,
-  SOURCE_TYPE_LABELS,
 } from '../lib/data';
-import type { CompanyItem, CompanyWorkSchedule, JobItem } from '../lib/types';
+import type { CompanyWorkSchedule } from '../lib/types';
 
 const data = loadSiteData();
 const companies = data.companies;
 const enterpriseJobs = data.jobs.filter((j) => j.category === 'enterprise');
+const explicitSalaryJobsCount = enterpriseJobs.filter(hasExplicitSalary).length;
 
 const SCHEDULE_OPTIONS: CompanyWorkSchedule[] = [
   '周末双休',
@@ -43,119 +42,11 @@ for (const job of enterpriseJobs) {
 const availableCities = Array.from(citySet).sort((a, b) => a.localeCompare(b, 'zh-CN'));
 const availableIndustries = Array.from(industrySet).sort((a, b) => a.localeCompare(b, 'zh-CN'));
 const availableBenefits = Array.from(benefitSet).sort((a, b) => a.localeCompare(b, 'zh-CN'));
-
-const jobsByCompanyId = new Map<string, JobItem[]>();
-const knownCompanyIds = new Set(companies.map((c) => c.company_id));
-const orphanJobs: JobItem[] = [];
-
-for (const job of enterpriseJobs) {
-  const cid = job.enterprise_meta?.company_id;
-  if (cid && knownCompanyIds.has(cid)) {
-    const existing = jobsByCompanyId.get(cid) ?? [];
-    existing.push(job);
-    jobsByCompanyId.set(cid, existing);
-  } else {
-    orphanJobs.push(job);
-  }
-}
-
-function buildCompanySchedules(company: CompanyItem, jobs: JobItem[]): string[] {
-  const set = new Set<string>([company.work_schedule]);
-  for (const j of jobs) {
-    if (j.enterprise_meta?.work_schedule) {
-      set.add(j.enterprise_meta.work_schedule);
-    }
-  }
-  return Array.from(set);
-}
-
-function buildCompanyCities(company: CompanyItem, jobs: JobItem[]): string[] {
-  const set = new Set<string>(company.cities ?? []);
-  for (const j of jobs) {
-    if (j.city) set.add(j.city);
-  }
-  return Array.from(set);
-}
-
-function buildCompanyBenefits(company: CompanyItem, jobs: JobItem[]): string[] {
-  const set = new Set<string>();
-  for (const claim of company.benefit_claims ?? []) {
-    if (claim.label) set.add(claim.label);
-  }
-  for (const j of jobs) {
-    for (const b of j.enterprise_meta?.benefits_verified ?? []) {
-      if (b.tag) set.add(b.tag);
-    }
-  }
-  return Array.from(set);
-}
-
-function buildCompanySearchText(company: CompanyItem, jobs: JobItem[]): string {
-  const parts: string[] = [
-    company.name,
-    ...(company.aliases ?? []),
-    company.industry,
-    ...(company.cities ?? []),
-    company.work_schedule,
-    company.notes ?? '',
-  ];
-  for (const claim of company.benefit_claims ?? []) {
-    parts.push(claim.label, claim.evidence_quote);
-  }
-  for (const j of jobs) {
-    parts.push(
-      j.title,
-      j.city,
-      j.district ?? '',
-      j.summary,
-      ...(j.tags ?? []),
-      j.enterprise_meta?.department ?? '',
-      j.enterprise_meta?.work_schedule ?? '',
-      j.enterprise_meta?.work_hours ?? '',
-      j.enterprise_meta?.remote_policy ?? '',
-    );
-    for (const b of j.enterprise_meta?.benefits_verified ?? []) {
-      parts.push(b.tag, b.evidence_quote);
-    }
-  }
-  return parts.join(' ').toLowerCase();
-}
-
-function buildJobSearchText(job: JobItem, companyName: string): string {
-  const em = job.enterprise_meta;
-  const parts: string[] = [
-    companyName,
-    job.title,
-    job.city,
-    job.district ?? '',
-    job.summary,
-    ...(job.tags ?? []),
-    em?.department ?? '',
-    em?.work_schedule ?? '',
-    em?.work_hours ?? '',
-    em?.remote_policy ?? '',
-    em?.salary_range ?? '',
-    em?.experience_req ?? '',
-    em?.education_req ?? '',
-  ];
-  for (const b of em?.benefits_verified ?? []) {
-    parts.push(b.tag, b.evidence_quote);
-  }
-  return parts.join(' ').toLowerCase();
-}
-
-const sortedCompanies = [...companies].sort((a, b) => {
-  if (a.status !== b.status) return a.status === 'active' ? -1 : 1;
-  const aj = (jobsByCompanyId.get(a.company_id) ?? []).length;
-  const bj = (jobsByCompanyId.get(b.company_id) ?? []).length;
-  if (aj !== bj) return bj - aj;
-  return a.name.localeCompare(b.name, 'zh-CN');
-});
 ---
 
 <BaseLayout
   title="高福利民营企业白名单专区 · 豫聘公益导航"
-  description="高福利民营企业白名单与在招岗位展示：支持休假制度（周末双休/弹性工作/做四休三）、城市、行业与福利标签筛选，每条福利标签均附官网原文引用与溯源链接。"
+  description="高福利民营企业白名单与在招岗位展示：显性标注岗位薪资范围或官网面议状态，支持「仅看已标明薪资」过滤与「有明确薪资优先」排序，支持休假制度、城市、行业与福利标签筛选，每条福利标签均附官网原文引用与溯源链接。"
   activeNav="companies"
   isPreviewFixtures={data.isPreviewFixtures}
   latestUpdatedAt={data.latestUpdatedAt}
@@ -165,17 +56,17 @@ const sortedCompanies = [...companies].sort((a, b) => {
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-800 border border-sky-200 text-xs font-medium mb-2">
-            正向客观收录 · 每项福利均附官网原文证据
+            正向客观收录 · 薪资透明化展示 · 每项福利均附官网原文证据
           </div>
           <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
             高福利民企白名单专区
           </h1>
           <p class="mt-1.5 text-sm text-slate-600">
-            绝不发布无依据传言或情绪化黑名单 · 点击每条福利旁的「溯源链接」即可直达官方原始说明页。
+            绝不发布无依据传言或情绪化黑名单 · 每张岗位卡显性展示官网薪资或面议状态，点击福利旁「原文溯源」可直达官方核实。
           </p>
         </div>
         <div class="text-xs sm:text-sm text-slate-600 bg-slate-50 px-3.5 py-2 rounded-lg border border-slate-200 tabular-nums shrink-0">
-          白名单企业 <strong class="text-slate-900">{companies.length}</strong> 家 · 在招岗位 <strong class="text-slate-900">{enterpriseJobs.length}</strong> 个
+          白名单企业 <strong id="comp-header-total" class="text-slate-900">{companies.length}</strong> 家 · 在招岗位 <strong id="comp-header-jobs-total" class="text-slate-900">{enterpriseJobs.length}</strong> 个（明码标薪 <strong id="comp-header-salary-total" class="text-amber-900">{explicitSalaryJobsCount}</strong> 个）
         </div>
       </div>
     </div>
@@ -194,7 +85,7 @@ const sortedCompanies = [...companies].sort((a, b) => {
           <input
             id="comp-filter-q"
             type="search"
-            placeholder="企业名、岗位、福利原文..."
+            placeholder="企业名、岗位、薪资、福利原文..."
             class="w-full px-3 py-2 bg-slate-50 focus:bg-white border border-slate-200 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
           />
         </div>
@@ -252,25 +143,73 @@ const sortedCompanies = [...companies].sort((a, b) => {
         </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 border-t border-slate-100 text-xs sm:text-sm">
-        <div class="text-slate-600 tabular-nums">
-          匹配白名单企业：<strong id="comp-match-count" class="text-slate-900">{sortedCompanies.length}</strong> 家
-          <span class="mx-1.5 text-slate-300">|</span>
-          关联在招岗位：<strong id="comp-job-match-count" class="text-slate-900">{enterpriseJobs.length}</strong> 个
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pt-2.5 border-t border-slate-100">
+        <div class="flex flex-wrap items-center gap-3">
+          <label class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-50/90 border border-amber-200 text-xs sm:text-sm font-semibold text-amber-950 cursor-pointer select-none">
+            <input
+              id="comp-filter-has-salary"
+              type="checkbox"
+              class="rounded border-amber-400 text-amber-700 focus:ring-amber-600"
+            />
+            <span>💰 仅看已标明薪资</span>
+          </label>
+
+          <div class="flex items-center gap-2">
+            <label for="comp-filter-sort" class="text-xs font-medium text-slate-600 shrink-0">
+              排序：
+            </label>
+            <select
+              id="comp-filter-sort"
+              class="px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600"
+            >
+              <option value="salary_first" selected>有明确薪资优先</option>
+              <option value="job_count">在招岗位数量优先</option>
+              <option value="published">最新发布优先</option>
+              <option value="name">按企业名称排序</option>
+            </select>
+          </div>
+
+          <div class="inline-flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-xs">
+            <button
+              id="comp-view-grouped"
+              type="button"
+              class="px-2.5 py-1 rounded-md bg-white text-slate-900 font-semibold shadow-2xs transition-colors cursor-pointer"
+            >
+              按企业分组展开
+            </button>
+            <button
+              id="comp-view-jobs"
+              type="button"
+              class="px-2.5 py-1 rounded-md text-slate-600 hover:text-slate-900 font-medium transition-colors cursor-pointer"
+            >
+              按岗位分页 (20条/页)
+            </button>
+          </div>
         </div>
-        <button
-          id="comp-reset-btn"
-          type="button"
-          class="self-start sm:self-auto px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 text-xs font-medium transition-colors cursor-pointer"
-        >
-          重置筛选
-        </button>
+
+        <div class="flex items-center justify-between lg:justify-end gap-3 text-xs sm:text-sm">
+          <div class="text-slate-600 tabular-nums">
+            匹配企业：<strong id="comp-match-count" class="text-slate-900">{companies.length}</strong> 家
+            <span class="mx-1.5 text-slate-300">|</span>
+            在招岗位：<strong id="comp-job-match-count" class="text-slate-900">{enterpriseJobs.length}</strong> 个
+          </div>
+          <button
+            id="comp-reset-btn"
+            type="button"
+            class="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 text-xs font-medium transition-colors cursor-pointer"
+          >
+            重置筛选
+          </button>
+        </div>
       </div>
     </section>
 
     {
-      sortedCompanies.length === 0 && orphanJobs.length === 0 ? (
-        <section class="bg-white rounded-xl border border-slate-200 p-8 sm:p-12 text-center space-y-3">
+      companies.length === 0 && enterpriseJobs.length === 0 ? (
+        <section
+          id="companies-init-empty"
+          class="bg-white rounded-xl border border-slate-200 p-8 sm:p-12 text-center space-y-3"
+        >
           <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 text-slate-500 mx-auto">
             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -299,251 +238,20 @@ const sortedCompanies = [...companies].sort((a, b) => {
         </section>
       ) : (
         <>
-          <div id="companies-list" class="space-y-6">
-            {sortedCompanies.map((company) => {
-              const jobs = jobsByCompanyId.get(company.company_id) ?? [];
-              const schedules = buildCompanySchedules(company, jobs);
-              const cities = buildCompanyCities(company, jobs);
-              const benefits = buildCompanyBenefits(company, jobs);
-
-              return (
-                <article
-                  class="js-company-card bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-xs space-y-5"
-                  data-schedules={JSON.stringify(schedules)}
-                  data-cities={JSON.stringify(cities)}
-                  data-industry={company.industry}
-                  data-benefits={JSON.stringify(benefits)}
-                  data-search={buildCompanySearchText(company, jobs)}
-                >
-                  <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-slate-100">
-                    <div class="space-y-2">
-                      <div class="flex flex-wrap items-center gap-2">
-                        <span class="px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-800 border border-sky-200 text-xs font-semibold">
-                          {company.work_schedule}
-                        </span>
-                        <span class="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 text-xs font-medium">
-                          {company.industry}
-                        </span>
-                        <span class="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 text-xs">
-                          {company.cities.join(' · ')}
-                        </span>
-                        <span class="px-2 py-0.5 rounded-md bg-slate-50 text-slate-500 border border-slate-200 text-xs">
-                          {SAAS_PLATFORM_LABELS[company.saas_platform]}
-                        </span>
-                        {company.status === 'paused' && (
-                          <span class="px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200 text-xs">
-                            暂停采集更新
-                          </span>
-                        )}
-                      </div>
-
-                      <div>
-                        <h2 class="text-xl font-bold text-slate-900">
-                          {company.name}
-                        </h2>
-                        {company.aliases && company.aliases.length > 0 && (
-                          <p class="mt-0.5 text-xs text-slate-500">
-                            常用简称：{company.aliases.join(' / ')}
-                          </p>
-                        )}
-                      </div>
-                      {company.notes && (
-                        <p class="text-xs text-slate-500">{company.notes}</p>
-                      )}
-                    </div>
-
-                    <div class="shrink-0">
-                      <a
-                        href={company.career_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium transition-colors"
-                      >
-                        企业官方招聘主页 ↗
-                      </a>
-                    </div>
-                  </div>
-
-                  <div class="space-y-2.5">
-                    <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                      官网福利核验与原文证据（{company.benefit_claims.length} 项）
-                    </h3>
-                    <div class="grid grid-cols-1 gap-2.5">
-                      {company.benefit_claims.map((claim) => (
-                        <div class="rounded-lg bg-emerald-50/40 border border-emerald-200/80 p-3 sm:p-3.5 flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-                          <div class="space-y-1.5 min-w-0">
-                            <div class="flex flex-wrap items-center gap-2">
-                              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-100/80 text-emerald-900 text-xs font-semibold">
-                                <span aria-hidden="true">✓</span>
-                                {claim.label}
-                              </span>
-                              <span class="text-xs text-slate-500 tabular-nums">
-                                核验于 {claim.verified_at}
-                              </span>
-                            </div>
-                            <blockquote class="text-xs sm:text-sm text-slate-700 leading-relaxed border-l-2 border-emerald-400 pl-2.5">
-                              “{claim.evidence_quote}”
-                            </blockquote>
-                          </div>
-                          <a
-                            href={claim.evidence_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="shrink-0 self-start inline-flex items-center gap-1 px-2.5 py-1.5 rounded-md bg-white hover:bg-emerald-50 border border-emerald-300/80 text-emerald-800 text-xs font-medium transition-colors"
-                          >
-                            原文溯源链接 ↗
-                          </a>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div class="space-y-3 pt-2">
-                    <div class="flex items-center justify-between">
-                      <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                        关联在招岗位明细（{jobs.length}）
-                      </h3>
-                    </div>
-
-                    {jobs.length === 0 ? (
-                      <div class="rounded-lg bg-slate-50 border border-slate-200/80 px-4 py-3 text-xs text-slate-600">
-                        当前暂未自动同步到该企业的具体细分职位卡片，请直接点击上方「企业官方招聘主页」浏览实时岗位列表。
-                      </div>
-                    ) : (
-                      <div class="space-y-3">
-                        {jobs.map((job) => {
-                          const em = job.enterprise_meta;
-                          const dl = job.deadline_at
-                            ? getDeadlineInfo(job.deadline_at, job.status)
-                            : null;
-                          const jobBenefitTags = (em?.benefits_verified ?? []).map((b) => b.tag);
-                          return (
-                            <div
-                              class="js-enterprise-job rounded-lg bg-slate-50/70 border border-slate-200 p-4 space-y-3"
-                              data-city={job.city}
-                              data-schedule={em?.work_schedule ?? company.work_schedule}
-                              data-benefits={JSON.stringify(jobBenefitTags)}
-                              data-search={buildJobSearchText(job, company.name)}
-                            >
-                              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
-                                <div>
-                                  <div class="flex flex-wrap items-center gap-1.5 text-xs mb-1">
-                                    <span class="px-2 py-0.5 rounded bg-white border border-slate-200 text-slate-700 font-medium">
-                                      {job.city}
-                                      {job.district ? ` · ${job.district}` : ''}
-                                    </span>
-                                    {em?.work_schedule && (
-                                      <span class="px-2 py-0.5 rounded bg-sky-50 border border-sky-200 text-sky-800 font-medium">
-                                        {em.work_schedule}
-                                      </span>
-                                    )}
-                                    {em?.remote_policy && (
-                                      <span class="px-2 py-0.5 rounded bg-white border border-slate-200 text-slate-600">
-                                        {em.remote_policy}
-                                      </span>
-                                    )}
-                                    {em?.salary_range && (
-                                      <span class="px-2 py-0.5 rounded bg-amber-50 border border-amber-200 text-amber-900 font-medium tabular-nums">
-                                        {em.salary_range}
-                                      </span>
-                                    )}
-                                  </div>
-                                  <h4 class="text-base font-bold text-slate-900">
-                                    {job.title}
-                                  </h4>
-                                  <div class="mt-0.5 flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-slate-500">
-                                    {em?.department && <span>部门：{em.department}</span>}
-                                    {em?.experience_req && <span>经验：{em.experience_req}</span>}
-                                    {em?.education_req && <span>学历：{em.education_req}</span>}
-                                    {em?.work_hours && <span>工时：{em.work_hours}</span>}
-                                  </div>
-                                </div>
-
-                                <div class="flex flex-wrap items-center gap-2 shrink-0">
-                                  {dl && (
-                                    <span class="px-2 py-0.5 rounded bg-white border border-slate-200 text-xs text-slate-600 tabular-nums">
-                                      截止：{job.deadline_at}（{dl.label}）
-                                    </span>
-                                  )}
-                                  <span class="text-xs text-slate-400">
-                                    {SOURCE_TYPE_LABELS[job.source_type]}
-                                  </span>
-                                </div>
-                              </div>
-
-                              <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                                {job.summary}
-                              </p>
-
-                              {em && em.benefits_verified.length > 0 && (
-                                <div class="space-y-2">
-                                  <div class="text-xs font-medium text-slate-500">
-                                    岗位 JD 福利标签与原文引用：
-                                  </div>
-                                  <div class="space-y-2">
-                                    {em.benefits_verified.map((b) => {
-                                      const evUrl = b.evidence_url ?? job.source_url;
-                                      return (
-                                        <div class="rounded-md bg-white border border-slate-200 p-2.5 flex flex-col sm:flex-row sm:items-start justify-between gap-2">
-                                          <div class="space-y-1 min-w-0">
-                                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200 text-xs font-semibold">
-                                              <span aria-hidden="true">✓</span>
-                                              {b.tag}
-                                            </span>
-                                            <p class="text-xs text-slate-600 leading-relaxed">
-                                              原文引用：“{b.evidence_quote}”
-                                            </p>
-                                          </div>
-                                          <a
-                                            href={evUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="shrink-0 self-start text-xs font-medium text-teal-700 hover:text-teal-800 underline underline-offset-2"
-                                          >
-                                            {b.evidence_url ? '证据溯源 ↗' : '岗位原文 ↗'}
-                                          </a>
-                                        </div>
-                                      );
-                                    })}
-                                  </div>
-                                </div>
-                              )}
-
-                              <div class="pt-2 border-t border-slate-200/70 flex flex-wrap items-center justify-between gap-2">
-                                <span class="text-xs text-slate-500">
-                                  来源：{job.source_name}
-                                </span>
-                                <div class="flex flex-wrap gap-2">
-                                  {job.apply_url && (
-                                    <a
-                                      href={job.apply_url}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      class="px-3 py-1.5 rounded-md bg-teal-700 hover:bg-teal-800 text-white text-xs font-medium transition-colors"
-                                    >
-                                      官方投递入口 ↗
-                                    </a>
-                                  )}
-                                  <a
-                                    href={job.source_url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="px-3 py-1.5 rounded-md bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium transition-colors"
-                                  >
-                                    查看岗位原文 ↗
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                </article>
-              );
-            })}
+          <div
+            id="companies-loading-state"
+            class="bg-white rounded-xl border border-slate-200 p-8 text-center text-sm text-slate-500"
+          >
+            正在加载高福利民企白名单与在招岗位静态索引（共 {companies.length} 家企业、{enterpriseJobs.length} 个在招岗位）…
           </div>
+
+          <div id="companies-list" class="space-y-6"></div>
+
+          <nav
+            id="companies-pagination"
+            aria-label="高福利民企与岗位分页导航"
+            class="hidden bg-white rounded-xl border border-slate-200 p-4 shadow-xs"
+          ></nav>
 
           <section
             id="companies-empty-filter"
@@ -553,7 +261,7 @@ const sortedCompanies = [...companies].sort((a, b) => {
               暂无匹配的白名单企业或岗位
             </h2>
             <p class="text-sm text-slate-600">
-              当前筛选条件下没有找到符合要求的企业或福利标签，可尝试放宽休假制度、城市或关键字限制。
+              当前筛选条件下没有找到符合要求的企业、薪资条件或福利标签，可尝试取消「仅看已标明薪资」或放宽休假制度、城市与关键字限制。
             </p>
             <div>
               <button
@@ -565,61 +273,6 @@ const sortedCompanies = [...companies].sort((a, b) => {
               </button>
             </div>
           </section>
-
-          {orphanJobs.length > 0 && (
-            <section class="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-xs space-y-4">
-              <h2 class="text-base font-bold text-slate-900">
-                其他已核验在招企业岗位（{orphanJobs.length}）
-              </h2>
-              <div class="space-y-3">
-                {orphanJobs.map((job) => {
-                  const em = job.enterprise_meta;
-                  return (
-                    <div class="rounded-lg bg-slate-50 border border-slate-200 p-4 space-y-2.5">
-                      <div class="flex flex-wrap items-center justify-between gap-2">
-                        <div>
-                          <h3 class="text-base font-bold text-slate-900">{job.title}</h3>
-                          <div class="text-xs text-slate-600">
-                            {job.org_name} · {job.city}
-                            {em?.work_schedule ? ` · ${em.work_schedule}` : ''}
-                          </div>
-                        </div>
-                        <a
-                          href={job.source_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="px-3 py-1.5 rounded-md bg-white border border-slate-200 text-xs font-medium text-slate-700 hover:bg-slate-100"
-                        >
-                          查看岗位原文 ↗
-                        </a>
-                      </div>
-                      <p class="text-xs sm:text-sm text-slate-700">{job.summary}</p>
-                      {em && em.benefits_verified.length > 0 && (
-                        <div class="space-y-1.5">
-                          {em.benefits_verified.map((b) => (
-                            <div class="rounded bg-white border border-slate-200 p-2 text-xs flex flex-col sm:flex-row sm:items-start justify-between gap-2">
-                              <div>
-                                <span class="font-semibold text-teal-800">✓ {b.tag}</span>
-                                <span class="text-slate-600 ml-2">“{b.evidence_quote}”</span>
-                              </div>
-                              <a
-                                href={b.evidence_url ?? job.source_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="text-teal-700 underline shrink-0"
-                              >
-                                证据溯源 ↗
-                              </a>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </section>
-          )}
         </>
       )
     }
@@ -630,25 +283,159 @@ const sortedCompanies = [...companies].sort((a, b) => {
       var listEl = document.getElementById('companies-list');
       if (!listEl) return;
 
-      var cards = Array.prototype.slice.call(document.querySelectorAll('.js-company-card'));
+      var PAGE_SIZE = 20;
+      var PREVIEW_JOBS_PER_COMPANY = 3;
+      var UNKNOWN_SALARY_LABEL = '薪资：官网未公开 / 面议';
+      var UNKNOWN_SALARY_TOOLTIP = '企业官网未披露具体数额，可点官网详情核实';
+
+      var SAAS_PLATFORM_LABELS = {
+        moka: 'Moka 招聘',
+        beisen: '北森招聘',
+        feishu: '飞书招聘',
+        greenhouse: 'Greenhouse',
+        lever: 'Lever',
+        workday: 'Workday',
+        custom: '企业自建官网',
+        unknown: '官方通道',
+      };
+
+      var SOURCE_TYPE_LABELS = {
+        gov_official: '政务官网',
+        institution_official: '事业单位官网',
+        company_official: '企业官网',
+        verified_saas: '官方招聘SaaS',
+      };
+
+      var loadingEl = document.getElementById('companies-loading-state');
+      var paginationEl = document.getElementById('companies-pagination');
+      var emptyFilterEl = document.getElementById('companies-empty-filter');
+      var countEl = document.getElementById('comp-match-count');
+      var jobCountEl = document.getElementById('comp-job-match-count');
+
       var qInput = document.getElementById('comp-filter-q');
       var scheduleSelect = document.getElementById('comp-filter-schedule');
       var citySelect = document.getElementById('comp-filter-city');
       var industrySelect = document.getElementById('comp-filter-industry');
       var benefitSelect = document.getElementById('comp-filter-benefit');
-      var countEl = document.getElementById('comp-match-count');
-      var jobCountEl = document.getElementById('comp-job-match-count');
-      var emptyFilterEl = document.getElementById('companies-empty-filter');
+      var hasSalaryCheck = document.getElementById('comp-filter-has-salary');
+      var sortSelect = document.getElementById('comp-filter-sort');
+      var viewGroupedBtn = document.getElementById('comp-view-grouped');
+      var viewJobsBtn = document.getElementById('comp-view-jobs');
       var resetBtn = document.getElementById('comp-reset-btn');
       var emptyResetBtn = document.getElementById('comp-empty-reset-btn');
 
-      function parseListAttr(el, name) {
+      var allCompanies = [];
+      var allEnterpriseJobs = [];
+      var companyById = {};
+      var viewMode = 'grouped'; // 'grouped' | 'jobs'
+      var currentPage = 1;
+
+      // Track per-company expand state and in-company page limit: { [company_id]: numberOfVisibleJobs }
+      var companyVisibleLimitMap = {};
+
+      var filteredCompanyGroups = [];
+      var filteredFlatJobs = [];
+
+      var beijingToday = new Date(Date.now() + 8 * 3600000).toISOString().slice(0, 10);
+      var todayParts = beijingToday.split('-').map(Number);
+      var todayUtc = Date.UTC(todayParts[0], todayParts[1] - 1, todayParts[2]);
+
+      function el(tag, className, text) {
+        var node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text !== undefined && text !== null) node.textContent = String(text);
+        return node;
+      }
+
+      function safeHttpUrl(rawUrl) {
+        if (!rawUrl || typeof rawUrl !== 'string') return null;
+        var trimmed = rawUrl.trim();
         try {
-          var raw = el.getAttribute(name);
-          return raw ? JSON.parse(raw) : [];
-        } catch (e) {
-          return [];
+          var parsed = new URL(trimmed, window.location.origin);
+          if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+            return parsed.href;
+          }
+        } catch (e) {}
+        return null;
+      }
+
+      function jobHasSalary(job) {
+        var em = job.enterprise_meta;
+        return Boolean(em && typeof em.salary_range === 'string' && em.salary_range.trim().length > 0);
+      }
+
+      function formatSalaryText(rawSalary) {
+        var s = rawSalary.trim();
+        return s.indexOf('💰') === 0 ? s : '💰 ' + s;
+      }
+
+      function createSalaryBadge(job) {
+        if (jobHasSalary(job)) {
+          return el(
+            'span',
+            'inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-amber-100 text-amber-950 border border-amber-300 text-xs sm:text-sm font-bold tabular-nums shadow-2xs',
+            formatSalaryText(job.enterprise_meta.salary_range)
+          );
         }
+        var grayBadge = el(
+          'span',
+          'inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 border border-slate-200 text-xs font-medium cursor-help',
+          UNKNOWN_SALARY_LABEL
+        );
+        grayBadge.setAttribute('title', UNKNOWN_SALARY_TOOLTIP);
+        return grayBadge;
+      }
+
+      function computeDeadlineLabel(deadlineAt, status) {
+        if (status === 'expired' || status === 'closed') {
+          return status === 'closed' ? '已关闭' : '已截止';
+        }
+        if (!deadlineAt || !/^\d{4}-\d{2}-\d{2}$/.test(deadlineAt)) return null;
+        var p = deadlineAt.split('-').map(Number);
+        var diff = Math.round((Date.UTC(p[0], p[1] - 1, p[2]) - todayUtc) / 86400000);
+        if (diff < 0) return '已截止';
+        if (diff === 0) return '今日截止';
+        return '剩 ' + diff + ' 天';
+      }
+
+      function buildJobSearchText(job, companyName) {
+        var em = job.enterprise_meta || {};
+        var parts = [
+          companyName || job.org_name || '',
+          job.title || '',
+          job.city || '',
+          job.district || '',
+          job.summary || '',
+          (job.tags || []).join(' '),
+          em.department || '',
+          em.work_schedule || '',
+          em.work_hours || '',
+          em.remote_policy || '',
+          em.salary_range || '',
+          em.experience_req || '',
+          em.education_req || '',
+        ];
+        var bvs = Array.isArray(em.benefits_verified) ? em.benefits_verified : [];
+        for (var i = 0; i < bvs.length; i++) {
+          parts.push(bvs[i].tag || '', bvs[i].evidence_quote || '');
+        }
+        return parts.join(' ').toLowerCase();
+      }
+
+      function buildCompanyOwnSearchText(company) {
+        var parts = [
+          company.name || '',
+          (company.aliases || []).join(' '),
+          company.industry || '',
+          (company.cities || []).join(' '),
+          company.work_schedule || '',
+          company.notes || '',
+        ];
+        var claims = Array.isArray(company.benefit_claims) ? company.benefit_claims : [];
+        for (var i = 0; i < claims.length; i++) {
+          parts.push(claims[i].label || '', claims[i].evidence_quote || '');
+        }
+        return parts.join(' ').toLowerCase();
       }
 
       function matchesTerms(hay, terms) {
@@ -658,70 +445,650 @@ const sortedCompanies = [...companies].sort((a, b) => {
         return true;
       }
 
-      function applyFilters() {
+      function sortJobsList(jobs, sortMode) {
+        return jobs.slice().sort(function (a, b) {
+          var aSal = jobHasSalary(a) ? 1 : 0;
+          var bSal = jobHasSalary(b) ? 1 : 0;
+          if (sortMode === 'salary_first' && aSal !== bSal) {
+            return bSal - aSal;
+          }
+          if (sortMode === 'published') {
+            var pa = a.published_at || '';
+            var pb = b.published_at || '';
+            if (pa !== pb) return pb.localeCompare(pa);
+          }
+          if (aSal !== bSal) return bSal - aSal;
+          var pubA = a.published_at || '';
+          var pubB = b.published_at || '';
+          if (pubA !== pubB) return pubB.localeCompare(pubA);
+          return (a.title || '').localeCompare(b.title || '', 'zh-CN');
+        });
+      }
+
+      function renderEnterpriseJobCard(job, showCompanyHeader) {
+        var em = job.enterprise_meta || {};
+        var company = companyById[em.company_id] || null;
+        var card = el('div', 'rounded-lg bg-slate-50/80 border border-slate-200 p-4 space-y-3 hover:border-slate-300 transition-colors');
+
+        var topRow = el('div', 'flex flex-col sm:flex-row sm:items-start justify-between gap-2.5');
+        var leftDiv = el('div', 'space-y-1.5 min-w-0');
+
+        var badgeRow = el('div', 'flex flex-wrap items-center gap-1.5 text-xs');
+        if (showCompanyHeader) {
+          badgeRow.appendChild(
+            el('span', 'px-2 py-0.5 rounded bg-teal-50 border border-teal-200 text-teal-900 font-semibold', job.org_name)
+          );
+        }
+        var locText = job.city + (job.district ? ' · ' + job.district : '');
+        badgeRow.appendChild(
+          el('span', 'px-2 py-0.5 rounded bg-white border border-slate-200 text-slate-700 font-medium', locText)
+        );
+        if (em.work_schedule) {
+          badgeRow.appendChild(
+            el('span', 'px-2 py-0.5 rounded bg-sky-50 border border-sky-200 text-sky-800 font-medium', em.work_schedule)
+          );
+        }
+        if (em.remote_policy) {
+          badgeRow.appendChild(
+            el('span', 'px-2 py-0.5 rounded bg-white border border-slate-200 text-slate-600', em.remote_policy)
+          );
+        }
+        leftDiv.appendChild(badgeRow);
+
+        leftDiv.appendChild(el('h4', 'text-base font-bold text-slate-900 leading-snug', job.title));
+
+        var metaInfo = el('div', 'flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-slate-500');
+        if (em.department) metaInfo.appendChild(el('span', '', '部门：' + em.department));
+        if (em.experience_req) metaInfo.appendChild(el('span', '', '经验：' + em.experience_req));
+        if (em.education_req) metaInfo.appendChild(el('span', '', '学历：' + em.education_req));
+        if (em.work_hours) metaInfo.appendChild(el('span', '', '工时：' + em.work_hours));
+        if (job.published_at) metaInfo.appendChild(el('span', 'tabular-nums', '发布：' + job.published_at));
+        if (metaInfo.childNodes.length > 0) {
+          leftDiv.appendChild(metaInfo);
+        }
+        topRow.appendChild(leftDiv);
+
+        // Right column: Prominent Salary Badge + Deadline/Source
+        var rightDiv = el('div', 'flex flex-wrap sm:flex-col items-center sm:items-end justify-between gap-2 shrink-0');
+        rightDiv.appendChild(createSalaryBadge(job));
+
+        var subRight = el('div', 'flex flex-wrap items-center gap-2');
+        var dlLabel = computeDeadlineLabel(job.deadline_at, job.status);
+        if (job.deadline_at && dlLabel) {
+          subRight.appendChild(
+            el(
+              'span',
+              'px-2 py-0.5 rounded bg-white border border-slate-200 text-xs text-slate-600 tabular-nums',
+              '截止：' + job.deadline_at + '（' + dlLabel + '）'
+            )
+          );
+        }
+        subRight.appendChild(
+          el('span', 'text-xs text-slate-400', SOURCE_TYPE_LABELS[job.source_type] || '官方渠道')
+        );
+        rightDiv.appendChild(subRight);
+        topRow.appendChild(rightDiv);
+        card.appendChild(topRow);
+
+        // Job summary
+        card.appendChild(el('p', 'text-xs sm:text-sm text-slate-700 leading-relaxed', job.summary));
+
+        // Verified benefits with evidence_quote and clickable evidence_url
+        var bvs = Array.isArray(em.benefits_verified) ? em.benefits_verified : [];
+        if (bvs.length === 0 && company && Array.isArray(company.benefit_claims)) {
+          bvs = company.benefit_claims.map(function (c) {
+            return {
+              tag: c.label,
+              evidence_quote: c.evidence_quote,
+              evidence_url: c.evidence_url,
+            };
+          });
+        }
+        if (bvs.length > 0) {
+          var bvWrap = el('div', 'space-y-2');
+          bvWrap.appendChild(el('div', 'text-xs font-medium text-slate-500', '岗位 JD 福利标签与原文引用：'));
+          var bvList = el('div', 'space-y-2');
+          bvs.forEach(function (b) {
+            var itemBox = el(
+              'div',
+              'rounded-md bg-white border border-slate-200 p-2.5 flex flex-col sm:flex-row sm:items-start justify-between gap-2'
+            );
+            var itemLeft = el('div', 'space-y-1 min-w-0');
+            var tagBadge = el(
+              'span',
+              'inline-flex items-center gap-1 px-2 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200 text-xs font-semibold'
+            );
+            tagBadge.appendChild(el('span', '', '✓'));
+            tagBadge.appendChild(el('span', '', b.tag));
+            itemLeft.appendChild(tagBadge);
+            itemLeft.appendChild(
+              el('p', 'text-xs text-slate-600 leading-relaxed', '原文引用：“' + b.evidence_quote + '”')
+            );
+            itemBox.appendChild(itemLeft);
+
+            var rawEvUrl = b.evidence_url || job.source_url;
+            var validEvUrl = safeHttpUrl(rawEvUrl);
+            if (validEvUrl) {
+              var evLink = el(
+                'a',
+                'shrink-0 self-start text-xs font-medium text-teal-700 hover:text-teal-800 underline underline-offset-2',
+                b.evidence_url ? '证据溯源 ↗' : '岗位原文 ↗'
+              );
+              evLink.setAttribute('href', validEvUrl);
+              evLink.setAttribute('target', '_blank');
+              evLink.setAttribute('rel', 'noopener noreferrer');
+              itemBox.appendChild(evLink);
+            }
+            bvList.appendChild(itemBox);
+          });
+          bvWrap.appendChild(bvList);
+          card.appendChild(bvWrap);
+        }
+
+        // Footer
+        var footer = el('div', 'pt-2 border-t border-slate-200/70 flex flex-wrap items-center justify-between gap-2');
+        footer.appendChild(el('span', 'text-xs text-slate-500', '来源：' + job.source_name));
+
+        var actions = el('div', 'flex flex-wrap gap-2');
+        var validApplyUrl = safeHttpUrl(job.apply_url);
+        if (validApplyUrl) {
+          var applyA = el(
+            'a',
+            'px-3 py-1.5 rounded-md bg-teal-700 hover:bg-teal-800 text-white text-xs font-medium transition-colors',
+            '官方投递入口 ↗'
+          );
+          applyA.setAttribute('href', validApplyUrl);
+          applyA.setAttribute('target', '_blank');
+          applyA.setAttribute('rel', 'noopener noreferrer');
+          actions.appendChild(applyA);
+        }
+        var validSourceUrl = safeHttpUrl(job.source_url);
+        if (validSourceUrl) {
+          var sourceA = el(
+            'a',
+            'px-3 py-1.5 rounded-md bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium transition-colors',
+            '查看岗位原文 ↗'
+          );
+          sourceA.setAttribute('href', validSourceUrl);
+          sourceA.setAttribute('target', '_blank');
+          sourceA.setAttribute('rel', 'noopener noreferrer');
+          actions.appendChild(sourceA);
+        }
+        footer.appendChild(actions);
+        card.appendChild(footer);
+
+        return card;
+      }
+
+      function renderCompanyGroupCard(group) {
+        var company = group.company;
+        var jobs = group.matchedJobs;
+        var explicitSalaryCount = group.salaryJobCount;
+
+        var article = el(
+          'article',
+          'bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-xs space-y-5'
+        );
+
+        // Header
+        var header = el('div', 'flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-slate-100');
+        var headerLeft = el('div', 'space-y-2');
+        var topBadges = el('div', 'flex flex-wrap items-center gap-2');
+
+        topBadges.appendChild(
+          el('span', 'px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-800 border border-sky-200 text-xs font-semibold', company.work_schedule)
+        );
+        topBadges.appendChild(
+          el('span', 'px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 text-xs font-medium', company.industry)
+        );
+        if (Array.isArray(company.cities) && company.cities.length > 0) {
+          topBadges.appendChild(
+            el('span', 'px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 text-xs', company.cities.join(' · '))
+          );
+        }
+        topBadges.appendChild(
+          el(
+            'span',
+            'px-2 py-0.5 rounded-md bg-slate-50 text-slate-500 border border-slate-200 text-xs',
+            SAAS_PLATFORM_LABELS[company.saas_platform] || '官方通道'
+          )
+        );
+
+        if (explicitSalaryCount > 0) {
+          topBadges.appendChild(
+            el(
+              'span',
+              'px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-950 border border-amber-300 text-xs font-bold tabular-nums',
+              '💰 含 ' + explicitSalaryCount + ' 个已标明薪资岗位'
+            )
+          );
+        } else if (jobs.length > 0) {
+          var noSalCompBadge = el(
+            'span',
+            'px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200 text-xs font-medium cursor-help',
+            UNKNOWN_SALARY_LABEL
+          );
+          noSalCompBadge.setAttribute('title', UNKNOWN_SALARY_TOOLTIP);
+          topBadges.appendChild(noSalCompBadge);
+        }
+
+        if (company.status === 'paused') {
+          topBadges.appendChild(
+            el('span', 'px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200 text-xs', '暂停采集更新')
+          );
+        }
+        headerLeft.appendChild(topBadges);
+
+        var titleBox = el('div', '');
+        titleBox.appendChild(el('h2', 'text-xl font-bold text-slate-900', company.name));
+        if (Array.isArray(company.aliases) && company.aliases.length > 0) {
+          titleBox.appendChild(
+            el('p', 'mt-0.5 text-xs text-slate-500', '常用简称：' + company.aliases.join(' / '))
+          );
+        }
+        headerLeft.appendChild(titleBox);
+
+        if (company.notes) {
+          headerLeft.appendChild(el('p', 'text-xs text-slate-500', company.notes));
+        }
+        header.appendChild(headerLeft);
+
+        var headerRight = el('div', 'shrink-0');
+        var validCareerUrl = safeHttpUrl(company.career_url);
+        if (validCareerUrl) {
+          var careerLink = el(
+            'a',
+            'inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium transition-colors',
+            '企业官方招聘主页 ↗'
+          );
+          careerLink.setAttribute('href', validCareerUrl);
+          careerLink.setAttribute('target', '_blank');
+          careerLink.setAttribute('rel', 'noopener noreferrer');
+          headerRight.appendChild(careerLink);
+        }
+        header.appendChild(headerRight);
+        article.appendChild(header);
+
+        // Company Benefit Claims
+        var claims = Array.isArray(company.benefit_claims) ? company.benefit_claims : [];
+        var claimsSection = el('div', 'space-y-2.5');
+        claimsSection.appendChild(
+          el(
+            'h3',
+            'text-xs font-semibold uppercase tracking-wide text-slate-500',
+            '官网福利核验与原文证据（' + claims.length + ' 项）'
+          )
+        );
+        var claimsGrid = el('div', 'grid grid-cols-1 gap-2.5');
+        claims.forEach(function (claim) {
+          var claimCard = el(
+            'div',
+            'rounded-lg bg-emerald-50/40 border border-emerald-200/80 p-3 sm:p-3.5 flex flex-col sm:flex-row sm:items-start justify-between gap-3'
+          );
+          var cLeft = el('div', 'space-y-1.5 min-w-0');
+          var cMeta = el('div', 'flex flex-wrap items-center gap-2');
+          var cBadge = el(
+            'span',
+            'inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-100/80 text-emerald-900 text-xs font-semibold'
+          );
+          cBadge.appendChild(el('span', '', '✓'));
+          cBadge.appendChild(el('span', '', claim.label));
+          cMeta.appendChild(cBadge);
+          cMeta.appendChild(el('span', 'text-xs text-slate-500 tabular-nums', '核验于 ' + claim.verified_at));
+          cLeft.appendChild(cMeta);
+          cLeft.appendChild(
+            el(
+              'blockquote',
+              'text-xs sm:text-sm text-slate-700 leading-relaxed border-l-2 border-emerald-400 pl-2.5',
+              '“' + claim.evidence_quote + '”'
+            )
+          );
+          claimCard.appendChild(cLeft);
+
+          var validClaimUrl = safeHttpUrl(claim.evidence_url);
+          if (validClaimUrl) {
+            var cLink = el(
+              'a',
+              'shrink-0 self-start inline-flex items-center gap-1 px-2.5 py-1.5 rounded-md bg-white hover:bg-emerald-50 border border-emerald-300/80 text-emerald-800 text-xs font-medium transition-colors',
+              '原文溯源链接 ↗'
+            );
+            cLink.setAttribute('href', validClaimUrl);
+            cLink.setAttribute('target', '_blank');
+            cLink.setAttribute('rel', 'noopener noreferrer');
+            claimCard.appendChild(cLink);
+          }
+          claimsGrid.appendChild(claimCard);
+        });
+        claimsSection.appendChild(claimsGrid);
+        article.appendChild(claimsSection);
+
+        // Jobs section with expand / pagination inside company
+        var jobsSection = el('div', 'space-y-3 pt-2');
+        var jobsHeader = el('div', 'flex flex-wrap items-center justify-between gap-2');
+        jobsHeader.appendChild(
+          el(
+            'h3',
+            'text-xs font-semibold uppercase tracking-wide text-slate-500',
+            '关联在招岗位明细（' + jobs.length + '）'
+          )
+        );
+        jobsSection.appendChild(jobsHeader);
+
+        if (jobs.length === 0) {
+          jobsSection.appendChild(
+            el(
+              'div',
+              'rounded-lg bg-slate-50 border border-slate-200/80 px-4 py-3 text-xs text-slate-600',
+              '当前暂未自动同步到该企业的具体细分职位卡片，请直接点击上方「企业官方招聘主页」浏览实时岗位列表。'
+            )
+          );
+        } else {
+          var jobsListContainer = el('div', 'space-y-3');
+          var toggleContainer = el('div', 'flex flex-wrap items-center gap-2 pt-1');
+
+          function renderCompanyJobsSlice() {
+            jobsListContainer.replaceChildren();
+            toggleContainer.replaceChildren();
+
+            var limit = companyVisibleLimitMap[company.company_id] || PREVIEW_JOBS_PER_COMPANY;
+            var visibleSlice = jobs.slice(0, limit);
+            visibleSlice.forEach(function (j) {
+              jobsListContainer.appendChild(renderEnterpriseJobCard(j, false));
+            });
+
+            if (jobs.length > limit) {
+              var nextBatchCount = Math.min(PAGE_SIZE, jobs.length - limit);
+              var moreBtn = el(
+                'button',
+                'px-3.5 py-2 rounded-lg bg-teal-50 hover:bg-teal-100/80 border border-teal-200 text-teal-900 text-xs font-semibold transition-colors cursor-pointer',
+                '展开更多在招岗位（＋' + nextBatchCount + ' 条，剩余 ' + (jobs.length - limit) + ' / 共 ' + jobs.length + ' 条）▾'
+              );
+              moreBtn.type = 'button';
+              moreBtn.addEventListener('click', function () {
+                companyVisibleLimitMap[company.company_id] = limit + PAGE_SIZE;
+                renderCompanyJobsSlice();
+              });
+              toggleContainer.appendChild(moreBtn);
+            }
+
+            if (limit > PREVIEW_JOBS_PER_COMPANY && jobs.length > PREVIEW_JOBS_PER_COMPANY) {
+              var collapseBtn = el(
+                'button',
+                'px-3 py-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 text-xs font-medium transition-colors cursor-pointer',
+                '收起岗位列表（仅显示前 ' + PREVIEW_JOBS_PER_COMPANY + ' 条）▴'
+              );
+              collapseBtn.type = 'button';
+              collapseBtn.addEventListener('click', function () {
+                companyVisibleLimitMap[company.company_id] = PREVIEW_JOBS_PER_COMPANY;
+                renderCompanyJobsSlice();
+              });
+              toggleContainer.appendChild(collapseBtn);
+            }
+          }
+
+          renderCompanyJobsSlice();
+          jobsSection.appendChild(jobsListContainer);
+          jobsSection.appendChild(toggleContainer);
+        }
+
+        article.appendChild(jobsSection);
+        return article;
+      }
+
+      function renderPagination(totalItems, unitLabel) {
+        if (!paginationEl) return;
+        paginationEl.replaceChildren();
+        var totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+        if (totalItems === 0) {
+          paginationEl.classList.add('hidden');
+          return;
+        }
+        paginationEl.classList.remove('hidden');
+
+        var wrap = el('div', 'flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm');
+        wrap.appendChild(
+          el(
+            'div',
+            'text-slate-600 tabular-nums',
+            '共 ' + totalItems + ' ' + unitLabel + ' · 第 ' + currentPage + ' / ' + totalPages + ' 页（每页 ' + PAGE_SIZE + ' 条）'
+          )
+        );
+
+        var controls = el('div', 'flex flex-wrap items-center gap-2');
+
+        var prevBtn = el(
+          'button',
+          currentPage > 1
+            ? 'px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium transition-colors cursor-pointer'
+            : 'px-3 py-1.5 rounded-lg border border-slate-100 bg-slate-50 text-slate-400 font-medium cursor-not-allowed',
+          '上一页'
+        );
+        prevBtn.type = 'button';
+        prevBtn.disabled = currentPage <= 1;
+        prevBtn.addEventListener('click', function () {
+          if (currentPage > 1) {
+            currentPage--;
+            renderCurrentPage(true);
+          }
+        });
+        controls.appendChild(prevBtn);
+
+        var nextBtn = el(
+          'button',
+          currentPage < totalPages
+            ? 'px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium transition-colors cursor-pointer'
+            : 'px-3 py-1.5 rounded-lg border border-slate-100 bg-slate-50 text-slate-400 font-medium cursor-not-allowed',
+          '下一页'
+        );
+        nextBtn.type = 'button';
+        nextBtn.disabled = currentPage >= totalPages;
+        nextBtn.addEventListener('click', function () {
+          if (currentPage < totalPages) {
+            currentPage++;
+            renderCurrentPage(true);
+          }
+        });
+        controls.appendChild(nextBtn);
+
+        var jumpWrap = el('div', 'flex items-center gap-1.5 ml-1');
+        jumpWrap.appendChild(el('span', 'text-slate-500 text-xs', '跳至'));
+        var jumpInput = el(
+          'input',
+          'w-14 px-2 py-1 text-center bg-slate-50 border border-slate-200 rounded-md text-xs text-slate-800 tabular-nums focus:outline-none focus:border-teal-600'
+        );
+        jumpInput.type = 'number';
+        jumpInput.min = '1';
+        jumpInput.max = String(totalPages);
+        jumpInput.value = String(currentPage);
+        jumpInput.setAttribute('aria-label', '跳转页码');
+        jumpWrap.appendChild(jumpInput);
+        jumpWrap.appendChild(el('span', 'text-slate-500 text-xs', '页'));
+
+        var jumpBtn = el(
+          'button',
+          'px-2.5 py-1 rounded-md bg-teal-700 hover:bg-teal-800 text-white text-xs font-medium transition-colors cursor-pointer',
+          '跳转'
+        );
+        jumpBtn.type = 'button';
+        function doJump() {
+          var targetPage = parseInt(jumpInput.value, 10);
+          if (!isNaN(targetPage)) {
+            targetPage = Math.max(1, Math.min(totalPages, targetPage));
+            if (targetPage !== currentPage) {
+              currentPage = targetPage;
+              renderCurrentPage(true);
+            }
+          }
+        }
+        jumpBtn.addEventListener('click', doJump);
+        jumpInput.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter') {
+            ev.preventDefault();
+            doJump();
+          }
+        });
+        jumpWrap.appendChild(jumpBtn);
+        controls.appendChild(jumpWrap);
+
+        wrap.appendChild(controls);
+        paginationEl.appendChild(wrap);
+      }
+
+      function updateViewModeButtons() {
+        if (!viewGroupedBtn || !viewJobsBtn) return;
+        if (viewMode === 'grouped') {
+          viewGroupedBtn.className = 'px-2.5 py-1 rounded-md bg-white text-slate-900 font-semibold shadow-2xs transition-colors cursor-pointer';
+          viewJobsBtn.className = 'px-2.5 py-1 rounded-md text-slate-600 hover:text-slate-900 font-medium transition-colors cursor-pointer';
+        } else {
+          viewJobsBtn.className = 'px-2.5 py-1 rounded-md bg-white text-slate-900 font-semibold shadow-2xs transition-colors cursor-pointer';
+          viewGroupedBtn.className = 'px-2.5 py-1 rounded-md text-slate-600 hover:text-slate-900 font-medium transition-colors cursor-pointer';
+        }
+      }
+
+      function renderCurrentPage(scrollToTop) {
+        listEl.replaceChildren();
+        updateViewModeButtons();
+
+        if (countEl) countEl.textContent = String(filteredCompanyGroups.length);
+        if (jobCountEl) jobCountEl.textContent = String(filteredFlatJobs.length);
+
+        if (viewMode === 'grouped') {
+          var totalGroups = filteredCompanyGroups.length;
+          var totalPages = Math.max(1, Math.ceil(totalGroups / PAGE_SIZE));
+          if (currentPage > totalPages) currentPage = totalPages;
+          if (currentPage < 1) currentPage = 1;
+
+          var start = (currentPage - 1) * PAGE_SIZE;
+          var pageGroups = filteredCompanyGroups.slice(start, start + PAGE_SIZE);
+          var frag = document.createDocumentFragment();
+          pageGroups.forEach(function (g) {
+            frag.appendChild(renderCompanyGroupCard(g));
+          });
+          listEl.appendChild(frag);
+
+          if (emptyFilterEl) {
+            emptyFilterEl.classList.toggle('hidden', totalGroups > 0);
+          }
+          renderPagination(totalGroups, '家白名单企业');
+        } else {
+          var totalJobs = filteredFlatJobs.length;
+          var totalJobPages = Math.max(1, Math.ceil(totalJobs / PAGE_SIZE));
+          if (currentPage > totalJobPages) currentPage = totalJobPages;
+          if (currentPage < 1) currentPage = 1;
+
+          var jobStart = (currentPage - 1) * PAGE_SIZE;
+          var pageJobs = filteredFlatJobs.slice(jobStart, jobStart + PAGE_SIZE);
+          var jobFrag = document.createDocumentFragment();
+          pageJobs.forEach(function (j) {
+            jobFrag.appendChild(renderEnterpriseJobCard(j, true));
+          });
+          listEl.appendChild(jobFrag);
+
+          if (emptyFilterEl) {
+            emptyFilterEl.classList.toggle('hidden', totalJobs > 0);
+          }
+          renderPagination(totalJobs, '个在招岗位');
+        }
+
+        if (scrollToTop && listEl.getBoundingClientRect().top < 0) {
+          listEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      function applyFiltersAndSort() {
         var q = (qInput && qInput.value ? qInput.value : '').trim().toLowerCase();
         var terms = q ? q.split(/\s+/).filter(Boolean) : [];
         var schedule = scheduleSelect ? scheduleSelect.value : '';
         var city = citySelect ? citySelect.value : '';
         var industry = industrySelect ? industrySelect.value : '';
         var benefit = benefitSelect ? benefitSelect.value : '';
+        var onlyWithSalary = hasSalaryCheck ? hasSalaryCheck.checked : false;
+        var sortMode = sortSelect ? sortSelect.value : 'salary_first';
 
-        var visibleCompanies = 0;
-        var visibleJobs = 0;
+        var nextGroups = [];
+        var nextFlatJobs = [];
 
-        cards.forEach(function (card) {
-          var schedules = parseListAttr(card, 'data-schedules');
-          var cities = parseListAttr(card, 'data-cities');
-          var benefits = parseListAttr(card, 'data-benefits');
-          var cardIndustry = card.getAttribute('data-industry') || '';
-          var cardSearch = card.getAttribute('data-search') || '';
+        allCompanies.forEach(function (company) {
+          if (industry && company.industry !== industry) return;
 
-          var match = true;
-          if (schedule && schedules.indexOf(schedule) === -1) match = false;
-          if (match && city && cities.indexOf(city) === -1) match = false;
-          if (match && industry && cardIndustry !== industry) match = false;
-          if (match && benefit && benefits.indexOf(benefit) === -1) match = false;
-          if (match && terms.length > 0 && !matchesTerms(cardSearch, terms)) match = false;
+          var compJobs = company._jobs || [];
+          var compOwnMatchesTerms = terms.length === 0 || matchesTerms(company._ownSearch, terms);
+          var compHasSchedule = !schedule || company.work_schedule === schedule;
+          var compHasCity = !city || (company.cities || []).indexOf(city) !== -1;
+          var compHasBenefit = !benefit || company._ownBenefits.indexOf(benefit) !== -1;
 
-          card.classList.toggle('hidden', !match);
+          var matchedJobs = compJobs.filter(function (job) {
+            var em = job.enterprise_meta || {};
+            if (onlyWithSalary && !jobHasSalary(job)) return false;
+            if (city && job.city !== city) return false;
+            var jSchedule = em.work_schedule || company.work_schedule;
+            if (schedule && jSchedule !== schedule) return false;
+            if (benefit) {
+              var jb = job._benefitTags || [];
+              if (jb.indexOf(benefit) === -1 && !compHasBenefit) return false;
+            }
+            if (terms.length > 0 && !matchesTerms(job._search, terms) && !compOwnMatchesTerms) {
+              return false;
+            }
+            return true;
+          });
 
-          if (match) {
-            visibleCompanies++;
-            var jobEls = Array.prototype.slice.call(card.querySelectorAll('.js-enterprise-job'));
-            jobEls.forEach(function (jobEl) {
-              var jobCity = jobEl.getAttribute('data-city') || '';
-              var jobSchedule = jobEl.getAttribute('data-schedule') || '';
-              var jobBenefits = parseListAttr(jobEl, 'data-benefits');
-              var jobSearch = jobEl.getAttribute('data-search') || '';
+          matchedJobs = sortJobsList(matchedJobs, sortMode);
 
-              var jobMatch = true;
-              if (city && jobCity !== city) jobMatch = false;
-              if (jobMatch && schedule && jobSchedule !== schedule) jobMatch = false;
-              if (jobMatch && benefit && jobBenefits.indexOf(benefit) === -1) {
-                // If company-level claim matched the benefit, keep job visible unless another job-specific filter excluded it
-                if (benefits.indexOf(benefit) === -1) jobMatch = false;
-              }
-              if (jobMatch && terms.length > 0 && !matchesTerms(jobSearch, terms)) {
-                // If keyword matched company metadata (not specific job), still show jobs under matched company
-                jobMatch = true;
-              }
-
-              jobEl.classList.toggle('hidden', !jobMatch);
-              if (jobMatch) visibleJobs++;
-            });
+          var companyMatched = false;
+          if (onlyWithSalary) {
+            companyMatched = matchedJobs.length > 0;
+          } else if (compJobs.length > 0) {
+            if (matchedJobs.length > 0) {
+              companyMatched = true;
+            } else if (compOwnMatchesTerms && compHasSchedule && compHasCity && compHasBenefit && terms.length > 0) {
+              // Company metadata matched but specific jobs didn't; keep company visible
+              companyMatched = true;
+            }
           } else {
-            var hiddenJobs = card.querySelectorAll('.js-enterprise-job');
-            hiddenJobs.forEach(function (j) {
-              j.classList.add('hidden');
+            companyMatched = compOwnMatchesTerms && compHasSchedule && compHasCity && compHasBenefit;
+          }
+
+          if (companyMatched) {
+            var salaryJobCount = 0;
+            var latestPub = '';
+            matchedJobs.forEach(function (j) {
+              if (jobHasSalary(j)) salaryJobCount++;
+              if (j.published_at && j.published_at > latestPub) latestPub = j.published_at;
+              nextFlatJobs.push(j);
+            });
+            nextGroups.push({
+              company: company,
+              matchedJobs: matchedJobs,
+              salaryJobCount: salaryJobCount,
+              latestPub: latestPub,
             });
           }
         });
 
-        if (countEl) countEl.textContent = String(visibleCompanies);
-        if (jobCountEl) jobCountEl.textContent = String(visibleJobs);
-        if (emptyFilterEl) {
-          emptyFilterEl.classList.toggle('hidden', visibleCompanies > 0);
-        }
+        nextGroups.sort(function (a, b) {
+          if (a.company.status !== b.company.status) {
+            return a.company.status === 'active' ? -1 : 1;
+          }
+          if (sortMode === 'salary_first') {
+            var aHasSal = a.salaryJobCount > 0 ? 1 : 0;
+            var bHasSal = b.salaryJobCount > 0 ? 1 : 0;
+            if (aHasSal !== bHasSal) return bHasSal - aHasSal;
+            if (a.salaryJobCount !== b.salaryJobCount) return b.salaryJobCount - a.salaryJobCount;
+            if (a.matchedJobs.length !== b.matchedJobs.length) return b.matchedJobs.length - a.matchedJobs.length;
+          } else if (sortMode === 'job_count') {
+            if (a.matchedJobs.length !== b.matchedJobs.length) return b.matchedJobs.length - a.matchedJobs.length;
+            if (a.salaryJobCount !== b.salaryJobCount) return b.salaryJobCount - a.salaryJobCount;
+          } else if (sortMode === 'published') {
+            if (a.latestPub !== b.latestPub) return b.latestPub.localeCompare(a.latestPub);
+          }
+          return (a.company.name || '').localeCompare(b.company.name || '', 'zh-CN');
+        });
+
+        filteredCompanyGroups = nextGroups;
+        filteredFlatJobs = sortJobsList(nextFlatJobs, sortMode);
+        currentPage = 1;
+        renderCurrentPage(false);
       }
 
       function resetAll() {
@@ -730,29 +1097,136 @@ const sortedCompanies = [...companies].sort((a, b) => {
         if (citySelect) citySelect.value = '';
         if (industrySelect) industrySelect.value = '';
         if (benefitSelect) benefitSelect.value = '';
-        applyFilters();
+        if (hasSalaryCheck) hasSalaryCheck.checked = false;
+        if (sortSelect) sortSelect.value = 'salary_first';
+        companyVisibleLimitMap = {};
+        applyFiltersAndSort();
       }
 
       try {
         var params = new URLSearchParams(window.location.search);
         var initQ = params.get('q');
+        var initCity = params.get('city');
         var initSchedule = params.get('schedule');
+        var initSalary = params.get('salary');
+        var initView = params.get('view');
         if (initQ && qInput) qInput.value = initQ;
+        if (initCity && citySelect) citySelect.value = initCity;
         if (initSchedule && scheduleSelect) scheduleSelect.value = initSchedule;
+        if (initSalary === '1' && hasSalaryCheck) hasSalaryCheck.checked = true;
+        if (initView === 'jobs') viewMode = 'jobs';
       } catch (e) {}
 
-      [qInput, scheduleSelect, citySelect, industrySelect, benefitSelect].forEach(
-        function (el) {
-          if (!el) return;
-          el.addEventListener('input', applyFilters);
-          el.addEventListener('change', applyFilters);
-        }
-      );
+      [
+        qInput,
+        scheduleSelect,
+        citySelect,
+        industrySelect,
+        benefitSelect,
+        hasSalaryCheck,
+        sortSelect,
+      ].forEach(function (ctrl) {
+        if (!ctrl) return;
+        ctrl.addEventListener('input', applyFiltersAndSort);
+        ctrl.addEventListener('change', applyFiltersAndSort);
+      });
+
+      if (viewGroupedBtn) {
+        viewGroupedBtn.addEventListener('click', function () {
+          if (viewMode !== 'grouped') {
+            viewMode = 'grouped';
+            currentPage = 1;
+            renderCurrentPage(false);
+          }
+        });
+      }
+      if (viewJobsBtn) {
+        viewJobsBtn.addEventListener('click', function () {
+          if (viewMode !== 'jobs') {
+            viewMode = 'jobs';
+            currentPage = 1;
+            renderCurrentPage(false);
+          }
+        });
+      }
 
       if (resetBtn) resetBtn.addEventListener('click', resetAll);
       if (emptyResetBtn) emptyResetBtn.addEventListener('click', resetAll);
 
-      applyFilters();
+      fetch('/api/jobs.json')
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function (payload) {
+          if (loadingEl) loadingEl.classList.add('hidden');
+          allCompanies = Array.isArray(payload.companies) ? payload.companies : [];
+          allEnterpriseJobs = Array.isArray(payload.enterprise_jobs) ? payload.enterprise_jobs : [];
+
+          companyById = {};
+          allCompanies.forEach(function (c) {
+            c._jobs = [];
+            c._ownBenefits = (c.benefit_claims || []).map(function (b) {
+              return b.label;
+            });
+            c._ownSearch = buildCompanyOwnSearchText(c);
+            companyById[c.company_id] = c;
+          });
+
+          var orphanByOrg = {};
+          allEnterpriseJobs.forEach(function (job) {
+            var em = job.enterprise_meta || {};
+            var cid = em.company_id;
+            var parentComp = cid ? companyById[cid] : null;
+            job._benefitTags = (em.benefits_verified || []).map(function (b) {
+              return b.tag;
+            });
+            job._search = buildJobSearchText(job, parentComp ? parentComp.name : job.org_name);
+            if (parentComp) {
+              parentComp._jobs.push(job);
+            } else {
+              var fallbackId = cid || ('orphan-' + (job.org_name || 'unknown'));
+              if (!orphanByOrg[fallbackId]) {
+                var fallbackComp = {
+                  company_id: fallbackId,
+                  name: job.org_name || '其他已核验企业',
+                  aliases: [],
+                  industry: em.department || '综合行业',
+                  cities: job.city ? [job.city] : [],
+                  career_url: job.source_url,
+                  saas_platform: 'unknown',
+                  work_schedule: em.work_schedule || '其他',
+                  benefit_claims: (em.benefits_verified || []).map(function (b) {
+                    return {
+                      label: b.tag,
+                      evidence_quote: b.evidence_quote,
+                      evidence_url: b.evidence_url || job.source_url,
+                      verified_at: job.published_at || '',
+                    };
+                  }),
+                  status: 'active',
+                  notes: null,
+                  _jobs: [],
+                };
+                fallbackComp._ownBenefits = fallbackComp.benefit_claims.map(function (b) {
+                  return b.label;
+                });
+                fallbackComp._ownSearch = buildCompanyOwnSearchText(fallbackComp);
+                orphanByOrg[fallbackId] = fallbackComp;
+                allCompanies.push(fallbackComp);
+                companyById[fallbackId] = fallbackComp;
+              }
+              orphanByOrg[fallbackId]._jobs.push(job);
+            }
+          });
+
+          applyFiltersAndSort();
+        })
+        .catch(function () {
+          if (loadingEl) {
+            loadingEl.textContent = '加载静态数据索引失败，请刷新页面重试。';
+          }
+        });
     })();
   </script>
 </BaseLayout>

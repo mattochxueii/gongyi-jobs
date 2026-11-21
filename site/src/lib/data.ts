@@ -218,3 +218,53 @@ export const SAAS_PLATFORM_LABELS: Record<CompanyItem['saas_platform'], string> 
   custom: '企业自建官网',
   unknown: '官方通道',
 };
+
+export const PUBLIC_DEFAULT_TREATMENT_LABEL =
+  '待遇：执行国家/省事业单位工资标准（补贴见公告）';
+
+export const ENTERPRISE_UNKNOWN_SALARY_LABEL = '薪资：官网未公开 / 面议';
+
+export const ENTERPRISE_UNKNOWN_SALARY_TOOLTIP =
+  '企业官网未披露具体数额，可点官网详情核实';
+
+export function hasExplicitSalary(job: JobItem): boolean {
+  const raw = job.enterprise_meta?.salary_range;
+  return typeof raw === 'string' && raw.trim().length > 0;
+}
+
+export function formatExplicitSalaryBadge(salaryRange: string): string {
+  const trimmed = salaryRange.trim();
+  return trimmed.startsWith('💰') ? trimmed : `💰 ${trimmed}`;
+}
+
+/**
+ * Extract a concise treatment/subsidy hint sentence from public job summary or other_requirements
+ * if it mentions keywords such as 年薪 / 安家费 / 科研启动费 / 补贴 / 工资待遇.
+ */
+export function extractPublicSalaryHint(
+  summary: string | null | undefined,
+  otherRequirements?: string | null | undefined,
+): string | null {
+  const combined = [summary ?? '', otherRequirements ?? '']
+    .filter((s) => s.trim().length > 0)
+    .join('。');
+  if (!combined) return null;
+
+  const clauses = combined
+    .split(/[。；;\n]+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  const keywordRegex =
+    /(年薪|月薪|安家费|科研启动费?|购房补贴|住房补贴|生活补贴|人才补贴|津贴|补贴|工资待遇|薪酬待遇|福利待遇|待遇详见|待遇按|待遇标准)/;
+
+  for (const clause of clauses) {
+    const sanitizedForTest = clause.replace(/差额补贴/g, '');
+    if (keywordRegex.test(sanitizedForTest)) {
+      return clause.length > 96 ? `${clause.slice(0, 96)}…` : clause;
+    }
+  }
+
+  return null;
+}
+
