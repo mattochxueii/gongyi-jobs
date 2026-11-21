@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-18T18:10:15+08:00",
+  "updated_at": "2026-11-21T12:34:00+08:00",
   "items": [
     {
       "id": "pub-henan-rsks-5c67271a974a",
@@ -129,6 +129,247 @@
             "name": "2026年河南省事业单位公开招聘联考笔试考试大纲.docx",
             "url": "http://www.zkrsks.com/zkrswz/public/fileDownloadServlet?fileUrl=http://127.0.0.1:9190/zkrswz-file/zkrsksw/file/20264/file_b694b822fae14292b9d06b8a1cd4b8af.docx",
             "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-b917fd2f6455",
+      "category": "public_institution",
+      "title": "中共河南省委组织部 河南省人力资源和社会保障厅2026年河南省事业单位公开招聘联考工作的公告",
+      "org_name": "中共河南省委组织部、河南省人力资源和社会保障厅",
+      "province": "河南省",
+      "city": "全省",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/ff8080813451610b01346f2e3c2229a9/4fa28e234d7d4de28c9ec31d26125118.html",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "河南省人社厅业务专栏（公示公告/三支一扶与基层专项）",
+      "source_type": "gov_official",
+      "published_at": "2026-04-22",
+      "deadline_at": "2026-04-30",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:40:58+08:00",
+      "last_seen_at": "2026-11-21T10:40:58+08:00",
+      "content_hash": "b917fd2f6455ee9ad22961f062dc454b57b2756e3426613e9c241d21b1cc64a0",
+      "summary": "2026年河南省事业单位公开招聘联考省厅公告，涵盖省直及17个省辖市、济源示范区、郑州航空港区岗位；报名已于2026-04-30截止，已按期归档。",
+      "tags": [
+        "河南省",
+        "事业单位联考",
+        "省直",
+        "全省",
+        "专项招聘"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "中共河南省委组织部、河南省人力资源和社会保障厅",
+        "post_level": null,
+        "bianzhi_type": "事业编联考(见公告)",
+        "headcount": null,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试+面试",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-04-24",
+        "written_exam_time": "2026年5月",
+        "interview_time": null,
+        "other_requirements": "报名已于2026-04-30截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "中共河南省委组织部 河南省人力资源和社会保障厅2026年河南省事业单位公开招聘联考工作的公告",
+        "attachments": [
+          {
+            "name": "2026年河南省事业单位公开招聘联考岗位信息表（省直单位）",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260422/ed85ae39c1ff4ff39fd3aa5d0fff5476.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "2026年河南省事业单位公开招聘联考工作专用网站及咨询、监督电话（各地人社部门和人事考试机构）",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260422/f818df2bb41e4256bed5dc179fcf2f75.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "2026年河南省事业单位公开招聘联考工作专用网站及咨询、监督电话（省直单位）",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260422/5531e0759d944b55824298e20bada0ff.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "2026年河南省事业单位公开招聘联考笔试考试大纲",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260422/7f4a2d860d664f6b81d75fd3962465bf.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-smx-5cde53f7d474",
+      "category": "public_institution",
+      "title": "中共三门峡市委组织部 三门峡市人力资源和社会保障局2026年河南省（三门峡市）事业单位公开招聘联考工作公告",
+      "org_name": "中共三门峡市委组织部、三门峡市人力资源和社会保障局",
+      "province": "河南省",
+      "city": "三门峡市",
+      "district": null,
+      "source_url": "http://rsj.smx.gov.cn/600/2026/4/2250752.html",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "三门峡市人力资源和社会保障局（考试公告与公示）",
+      "source_type": "gov_official",
+      "published_at": "2026-04-22",
+      "deadline_at": "2026-04-30",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:41:47+08:00",
+      "last_seen_at": "2026-11-21T10:41:47+08:00",
+      "content_hash": "5cde53f7d474e09b52c34983829ce18dda5c79a6276fd3aaee495882fd2d9861",
+      "summary": "2026年三门峡市参加全省事业单位公开招聘联考公告，涉及卢氏县、灵宝市、陕州区、湖滨区、渑池县等190家事业单位；网报已于2026-04-30截止，已归档。",
+      "tags": [
+        "三门峡市",
+        "事业单位联考",
+        "公开招聘"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "中共三门峡市委组织部、三门峡市人力资源和社会保障局",
+        "post_level": null,
+        "bianzhi_type": "事业编联考(见公告)",
+        "headcount": null,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试+面试",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-04-24",
+        "written_exam_time": "2026年5月",
+        "interview_time": null,
+        "other_requirements": "报名已于2026-04-30截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "中共三门峡市委组织部 三门峡市人力资源和社会保障局2026年河南省（三门峡市）事业单位公开招聘联考工作公告",
+        "attachments": [
+          {
+            "name": "1、2026年河南省（三门峡市）事业单位公开招聘联考工作专用网站及咨询、监督电话.xlsx",
+            "url": "https://minio.smxzhcs.cn/smxol-pre/party-building-api/public/000009/5864bfce-8744-4f41-91c5-fc10953fd767.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "2、2026年河南省事业单位公开招聘联考笔试考试大纲.docx",
+            "url": "https://minio.smxzhcs.cn/smxol-pre/party-building-api/public/000009/102355cc-fb92-4b97-8071-e2f521007a2f.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-sq-64a4fdc44776",
+      "category": "public_institution",
+      "title": "2026年河南省（商丘市）事业单位公开招聘联考公告",
+      "org_name": "中共商丘市委组织部、商丘市人力资源和社会保障局",
+      "province": "河南省",
+      "city": "商丘市",
+      "district": null,
+      "source_url": "http://www.sqrsks.cn/index.php?s=index/show/index&id=1337",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "商丘市人事考试中心（商丘人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2026-04-22",
+      "deadline_at": "2026-04-30",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:46:07+08:00",
+      "last_seen_at": "2026-11-21T10:46:07+08:00",
+      "content_hash": "64a4fdc44776f079d175d5fc0005e170e44b099357442d32696b5954ea308737",
+      "summary": "2026年河南省（商丘市）事业单位公开招聘联考公告，网报已于2026-04-30截止，已归档。",
+      "tags": [
+        "商丘市",
+        "事业单位联考",
+        "公开招聘"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "中共商丘市委组织部、商丘市人力资源和社会保障局",
+        "post_level": null,
+        "bianzhi_type": "事业编联考(见公告)",
+        "headcount": null,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试+面试",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-04-24",
+        "written_exam_time": "2026年5月",
+        "interview_time": null,
+        "other_requirements": "报名已于2026-04-30截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "2026年河南省（商丘市）事业单位公开招聘联考公告",
+        "attachments": [
+          {
+            "name": "1：2026年河南省事业单位公开招聘联考商丘市岗位信息表",
+            "url": "http://www.sqrsks.cn/uploads/file/20260423/1776910520844763.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "2：2026年商丘市及所属县（市、区）事业单位公开招聘技术咨询和监督电话",
+            "url": "http://www.sqrsks.cn/uploads/file/20260422/1776818717244716.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "3：2026年河南省事业单位公开招聘联考笔试考试大纲",
+            "url": "http://www.sqrsks.cn/uploads/file/20260422/1776818719964689.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-xx-cb14e91283df",
+      "category": "public_institution",
+      "title": "2026年河南省新乡市事业单位公开招聘联考工作的公告",
+      "org_name": "新乡市人力资源和社会保障局",
+      "province": "河南省",
+      "city": "新乡市",
+      "district": null,
+      "source_url": "https://hrss.xinxiang.gov.cn/xwzx/tzgg/1234421.html",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "新乡市人力资源和社会保障局",
+      "source_type": "gov_official",
+      "published_at": "2026-04-22",
+      "deadline_at": "2026-04-30",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:41:34+08:00",
+      "last_seen_at": "2026-11-21T10:41:34+08:00",
+      "content_hash": "cb14e91283dfa40247d9123870fa8ac5e242d214104b64b2a83cb4bdbfbc8267",
+      "summary": "2026年河南省新乡市事业单位公开招聘联考公告，9家市直单位及15个县（市、区）共招聘702人（综合类231、教育类350、卫生类121）；网报已于2026-04-30截止，已归档。",
+      "tags": [
+        "新乡市",
+        "事业单位联考",
+        "702人",
+        "公开招聘"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "新乡市人力资源和社会保障局",
+        "post_level": null,
+        "bianzhi_type": "事业编联考(见公告)",
+        "headcount": 702,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试+面试",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-04-24",
+        "written_exam_time": "2026年5月",
+        "interview_time": null,
+        "other_requirements": "报名已于2026-04-30截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "2026年河南省新乡市事业单位公开招聘联考工作的公告",
+        "attachments": [
+          {
+            "name": "2026年河南省新乡市事业单位公开招聘联考岗位信息表.xlsx",
+            "url": "https://hrss.xinxiang.gov.cn/group3/M00/00/98/wKgVOGnoVSKAP_brAAGz65uj5G835.xlsx",
+            "file_type": "xlsx"
           }
         ]
       }

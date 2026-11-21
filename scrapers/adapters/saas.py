@@ -1,12 +1,13 @@
-"""Standardized public recruitment SaaS & official JSON API adapters.
+"""Standardized public recruitment SaaS & official JSON/HTML API adapters.
 
 Supports zero-AI-token deterministic extraction into job.schema.json records for:
 - Feishu Hire (*.jobs.feishu.cn public CSRF + /api/v1/search/job/posts)
+- Beisen Zhiye (*.zhiye.com / custom Beisen portals BSGlobal + /api/Jobad/GetJobAdPageList)
+- Hotjob Wecruit (wecruit.hotjob.cn/wecruit/positionInfo/listPosition*)
 - Greenhouse Boards API (boards-api.greenhouse.io/v1/boards/{token}/jobs?content=true)
 - Lever Postings API (api.lever.co/v0/postings/{site}?mode=json)
 - Moka Recruitment Portal (embedded <input id="init-data"> JSON)
-- EMQ Official Careers JSON API (community-sites.emqx.com/api/v1/jobs)
-- Dify Official Careers JSON API (public-jobs Supabase endpoint)
+- EMQ / Dify / Henan Corporate Official Portals (Hanwei, Gltech, Xyyl, Weihua, Lomon, Suntront)
 """
 
 from __future__ import annotations
@@ -35,15 +36,36 @@ SOURCE_TO_COMPANY_ID: dict[str, str] = {
     "ent_mongodb_greenhouse": "mongodb-inc",
     "ent_emq_jobs": "emq-technologies",
     "ent_dify_jobs": "dify-langgenius",
+    "ent_mxbc_beisen": "mixue-bingcheng",
+    "ent_zzpxx_beisen": "pingxingxian-edu",
+    "ent_jiean_feishu": "jiean-tech",
+    "ent_guoquan_moka": "guoquan-food",
+    "ent_hanwei_jobs": "hanwei-tech",
+    "ent_gltech_jobs": "gltech-cn",
+    "ent_suntront_jobs": "suntront-tech",
+    "ent_xyyl_jobs": "xiangyu-medical",
+    "ent_weihua_jobs": "weihua-group",
+    "ent_lomon_jobs": "lomonbillions",
+    "ent_autobio_hotjob": "autobio-zhengzhou",
+    "ent_popmart_beisen": "popmart-inc",
+    "ent_iflytek_beisen": "iflytek-inc",
 }
 
 _PLATFORM_LABELS: dict[str, str] = {
     "feishu_hire": "飞书招聘",
+    "beisen": "北森招聘",
+    "hotjob": "大易招聘官网",
     "greenhouse": "Greenhouse",
     "lever": "Lever",
     "moka": "Moka招聘",
     "emq_jobs": "EMQ招聘官网",
     "dify_jobs": "Dify招聘官网",
+    "hanwei_jobs": "官网直招",
+    "gltech_jobs": "官网直招",
+    "suntront_jobs": "官网直招",
+    "xyyl_jobs": "官网直招",
+    "weihua_jobs": "官网直招",
+    "lomon_jobs": "官网直招",
 }
 
 _CITY_TO_PROVINCE: dict[str, str] = {
@@ -55,6 +77,16 @@ _CITY_TO_PROVINCE: dict[str, str] = {
     "安阳市": "河南省",
     "南阳市": "河南省",
     "开封市": "河南省",
+    "平顶山市": "河南省",
+    "焦作市": "河南省",
+    "鹤壁市": "河南省",
+    "濮阳市": "河南省",
+    "漯河市": "河南省",
+    "三门峡市": "河南省",
+    "商丘市": "河南省",
+    "信阳市": "河南省",
+    "驻马店市": "河南省",
+    "济源市": "河南省",
     "北京市": "北京市",
     "上海市": "上海市",
     "天津市": "天津市",
@@ -65,50 +97,112 @@ _CITY_TO_PROVINCE: dict[str, str] = {
     "东莞市": "广东省",
     "佛山市": "广东省",
     "杭州市": "浙江省",
+    "宁波市": "浙江省",
+    "温州市": "浙江省",
+    "嘉兴市": "浙江省",
     "苏州市": "江苏省",
     "南京市": "江苏省",
     "无锡市": "江苏省",
+    "南通市": "江苏省",
+    "常州市": "江苏省",
+    "徐州市": "江苏省",
     "成都市": "四川省",
+    "绵阳市": "四川省",
+    "德阳市": "四川省",
+    "攀枝花市": "四川省",
     "武汉市": "湖北省",
+    "襄阳市": "湖北省",
+    "宜昌市": "湖北省",
     "厦门市": "福建省",
     "福州市": "福建省",
+    "泉州市": "福建省",
     "昆明市": "云南省",
+    "楚雄州": "云南省",
     "西安市": "陕西省",
     "长沙市": "湖南省",
     "合肥市": "安徽省",
+    "芜湖市": "安徽省",
     "南昌市": "江西省",
     "济南市": "山东省",
     "青岛市": "山东省",
     "大连市": "辽宁省",
     "沈阳市": "辽宁省",
+    "朝阳市": "辽宁省",
+    "石家庄市": "河北省",
+    "太原市": "山西省",
+    "呼和浩特市": "内蒙古",
+    "长春市": "吉林省",
+    "哈尔滨市": "黑龙江省",
+    "南宁市": "广西",
+    "海口市": "海南省",
+    "贵阳市": "贵州省",
+    "兰州市": "甘肃省",
+    "金昌市": "甘肃省",
+    "西宁市": "青海省",
+    "银川市": "宁夏",
+    "乌鲁木齐市": "新疆",
     "远程": "全国/远程",
 }
 
 _CITY_ALIAS_PATTERNS: tuple[tuple[str, tuple[str, ...]], ...] = (
-    ("郑州市", ("郑州", "zhengzhou")),
+    ("郑州市", ("郑州", "航空港", "zhengzhou")),
     ("洛阳市", ("洛阳", "luoyang")),
     ("许昌市", ("许昌", "xuchang")),
     ("周口市", ("周口", "zhoukou")),
-    ("新乡市", ("新乡", "xinxiang")),
+    ("新乡市", ("新乡", "长垣", "xinxiang")),
+    ("安阳市", ("安阳", "内黄", "anyang")),
+    ("南阳市", ("南阳", "西峡", "nanyang")),
+    ("开封市", ("开封", "kaifeng")),
+    ("平顶山市", ("平顶山", "pingdingshan")),
+    ("焦作市", ("焦作", "温县", "孟州", "沁阳", "jiaozuo")),
+    ("鹤壁市", ("鹤壁", "hebi")),
+    ("濮阳市", ("濮阳", "puyang")),
+    ("漯河市", ("漯河", "luohe")),
+    ("三门峡市", ("三门峡", "sanmenxia")),
+    ("商丘市", ("商丘", "shangqiu")),
+    ("信阳市", ("信阳", "xinyang")),
+    ("驻马店市", ("驻马店", "zhumadian")),
+    ("济源市", ("济源", "jiyuan")),
     ("北京市", ("北京", "beijing")),
     ("上海市", ("上海", "shanghai")),
     ("深圳市", ("深圳", "shenzhen")),
     ("广州市", ("广州", "guangzhou")),
     ("珠海市", ("珠海", "zhuhai")),
     ("东莞市", ("东莞", "dongguan")),
+    ("佛山市", ("佛山", "foshan")),
     ("杭州市", ("杭州", "hangzhou")),
+    ("宁波市", ("宁波", "ningbo")),
     ("苏州市", ("苏州", "suzhou")),
     ("南京市", ("南京", "nanjing")),
+    ("无锡市", ("无锡", "wuxi")),
+    ("南通市", ("南通", "海门", "如东", "启东", "nantong")),
+    ("常州市", ("常州", "changzhou")),
     ("成都市", ("成都", "chengdu")),
+    ("攀枝花市", ("攀枝花", "panzhihua")),
+    ("德阳市", ("德阳", "绵竹", "deyang")),
     ("武汉市", ("武汉", "wuhan")),
+    ("襄阳市", ("襄阳", "南漳", "xiangyang")),
     ("厦门市", ("厦门", "xiamen")),
+    ("福州市", ("福州", "fuzhou")),
     ("昆明市", ("昆明", "kunming")),
+    ("楚雄州", ("楚雄", "禄丰", "chuxiong")),
     ("西安市", ("西安", "xian", "xi'an")),
     ("长沙市", ("长沙", "changsha")),
     ("重庆市", ("重庆", "chongqing")),
     ("天津市", ("天津", "tianjin")),
     ("合肥市", ("合肥", "hefei")),
+    ("济南市", ("济南", "jinan")),
+    ("青岛市", ("青岛", "qingdao")),
+    ("石家庄市", ("石家庄", "shijiazhuang")),
+    ("太原市", ("太原", "taiyuan")),
+    ("沈阳市", ("沈阳", "shenyang")),
+    ("朝阳市", ("朝阳市", "朝阳县", "朝阳东锆", "辽宁朝阳")),
+    ("兰州市", ("兰州", "lanzhou")),
+    ("金昌市", ("金昌", "jinchang")),
+    ("南昌市", ("南昌", "nanchang")),
 )
+
+_HENAN_CITIES = {c for c, p in _CITY_TO_PROVINCE.items() if p == "河南省"}
 
 _GB_CITY_PREFIX_MAP: dict[str, str] = {
     "11": "北京市",
@@ -116,9 +210,23 @@ _GB_CITY_PREFIX_MAP: dict[str, str] = {
     "31": "上海市",
     "50": "重庆市",
     "4101": "郑州市",
+    "4102": "开封市",
     "4103": "洛阳市",
+    "4104": "平顶山市",
+    "4105": "安阳市",
+    "4106": "鹤壁市",
+    "4107": "新乡市",
+    "4108": "焦作市",
+    "4109": "濮阳市",
     "4110": "许昌市",
+    "4111": "漯河市",
+    "4112": "三门峡市",
+    "4113": "南阳市",
+    "4114": "商丘市",
+    "4115": "信阳市",
     "4116": "周口市",
+    "4117": "驻马店市",
+    "4190": "济源市",
     "4401": "广州市",
     "4403": "深圳市",
     "4404": "珠海市",
@@ -157,9 +265,14 @@ _JD_BENEFIT_RULES: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("弹性工作", re.compile(r"(弹性工作|弹性办公|弹性打卡|flexible working|remote-first)", re.I)),
     ("混合办公", re.compile(r"(混合办公|混合工作政策|hybrid working model|hybrid work|hybrid role)", re.I)),
     ("不打卡", re.compile(r"(拒绝无意义的打卡|不打卡)")),
-    ("补充医疗", re.compile(r"(补充医疗|补充商业保险|补充商业医疗|商业保险|medical insurance|health and vision)", re.I)),
-    ("年度体检", re.compile(r"(年度免费体检|年度体检|全面体检|免费体检)")),
-    ("带薪年假", re.compile(r"(带薪年假|年休假|全薪病假|annual holiday leave|generous parental leave|paid time off)", re.I)),
+    ("五险一金", re.compile(r"(六险一金|五险一金)")),
+    ("补充医疗", re.compile(r"(补充医疗|补充商业保险|补充商业医疗|商业保险|雇主责任险|团体意外险|medical insurance|health and vision)", re.I)),
+    ("年度体检", re.compile(r"(年度免费体检|年度体检|全面体检|免费体检|健康体检|定期体检)")),
+    ("带薪年假", re.compile(r"(带薪年假|福利年假|年休假|全薪病假|全薪假期|annual holiday leave|generous parental leave|paid time off)", re.I)),
+    ("餐饮补贴", re.compile(r"(免费三餐|免费就餐|营养餐厅|内部食堂|工作餐|餐补|餐饮补贴|用餐补助)")),
+    ("住房支持", re.compile(r"(购房补贴|员工宿舍|酒店式公寓|智慧公寓|高端人才公寓|宾馆化宿舍|免费住宿)")),
+    ("通勤班车", re.compile(r"(免费班车|通勤班车|班车接送|交通补助|交通补贴)")),
+    ("节日礼金", re.compile(r"(节日福利|节假日福利|生日福利|高温补贴|婚育礼金)")),
     ("学习发展预算", re.compile(r"(learning and development budget|语言学习补贴|课程学习)", re.I)),
 )
 
@@ -210,7 +323,7 @@ def normalize_cn_city(
 
 
 def parse_date_value(value: Any) -> str | None:
-    """Parse ISO-8601 string or epoch seconds/milliseconds into YYYY-MM-DD."""
+    """Parse ISO-8601, dotted YYYY.MM.DD, or epoch seconds/milliseconds into YYYY-MM-DD."""
     if value is None:
         return None
     if isinstance(value, (int, float)) and not isinstance(value, bool):
@@ -225,10 +338,66 @@ def parse_date_value(value: Any) -> str | None:
         return None
     if re.fullmatch(r"\d{10,13}", raw):
         return parse_date_value(int(raw))
-    m = re.match(r"^(\d{4}-\d{2}-\d{2})", raw)
+    m = re.match(r"^(\d{4})[-./](\d{1,2})[-./](\d{1,2})", raw)
     if m:
-        return m.group(1)
+        y, mo, d = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        if y < 1990 or not (1 <= mo <= 12 and 1 <= d <= 31):
+            return None
+        return f"{y:04d}-{mo:02d}-{d:02d}"
     return None
+
+
+def _pick_preferred_city_hint(
+    text: str,
+    *,
+    preferred_city: str | None = None,
+    preferred_province: str | None = None,
+) -> str:
+    """Resolve best city hint when a multi-city string lists several cities."""
+    if not text:
+        return ""
+    if preferred_city and preferred_city not in {"多城市", "全省"}:
+        short_pref = preferred_city.rstrip("市")
+        if short_pref and short_pref in text:
+            return preferred_city
+    if preferred_province == "河南省":
+        for std_city, aliases in _CITY_ALIAS_PATTERNS:
+            if std_city in _HENAN_CITIES and any(a in text.lower() for a in aliases):
+                return std_city
+    return text
+
+
+def _prefer_and_dedup_jobs(
+    records: list[dict[str, Any]],
+    *,
+    preferred_city: str | None = None,
+    preferred_province: str | None = None,
+    max_items: int = 12,
+) -> list[dict[str, Any]]:
+    """Deduplicate by id/source_url while prioritizing preferred city/province cleanly."""
+    seen_ids: set[str] = set()
+    unique: list[dict[str, Any]] = []
+    for rec in records:
+        key = str(rec.get("id") or rec.get("source_url") or "")
+        if key and key not in seen_ids:
+            seen_ids.add(key)
+            unique.append(rec)
+
+    def _tier(rec: dict[str, Any]) -> int:
+        city = str(rec.get("city") or "")
+        prov = str(rec.get("province") or "")
+        if preferred_city and preferred_city not in {"多城市", "全省"} and city == preferred_city:
+            return 3
+        if preferred_province and prov == preferred_province:
+            return 2
+        if city == "远程":
+            return 1
+        return 0
+
+    if preferred_city or preferred_province:
+        # Python sort is guaranteed stable: items keep original recency within each tier.
+        unique.sort(key=_tier, reverse=True)
+    return unique[: max(0, max_items)]
 
 
 def _clip(text: str, max_len: int) -> str:
@@ -931,10 +1100,16 @@ class MokaAdapter(SaasBaseAdapter):
     def fetch_jobs(self, *, max_items: int = 12) -> list[dict[str, Any]]:
         target_urls = self.list_urls or [self.base_url]
         all_jobs: list[dict[str, Any]] = []
+        fetch_cap = max(max_items * 3, 60)
         for url in target_urls:
             resp = self.http_client.get(url)
-            all_jobs.extend(self.parse_portal_html(resp.text, resp.url, max_items=max_items))
-        return all_jobs[: max(0, max_items)]
+            all_jobs.extend(self.parse_portal_html(resp.text, resp.url, max_items=fetch_cap))
+        return _prefer_and_dedup_jobs(
+            all_jobs,
+            preferred_city=str(self.source_config.get("city") or "").strip() or None,
+            preferred_province=str(self.source_config.get("province") or "").strip() or None,
+            max_items=max_items,
+        )
 
 
 class EmqJobsAdapter(SaasBaseAdapter):
@@ -1046,3 +1221,774 @@ class DifyJobsAdapter(SaasBaseAdapter):
             payload = json.loads(resp.text)
             all_jobs.extend(payload.get("jobs") or [])
         return self.parse_api_payload({"jobs": all_jobs}, max_items=max_items)
+
+
+_LOC_LINE_RE = re.compile(r"(?:【\s*工作地点\s*】|工作地点[：:\s]+)([^\n\r]{1,60})")
+_PAREN_CITY_RE = re.compile(r"[（(]([^()（）]{2,12})[）)]")
+
+
+class BeisenAdapter(SaasBaseAdapter):
+    """Generic adapter for Beisen (北森 *.zhiye.com / custom portals) public JSON API."""
+
+    adapter_name = "beisen"
+    source_type = "verified_saas"
+
+    @staticmethod
+    def extract_portal_id(html_text: str) -> str:
+        """Extract PortalId from Beisen embedded BSGlobal script block."""
+        m = re.search(r"var\s+BSGlobal\s*=\s*(\{.*?\});", html_text or "", re.S)
+        if not m:
+            raise ValueError("Beisen BSGlobal script block not found in portal HTML")
+        bs = json.loads(m.group(1))
+        portal_id = str(bs.get("PortalId") or "").strip()
+        if not portal_id:
+            raise ValueError("Beisen BSGlobal missing PortalId")
+        return portal_id
+
+    @staticmethod
+    def _extract_location_hint(item: dict[str, Any], duty: str, require: str) -> str:
+        loc_parts: list[str] = []
+        loc_names = item.get("LocNames")
+        if isinstance(loc_names, list):
+            loc_parts.extend(str(x).strip() for x in loc_names if x)
+        if item.get("DetailAddress"):
+            loc_parts.append(str(item["DetailAddress"]).strip())
+        m_loc = _LOC_LINE_RE.search(f"{duty}\n{require}")
+        if m_loc:
+            loc_parts.append(m_loc.group(1).strip())
+        title = str(item.get("JobAdName") or "")
+        for p_match in _PAREN_CITY_RE.findall(title):
+            if not re.search(r"^[J0-9-]+$", p_match):
+                loc_parts.append(p_match.strip())
+        # Some portals prefix cities with hyphen e.g. 'Java开发-郑州(J14484)'
+        for seg in re.split(r"[-/—–\s]+", title):
+            if any(a in seg.lower() for _, aliases in _CITY_ALIAS_PATTERNS for a in aliases):
+                loc_parts.append(seg.strip())
+        return ", ".join(dict.fromkeys(p for p in loc_parts if p))
+
+    def parse_jobad_list(
+        self,
+        items: list[dict[str, Any]],
+        *,
+        portal_origin: str,
+        preferred_city: str | None = None,
+        preferred_province: str | None = None,
+        max_items: int = 12,
+    ) -> list[dict[str, Any]]:
+        """Normalize Beisen GetJobAdPageList Data rows into job.schema.json items."""
+        company = self._resolve_company_profile()
+        records: list[dict[str, Any]] = []
+
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            raw_status = item.get("Status")
+            status = "1" if raw_status is None else str(raw_status).strip()
+            if status not in {"1", "True", "true", "open", ""}:
+                continue
+
+            raw_ad_id = str(item.get("JobAdId") or item.get("Id") or "").strip()
+            title = str(item.get("JobAdName") or "").strip()
+            if not raw_ad_id or not title:
+                continue
+
+            duty = strip_html_text(str(item.get("Duty") or ""))
+            require = strip_html_text(str(item.get("Require") or ""))
+            raw_loc = self._extract_location_hint(item, duty, require)
+            city_hint = _pick_preferred_city_hint(
+                raw_loc,
+                preferred_city=preferred_city,
+                preferred_province=preferred_province,
+            )
+
+            extra_lines: list[str] = []
+            if item.get("Salary"):
+                extra_lines.append(f"薪资范围：{item['Salary']}")
+            if item.get("WorkTime"):
+                extra_lines.append(f"工作时间：{item['WorkTime']}")
+            if item.get("Welfare"):
+                extra_lines.append(f"福利待遇：{strip_html_text(str(item['Welfare']))}")
+            if item.get("Insurance"):
+                extra_lines.append(f"保险福利：{strip_html_text(str(item['Insurance']))}")
+            body = "\n".join(p for p in [*extra_lines, duty, require] if p)
+
+            pub_date = parse_date_value(item.get("PostDate")) or parse_date_value(item.get("ChangeDate"))
+            detail_url = f"{portal_origin.rstrip('/')}/SocialDetail?id={raw_ad_id}"
+
+            rec = self._build_job_record(
+                raw_id=raw_ad_id,
+                title=title,
+                source_url=detail_url,
+                apply_url=detail_url,
+                location_text=city_hint or raw_loc,
+                body_text=body,
+                published_at=pub_date,
+                department=str(item.get("Category") or "").strip() or None,
+                education_req=str(item.get("Degree") or "").strip() or None,
+                experience_req=str(item.get("YearsOfWorking") or "").strip() or None,
+                company_profile=company,
+            )
+            records.append(rec)
+
+        return _prefer_and_dedup_jobs(
+            records,
+            preferred_city=preferred_city,
+            preferred_province=preferred_province,
+            max_items=max_items,
+        )
+
+    def fetch_jobs(self, *, max_items: int = 12) -> list[dict[str, Any]]:
+        target_urls = self.list_urls or [self.base_url]
+        preferred_city = str(self.source_config.get("city") or "").strip() or None
+        preferred_province = str(self.source_config.get("province") or "").strip() or None
+        all_items: list[dict[str, Any]] = []
+        portal_origin = self.base_url.rstrip("/")
+
+        for portal_url in target_urls:
+            page_resp = self.http_client.get(portal_url)
+            parsed = urlparse(page_resp.url or portal_url)
+            portal_origin = f"{parsed.scheme}://{parsed.netloc}"
+            portal_id = self.extract_portal_id(page_resp.text)
+
+            headers = {
+                "Content-Type": "application/json",
+                "Origin": portal_origin,
+                "Referer": page_resp.url or portal_url,
+            }
+            # Scan up to 5 pages (300 listings) so multi-city portals surface Henan roles
+            for page_idx in range(5):
+                api_resp = self.http_client.request(
+                    "POST",
+                    f"{portal_origin}/api/Jobad/GetJobAdPageList",
+                    headers=headers,
+                    json_body={"PageIndex": page_idx, "PageSize": 60, "PortalId": portal_id},
+                )
+                payload = json.loads(api_resp.text)
+                if payload.get("Code") not in (200, 0, None) and not payload.get("Data"):
+                    raise RuntimeError(f"Beisen API error: {payload.get('Message')}")
+                batch = payload.get("Data") or []
+                if not batch:
+                    break
+                all_items.extend(batch)
+                if len(batch) < 60:
+                    break
+                # Stop early once enough non-prioritized items exist and no location filter needed
+                if page_idx >= 1 and (not preferred_city or preferred_city in {"多城市", "全国"}) and len(all_items) >= max_items * 2:
+                    break
+
+        return self.parse_jobad_list(
+            all_items,
+            portal_origin=portal_origin,
+            preferred_city=preferred_city,
+            preferred_province=preferred_province,
+            max_items=max_items,
+        )
+
+
+class HotjobAdapter(SaasBaseAdapter):
+    """Generic adapter for Hotjob Wecruit portals (wecruit.hotjob.cn/wecruit/positionInfo/*)."""
+
+    adapter_name = "hotjob"
+    source_type = "verified_saas"
+
+    @staticmethod
+    def extract_suite_key(url: str) -> str:
+        """Extract SU... tenant suite key from a Hotjob portal URL."""
+        m = re.search(r"/(SU[a-zA-Z0-9]+)(?:/|$)", url or "")
+        if not m:
+            raise ValueError(f"Hotjob SU suite key not found in URL: {url}")
+        return m.group(1)
+
+    def parse_positions_payload(
+        self,
+        items: list[dict[str, Any]],
+        *,
+        details_by_id: dict[str, dict[str, Any]] | None = None,
+        suite_key: str,
+        portal_origin: str = "https://wecruit.hotjob.cn",
+        preferred_city: str | None = None,
+        preferred_province: str | None = None,
+        max_items: int = 12,
+    ) -> list[dict[str, Any]]:
+        """Transform Hotjob position summaries + optional detail payloads into job records."""
+        company = self._resolve_company_profile()
+        detail_map = details_by_id or {}
+        records: list[dict[str, Any]] = []
+
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            post_id = str(item.get("postId") or "").strip()
+            title = str(item.get("postName") or "").strip()
+            if not post_id or not title:
+                continue
+            rtype = int(item.get("recruitType") or 2)
+            det = detail_map.get(post_id) or {}
+
+            raw_loc = str(det.get("workPlaceStr") or item.get("workPlaceStr") or "").strip()
+            city_hint = _pick_preferred_city_hint(
+                raw_loc,
+                preferred_city=preferred_city,
+                preferred_province=preferred_province,
+            )
+            work_content = strip_html_text(str(det.get("workContent") or ""))
+            service_cond = strip_html_text(str(det.get("serviceCondition") or ""))
+            extra_parts = []
+            if item.get("projectName"):
+                extra_parts.append(f"招聘项目：{item['projectName']}")
+            if item.get("subject"):
+                extra_parts.append(f"相关专业：{item['subject']}")
+            body = "\n".join(p for p in [*extra_parts, work_content, service_cond] if p)
+
+            detail_url = f"{portal_origin.rstrip('/')}/{suite_key}/mc/detail?postId={post_id}&recruitType={rtype}"
+            pub_date = parse_date_value(det.get("publishDate") or item.get("publishDate") or item.get("publishFirstDate"))
+
+            rec = self._build_job_record(
+                raw_id=post_id,
+                title=title,
+                source_url=detail_url,
+                apply_url=detail_url,
+                location_text=city_hint or raw_loc,
+                body_text=body,
+                published_at=pub_date,
+                department=str(item.get("department") or item.get("postTypeName") or "").strip() or None,
+                education_req=str(det.get("education") or item.get("educationStr") or "").strip() or None,
+                experience_req=str(item.get("workYears") or "").strip() or None,
+                company_profile=company,
+            )
+            records.append(rec)
+
+        return _prefer_and_dedup_jobs(
+            records,
+            preferred_city=preferred_city,
+            preferred_province=preferred_province,
+            max_items=max_items,
+        )
+
+    def fetch_jobs(self, *, max_items: int = 12) -> list[dict[str, Any]]:
+        portal_url = (self.list_urls or [self.base_url])[0]
+        parsed = urlparse(portal_url)
+        portal_origin = f"{parsed.scheme}://{parsed.netloc}"
+        suite_key = self.extract_suite_key(portal_url)
+        preferred_city = str(self.source_config.get("city") or "").strip() or None
+        preferred_province = str(self.source_config.get("province") or "").strip() or None
+
+        summaries: list[dict[str, Any]] = []
+        seen_post_ids: set[str] = set()
+        for rtype in (2, 1):
+            resp = self.http_client.request(
+                "POST",
+                f"{portal_origin}/wecruit/positionInfo/listPosition/{suite_key}",
+                data={"recruitType": str(rtype), "pageSize": "30", "currentPage": "1"},
+            )
+            payload = json.loads(resp.text)
+            rows = ((payload.get("data") or {}).get("pageForm") or {}).get("pageData") or []
+            for row in rows:
+                pid = str(row.get("postId") or "").strip()
+                if pid and pid not in seen_post_ids:
+                    seen_post_ids.add(pid)
+                    row.setdefault("recruitType", rtype)
+                    summaries.append(row)
+
+        # Rank summaries first to avoid fetching JD details for excluded cities/excess items
+        prelim = self.parse_positions_payload(
+            summaries,
+            suite_key=suite_key,
+            portal_origin=portal_origin,
+            preferred_city=preferred_city,
+            preferred_province=preferred_province,
+            max_items=max_items,
+        )
+        selected_ids = {rec["id"].rsplit("-", 1)[-1]: rec for rec in prelim}
+        selected_summaries = [
+            s for s in summaries if _make_job_id(str(self._resolve_company_profile()["company_id"]), str(s.get("postId"))) in {r["id"] for r in prelim}
+        ]
+        if not selected_summaries:
+            selected_summaries = summaries[:max_items]
+        del selected_ids
+
+        details_by_id: dict[str, dict[str, Any]] = {}
+        for row in selected_summaries[:max_items]:
+            pid = str(row.get("postId") or "")
+            rtype = int(row.get("recruitType") or 2)
+            det_resp = self.http_client.request(
+                "POST",
+                f"{portal_origin}/wecruit/positionInfo/listPositionDetail/{suite_key}",
+                data={"postId": pid, "recruitType": str(rtype)},
+            )
+            det_data = json.loads(det_resp.text).get("data")
+            if isinstance(det_data, dict):
+                details_by_id[pid] = det_data
+
+        return self.parse_positions_payload(
+            selected_summaries,
+            details_by_id=details_by_id,
+            suite_key=suite_key,
+            portal_origin=portal_origin,
+            preferred_city=preferred_city,
+            preferred_province=preferred_province,
+            max_items=max_items,
+        )
+
+
+class HanweiJobsAdapter(SaasBaseAdapter):
+    """Adapter for Hanwei Technology (汉威科技 hanwei.cn/join_us.html) careers page."""
+
+    adapter_name = "hanwei_jobs"
+    source_type = "company_official"
+
+    def parse_portal_html(self, html_text: str, page_url: str, *, max_items: int = 12) -> list[dict[str, Any]]:
+        company = self._resolve_company_profile()
+        soup = BeautifulSoup(html_text or "", "html.parser")
+        results: list[dict[str, Any]] = []
+        base_link = page_url.split("#", 1)[0]
+
+        for idx, card in enumerate(soup.select("div.p_loopitem")):
+            raw_text = card.get_text("\n", strip=True)
+            if "岗位职责" not in raw_text and not card.select_one("a[href^='mailto:']"):
+                continue
+            lines = [ln.strip() for ln in raw_text.splitlines() if ln.strip() and ln.strip() not in {"查看岗位 +", "职位申请 +"}]
+            if not lines:
+                continue
+            title = lines[0]
+            pub_date = None
+            city_hint = "郑州"
+            for ln in lines[1:6]:
+                if not pub_date:
+                    pub_date = parse_date_value(ln)
+                if any(a in ln for _, aliases in _CITY_ALIAS_PATTERNS for a in aliases):
+                    city_hint = ln
+
+            body = "\n".join(lines[1:])
+            slug = hashlib.sha1(title.encode("utf-8")).hexdigest()[:8]
+            detail_url = f"{base_link}#job-{slug}"
+            rec = self._build_job_record(
+                raw_id=f"{slug}-{idx}",
+                title=title,
+                source_url=detail_url,
+                apply_url=detail_url,
+                location_text=city_hint,
+                body_text=body,
+                published_at=pub_date,
+                company_profile=company,
+            )
+            results.append(rec)
+            if len(results) >= max_items:
+                break
+
+        return results
+
+    def fetch_jobs(self, *, max_items: int = 12) -> list[dict[str, Any]]:
+        target = (self.list_urls or [urljoin(self.base_url.rstrip("/") + "/", "join_us.html")])[0]
+        resp = self.http_client.get(target)
+        return self.parse_portal_html(resp.text, resp.url or target, max_items=max_items)
+
+
+class GltechJobsAdapter(SaasBaseAdapter):
+    """Adapter for Gltech (光力科技 gltech.cn/recruitment/) official recruitment page."""
+
+    adapter_name = "gltech_jobs"
+    source_type = "company_official"
+
+    def parse_portal_html(self, html_text: str, page_url: str, *, max_items: int = 12) -> list[dict[str, Any]]:
+        company = self._resolve_company_profile()
+        soup = BeautifulSoup(html_text or "", "html.parser")
+        results: list[dict[str, Any]] = []
+        base_link = page_url.split("#", 1)[0]
+
+        for idx, item in enumerate(soup.select("li.xz-a019-item")):
+            lines = [ln.strip() for ln in item.get_text("\n", strip=True).splitlines() if ln.strip() and ln.strip() != "立即申请"]
+            if not lines:
+                continue
+            title = lines[0]
+            body = "\n".join(lines[1:])
+            pub_date = None
+            salary = lines[1] if len(lines) > 1 and ("k" in lines[1].lower() or "面议" in lines[1]) else None
+            dept = None
+            exp = None
+            edu = None
+            loc_parts: list[str] = []
+
+            for ln in lines[1:]:
+                if not pub_date:
+                    pub_date = parse_date_value(ln)
+                if ln.startswith("工作地点："):
+                    loc_parts.append(ln.split("：", 1)[1].strip())
+                elif ln.startswith("部门："):
+                    dept = ln.split("：", 1)[1].strip()
+                elif ln.startswith("工作经验："):
+                    exp = ln.split("：", 1)[1].strip()
+                elif ln.startswith("学历："):
+                    edu = ln.split("：", 1)[1].strip()
+
+            raw_loc = " ".join(loc_parts).strip()
+            if not raw_loc and len(lines) > 3:
+                raw_loc = lines[3]
+            loc_text = _pick_preferred_city_hint(
+                raw_loc,
+                preferred_city=str(self.source_config.get("city") or "郑州市"),
+                preferred_province="河南省",
+            )
+            # Handle regional sales roles listing province without city (e.g., "安徽，江苏")
+            if loc_text and not any(a in loc_text.lower() for _, aliases in _CITY_ALIAS_PATTERNS for a in aliases):
+                if "江苏" in loc_text:
+                    loc_text = "南京市"
+                elif "安徽" in loc_text:
+                    loc_text = "合肥市"
+                elif "湖北" in loc_text:
+                    loc_text = "武汉市"
+            if salary and salary not in body:
+                body = f"薪资待遇：{salary}\n{body}"
+
+            slug = hashlib.sha1(title.encode("utf-8")).hexdigest()[:8]
+            detail_url = f"{base_link}#job-{slug}"
+            rec = self._build_job_record(
+                raw_id=f"{slug}-{idx}",
+                title=title,
+                source_url=detail_url,
+                apply_url=detail_url,
+                location_text=loc_text,
+                body_text=body,
+                published_at=pub_date,
+                department=dept,
+                education_req=edu,
+                experience_req=exp,
+                company_profile=company,
+            )
+            results.append(rec)
+
+        return _prefer_and_dedup_jobs(
+            results,
+            preferred_city="郑州市",
+            preferred_province="河南省",
+            max_items=max_items,
+        )
+
+    def fetch_jobs(self, *, max_items: int = 12) -> list[dict[str, Any]]:
+        target = (self.list_urls or [urljoin(self.base_url.rstrip("/") + "/", "recruitment/")])[0]
+        resp = self.http_client.get(target)
+        return self.parse_portal_html(resp.text, resp.url or target, max_items=max_items)
+
+
+class XyylJobsAdapter(SaasBaseAdapter):
+    """Adapter for Xiangyu Medical (翔宇医疗 xyyl.com/jrwm.html & xyzp.html)."""
+
+    adapter_name = "xyyl_jobs"
+    source_type = "company_official"
+
+    @staticmethod
+    def extract_detail_urls(html_text: str, page_url: str) -> list[str]:
+        soup = BeautifulSoup(html_text or "", "html.parser")
+        urls: list[str] = []
+        seen: set[str] = set()
+        for a in soup.find_all("a", href=True):
+            href = a["href"]
+            if "xyzp_detail/" in href and "undefined" not in href:
+                full = urljoin(page_url, href)
+                if full not in seen:
+                    seen.add(full)
+                    urls.append(full)
+        return urls
+
+    def parse_detail_html(self, html_text: str, detail_url: str) -> dict[str, Any] | None:
+        company = self._resolve_company_profile()
+        soup = BeautifulSoup(html_text or "", "html.parser")
+        for t in soup(["script", "style"]):
+            t.decompose()
+        main_el = soup.select_one("main, .main, .content") or soup.body
+        raw_txt = main_el.get_text("\n", strip=True) if main_el else soup.get_text("\n", strip=True)
+        # Focus starting from 最低学历 or title heading to avoid header navigation noise
+        lines = [ln.strip() for ln in raw_txt.splitlines() if ln.strip()]
+        idx_edu = next((i for i, ln in enumerate(lines) if ln.startswith("最低学历")), -1)
+        if idx_edu > 0:
+            title = next(
+                (lines[k] for k in range(idx_edu - 1, -1, -1) if lines[k] not in {"面议", "首页"} and not re.match(r"^\d+[-~]\d+", lines[k])),
+                lines[0],
+            )
+            relevant_lines = lines[max(0, idx_edu - 2) :]
+        else:
+            title_tag = soup.title.get_text(strip=True) if soup.title else ""
+            title = title_tag.split("-")[0].strip()
+            relevant_lines = lines
+        if not title:
+            return None
+
+        # Trim trailing footer
+        end_idx = next((i for i, ln in enumerate(relevant_lines) if ln.startswith("版权所有") or ln == "相关推荐"), len(relevant_lines))
+        body_lines = relevant_lines[:end_idx]
+        body_text = "\n".join(body_lines)
+
+        def _kv(label: str) -> str | None:
+            for i, ln in enumerate(body_lines):
+                if ln.startswith(label):
+                    after = ln.split("：", 1)[-1].strip() if "：" in ln else ""
+                    if after:
+                        return after
+                    if i + 1 < len(body_lines):
+                        return body_lines[i + 1]
+            return None
+
+        loc_text = _kv("工作地区") or "河南省安阳市内黄县"
+        edu_req = _kv("最低学历")
+        exp_req = _kv("经验要求")
+        m_id = re.search(r"xyzp_detail/(\d+)", detail_url)
+        raw_id = m_id.group(1) if m_id else hashlib.sha1(detail_url.encode("utf-8")).hexdigest()[:8]
+
+        return self._build_job_record(
+            raw_id=raw_id,
+            title=title,
+            source_url=detail_url,
+            apply_url=detail_url,
+            location_text=loc_text,
+            body_text=body_text,
+            education_req=edu_req,
+            experience_req=exp_req,
+            company_profile=company,
+        )
+
+    def fetch_jobs(self, *, max_items: int = 12) -> list[dict[str, Any]]:
+        list_pages = self.list_urls or [
+            urljoin(self.base_url.rstrip("/") + "/", "jrwm.html"),
+            urljoin(self.base_url.rstrip("/") + "/", "xyzp.html"),
+        ]
+        detail_urls: list[str] = []
+        seen: set[str] = set()
+        for lp in list_pages:
+            resp = self.http_client.get(lp)
+            for du in self.extract_detail_urls(resp.text, resp.url or lp):
+                if du not in seen:
+                    seen.add(du)
+                    detail_urls.append(du)
+
+        results: list[dict[str, Any]] = []
+        for du in detail_urls[: max(0, max_items)]:
+            det_resp = self.http_client.get(du)
+            rec = self.parse_detail_html(det_resp.text, det_resp.url or du)
+            if rec:
+                results.append(rec)
+        return results
+
+
+class WeihuaJobsAdapter(SaasBaseAdapter):
+    """Adapter for Weihua Group (卫华集团 job.craneweihua.com) AJAX POST /filter endpoint."""
+
+    adapter_name = "weihua_jobs"
+    source_type = "company_official"
+
+    _DEFAULT_UNITS: tuple[tuple[int, str, str], ...] = (
+        (4, "卫华集团", "新乡市"),
+        (5, "河南卫华", "新乡市"),
+        (12, "郑州卫莱", "郑州市"),
+        (11, "蒲瑞公司", "新乡市"),
+        (8, "云中未来", "新乡市"),
+        (14, "江苏卫华海洋", "南通市"),
+    )
+
+    def parse_unit_payload(
+        self,
+        items: list[dict[str, Any]],
+        *,
+        unit_name: str,
+        default_unit_city: str,
+        portal_origin: str,
+    ) -> list[dict[str, Any]]:
+        """Convert Weihua /filter JSON rows into job.schema.json items."""
+        company = self._resolve_company_profile()
+        records: list[dict[str, Any]] = []
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            jid = str(item.get("id") or "").strip()
+            title = str(item.get("name") or "").strip()
+            if not jid or not title:
+                continue
+            content_plain = strip_html_text(str(item.get("content") or ""))
+            depart = str(item.get("depart") or unit_name).strip()
+            num = str(item.get("num") or "").strip()
+            prefix = f"招聘单位：{unit_name} | 部门：{depart}"
+            if num:
+                prefix += f" | 招聘人数：{num}"
+            body = f"{prefix}\n{content_plain}" if content_plain else prefix
+            detail_url = f"{portal_origin.rstrip('/')}/detail?id={jid}"
+            rec = self._build_job_record(
+                raw_id=jid,
+                title=title,
+                source_url=detail_url,
+                apply_url=detail_url,
+                location_text=default_unit_city,
+                body_text=body,
+                department=f"{unit_name}-{depart}" if depart != unit_name else unit_name,
+                company_profile=company,
+            )
+            records.append(rec)
+        return records
+
+    def fetch_jobs(self, *, max_items: int = 12) -> list[dict[str, Any]]:
+        portal_url = (self.list_urls or [self.base_url])[0]
+        parsed = urlparse(portal_url)
+        portal_origin = f"{parsed.scheme}://{parsed.netloc}"
+
+        # Initialize PHP session cookie on /recruit before calling /filter
+        self.http_client.get(f"{portal_origin}/recruit?type=1&unit_id=4")
+
+        all_records: list[dict[str, Any]] = []
+        for rtype in (1, 2):
+            for uid, uname, ucity in self._DEFAULT_UNITS:
+                for page_idx in range(1, 4):
+                    resp = self.http_client.request(
+                        "POST",
+                        f"{portal_origin}/filter",
+                        data={
+                            "type": str(rtype),
+                            "address_id": "0",
+                            "attr_id": "0",
+                            "unit_id": str(uid),
+                            "page": str(page_idx),
+                        },
+                        headers={
+                            "X-Requested-With": "XMLHttpRequest",
+                            "Referer": f"{portal_origin}/recruit?type={rtype}&unit_id={uid}",
+                            "Origin": portal_origin,
+                        },
+                    )
+                    payload = json.loads(resp.text)
+                    batch = payload.get("data") or []
+                    if not isinstance(batch, list) or not batch:
+                        break
+                    all_records.extend(
+                        self.parse_unit_payload(
+                            batch,
+                            unit_name=uname,
+                            default_unit_city=ucity,
+                            portal_origin=portal_origin,
+                        )
+                    )
+                    if len(batch) < 10:
+                        break
+
+        return _prefer_and_dedup_jobs(
+            all_records,
+            preferred_city=str(self.source_config.get("city") or "新乡市"),
+            preferred_province="河南省",
+            max_items=max_items,
+        )
+
+
+class LomonJobsAdapter(SaasBaseAdapter):
+    """Adapter for Lomon Billions (龙佰集团 lomonbillions.com/jobs/10921)."""
+
+    adapter_name = "lomon_jobs"
+    source_type = "company_official"
+
+    _UNIT_LIST: tuple[tuple[str, str], ...] = (
+        ("集团总部", "焦作市"),
+        ("攀枝花公司", "攀枝花市"),
+        ("丰源公司", "攀枝花市"),
+        ("龙佰锂能", "焦作市"),
+        ("中炭新材料", "焦作市"),
+        ("云南新立", "楚雄州"),
+        ("德阳公司", "德阳市"),
+        ("甘肃佰利联", "金昌市"),
+        ("襄阳公司", "襄阳市"),
+        ("云南国钛", "楚雄州"),
+        ("甘肃国钛", "金昌市"),
+        ("朝阳东锆", "朝阳市"),
+        ("上海公司", "上海市"),
+        ("佰利联新材料", "焦作市"),
+        ("东方钪业", "焦作市"),
+    )
+
+    def parse_portal_html(self, html_text: str, page_url: str, *, max_items: int = 12) -> list[dict[str, Any]]:
+        company = self._resolve_company_profile()
+        soup = BeautifulSoup(html_text or "", "html.parser")
+        base_link = page_url.split("#", 1)[0]
+
+        first_span = soup.select_one("span.zwtit")
+        if not first_span:
+            return []
+        job_box = first_span.find_parent("ul").find_parent("div")
+        job_uls = [ul for ul in job_box.find_all("ul") if any(li.select_one("span.zwtit") for li in ul.find_all("li"))]
+        if not job_uls:
+            return []
+
+        # ul[0] aggregates "全部", while ul[1..N] correspond 1-to-1 to the 15 subsidiary tabs
+        unit_uls = job_uls[1:] if len(job_uls) > 1 else job_uls
+        records: list[dict[str, Any]] = []
+        for u_idx, ul in enumerate(unit_uls):
+            unit_name, unit_city = self._UNIT_LIST[u_idx] if u_idx < len(self._UNIT_LIST) else ("集团总部", "焦作市")
+            for j_idx, li in enumerate(ul.find_all("li")):
+                title_el = li.select_one("span.zwtit")
+                if not title_el:
+                    continue
+                title = title_el.get_text(" ", strip=True)
+                lines = [ln.strip() for ln in li.get_text("\n", strip=True).splitlines() if ln.strip()]
+                body = "\n".join(lines[1:]) if len(lines) > 1 else title
+                body = f"所属基地：{unit_name}（{unit_city}）\n{body}"
+
+                slug = hashlib.sha1(f"{unit_name}:{title}:{j_idx}".encode("utf-8")).hexdigest()[:8]
+                detail_url = f"{base_link}#unit-{u_idx}-{slug}"
+                rec = self._build_job_record(
+                    raw_id=f"{u_idx}-{j_idx}-{slug}",
+                    title=title,
+                    source_url=detail_url,
+                    apply_url=detail_url,
+                    location_text=unit_city,
+                    body_text=body,
+                    department=unit_name,
+                    company_profile=company,
+                )
+                records.append(rec)
+
+        return _prefer_and_dedup_jobs(
+            records,
+            preferred_city=str(self.source_config.get("city") or "焦作市"),
+            preferred_province="河南省",
+            max_items=max_items,
+        )
+
+    def fetch_jobs(self, *, max_items: int = 12) -> list[dict[str, Any]]:
+        target = (self.list_urls or [urljoin(self.base_url.rstrip("/") + "/", "jobs/10921")])[0]
+        resp = self.http_client.get(target)
+        return self.parse_portal_html(resp.text, resp.url or target, max_items=max_items)
+
+
+class SuntrontJobsAdapter(SaasBaseAdapter):
+    """Adapter for Suntront Tech (新天科技 suntront.com/recruitment/recruitment-1.html)."""
+
+    adapter_name = "suntront_jobs"
+    source_type = "company_official"
+
+    def parse_portal_html(self, html_text: str, page_url: str, *, max_items: int = 12) -> list[dict[str, Any]]:
+        company = self._resolve_company_profile()
+        soup = BeautifulSoup(html_text or "", "html.parser")
+        base_link = page_url.split("#", 1)[0]
+        results: list[dict[str, Any]] = []
+
+        for idx, card in enumerate(soup.select("div.station-item")):
+            h3 = card.find("h3")
+            title = h3.get_text(" ", strip=True) if h3 else ""
+            if not title:
+                continue
+            lines = [ln.strip() for ln in card.get_text("\n", strip=True).splitlines() if ln.strip() and ln.strip() != title]
+            body = "\n".join(lines) or f"新天科技股份有限公司官方招聘岗位：{title}"
+            slug = hashlib.sha1(title.encode("utf-8")).hexdigest()[:8]
+            detail_url = f"{base_link}#job-{slug}"
+            rec = self._build_job_record(
+                raw_id=f"{slug}-{idx}",
+                title=title,
+                source_url=detail_url,
+                apply_url=detail_url,
+                location_text="郑州市",
+                body_text=body,
+                company_profile=company,
+            )
+            results.append(rec)
+            if len(results) >= max_items:
+                break
+
+        return results
+
+    def fetch_jobs(self, *, max_items: int = 12) -> list[dict[str, Any]]:
+        target = (self.list_urls or [urljoin(self.base_url.rstrip("/") + "/", "recruitment/recruitment-1.html")])[0]
+        resp = self.http_client.get(target)
+        return self.parse_portal_html(resp.text, resp.url or target, max_items=max_items)

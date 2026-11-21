@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "count": 1,
+  "data": [
+    {
+      "id": 159,
+      "name": "电气工程师",
+      "type": 1,
+      "attr_id": 13,
+      "depart": "工程调试部",
+      "num": "2",
+      "content": "<p>1、负责智能起重机PLC与变频控制系统的调试和设计。</p>"
+    }
+  ]
+}

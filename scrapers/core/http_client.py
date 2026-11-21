@@ -218,6 +218,7 @@ class PoliteHttpClient:
         headers: dict[str, str] | None = None,
         params: dict[str, Any] | None = None,
         json_body: Any = None,
+        data: Any = None,
     ) -> HttpResponse:
         """Perform an HTTP request with rate-limiting and retry logic."""
         last_exc: Exception | None = None
@@ -238,6 +239,7 @@ class PoliteHttpClient:
                     headers=headers,
                     params=params,
                     json=json_body,
+                    data=data,
                 )
                 if resp.status_code in RETRYABLE_STATUS_CODES and attempt < self.max_retries:
                     delay = self.backoff_factor * (2**attempt)

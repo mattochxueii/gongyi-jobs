@@ -9,8 +9,9 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Any
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
-from scrapers.core.extractors import AttachmentLink
+from scrapers.core.extractors import AttachmentLink, strip_dynamic_counters
 
 TZ_CN = timezone(timedelta(hours=8))
 
@@ -20,6 +21,53 @@ def now_iso_cn() -> str:
     return datetime.now(TZ_CN).replace(microsecond=0).isoformat()
 
 
+_EPHEMERAL_QUERY_KEYS = {
+    "token",
+    "sign",
+    "signature",
+    "expires",
+    "exp",
+    "timestamp",
+    "ts",
+    "_t",
+    "auth_key",
+    "nonce",
+}
+_OPAQUE_TOKEN_QUERY_RE = re.compile(r"^[A-Za-z0-9_~.-]{16,}={0,2}$")
+
+
+def _canonicalize_attachment_url(url: str) -> str:
+    """Strip rotating signature query tokens from attachment URLs before hashing."""
+    raw = (url or "").strip()
+    if "?" not in raw:
+        return raw
+    parts = urlsplit(raw)
+    if not parts.query:
+        return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+    # Single bare opaque signature query such as ?9GP_4hX4...=
+    if "&" not in parts.query:
+        q_stripped = parts.query.rstrip("=")
+        if ("=" not in parts.query or parts.query.endswith("=")) and _OPAQUE_TOKEN_QUERY_RE.match(parts.query):
+            return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+        if _OPAQUE_TOKEN_QUERY_RE.match(q_stripped) and "=" not in q_stripped:
+            return urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+    kept = [
+        (k, v)
+        for k, v in parse_qsl(parts.query, keep_blank_values=True)
+        if k.lower() not in _EPHEMERAL_QUERY_KEYS and not (v == "" and _OPAQUE_TOKEN_QUERY_RE.match(k))
+    ]
+    return urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(kept), ""))
+
+
+def _canonicalize_attachment_label(label: str) -> str:
+    """Normalize trailing URL signatures inside attachment map labels for stable hashing."""
+    return re.sub(
+        r"\((https?://[^)\s]+)\)",
+        lambda m: f"({_canonicalize_attachment_url(m.group(1))})",
+        label,
+    )
+
+
 def _normalize_for_hash(text: str) -> str:
     return re.sub(r"\s+", " ", (text or "").strip())
 
@@ -27,7 +75,7 @@ def _normalize_for_hash(text: str) -> str:
 def compute_content_hash(url: str, body_text: str, attachments_text: str = "") -> str:
     """Compute deterministic SHA-256 hash over canonical URL, body text, and extracted attachments."""
     canonical_url = (url or "").strip()
-    norm_body = _normalize_for_hash(body_text)
+    norm_body = _normalize_for_hash(strip_dynamic_counters(body_text))
     norm_att = _normalize_for_hash(attachments_text)
     payload = f"url:{canonical_url}\nbody:{norm_body}\nattachments:{norm_att}"
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
@@ -188,7 +236,11 @@ class CrawlStateStore:
         combined_attachments_text = ""
         if attachments_text_map:
             combined_attachments_text = "\n\n".join(
-                f"{k}\n{v}" for k, v in sorted(attachments_text_map.items())
+                f"{_canonicalize_attachment_label(k)}\n{v}"
+                for k, v in sorted(
+                    attachments_text_map.items(),
+                    key=lambda item: _canonicalize_attachment_label(item[0]),
+                )
             )
 
         c_hash = compute_content_hash(canonical_url, body_text, combined_attachments_text)

@@ -83,6 +83,32 @@ class HtmlExtractionResult:
     attachments: list[AttachmentLink] = field(default_factory=list)
 
 
+_DYNAMIC_COUNTER_PATTERN = re.compile(
+    r"(?<![\u4e00-\u9fffA-Za-z0-9])"
+    r"(?:"
+    r"(?:浏览|点击|阅读|访问|查看)(?:量|次数|人数|人次|数)?\s*[:：]\s*[\d,]+\s*(?:次|人|人次)?"
+    r"|(?:views?|hits?|reads?)\s*[:：]\s*[\d,]+"
+    r"|(?:已有|共有?|累计|已被)?\s*(?:[\d,]+\s*(?:次|人|人次)\s*(?:浏览|阅读|点击|访问)"
+    r"|(?:浏览|阅读|点击|访问)\s*[:：]?\s*[\d,]+\s*(?:次|人|人次))"
+    r")",
+    re.IGNORECASE,
+)
+
+
+def strip_dynamic_counters(text: str) -> str:
+    """Remove volatile view/hit/read counter fragments from extracted page text."""
+    if not text:
+        return ""
+    cleaned_lines: list[str] = []
+    for line in text.replace("\r\n", "\n").replace("\r", "\n").split("\n"):
+        without_counters = _DYNAMIC_COUNTER_PATTERN.sub("", line)
+        if not without_counters.lstrip().startswith("|"):
+            without_counters = re.sub(r"\s*[|｜·]\s*[|｜·]\s*", " | ", without_counters)
+            without_counters = re.sub(r"\s*[|｜·]\s*$", "", without_counters)
+        cleaned_lines.append(without_counters)
+    return "\n".join(cleaned_lines)
+
+
 def _normalize_whitespace(text: str) -> str:
     lines: list[str] = []
     for raw_line in text.replace("\r\n", "\n").replace("\r", "\n").split("\n"):
@@ -405,7 +431,7 @@ def extract_html(
     for block_tag in content_root.find_all(["p", "div", "li", "tr", "h1", "h2", "h3", "h4"]):
         block_tag.append("\n")
 
-    clean_text = _normalize_whitespace(content_root.get_text())
+    clean_text = _normalize_whitespace(strip_dynamic_counters(content_root.get_text()))
     return HtmlExtractionResult(
         title=title,
         published_at=published_at,

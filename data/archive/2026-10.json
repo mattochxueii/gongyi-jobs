@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-21T12:34:00+08:00",
+  "items": [
+    {
+      "id": "pub-henan-jiyuan-57f1ee0946c7",
+      "category": "public_institution",
+      "title": "济源产城融合示范区 2026年第四批公益性岗位招聘公告",
+      "org_name": "济源产城融合示范区人力资源和社会保障局",
+      "province": "河南省",
+      "city": "济源市",
+      "district": null,
+      "source_url": "https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1011261.html",
+      "apply_url": null,
+      "source_name": "济源示范区人力资源和社会保障局（含济源人事考试）",
+      "source_type": "gov_official",
+      "published_at": "2026-10-26",
+      "deadline_at": "2026-10-27",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:42:09+08:00",
+      "last_seen_at": "2026-11-21T10:42:09+08:00",
+      "content_hash": "57f1ee0946c7b8a2c81bf7d9da2e3a6b6b13e84749d7eee536b8c32d1f25ac45",
+      "summary": "济源产城融合示范区2026年第四批开发招聘公益性岗位70个，面向已认定就业困难人员现场报名及面试；报名已于2026-10-27截止，已归档。",
+      "tags": [
+        "济源市",
+        "公益性岗位",
+        "人社局"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "济源产城融合示范区人力资源和社会保障局",
+        "post_level": null,
+        "bianzhi_type": "公益性岗位",
+        "headcount": 70,
+        "education_min": "不限",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "面试(双向选聘)",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-10-27",
+        "written_exam_time": null,
+        "interview_time": null,
+        "other_requirements": "报名已于2026-10-27截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "济源产城融合示范区 2026年第四批公益性岗位招聘公告",
+        "attachments": [
+          {
+            "name": "2026年第四批拟开发公益性岗位汇总表.pdf",
+            "url": "https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/P020261027287824328487.pdf",
+            "file_type": "pdf"
+          }
+        ]
+      }
+    }
+  ]
+}

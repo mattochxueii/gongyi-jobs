@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-18T18:10:15+08:00",
+  "updated_at": "2026-11-21T12:34:00+08:00",
   "items": [
     {
       "id": "pub-henan-luoyang-50a77b8ef55c",
@@ -168,6 +168,469 @@
             "name": "2026年洛阳市中小学面向社会公开招聘教师联考公告附件1-4.pdf",
             "url": "https://oss.ly.gov.cn/upload-file/files/20260617/707c39c90570459c8007a0a1ec17875b.pdf",
             "file_type": "pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-913793256428",
+      "category": "public_institution",
+      "title": "中共河南省委组织部 河南省人力资源和社会保障厅 河南省教育厅 河南省农业农村厅关于组织实施2026年乡村振兴村级协理员专项计划的公告",
+      "org_name": "中共河南省委组织部、河南省人社厅、省教育厅、省农业农村厅",
+      "province": "河南省",
+      "city": "全省",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/ff8080813451610b01346f2e3c2229a9/c7380e9edd04414b9d735812dd66d7fc.html",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "河南省人社厅业务专栏（公示公告/三支一扶与基层专项）",
+      "source_type": "gov_official",
+      "published_at": "2026-05-31",
+      "deadline_at": "2026-06-09",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:40:52+08:00",
+      "last_seen_at": "2026-11-21T10:40:52+08:00",
+      "content_hash": "913793256428c37df6b3b8bce31324552e12d19e868c8c85a1708a877d4a9fb8",
+      "summary": "2026年河南省乡村振兴村级协理员专项计划招聘10000名（面向2024—2026届高校毕业生及2025年村级协理员），网上报名已于2026-06-09截止，已归档。",
+      "tags": [
+        "河南省",
+        "村级协理员",
+        "乡村振兴",
+        "基层专项"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "中共河南省委组织部、河南省人社厅、省教育厅、省农业农村厅",
+        "post_level": null,
+        "bianzhi_type": "基层专项(见公告)",
+        "headcount": 10000,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试+考核",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-06-03",
+        "written_exam_time": "2026年6月27日",
+        "interview_time": null,
+        "other_requirements": "报名已于2026-06-09截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "中共河南省委组织部 河南省人力资源和社会保障厅 河南省教育厅 河南省农业农村厅关于组织实施2026年乡村振兴村级协理员专项计划的公告",
+        "attachments": [
+          {
+            "name": "河南省2026年“乡村振兴村级协理员”专项计划岗位表",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260531/98e72adee4e945368df023ad304fa91f.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省2026年“乡村振兴村级协理员”专项计划工作专用网站及咨询电话",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260531/af1b02c567d94136831a7bb166788ee6.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-37f021f22c36",
+      "category": "public_institution",
+      "title": "中共河南省委组织部 中共河南省委社会工作部 河南省人力资源和社会保障厅 河南省教育厅关于组织实施2026年社区网格事务协理员专项计划的公告",
+      "org_name": "中共河南省委组织部、省委社会工作部、省人社厅、省教育厅",
+      "province": "河南省",
+      "city": "全省",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/ff8080813451610b01346f2e3c2229a9/0daaed76ff244cd694f82a80ea05663e.html",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "河南省人社厅业务专栏（公示公告/三支一扶与基层专项）",
+      "source_type": "gov_official",
+      "published_at": "2026-05-31",
+      "deadline_at": "2026-06-10",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:40:54+08:00",
+      "last_seen_at": "2026-11-21T10:40:54+08:00",
+      "content_hash": "37f021f22c3621b35fefa2e570cab27bd83ada66d595d85819115071485875a6",
+      "summary": "2026年河南省社区网格事务协理员专项计划招聘10000名（面向2024—2026届高校毕业生等），网上报名已于2026-06-10截止，已归档。",
+      "tags": [
+        "河南省",
+        "社区网格事务协理员",
+        "基层专项"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "中共河南省委组织部、省委社会工作部、省人社厅、省教育厅",
+        "post_level": null,
+        "bianzhi_type": "基层专项(见公告)",
+        "headcount": 10000,
+        "education_min": "本科及以上",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试+考核",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-06-04",
+        "written_exam_time": "2026年6月28日",
+        "interview_time": null,
+        "other_requirements": "报名已于2026-06-10截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "中共河南省委组织部 中共河南省委社会工作部 河南省人力资源和社会保障厅 河南省教育厅关于组织实施2026年社区网格事务协理员专项计划的公告",
+        "attachments": [
+          {
+            "name": "河南省2026年社区网格事务协理员专项计划岗位表",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260531/18299fb6db3d4046b8900ffc746edf6c.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省2026年社区网格事务协理员专项计划工作专用网站及咨询电话",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260531/43d805934fe54b3898b0947370ead42f.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-ywzl-edd6361884ab",
+      "category": "public_institution",
+      "title": "河南省2026年高校毕业生“三支一扶”计划招募公告",
+      "org_name": "河南省人力资源和社会保障厅等部门",
+      "province": "河南省",
+      "city": "全省",
+      "district": null,
+      "source_url": "https://ywzl.hrss.henan.gov.cn/sitegroup/root/html/ff8080813451610b01346f2e3c2229a9/1736511a64df4c77bf9fef8727810c33.html",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "河南省人社厅业务专栏（公示公告/三支一扶与基层专项）",
+      "source_type": "gov_official",
+      "published_at": "2026-06-05",
+      "deadline_at": "2026-06-11",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:40:49+08:00",
+      "last_seen_at": "2026-11-21T10:40:49+08:00",
+      "content_hash": "edd6361884ab789cdda58faae02e118f406830b3e11a858bef09fc52d573238b",
+      "summary": "河南省2026年高校毕业生“三支一扶”计划招募3082名（服务期2年，支教/支农/支医/帮扶乡村振兴），网报已于2026-06-11截止，已归档。",
+      "tags": [
+        "河南省",
+        "三支一扶",
+        "基层专项",
+        "高校毕业生"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "河南省人力资源和社会保障厅等部门",
+        "post_level": null,
+        "bianzhi_type": "三支一扶",
+        "headcount": 3082,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试(公共基础知识)",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-06-08",
+        "written_exam_time": "2026年7月11日",
+        "interview_time": null,
+        "other_requirements": "报名已于2026-06-11截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "河南省2026年高校毕业生“三支一扶”计划招募公告",
+        "attachments": [
+          {
+            "name": "河南省2026年高校毕业生“三支一扶”计划招募各省辖市信息发布网站及工作电话",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260605/ff5b4f4f97ef47beaa4e551f88a5fd33.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省2026年高校毕业生“三支一扶”计划招募岗位表",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260605/a342856b814d40b1b9ef2deed9a999d3.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "河南省2026年高校毕业生“三支一扶”计划报考指南",
+            "url": "https://xcoss.henan.gov.cn/typtfile/20260605/026c4f8d6cdb4da1b5eb22aa6476c543.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-smx-7a27f6c8a7b4",
+      "category": "public_institution",
+      "title": "中共河南省委组织部河南省人力资源和社会保障厅 河南省教育厅 河南省农业农村厅关于组织实施2026年乡村振兴村级协理员专项计划的公告",
+      "org_name": "三门峡市人力资源和社会保障局（转发省级公告）",
+      "province": "河南省",
+      "city": "三门峡市",
+      "district": null,
+      "source_url": "http://rsj.smx.gov.cn/600/2026/5/2262844.html",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "三门峡市人力资源和社会保障局（考试公告与公示）",
+      "source_type": "gov_official",
+      "published_at": "2026-05-31",
+      "deadline_at": "2026-06-09",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:41:44+08:00",
+      "last_seen_at": "2026-11-21T10:41:44+08:00",
+      "content_hash": "7a27f6c8a7b47ae2ff379a03b978e220a30be87027edc416be118a0a84bb8839",
+      "summary": "三门峡市人社局转发2026年河南省乡村振兴村级协理员专项计划公告（全省10000名），报名已于2026-06-09截止，已归档。",
+      "tags": [
+        "三门峡市",
+        "村级协理员",
+        "基层专项"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "三门峡市人力资源和社会保障局（转发省级公告）",
+        "post_level": null,
+        "bianzhi_type": "基层专项(见公告)",
+        "headcount": 10000,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试+考核",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-06-03",
+        "written_exam_time": "2026年6月27日",
+        "interview_time": null,
+        "other_requirements": "报名已于2026-06-09截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "中共河南省委组织部河南省人力资源和社会保障厅 河南省教育厅 河南省农业农村厅关于组织实施2026年乡村振兴村级协理员专项计划的公告",
+        "attachments": [
+          {
+            "name": "附件1：河南省2026年“乡村振兴村级协理员”专项计划岗位表.docx",
+            "url": "http://rsj.smx.gov.cn/group1/M00/06/97/CqDIKWobwdSAPBVCAABfnxomiPI85.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "附件2：河南省2026年“乡村振兴村级协理员”专项计划工作专用网站及咨询电话.docx",
+            "url": "http://rsj.smx.gov.cn/group1/M00/06/BA/CqDI22obwdSAdbqEAABOs-mC2co79.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-smx-f97a0bb14d99",
+      "category": "public_institution",
+      "title": "中共河南省委组织部 中共河南省委社会工作部 河南省人力资源和社会保障厅 河南省教育厅 关于组织实施2026年社区网格事务协理员专项计划的公告",
+      "org_name": "三门峡市人力资源和社会保障局（转发省级公告）",
+      "province": "河南省",
+      "city": "三门峡市",
+      "district": null,
+      "source_url": "http://rsj.smx.gov.cn/600/2026/6/2263136.html",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "三门峡市人力资源和社会保障局（考试公告与公示）",
+      "source_type": "gov_official",
+      "published_at": "2026-06-01",
+      "deadline_at": "2026-06-10",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:41:42+08:00",
+      "last_seen_at": "2026-11-21T10:41:42+08:00",
+      "content_hash": "f97a0bb14d9900c07cfcd2c08fa1edc07ae66df05affbd3dd3d4a2db1e87d456",
+      "summary": "三门峡市人社局转发2026年河南省社区网格事务协理员专项计划公告（全省10000名），报名已于2026-06-10截止，已归档。",
+      "tags": [
+        "三门峡市",
+        "社区网格事务协理员",
+        "基层专项"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "三门峡市人力资源和社会保障局（转发省级公告）",
+        "post_level": null,
+        "bianzhi_type": "基层专项(见公告)",
+        "headcount": 10000,
+        "education_min": "本科及以上",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试+考核",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-06-04",
+        "written_exam_time": "2026年6月28日",
+        "interview_time": null,
+        "other_requirements": "报名已于2026-06-10截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "中共河南省委组织部 中共河南省委社会工作部 河南省人力资源和社会保障厅 河南省教育厅 关于组织实施2026年社区网格事务协理员专项计划的公告",
+        "attachments": [
+          {
+            "name": "1.河南省2026年社区网格事务协理员专项计划岗位表.docx",
+            "url": "http://rsj.smx.gov.cn/group1/M00/06/BB/CqDI22oc9aaAGLiOAAKFIxrluco28.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "2.河南省2026年社区网格事务协理员专项计划工作专用网站及咨询电话.docx",
+            "url": "http://rsj.smx.gov.cn/group1/M00/06/98/CqDIKWoc9aaACxEqAAEOTFllB_857.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-sq-4bc03f92b424",
+      "category": "public_institution",
+      "title": "关于组织实施2026年乡村振兴村级协理员专项计划的公告",
+      "org_name": "商丘市人事考试中心（转发省级公告）",
+      "province": "河南省",
+      "city": "商丘市",
+      "district": null,
+      "source_url": "http://www.sqrsks.cn/index.php?s=index/show/index&id=1346",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "商丘市人事考试中心（商丘人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2026-05-31",
+      "deadline_at": "2026-06-09",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:46:03+08:00",
+      "last_seen_at": "2026-11-21T10:46:03+08:00",
+      "content_hash": "4bc03f92b424edfbc6c992e7dfe3584709b3f605cdc73d0d91302a620160a3c2",
+      "summary": "商丘人事考试网转发2026年河南省乡村振兴村级协理员专项计划公告（全省10000名），报名已于2026-06-09截止，已归档。",
+      "tags": [
+        "商丘市",
+        "村级协理员",
+        "基层专项"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "商丘市人事考试中心（转发省级公告）",
+        "post_level": null,
+        "bianzhi_type": "基层专项(见公告)",
+        "headcount": 10000,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试+考核",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-06-03",
+        "written_exam_time": "2026年6月27日",
+        "interview_time": null,
+        "other_requirements": "报名已于2026-06-09截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "关于组织实施2026年乡村振兴村级协理员专项计划的公告",
+        "attachments": [
+          {
+            "name": "1. 河南省2026年“乡村振兴村级协理员”专项计划岗位表",
+            "url": "http://www.sqrsks.cn/uploads/file/20260531/1780194331511386.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "2. 河南省2026年“乡村振兴村级协理员”专项计划工作专用网站及咨询电话",
+            "url": "http://www.sqrsks.cn/uploads/file/20260531/1780194333245075.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-xx-2fc36ae3989d",
+      "category": "public_institution",
+      "title": "中共河南省委组织部 河南省人力资源和社会保障厅 河南省教育厅 河南省农业农村厅关于组织实施2026年乡村振兴村级协理员专项计划的公告",
+      "org_name": "新乡市人力资源和社会保障局（转发省级公告）",
+      "province": "河南省",
+      "city": "新乡市",
+      "district": null,
+      "source_url": "https://hrss.xinxiang.gov.cn/xwzx/tzgg/1286400.html",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "新乡市人力资源和社会保障局",
+      "source_type": "gov_official",
+      "published_at": "2026-05-31",
+      "deadline_at": "2026-06-09",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:41:28+08:00",
+      "last_seen_at": "2026-11-21T10:41:28+08:00",
+      "content_hash": "2fc36ae3989db5f9ae9e5f2945a58a9e6411f350b34f421a82c39379d151e6c2",
+      "summary": "新乡市人社局转发2026年河南省乡村振兴村级协理员专项计划公告（全省10000名），报名已于2026-06-09截止，已归档。",
+      "tags": [
+        "新乡市",
+        "村级协理员",
+        "基层专项"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "新乡市人力资源和社会保障局（转发省级公告）",
+        "post_level": null,
+        "bianzhi_type": "基层专项(见公告)",
+        "headcount": 10000,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试+考核",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-06-03",
+        "written_exam_time": "2026年6月27日",
+        "interview_time": null,
+        "other_requirements": "报名已于2026-06-09截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "中共河南省委组织部 河南省人力资源和社会保障厅 河南省教育厅 河南省农业农村厅关于组织实施2026年乡村振兴村级协理员专项计划的公告",
+        "attachments": [
+          {
+            "name": "河南省2026年“乡村振兴村级协理员”专项计划岗位表.docx",
+            "url": "https://hrss.xinxiang.gov.cn/group3/M00/00/AE/wKgVOGobnV6AWSauAABtX4H2gdE04.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省2026年“乡村振兴村级协理员”专项计划工作专用网站及咨询电话.docx",
+            "url": "https://hrss.xinxiang.gov.cn/group3/M00/00/AE/wKgVOGobnWeADJe7AAA9R4qy_Os49.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-xx-b94b7c51eb4f",
+      "category": "public_institution",
+      "title": "中共河南省委组织部 中共河南省委社会工作部 河南省人力资源和社会保障厅 河南省教育厅 关于组织实施2026年社区网格事务协理员专项计划的公告",
+      "org_name": "新乡市人力资源和社会保障局（转发省级公告）",
+      "province": "河南省",
+      "city": "新乡市",
+      "district": null,
+      "source_url": "https://hrss.xinxiang.gov.cn/xwzx/tzgg/1286397.html",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "新乡市人力资源和社会保障局",
+      "source_type": "gov_official",
+      "published_at": "2026-05-31",
+      "deadline_at": "2026-06-10",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:41:31+08:00",
+      "last_seen_at": "2026-11-21T10:41:31+08:00",
+      "content_hash": "b94b7c51eb4fc3b59e73a661cd9902289d1026fed942b31b700465b2602c32cc",
+      "summary": "新乡市人社局转发2026年河南省社区网格事务协理员专项计划公告（全省10000名），报名已于2026-06-10截止，已归档。",
+      "tags": [
+        "新乡市",
+        "社区网格事务协理员",
+        "基层专项"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "新乡市人力资源和社会保障局（转发省级公告）",
+        "post_level": null,
+        "bianzhi_type": "基层专项(见公告)",
+        "headcount": 10000,
+        "education_min": "本科及以上",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试+考核",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-06-04",
+        "written_exam_time": "2026年6月28日",
+        "interview_time": null,
+        "other_requirements": "报名已于2026-06-10截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "中共河南省委组织部 中共河南省委社会工作部 河南省人力资源和社会保障厅 河南省教育厅 关于组织实施2026年社区网格事务协理员专项计划的公告",
+        "attachments": [
+          {
+            "name": "河南省2026年社区网格事务协理员专项计划岗位表.docx",
+            "url": "https://hrss.xinxiang.gov.cn/group3/M00/00/AE/wKgVOGobmxeAbSaRAACI3mehCpM13.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "河南省2026年社区网格事务协理员专项计划工作专用网站及咨询电话.docx",
+            "url": "https://hrss.xinxiang.gov.cn/group3/M00/00/AE/wKgVOGoc49aATOuXAAA57TyPXGA17.docx",
+            "file_type": "docx"
           }
         ]
       }

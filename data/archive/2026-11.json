@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-18T18:10:15+08:00",
+  "updated_at": "2026-11-21T12:34:00+08:00",
   "items": [
     {
       "id": "pub-henan-luoyang-d9fe499bc92a",
@@ -112,6 +112,59 @@
         "other_requirements": "网报选岗已于2026-11-10截止（初审11-05至11-12，调整岗位11-13至11-14）。当前节点：网上缴费2026-11-17 8:00至11-18 18:00；打印准考证12-07至12-13；统一笔试12-13；预计2027年5月起审批录用。学历学位取得截止2027-07-31。",
         "announcement_title": "2027年军队文职人员公开招考公告",
         "attachments": []
+      }
+    },
+    {
+      "id": "pub-henan-jiyuan-5b2d64138539",
+      "category": "public_institution",
+      "title": "济源示范区招聘2027届国家公费师范毕业生公告",
+      "org_name": "济源产城融合示范区教育体育局、人力资源和社会保障局",
+      "province": "河南省",
+      "city": "济源市",
+      "district": null,
+      "source_url": "https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/t1012339.html",
+      "apply_url": null,
+      "source_name": "济源示范区人力资源和社会保障局（含济源人事考试）",
+      "source_type": "gov_official",
+      "published_at": "2026-11-09",
+      "deadline_at": "2026-11-18",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:42:08+08:00",
+      "last_seen_at": "2026-11-21T10:42:08+08:00",
+      "content_hash": "5b2d641385395b3cb35314b1fd3adab572fc337223d893bf675476bdb145cac3",
+      "summary": "济源示范区面向六所部属师范大学2027届国家公费师范毕业生招聘在编教师50名（济源一中22人等8所学校），邮箱报名已于2026-11-18截止，已归档。",
+      "tags": [
+        "济源市",
+        "在编教师",
+        "公费师范生",
+        "2027届"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "济源产城融合示范区教育体育局、人力资源和社会保障局",
+        "post_level": null,
+        "bianzhi_type": "在编教师(公费师范生)",
+        "headcount": 50,
+        "education_min": "本科及以上",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "面试(微型课15分钟)",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-11-10",
+        "written_exam_time": null,
+        "interview_time": null,
+        "other_requirements": "报名已于2026-11-18截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "济源示范区招聘2027届国家公费师范毕业生公告",
+        "attachments": [
+          {
+            "name": "2027年济源招聘国家公费师范毕业生报名表.wps",
+            "url": "https://rbj.jiyuan.gov.cn/rbj_xwzx/rbj_tzgg/P020261109619979495636.wps",
+            "file_type": "wps"
+          }
+        ]
       }
     }
   ]

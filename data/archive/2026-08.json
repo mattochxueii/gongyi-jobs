@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-21T12:34:00+08:00",
+  "items": [
+    {
+      "id": "pub-henan-xx-ed61af918c8f",
+      "category": "public_institution",
+      "title": "河南省2026年高校毕业生“三支一扶”计划招募公告",
+      "org_name": "新乡市人力资源和社会保障局（转发省级重考公告）",
+      "province": "河南省",
+      "city": "新乡市",
+      "district": null,
+      "source_url": "https://hrss.xinxiang.gov.cn/xwzx/tzgg/1297375.html",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "新乡市人力资源和社会保障局",
+      "source_type": "gov_official",
+      "published_at": "2026-08-08",
+      "deadline_at": "2026-08-13",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:41:23+08:00",
+      "last_seen_at": "2026-11-21T10:41:23+08:00",
+      "content_hash": "ed61af918c8f5bee077166553123217e7c8cc0ac8a2feb35581123227f9c00f3",
+      "summary": "新乡市人社局转发河南省2026年高校毕业生“三支一扶”计划招募重考补充报名公告（7月11日笔试成绩作废，定于8月22日重考）；补充网报已于2026-08-13截止，已归档。",
+      "tags": [
+        "新乡市",
+        "三支一扶",
+        "基层专项",
+        "重考公告"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "新乡市人力资源和社会保障局（转发省级重考公告）",
+        "post_level": null,
+        "bianzhi_type": "三支一扶",
+        "headcount": 3082,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试(8月22日重考)",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-08-10",
+        "written_exam_time": "2026年8月22日",
+        "interview_time": null,
+        "other_requirements": "报名已于2026-08-13截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "河南省2026年高校毕业生“三支一扶”计划招募公告",
+        "attachments": [
+          {
+            "name": "1.河南省2026年高校毕业生“三支一扶”计划招募各省辖市信息发布网站及工作电话.docx",
+            "url": "https://hrss.xinxiang.gov.cn/group3/M00/00/D5/wKgVOGp26dyASuDaAABBHm3ztJQ71.docx",
+            "file_type": "docx"
+          },
+          {
+            "name": "2.河南省2026年高校毕业生“三支一扶”计划招募岗位表.xlsx",
+            "url": "https://hrss.xinxiang.gov.cn/group3/M00/00/D5/wKgVOGp26eeAErhYAAQE0I6V46010.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "3.河南省2026年高校毕业生“三支一扶”计划报考指南.docx",
+            "url": "https://hrss.xinxiang.gov.cn/group3/M00/00/D5/wKgVOGp26fCAIuXbAABuM04Ipro19.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    }
+  ]
+}

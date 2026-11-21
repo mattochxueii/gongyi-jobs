@@ -1,13 +1,20 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-18T17:25:00+08:00",
+  "updated_at": "2026-11-21T13:39:00+08:00",
   "items": [
     {
       "company_id": "songmics-home",
       "name": "致欧家居科技股份有限公司",
-      "aliases": ["致欧科技", "致欧家居", "SONGMICS HOME"],
+      "aliases": [
+        "致欧科技",
+        "致欧家居",
+        "SONGMICS HOME"
+      ],
       "industry": "跨境电商/互联网家居",
-      "cities": ["郑州市", "深圳市"],
+      "cities": [
+        "郑州市",
+        "深圳市"
+      ],
       "career_url": "https://songmicshome.jobs.feishu.cn/",
       "saas_platform": "feishu",
       "work_schedule": "周末双休",
@@ -43,9 +50,19 @@
     {
       "company_id": "moka-hr",
       "name": "北京希瑞亚斯科技有限公司",
-      "aliases": ["Moka", "Moka智能化招聘"],
+      "aliases": [
+        "Moka",
+        "Moka智能化招聘"
+      ],
       "industry": "企业级 HR SaaS",
-      "cities": ["北京市", "上海市", "杭州市", "深圳市", "成都市", "厦门市"],
+      "cities": [
+        "北京市",
+        "上海市",
+        "杭州市",
+        "深圳市",
+        "成都市",
+        "厦门市"
+      ],
       "career_url": "https://app.mokahr.com/social-recruitment/moka/118263",
       "saas_platform": "moka",
       "work_schedule": "弹性工作",
@@ -69,9 +86,17 @@
     {
       "company_id": "trip-com",
       "name": "携程集团",
-      "aliases": ["携程", "Trip.com Group", "Ctrip"],
+      "aliases": [
+        "携程",
+        "Trip.com Group",
+        "Ctrip"
+      ],
       "industry": "在线旅游与互联网平台",
-      "cities": ["上海市", "北京市", "广州市"],
+      "cities": [
+        "上海市",
+        "北京市",
+        "广州市"
+      ],
       "career_url": "https://app.mokahr.com/social-recruitment/trip/70415",
       "saas_platform": "moka",
       "work_schedule": "弹性工作",
@@ -107,9 +132,14 @@
     {
       "company_id": "lilith-games",
       "name": "上海莉莉丝网络科技有限公司",
-      "aliases": ["莉莉丝游戏", "Lilith Games"],
+      "aliases": [
+        "莉莉丝游戏",
+        "Lilith Games"
+      ],
       "industry": "游戏研发与发行",
-      "cities": ["上海市"],
+      "cities": [
+        "上海市"
+      ],
       "career_url": "https://jobs.lilith.com/",
       "saas_platform": "feishu",
       "work_schedule": "其他",
@@ -139,9 +169,22 @@
     {
       "company_id": "emq-technologies",
       "name": "杭州映云科技有限公司",
-      "aliases": ["EMQ", "EMQX"],
+      "aliases": [
+        "EMQ",
+        "EMQX"
+      ],
       "industry": "开源物联网与基础软件",
-      "cities": ["杭州市", "北京市", "上海市", "深圳市", "成都市", "广州市", "南京市", "昆明市", "远程"],
+      "cities": [
+        "杭州市",
+        "北京市",
+        "上海市",
+        "深圳市",
+        "成都市",
+        "广州市",
+        "南京市",
+        "昆明市",
+        "远程"
+      ],
       "career_url": "https://careers.emqx.com/zh/alljobs",
       "saas_platform": "custom",
       "work_schedule": "弹性工作",
@@ -171,9 +214,16 @@
     {
       "company_id": "dify-langgenius",
       "name": "苏州语灵人工智能科技有限公司",
-      "aliases": ["Dify", "LangGenius"],
+      "aliases": [
+        "Dify",
+        "LangGenius"
+      ],
       "industry": "开源 AI 应用开发平台",
-      "cities": ["苏州市", "上海市", "远程"],
+      "cities": [
+        "苏州市",
+        "上海市",
+        "远程"
+      ],
       "career_url": "https://join.dify.ai/roles",
       "saas_platform": "custom",
       "work_schedule": "弹性工作",
@@ -209,9 +259,17 @@
     {
       "company_id": "canonical-ubuntu",
       "name": "Canonical",
-      "aliases": ["Ubuntu", "Canonical Group"],
+      "aliases": [
+        "Ubuntu",
+        "Canonical Group"
+      ],
       "industry": "开源操作系统与云基础设施",
-      "cities": ["远程", "北京市", "上海市", "深圳市"],
+      "cities": [
+        "远程",
+        "北京市",
+        "上海市",
+        "深圳市"
+      ],
       "career_url": "https://canonical.com/careers",
       "saas_platform": "greenhouse",
       "work_schedule": "弹性工作",
@@ -247,9 +305,15 @@
     {
       "company_id": "mongodb-inc",
       "name": "MongoDB",
-      "aliases": ["MongoDB Inc."],
+      "aliases": [
+        "MongoDB Inc."
+      ],
       "industry": "数据库与云数据平台",
-      "cities": ["北京市", "上海市", "深圳市"],
+      "cities": [
+        "北京市",
+        "上海市",
+        "深圳市"
+      ],
       "career_url": "https://www.mongodb.com/careers",
       "saas_platform": "greenhouse",
       "work_schedule": "弹性工作",
@@ -269,6 +333,442 @@
       ],
       "status": "active",
       "notes": "全球文档数据库软件厂商，通过 Greenhouse 发布中国区北京、上海、深圳混合办公（Hybrid）在招职位。"
+    },
+    {
+      "company_id": "mixue-bingcheng",
+      "name": "蜜雪冰城股份有限公司",
+      "aliases": [
+        "蜜雪冰城",
+        "蜜雪集团",
+        "MIXUE"
+      ],
+      "industry": "现制饮品与食品供应链",
+      "cities": [
+        "郑州市",
+        "多城市"
+      ],
+      "career_url": "https://careers.mxbc.com/",
+      "saas_platform": "beisen",
+      "work_schedule": "其他",
+      "benefit_claims": [
+        {
+          "label": "五险一金与免费年度体检",
+          "evidence_quote": "最基础的五险一金和免费年度体检，为伙伴们的安全与健康保驾护航；",
+          "evidence_url": "https://careers.mxbc.com/",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "每月餐补与高温补贴",
+          "evidence_quote": "夏季炎热，设有高温补贴以慰辛劳； 每月餐补，让你吃喝更舒心；",
+          "evidence_url": "https://careers.mxbc.com/",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "总部位于河南省郑州市，北森招聘官网（careers.mxbc.com）明确书面列出五险一金、免费年度体检、高温补贴及每月餐补等；未统一声明全员双休或弹性工时。"
+    },
+    {
+      "company_id": "pingxingxian-edu",
+      "name": "郑州一起学教育科技有限公司（平行线教育）",
+      "aliases": [
+        "平行线教育",
+        "一起学教育",
+        "郑州平行线"
+      ],
+      "industry": "教育科技与培优",
+      "cities": [
+        "郑州市",
+        "洛阳市",
+        "新乡市",
+        "许昌市",
+        "平顶山市",
+        "南阳市"
+      ],
+      "career_url": "https://zzpxx.zhiye.com/",
+      "saas_platform": "beisen",
+      "work_schedule": "弹性工作",
+      "benefit_claims": [
+        {
+          "label": "弹性工作与商业保险",
+          "evidence_quote": "全面的福利关怀 五险一金及补充商业保险全面保障，免你后顾之忧； 弹性的工作时间和充足假期，享受生活； 免费体检，让你健康生活，快乐工作。",
+          "evidence_url": "https://zzpxx.zhiye.com/",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "六险一金与福利年假",
+          "evidence_quote": "4.基础福利：六险一金、带薪年假、福利年假、探亲福利、新人入职礼包、周年纪念礼品、重大疾病慈善基金、各种礼金、节假日礼品、子女免费入学、亲属优惠入学、团建拓展、健康体检",
+          "evidence_url": "https://zzpxx.zhiye.com/SocialDetail?id=230947423",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "总部位于河南省郑州市，并在洛阳、平顶山等地设有教学点，北森招聘官网及岗位JD书面载明弹性工作时间、六险一金及补充商业保险、带薪/福利年假、免费健康体检。"
+    },
+    {
+      "company_id": "jiean-tech",
+      "name": "郑州捷安高科股份有限公司",
+      "aliases": [
+        "捷安高科",
+        "JANTECH"
+      ],
+      "industry": "轨道交通与应急仿真实训",
+      "cities": [
+        "郑州市",
+        "北京市",
+        "天津市"
+      ],
+      "career_url": "https://jiean.jobs.feishu.cn/",
+      "saas_platform": "feishu",
+      "work_schedule": "其他",
+      "benefit_claims": [
+        {
+          "label": "五险一金与带薪年假体检",
+          "evidence_quote": "- 完善的五险一金保障。 - 带薪年假、节日福利、定期体检等。",
+          "evidence_url": "https://jiean.jobs.feishu.cn/index/position/7596233426916641070/detail",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "股权激励成长回报",
+          "evidence_quote": "在这里，你可以在稳定的职业平台，收获股权激励等成长回报，共享企业长期增长成果等发展红利。",
+          "evidence_url": "https://jiean.jobs.feishu.cn/",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "郑州高新区A股创业板上市民企（300845.SZ），飞书招聘门户公开大量郑州研发/工程/职能岗位，JD及官网书面载明五险一金、带薪年假、节日福利、定期体检及股权激励。"
+    },
+    {
+      "company_id": "guoquan-food",
+      "name": "锅圈食品（上海）股份有限公司（锅圈食汇）",
+      "aliases": [
+        "锅圈食汇",
+        "锅圈食品",
+        "锅圈"
+      ],
+      "industry": "食材餐饮供应链/新零售",
+      "cities": [
+        "郑州市",
+        "上海市"
+      ],
+      "career_url": "https://app.mokahr.com/social-recruitment/guoquan/38716",
+      "saas_platform": "moka",
+      "work_schedule": "其他",
+      "benefit_claims": [
+        {
+          "label": "五险一金缴纳",
+          "evidence_quote": "应届生属于正式员工，入职则依法与公司签订劳动合同，依法享受五险一金的福利缴纳。",
+          "evidence_url": "https://app.mokahr.com/campus-recruitment/guoquan/38717",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "带薪年假与茶歇节日福利",
+          "evidence_quote": "入职满1年则可享受5天带薪年假。公司提供的丰厚的法定节假日福利，定期的茶歇下午茶，定期的团建活动，以及舒适且高端的办公环境。",
+          "evidence_url": "https://app.mokahr.com/campus-recruitment/guoquan/38717",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "在郑州市（总部企业基地）及上海市设有核心研发与运营办公地点，Moka官招门户载明五险一金、带薪年假、法定节假日福利与茶歇下午茶；未写明全员双休或弹性。"
+    },
+    {
+      "company_id": "hanwei-tech",
+      "name": "汉威科技集团股份有限公司",
+      "aliases": [
+        "汉威科技",
+        "HANWEI"
+      ],
+      "industry": "物联网与传感器/仪器仪表",
+      "cities": [
+        "郑州市"
+      ],
+      "career_url": "https://hanwei.cn/join_us.html",
+      "saas_platform": "custom",
+      "work_schedule": "周末双休",
+      "benefit_claims": [
+        {
+          "label": "周末双休与班车食宿餐补",
+          "evidence_quote": "双休；五险一金；带薪年假；正常节假日及福利； 免费提供通勤班车、住宿； 公司内部食堂并提供餐补； 年度体检；绩效、年终奖金；",
+          "evidence_url": "https://hanwei.cn/join_us.html",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "五险一金与多重补贴健身",
+          "evidence_quote": "01 基础福利 五险一金、健康体检 02 假期福利 带薪年假、婚假、产育假、病假、丧假、外派探亲假 03 多重补贴 餐饮补贴、通讯补贴、交通补贴、外派补贴 04 生活配置 员工宿舍、员工餐厅、免费班车、免费停车、免费健身",
+          "evidence_url": "https://hanwei.cn/salary.html",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "总部位于郑州国家高新技术产业开发区（300007.SZ），官网招聘页与薪资福利页明确双休、五险一金、免费班车/住宿、内部食堂餐补及年度体检。"
+    },
+    {
+      "company_id": "gltech-cn",
+      "name": "光力科技股份有限公司",
+      "aliases": [
+        "光力科技",
+        "GLTECH"
+      ],
+      "industry": "半导体封测装备与物联网监控",
+      "cities": [
+        "郑州市",
+        "苏州市"
+      ],
+      "career_url": "https://www.gltech.cn/recruitment/",
+      "saas_platform": "custom",
+      "work_schedule": "其他",
+      "benefit_claims": [
+        {
+          "label": "五险一金与大病意外险体检",
+          "evidence_quote": "为员工缴纳五险一金（养老保险、医疗保险、失业保险、工伤保险、生育保险、住房公积金） 额外大病医疗保险 为经常出差的干部、员工及骨干办理团体大病医疗保险、 团体意外险，免费年度体检 免费培训 节日福利",
+          "evidence_url": "https://www.gltech.cn/talent-development/",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "工作午餐及出差餐补",
+          "evidence_quote": "用餐补助 健康的工作午餐；因公外出误餐补贴；出差员工伙食补助",
+          "evidence_url": "https://www.gltech.cn/life-and-welfare/",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "总部位于郑州高新区/航空港区（300480.SZ），官网人才发展及生活福利页载明五险一金、团体大病/意外险、免费年度体检、健康工作午餐与节日福利；未写明双休。"
+    },
+    {
+      "company_id": "suntront-tech",
+      "name": "新天科技股份有限公司",
+      "aliases": [
+        "新天科技",
+        "SUNTRONT"
+      ],
+      "industry": "智慧能源计量表具与物联网",
+      "cities": [
+        "郑州市"
+      ],
+      "career_url": "https://www.suntront.com/recruitment/recruitment-1.html",
+      "saas_platform": "custom",
+      "work_schedule": "其他",
+      "benefit_claims": [
+        {
+          "label": "五险一金",
+          "evidence_quote": "新天科技为员工缴纳五险一金，包括养老保险、医疗保险、失业保险、工伤保险和生育保险，及住房公积金。",
+          "evidence_url": "https://www.suntront.com/recruitment/recruitment-3.html",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "餐补交补通讯及宿舍食堂",
+          "evidence_quote": "在重要节日，如劳动节，中秋节为员工发放福利，在夏季为员工发放高温补贴，还有餐补，交通补助，通讯补助等。 新天科技为员工提供员工宿舍，居住环境干净整洁，冬夏均有中央空调集体供暖、供凉。",
+          "evidence_url": "https://www.suntront.com/recruitment/recruitment-3.html",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "总部位于郑州市（300259.SZ），官网福利待遇专栏载明五险一金、餐补/交通/通讯/高温补贴、节日福利、千人食堂与空调宿舍；未写明全员双休。"
+    },
+    {
+      "company_id": "xiangyu-medical",
+      "name": "河南翔宇医疗设备股份有限公司",
+      "aliases": [
+        "翔宇医疗",
+        "XYYL"
+      ],
+      "industry": "康复医疗器械研发制造",
+      "cities": [
+        "安阳市",
+        "郑州市"
+      ],
+      "career_url": "https://www.xyyl.com/jrwm.html",
+      "saas_platform": "custom",
+      "work_schedule": "其他",
+      "benefit_claims": [
+        {
+          "label": "五险一金婚年假与免费体检",
+          "evidence_quote": "薪资福利 五险一金 带薪婚假/年假 每年免费体检 生日红包 生日聚餐 带薪学习培训 出国学习机会",
+          "evidence_url": "https://www.xyyl.com/rcwh.html",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "宾馆化宿舍与安阳购房补贴",
+          "evidence_quote": "免费住宿（1-3人间宾馆化宿舍，WIFI覆盖） 在安阳范围内购买商品住房的，全日制本科或技师及以上人员可享受一次性购房补贴3-12万元",
+          "evidence_url": "https://www.xyyl.com/rcwh.html",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "总部位于河南省安阳市内黄县（688626.SH），官网人才文化页书面载明五险一金、带薪婚假/年假、每年免费体检、宾馆化免费宿舍及安阳购房补贴3-12万元；未写明全员双休。"
+    },
+    {
+      "company_id": "weihua-group",
+      "name": "河南卫华重型机械股份有限公司（卫华集团）",
+      "aliases": [
+        "卫华集团",
+        "河南卫华",
+        "WEIHUA"
+      ],
+      "industry": "智能起重装备与高端制造",
+      "cities": [
+        "新乡市",
+        "郑州市",
+        "南通市"
+      ],
+      "career_url": "https://job.craneweihua.com/recruit?type=1&unit_id=4",
+      "saas_platform": "custom",
+      "work_schedule": "其他",
+      "benefit_claims": [
+        {
+          "label": "定制工装班车婚育礼金福利",
+          "evidence_quote": "福利关怀 从定制工装、免费餐厅、星级公寓、员工活动中心、班车接送、探亲费报销到在职学历提升、婚育礼金、生日福利、节日福利、困难帮扶等，打造幸福感升级的福利体系。",
+          "evidence_url": "https://www.cranewh.com/talent_development",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "免费营养餐厅与智慧公寓",
+          "evidence_quote": "营养餐厅 免费就餐 一日四餐 营养搭配 智慧公寓 免费住宿",
+          "evidence_url": "https://www.cranewh.com/talent_development",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "总部位于河南省新乡长垣市，并在郑州、启东等地设有分子公司；官网人才发展页书面明确免费四餐餐厅、星级/智慧公寓、班车接送与婚育/节日礼金；未写明双休。"
+    },
+    {
+      "company_id": "lomonbillions",
+      "name": "龙佰集团股份有限公司",
+      "aliases": [
+        "龙佰集团",
+        "Lomon Billions"
+      ],
+      "industry": "化工新材料与新能源电池材料",
+      "cities": [
+        "焦作市",
+        "攀枝花市",
+        "德阳市",
+        "金昌市",
+        "楚雄州",
+        "襄阳市",
+        "朝阳市",
+        "上海市"
+      ],
+      "career_url": "https://www.lomonbillions.com/jobs/10921",
+      "saas_platform": "custom",
+      "work_schedule": "其他",
+      "benefit_claims": [
+        {
+          "label": "智慧餐厅人才公寓与班车",
+          "evidence_quote": "一是持续完善后勤保障管理机制，从衣、食、住、行等方面全面关照，不断升级餐厅、住宿、班车等硬件设施，近几年，先后投资数千万元建设生态智慧餐厅、特色美食小吃街、现代化智能停车场、高端人才公寓、书香雅娴公寓",
+          "evidence_url": "https://www.lomonbillions.com/about/10945",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "年度员工健康体检",
+          "evidence_quote": "二是创新员工健康保障办法，有序推行年度员工健康体检计划实施，达到强健康意识、早预防早医治的目的。",
+          "evidence_url": "https://www.lomonbillions.com/about/10945",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "总部位于河南省焦作市中站区（002601.SZ），官网“关爱员工”专栏明确载明智慧餐厅、高端人才公寓、班车及年度员工健康体检；未写明双休。"
+    },
+    {
+      "company_id": "autobio-zhengzhou",
+      "name": "郑州安图生物工程股份有限公司",
+      "aliases": [
+        "安图生物",
+        "Autobio"
+      ],
+      "industry": "体外诊断医疗器械与试剂",
+      "cities": [
+        "郑州市",
+        "深圳市",
+        "北京市"
+      ],
+      "career_url": "https://wecruit.hotjob.cn/SU62302d11bef57c4972f79a6b/pb/index.html",
+      "saas_platform": "custom",
+      "work_schedule": "其他",
+      "benefit_claims": [
+        {
+          "label": "五天八小时工作制",
+          "evidence_quote": "福利待遇： 1.工作时间：五天八小时工作制，加班费另计，节假日放假时间按国家规定执行；",
+          "evidence_url": "https://www.autobio-bj.com.cn/Human/index/fid/69/cid/42/lid/71/id/262.html",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "五险一金餐补班车与各类假期",
+          "evidence_quote": "3.每年调薪、有燕郊、通州、昌平免费班车； 4.缴纳五险一金，雇主责任险； 5.享有调休假、婚假、产假、丧假、孕检假、陪产假等；",
+          "evidence_url": "https://www.autobio-bj.com.cn/Human/index/fid/69/cid/42/lid/71/id/262.html",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "总部位于郑州市（603658.SH），经大易（Hotjob）官方渠道发布大量郑州在招岗位；以上五天八小时、五险一金、餐补及班车引述取自母公司官网“安图站群”所链北京子公司网页。"
+    },
+    {
+      "company_id": "popmart-inc",
+      "name": "北京泡泡玛特文化创意有限公司",
+      "aliases": [
+        "泡泡玛特",
+        "POP MART"
+      ],
+      "industry": "潮流文化娱乐与零售",
+      "cities": [
+        "北京市",
+        "上海市",
+        "新乡市",
+        "多城市"
+      ],
+      "career_url": "https://popmart.zhiye.com/",
+      "saas_platform": "beisen",
+      "work_schedule": "其他",
+      "benefit_claims": [
+        {
+          "label": "健康体检商业险与全薪假期",
+          "evidence_quote": "工作保障： 健康体检， 心理援助， 商业保险， 家属险， 重大疾病帮扶，补贴等 红包礼物： 节日福利， 礼金红包， 慰问补助， 专项奖励等 假期活动： 公司家庭日、全薪假期、社团活动等",
+          "evidence_url": "https://popmart.zhiye.com/",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "餐补交补全勤奖与三倍加班费",
+          "evidence_quote": "-竞争力的薪酬体系：基本工资+提成奖金+绩效工资+餐补+交补+全勤奖+法定节假日三倍加班费",
+          "evidence_url": "https://popmart.zhiye.com/SocialDetail?id=230955606",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "全国知名文创企业（兼含河南新乡等城市门店与北京总部职能岗）；官网统一载明健康体检、商业/家属险及全薪假期，门店零售岗按排班执行，未声明全员双休。"
+    },
+    {
+      "company_id": "iflytek-inc",
+      "name": "科大讯飞股份有限公司",
+      "aliases": [
+        "科大讯飞",
+        "iFLYTEK"
+      ],
+      "industry": "人工智能与智能语音",
+      "cities": [
+        "合肥市",
+        "北京市",
+        "上海市",
+        "郑州市",
+        "多城市"
+      ],
+      "career_url": "https://iflytek.zhiye.com/",
+      "saas_platform": "beisen",
+      "work_schedule": "其他",
+      "benefit_claims": [
+        {
+          "label": "五险一金与补充商业保险",
+          "evidence_quote": "•五险一金和补充商业保险，更有婚产假礼金和假日礼品，为你提供更好的保障与支持",
+          "evidence_url": "https://iflytek.zhiye.com/",
+          "verified_at": "2026-11-21"
+        },
+        {
+          "label": "食堂酒店公寓与交通补贴",
+          "evidence_quote": "•花式食堂、酒店式公寓和交通补贴，帮你减轻生活成本 •飞飞育儿园，让你工作家庭两不误",
+          "evidence_url": "https://iflytek.zhiye.com/",
+          "verified_at": "2026-11-21"
+        }
+      ],
+      "status": "active",
+      "notes": "全国知名上市民企（002230.SZ），北森官招门户（含合肥总部及郑州等城市客户/研发岗）明确载明五险一金、补充商业保险、食堂、公寓与交通补贴。"
     }
   ]
 }

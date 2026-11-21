@@ -1,0 +1,48 @@
+{
+  "Code": 200,
+  "Count": 3,
+  "Data": [
+    {
+      "Id": "aaa-111",
+      "JobAdId": 230947423,
+      "JobAdName": "竞赛教练（物理/数学）(J11140)",
+      "Status": 1,
+      "LocNames": [],
+      "DetailAddress": null,
+      "Category": "教学教研",
+      "Degree": "本科及以上",
+      "YearsOfWorking": "1-3年",
+      "PostDate": "0001-01-01T00:00:00",
+      "ChangeDate": "2026-10-13T12:38:22",
+      "Salary": "20k-35k",
+      "WorkTime": "弹性工作制",
+      "Welfare": "六险一金、带薪年假、免费体检",
+      "Duty": "1. 负责高中理科竞赛课程教学。\n【工作地点】郑州/洛阳/北京",
+      "Require": "1. 本科及以上学历。"
+    },
+    {
+      "Id": "bbb-222",
+      "JobAdId": 230911274,
+      "JobAdName": "物理教师（洛阳）(J10883)",
+      "Status": 1,
+      "LocNames": [],
+      "DetailAddress": null,
+      "Category": "教师类",
+      "Degree": "本科及以上",
+      "YearsOfWorking": "不限",
+      "PostDate": "2026-10-10T09:00:00",
+      "ChangeDate": "2026-10-12T09:00:00",
+      "Duty": "1. 承担物理培优课程授课与教研。",
+      "Require": "1. 理工科本科及以上学历。"
+    },
+    {
+      "Id": "ccc-333",
+      "JobAdId": 999999999,
+      "JobAdName": "已下线测试岗位",
+      "Status": 0,
+      "LocNames": ["郑州市"],
+      "Duty": "不应被抓取",
+      "Require": "不应被抓取"
+    }
+  ]
+}

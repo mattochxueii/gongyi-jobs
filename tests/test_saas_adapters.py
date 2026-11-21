@@ -12,12 +12,16 @@ import httpx
 from scrapers.adapters.saas import normalize_cn_city, parse_date_value
 from scrapers.base import (
     ADAPTER_REGISTRY,
+    BeisenAdapter,
     DifyJobsAdapter,
     EmqJobsAdapter,
     FeishuHireAdapter,
     GreenhouseAdapter,
+    HanweiJobsAdapter,
+    HotjobAdapter,
     LeverAdapter,
     MokaAdapter,
+    WeihuaJobsAdapter,
     get_adapter_class,
 )
 from scrapers.core.http_client import PoliteHttpClient
@@ -418,6 +422,216 @@ class SaasAdaptersTests(unittest.TestCase):
             self.assertEqual(items[0]["enterprise_meta"]["salary_range"], "2.5万-4万 × 14薪")
             self.assertEqual(items[1]["city"], "苏州市")
             self.assertEqual(items[1]["enterprise_meta"]["remote_policy"], "可远程")
+
+    def test_beisen_adapter_parses_portal_and_jobs(self) -> None:
+        portal_html = (FIXTURES_DIR / "beisen_portal.html").read_text(encoding="utf-8")
+        jobs_json = (FIXTURES_DIR / "beisen_jobs.json").read_text(encoding="utf-8")
+        company = {
+            "company_id": "pingxingxian-edu",
+            "name": "郑州一起学教育科技有限公司（平行线教育）",
+            "industry": "教育科技与培优",
+            "cities": ["郑州市", "洛阳市"],
+            "career_url": "https://zzpxx.zhiye.com/",
+            "saas_platform": "beisen",
+            "work_schedule": "弹性工作",
+            "benefit_claims": [
+                {
+                    "label": "弹性工作与商业保险",
+                    "evidence_quote": "全面的福利关怀 五险一金及补充商业保险全面保障；弹性的工作时间和充足假期。",
+                    "evidence_url": "https://zzpxx.zhiye.com/",
+                    "verified_at": "2026-11-21",
+                }
+            ],
+            "status": "active",
+        }
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            if request.url.path == "/":
+                return httpx.Response(200, text=portal_html)
+            if request.url.path == "/api/Jobad/GetJobAdPageList":
+                body = json.loads(request.content.decode("utf-8"))
+                self.assertEqual(body["PortalId"], "ee619e4d-7e76-46a5-aec6-b429b3c9e1eb")
+                if int(body.get("PageIndex", 0)) == 0:
+                    return httpx.Response(200, text=jobs_json)
+                return httpx.Response(200, text=json.dumps({"Code": 200, "Count": 3, "Data": []}))
+            return httpx.Response(404)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            store = _init_temp_workspace(root, company)
+            src_cfg = {
+                "source_id": "ent_zzpxx_beisen",
+                "name": "平行线教育（北森）",
+                "category": "enterprise",
+                "province": "河南省",
+                "city": "郑州市",
+                "adapter": "beisen",
+                "base_url": "https://zzpxx.zhiye.com",
+                "list_urls": ["https://zzpxx.zhiye.com/"],
+                "enabled": True,
+                "url_verified": True,
+            }
+            with PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(handler)) as client:
+                summary = BeisenAdapter(src_cfg, http_client=client, state_store=store).run(dry_run=False, max_items=10)
+            self.assertEqual(summary.new_count, 2)
+            self.assertEqual(validate_workspace(root), [])
+            items = json.loads((root / "data" / "jobs.json").read_text(encoding="utf-8"))["items"]
+            self.assertEqual(len(items), 2)
+            self.assertEqual(items[0]["city"], "郑州市")
+            self.assertEqual(items[0]["published_at"], "2026-10-13")
+            self.assertEqual(items[0]["enterprise_meta"]["work_schedule"], "弹性工作")
+            self.assertEqual(items[0]["source_url"], "https://zzpxx.zhiye.com/SocialDetail?id=230947423")
+            self.assertEqual(items[1]["city"], "洛阳市")
+
+    def test_hotjob_hanwei_and_weihua_adapters(self) -> None:
+        pos_json = (FIXTURES_DIR / "hotjob_positions.json").read_text(encoding="utf-8")
+        det_json = (FIXTURES_DIR / "hotjob_detail.json").read_text(encoding="utf-8")
+        wh_json = (FIXTURES_DIR / "weihua_filter.json").read_text(encoding="utf-8")
+        hw_html = (FIXTURES_DIR / "hanwei_jobs.html").read_text(encoding="utf-8")
+
+        autobio = {
+            "company_id": "autobio-zhengzhou",
+            "name": "郑州安图生物工程股份有限公司",
+            "industry": "体外诊断",
+            "cities": ["郑州市"],
+            "career_url": "https://wecruit.hotjob.cn/SU62302d11bef57c4972f79a6b/pb/index.html",
+            "saas_platform": "custom",
+            "work_schedule": "其他",
+            "benefit_claims": [
+                {
+                    "label": "五天八小时与五险一金",
+                    "evidence_quote": "1.工作时间：五天八小时工作制；4.缴纳五险一金。",
+                    "evidence_url": "https://www.autobio-bj.com.cn/Human/index/fid/69/cid/42/lid/71/id/262.html",
+                    "verified_at": "2026-11-21",
+                }
+            ],
+            "status": "active",
+        }
+        hanwei = {
+            "company_id": "hanwei-tech",
+            "name": "汉威科技集团股份有限公司",
+            "industry": "物联网与传感器",
+            "cities": ["郑州市"],
+            "career_url": "https://hanwei.cn/join_us.html",
+            "saas_platform": "custom",
+            "work_schedule": "周末双休",
+            "benefit_claims": [
+                {
+                    "label": "周末双休",
+                    "evidence_quote": "双休；五险一金；带薪年假；正常节假日及福利；",
+                    "evidence_url": "https://hanwei.cn/join_us.html",
+                    "verified_at": "2026-11-21",
+                }
+            ],
+            "status": "active",
+        }
+        weihua = {
+            "company_id": "weihua-group",
+            "name": "河南卫华重型机械股份有限公司（卫华集团）",
+            "industry": "智能起重装备",
+            "cities": ["新乡市"],
+            "career_url": "https://job.craneweihua.com/recruit?type=1&unit_id=4",
+            "saas_platform": "custom",
+            "work_schedule": "其他",
+            "benefit_claims": [
+                {
+                    "label": "免费餐厅公寓",
+                    "evidence_quote": "营养餐厅 免费就餐 一日四餐 智慧公寓 免费住宿",
+                    "evidence_url": "https://www.cranewh.com/talent_development",
+                    "verified_at": "2026-11-21",
+                }
+            ],
+            "status": "active",
+        }
+
+        for expected in ("beisen", "hotjob", "hanwei_jobs", "gltech_jobs", "suntront_jobs", "xyyl_jobs", "weihua_jobs", "lomon_jobs"):
+            self.assertIn(expected, ADAPTER_REGISTRY)
+
+        def hotjob_handler(request: httpx.Request) -> httpx.Response:
+            body = request.content.decode("utf-8")
+            if "listPosition/" in request.url.path:
+                if "recruitType=2" in body:
+                    return httpx.Response(200, text=pos_json)
+                return httpx.Response(200, text=json.dumps({"data": {"pageForm": {"pageData": []}}}))
+            if "listPositionDetail/" in request.url.path:
+                return httpx.Response(200, text=det_json)
+            return httpx.Response(404)
+
+        def weihua_handler(request: httpx.Request) -> httpx.Response:
+            if request.url.path == "/recruit":
+                return httpx.Response(200, text="<html></html>")
+            if request.url.path == "/filter":
+                body = request.content.decode("utf-8")
+                if "unit_id=4" in body and "type=1" in body and "page=1" in body:
+                    return httpx.Response(200, text=wh_json)
+                return httpx.Response(200, text=json.dumps({"success": True, "count": 0, "data": []}))
+            return httpx.Response(404)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            store = _init_temp_workspace(root, autobio)
+            (root / "data" / "companies.json").write_text(
+                json.dumps(
+                    {
+                        "schema_version": "1.0",
+                        "updated_at": "2026-11-21T13:00:00+08:00",
+                        "items": [autobio, hanwei, weihua],
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+            hj_cfg = {
+                "source_id": "ent_autobio_hotjob",
+                "name": "安图生物（大易Hotjob）",
+                "category": "enterprise",
+                "province": "河南省",
+                "city": "郑州市",
+                "adapter": "hotjob",
+                "base_url": "https://wecruit.hotjob.cn/SU62302d11bef57c4972f79a6b/pb/index.html",
+                "list_urls": ["https://wecruit.hotjob.cn/SU62302d11bef57c4972f79a6b/pb/index.html"],
+                "enabled": True,
+                "url_verified": True,
+            }
+            hw_cfg = {
+                "source_id": "ent_hanwei_jobs",
+                "name": "汉威科技",
+                "category": "enterprise",
+                "province": "河南省",
+                "city": "郑州市",
+                "adapter": "hanwei_jobs",
+                "base_url": "https://hanwei.cn",
+                "list_urls": ["https://hanwei.cn/join_us.html"],
+                "enabled": True,
+                "url_verified": True,
+            }
+            wh_cfg = {
+                "source_id": "ent_weihua_jobs",
+                "name": "卫华集团",
+                "category": "enterprise",
+                "province": "河南省",
+                "city": "新乡市",
+                "adapter": "weihua_jobs",
+                "base_url": "https://job.craneweihua.com",
+                "list_urls": ["https://job.craneweihua.com/recruit?type=1&unit_id=4"],
+                "enabled": True,
+                "url_verified": True,
+            }
+
+            with PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(hotjob_handler)) as c1:
+                self.assertEqual(HotjobAdapter(hj_cfg, http_client=c1, state_store=store).run(dry_run=False, max_items=10).new_count, 1)
+            with PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(lambda req: httpx.Response(200, text=hw_html))) as c2:
+                self.assertEqual(HanweiJobsAdapter(hw_cfg, http_client=c2, state_store=store).run(dry_run=False, max_items=10).new_count, 1)
+            with PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(weihua_handler)) as c3:
+                self.assertEqual(WeihuaJobsAdapter(wh_cfg, http_client=c3, state_store=store).run(dry_run=False, max_items=10).new_count, 1)
+
+            self.assertEqual(validate_workspace(root), [])
+            items = json.loads((root / "data" / "jobs.json").read_text(encoding="utf-8"))["items"]
+            self.assertEqual(len(items), 3)
+            self.assertIn("/mc/detail?postId=6afecf8ce71196a618f0e0c3&recruitType=2", items[0]["source_url"])
+            self.assertEqual(items[1]["published_at"], "2026-07-17")
+            self.assertEqual(items[1]["enterprise_meta"]["work_schedule"], "周末双休")
+            self.assertEqual(items[2]["city"], "新乡市")
 
 
 if __name__ == "__main__":

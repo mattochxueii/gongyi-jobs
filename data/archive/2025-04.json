@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-21T12:34:00+08:00",
+  "items": [
+    {
+      "id": "pub-henan-sq-d39143605beb",
+      "category": "public_institution",
+      "title": "中共商丘市委组织部 商丘市人力资源和社会保障局 2025年河南省（商丘市）事业单位公开招聘联考公告",
+      "org_name": "中共商丘市委组织部、商丘市人力资源和社会保障局",
+      "province": "河南省",
+      "city": "商丘市",
+      "district": null,
+      "source_url": "http://www.sqrsks.cn/index.php?s=index/show/index&id=887",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "商丘市人事考试中心（商丘人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2025-04-08",
+      "deadline_at": "2025-04-17",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:46:12+08:00",
+      "last_seen_at": "2026-11-21T10:46:12+08:00",
+      "content_hash": "d39143605bebb2f2e8930799cf6155b7331703e526e88cf9b9f95ebf409c0c7f",
+      "summary": "2025年河南省（商丘市）事业单位公开招聘联考公告，网报已于2025-04-17截止，已按历史公告归档。",
+      "tags": [
+        "商丘市",
+        "事业单位联考",
+        "2025历史归档"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "中共商丘市委组织部、商丘市人力资源和社会保障局",
+        "post_level": null,
+        "bianzhi_type": "事业编联考(见公告)",
+        "headcount": null,
+        "education_min": "见公告",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试+面试",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2025-04-11",
+        "written_exam_time": "2025年5月",
+        "interview_time": null,
+        "other_requirements": "报名已于2025-04-17截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "中共商丘市委组织部 商丘市人力资源和社会保障局 2025年河南省（商丘市）事业单位公开招聘联考公告",
+        "attachments": [
+          {
+            "name": "1、2025年河南省事业单位公开招聘联考商丘市岗位信息表",
+            "url": "http://www.sqrsks.cn/static/upload/file/20250408/1744107271199020.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "2、2025年商丘市及所属县（市、区）事业单位公开招聘政策咨询和监督电话",
+            "url": "http://www.sqrsks.cn/static/upload/file/20250408/1744107321521650.xlsx",
+            "file_type": "xlsx"
+          },
+          {
+            "name": "3、2025年河南省事业单位公开招聘联考笔试考试大纲",
+            "url": "http://www.sqrsks.cn/static/upload/file/20250408/1744107271172494.docx",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-sq-41d374185017",
+      "category": "public_institution",
+      "title": "中共商丘市委组织部 商丘市人力资源和社会保障局 2025年河南省（商丘市）事业单位公开招聘联考补充公告",
+      "org_name": "中共商丘市委组织部、商丘市人力资源和社会保障局",
+      "province": "河南省",
+      "city": "商丘市",
+      "district": null,
+      "source_url": "http://www.sqrsks.cn/index.php?s=index/show/index&id=883",
+      "apply_url": "http://www.hnrsks.com",
+      "source_name": "商丘市人事考试中心（商丘人事考试网）",
+      "source_type": "gov_official",
+      "published_at": "2025-04-10",
+      "deadline_at": "2025-04-17",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:46:08+08:00",
+      "last_seen_at": "2026-11-21T10:46:08+08:00",
+      "content_hash": "41d3741850171aac573abd2bdd8ad83806d48824e8bfc39eb1d85cab5610f61a",
+      "summary": "2025年河南省（商丘市）事业单位公开招聘联考补充公告（调整柘城县部分岗位计算机专业代码），对应联考报名已于2025-04-17截止，已归档。",
+      "tags": [
+        "商丘市",
+        "事业单位联考",
+        "补充公告",
+        "2025历史归档"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "中共商丘市委组织部、商丘市人力资源和社会保障局",
+        "post_level": null,
+        "bianzhi_type": "事业编联考(见公告)",
+        "headcount": null,
+        "education_min": "专科及以上",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "笔试+面试",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2025-04-11",
+        "written_exam_time": "2025年5月",
+        "interview_time": null,
+        "other_requirements": "报名已于2025-04-17截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "中共商丘市委组织部 商丘市人力资源和社会保障局 2025年河南省（商丘市）事业单位公开招聘联考补充公告",
+        "attachments": []
+      }
+    }
+  ]
+}

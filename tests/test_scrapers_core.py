@@ -18,6 +18,7 @@ from scrapers.core.extractors import (
     extract_html,
     extract_pdf,
     extract_xlsx,
+    strip_dynamic_counters,
 )
 from scrapers.core.http_client import PoliteHttpClient, decode_html_bytes, detect_encoding
 from scrapers.core.merger import (
@@ -385,6 +386,86 @@ class ScrapersCoreTests(unittest.TestCase):
                 self.assertIn("报考人员须具备本科及以上学历", inbox_text)
                 self.assertIn("职业能力测验", inbox_text)
                 self.assertIn("[附件解析降级提示]", inbox_text)
+
+    def test_dynamic_counter_and_attachment_token_jitter_suppressed(self) -> None:
+        html_tpl = (
+            "<html><head><title>公开招聘公告</title></head><body>"
+            "<div class='article-meta'>时间：2025-04-10 浏览次数: {views}次 | 阅读量：{reads}</div>"
+            "<div class='article-body'>"
+            "<p>点击量：{hits}</p>"
+            "<p>访问数：{visits}</p>"
+            "<p>请考生仔细阅读公告内容并按规定报名。拟招聘人数：5人。</p>"
+            "<a href='https://public.zhengzhou.gov.cn/attachment/plan.docx?{tok}='>附件1：岗位表.docx</a>"
+            "</div></body></html>"
+        )
+        res_a = extract_html(
+            html_tpl.format(views=8334, reads="12,345", hits=456, visits=89, tok="9GP_4hX4AbCdEfGh12345"),
+            "https://example.gov.cn/notice/1.html",
+        )
+        res_b = extract_html(
+            html_tpl.format(views=8999, reads="12,999", hits=999, visits=120, tok="ZyXwVu9876543210MnOpQ"),
+            "https://example.gov.cn/notice/1.html",
+        )
+        self.assertEqual(res_a.text, res_b.text)
+        self.assertIn("时间：2025-04-10", res_a.text)
+        self.assertIn("请考生仔细阅读公告内容并按规定报名。拟招聘人数：5人。", res_a.text)
+        self.assertNotIn("浏览次数", res_a.text)
+        self.assertNotIn("点击量", res_a.text)
+        self.assertNotIn("访问数", res_a.text)
+
+        self.assertEqual(
+            strip_dynamic_counters("信息来源：人事处 | 查看次数：42次"),
+            "信息来源：人事处",
+        )
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            store = CrawlStateStore(
+                root_dir=root,
+                state_path=root / "crawl_state.json",
+                inbox_dir=root / "raw_inbox",
+            )
+            r1 = store.ingest_announcement(
+                source_id="henan_zhengzhou_rsj",
+                source_name="郑州市人社局",
+                source_url="https://example.gov.cn/notice/1.html",
+                title="公开招聘公告",
+                published_at="2025-04-10",
+                body_text=res_a.text,
+                attachments=res_a.attachments,
+                attachments_text_map={
+                    f"{res_a.attachments[0].name} ({res_a.attachments[0].url})": "岗位A 2人"
+                },
+            )
+            self.assertEqual(r1.status, "new")
+
+            r2 = store.ingest_announcement(
+                source_id="henan_zhengzhou_rsj",
+                source_name="郑州市人社局",
+                source_url="https://example.gov.cn/notice/1.html",
+                title="公开招聘公告",
+                published_at="2025-04-10",
+                body_text=res_b.text,
+                attachments=res_b.attachments,
+                attachments_text_map={
+                    f"{res_b.attachments[0].name} ({res_b.attachments[0].url})": "岗位A 2人"
+                },
+            )
+            self.assertEqual(r2.status, "unchanged")
+            self.assertEqual(r1.content_hash, r2.content_hash)
+
+            # Real query identifiers like ?fileId=123 must still affect the hash if changed
+            h_file1 = compute_content_hash(
+                "https://example.gov.cn/n",
+                "正文",
+                "附件.docx (https://example.gov.cn/dl?fileId=101)\n表",
+            )
+            h_file2 = compute_content_hash(
+                "https://example.gov.cn/n",
+                "正文",
+                "附件.docx (https://example.gov.cn/dl?fileId=202)\n表",
+            )
+            self.assertNotEqual(h_file1, h_file2)
 
 
 if __name__ == "__main__":

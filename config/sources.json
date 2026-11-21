@@ -574,6 +574,216 @@
       "url_verified": true,
       "fetch_interval_hours": 24,
       "notes": "实测Dify官方公开职位JSON接口可用，直出中国区与远程岗位及结构化福利清单。"
+    },
+    {
+      "source_id": "ent_mxbc_beisen",
+      "name": "蜜雪冰城股份有限公司（北森招聘）",
+      "category": "enterprise",
+      "province": "河南省",
+      "city": "郑州市",
+      "adapter": "beisen",
+      "base_url": "https://careers.mxbc.com",
+      "list_urls": [
+        "https://careers.mxbc.com/"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "河南郑州总部企业，使用北森招聘门户（careers.mxbc.com）GetJobAdPageList 零Token直采。"
+    },
+    {
+      "source_id": "ent_zzpxx_beisen",
+      "name": "郑州一起学教育科技有限公司/平行线教育（北森招聘）",
+      "category": "enterprise",
+      "province": "河南省",
+      "city": "郑州市",
+      "adapter": "beisen",
+      "base_url": "https://zzpxx.zhiye.com",
+      "list_urls": [
+        "https://zzpxx.zhiye.com/"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "河南郑州本土民企，在郑州/洛阳/平顶山等地大量在招，北森门户零Token直采。"
+    },
+    {
+      "source_id": "ent_jiean_feishu",
+      "name": "郑州捷安高科股份有限公司（飞书招聘）",
+      "category": "enterprise",
+      "province": "河南省",
+      "city": "郑州市",
+      "adapter": "feishu_hire",
+      "base_url": "https://jiean.jobs.feishu.cn",
+      "list_urls": [
+        "https://jiean.jobs.feishu.cn/"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "郑州高新区上市民企，飞书招聘公开接口零Token直采，大量郑州在招岗位。"
+    },
+    {
+      "source_id": "ent_guoquan_moka",
+      "name": "锅圈食品（上海）股份有限公司（Moka招聘）",
+      "category": "enterprise",
+      "province": "河南省",
+      "city": "郑州市",
+      "adapter": "moka",
+      "base_url": "https://app.mokahr.com/social-recruitment/guoquan/38716",
+      "list_urls": [
+        "https://app.mokahr.com/social-recruitment/guoquan/38716",
+        "https://app.mokahr.com/campus-recruitment/guoquan/38717"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "涵盖郑州总部企业基地及上海岗位，Moka 社招+校招双门户优先精选郑州职位。"
+    },
+    {
+      "source_id": "ent_hanwei_jobs",
+      "name": "汉威科技集团股份有限公司（官网直招）",
+      "category": "enterprise",
+      "province": "河南省",
+      "city": "郑州市",
+      "adapter": "hanwei_jobs",
+      "base_url": "https://hanwei.cn",
+      "list_urls": [
+        "https://hanwei.cn/join_us.html"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "郑州高新区上市民企官网直招页面，全部在招JD明确写明周末双休及班车食宿。"
+    },
+    {
+      "source_id": "ent_gltech_jobs",
+      "name": "光力科技股份有限公司（官网直招）",
+      "category": "enterprise",
+      "province": "河南省",
+      "city": "郑州市",
+      "adapter": "gltech_jobs",
+      "base_url": "https://www.gltech.cn",
+      "list_urls": [
+        "https://www.gltech.cn/recruitment/"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "郑州高新区/航空港区半导体装备民企官网直招列表。"
+    },
+    {
+      "source_id": "ent_suntront_jobs",
+      "name": "新天科技股份有限公司（官网直招）",
+      "category": "enterprise",
+      "province": "河南省",
+      "city": "郑州市",
+      "adapter": "suntront_jobs",
+      "base_url": "https://www.suntront.com",
+      "list_urls": [
+        "https://www.suntront.com/recruitment/recruitment-1.html"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "郑州上市民企官网招聘页直采。"
+    },
+    {
+      "source_id": "ent_xyyl_jobs",
+      "name": "河南翔宇医疗设备股份有限公司（官网直招）",
+      "category": "enterprise",
+      "province": "河南省",
+      "city": "安阳市",
+      "adapter": "xyyl_jobs",
+      "base_url": "https://www.xyyl.com",
+      "list_urls": [
+        "https://www.xyyl.com/jrwm.html",
+        "https://www.xyyl.com/xyzp.html"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "河南安阳科创板上市民企，抓取官网社招及校招详情页。"
+    },
+    {
+      "source_id": "ent_weihua_jobs",
+      "name": "河南卫华重型机械股份有限公司（官网直招）",
+      "category": "enterprise",
+      "province": "河南省",
+      "city": "新乡市",
+      "adapter": "weihua_jobs",
+      "base_url": "https://job.craneweihua.com",
+      "list_urls": [
+        "https://job.craneweihua.com/recruit?type=1&unit_id=4"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "河南新乡长垣总部民企，基于会话Cookie POST /filter 直采集团及分子公司岗位。"
+    },
+    {
+      "source_id": "ent_lomon_jobs",
+      "name": "龙佰集团股份有限公司（官网直招）",
+      "category": "enterprise",
+      "province": "河南省",
+      "city": "焦作市",
+      "adapter": "lomon_jobs",
+      "base_url": "https://www.lomonbillions.com",
+      "list_urls": [
+        "https://www.lomonbillions.com/jobs/10921"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "河南焦作总部上市民企，按分子公司标签解析并优先精选焦作总部岗位。"
+    },
+    {
+      "source_id": "ent_autobio_hotjob",
+      "name": "郑州安图生物工程股份有限公司（大易Hotjob）",
+      "category": "enterprise",
+      "province": "河南省",
+      "city": "郑州市",
+      "adapter": "hotjob",
+      "base_url": "https://wecruit.hotjob.cn/SU62302d11bef57c4972f79a6b/pb/index.html",
+      "list_urls": [
+        "https://wecruit.hotjob.cn/SU62302d11bef57c4972f79a6b/pb/index.html"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "郑州上市民企，大易Hotjob公开JSON接口直采郑州在招社招与校招职位。"
+    },
+    {
+      "source_id": "ent_popmart_beisen",
+      "name": "北京泡泡玛特文化创意有限公司（北森招聘）",
+      "category": "enterprise",
+      "province": "北京市",
+      "city": "北京市",
+      "adapter": "beisen",
+      "base_url": "https://popmart.zhiye.com",
+      "list_urls": [
+        "https://popmart.zhiye.com/"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 48,
+      "notes": "外省全国补充企业（含河南门店与总部职能），北森接口精选最新10条以内。"
+    },
+    {
+      "source_id": "ent_iflytek_beisen",
+      "name": "科大讯飞股份有限公司（北森招聘）",
+      "category": "enterprise",
+      "province": "安徽省",
+      "city": "合肥市",
+      "adapter": "beisen",
+      "base_url": "https://iflytek.zhiye.com",
+      "list_urls": [
+        "https://iflytek.zhiye.com/"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 48,
+      "notes": "外省全国补充企业（含郑州及合肥总部岗位），北森接口精选最新10条以内。"
     }
   ]
 }

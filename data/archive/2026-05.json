@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-18T18:10:15+08:00",
+  "updated_at": "2026-11-21T12:34:00+08:00",
   "items": [
     {
       "id": "pub-henan-luoyang-fca73530bb0e",
@@ -110,6 +110,63 @@
             "name": "2026年洛阳市县区事业单位公开招聘联考笔试考试大纲.docx",
             "url": "https://oss.ly.gov.cn/upload-file/files/20260519/6434544aaa3d4d58a6b8d9faa49dd167.docx",
             "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-xx-149105e2430c",
+      "category": "public_institution",
+      "title": "2026年新乡市市本级城镇公益性岗位人员招聘公告",
+      "org_name": "新乡市人力资源和社会保障局",
+      "province": "河南省",
+      "city": "新乡市",
+      "district": null,
+      "source_url": "https://hrss.xinxiang.gov.cn/xwzx/tzgg/1235584.html",
+      "apply_url": null,
+      "source_name": "新乡市人力资源和社会保障局",
+      "source_type": "gov_official",
+      "published_at": "2026-04-28",
+      "deadline_at": "2026-05-10",
+      "status": "expired",
+      "scraped_at": "2026-11-21T10:41:32+08:00",
+      "last_seen_at": "2026-11-21T10:41:32+08:00",
+      "content_hash": "149105e2430c6bed8f87288e94c58aa957d080f5874490fd12963f8f139820b5",
+      "summary": "2026年新乡市市本级为40家用人单位招聘城镇公益性岗位500个（含就业困难高校毕业生34人），现场报名已于2026-05-10截止，已归档。",
+      "tags": [
+        "新乡市",
+        "公益性岗位",
+        "城镇就业援助"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "新乡市人力资源和社会保障局",
+        "post_level": null,
+        "bianzhi_type": "公益性岗位",
+        "headcount": 500,
+        "education_min": "不限",
+        "degree_min": null,
+        "majors": [],
+        "fresh_grad_only": false,
+        "age_limit": "见公告",
+        "political_status": null,
+        "exam_type": "现场报名+排序/电脑测试",
+        "apply_method": "线上报名或现场报名（见公告正文）",
+        "apply_start_at": "2026-05-08",
+        "written_exam_time": null,
+        "interview_time": null,
+        "other_requirements": "报名已于2026-05-10截止，归档保留原官方公告链接与附件。",
+        "announcement_title": "2026年新乡市市本级城镇公益性岗位人员招聘公告",
+        "attachments": [
+          {
+            "name": "2026年市本级城镇公益性岗位计划表.doc",
+            "url": "https://hrss.xinxiang.gov.cn/group3/M00/00/9C/wKgVOGnwhsKAeoMUAAGcAHB00hk035.doc",
+            "file_type": "doc"
+          },
+          {
+            "name": "2026年市本级城镇公益性岗位报名表.doc",
+            "url": "https://hrss.xinxiang.gov.cn/group3/M00/00/9C/wKgVOGnwhsyAGGB5AABcAP7upXA378.doc",
+            "file_type": "doc"
           }
         ]
       }
