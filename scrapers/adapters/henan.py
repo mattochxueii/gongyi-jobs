@@ -19,6 +19,7 @@ RECRUIT_POSITIVE_KEYWORDS = (
     "招募",
     "选聘",
     "引进",
+    "诚聘",
     "简章",
     "招才引智",
     "公开招聘",
@@ -29,6 +30,8 @@ RECRUIT_POSITIVE_KEYWORDS = (
 POST_EXAM_EXCLUDE_KEYWORDS = (
     "拟聘用",
     "拟录用",
+    "拟聘公示",
+    "拟引进",
     "拟招聘人员",
     "拟聘人员",
     "聘用人员名单",
@@ -69,6 +72,11 @@ POST_EXAM_EXCLUDE_KEYWORDS = (
     "咨询电话",
     "笔试工作",
     "笔试有关事宜",
+    "笔试人员名单",
+    "笔试安排",
+    "笔试通知",
+    "笔试前报名确认",
+    "完善信息",
     "考务工作",
     "关于举行",
     "分组公告",
@@ -377,7 +385,19 @@ class BodaUniversityAdapter(HenanGovBaseAdapter):
 
     detail_title_selectors = ("h1", "h3", "meta[name='pageTitle']", "title")
     detail_content_selectors = ("#vsb_content", ".v_news_content", ".contentr-con-con", ".sub_main_content")
-    detail_path_pattern = re.compile(r"(/info/\d+/\d+\.htm|/nry\.jsp)", re.IGNORECASE)
+    detail_path_pattern = re.compile(
+        r"(/info/\d+/\d+\.htm|/nry\.jsp|/info\.jsp|/content\d*\.jsp)",
+        re.IGNORECASE,
+    )
+
+
+class WebPlusUniversityAdapter(HenanGovBaseAdapter):
+    """Shared base for university HR portals powered by Sudytech WebPlus CMS."""
+
+    list_container_selectors = ("ul.news_list li", ".wp_article_list li")
+    detail_path_pattern = re.compile(r"/\d{4}/\d{4}/c\d+a\d+/page\.htm$", re.IGNORECASE)
+    detail_title_selectors = ("h1.arti_title", ".arti_title", "h1", "meta[name='ArticleTitle']", "title")
+    detail_content_selectors = (".wp_articlecontent", ".v_news_content", ".article-content", ".read")
 
 
 class LongsiGovAdapter(HenanGovBaseAdapter):
@@ -682,3 +702,71 @@ class HenanHaustRscAdapter(BodaUniversityAdapter):
     detail_content_selectors = (".contentr-con-con", ".v_news_content", ".contentr-con")
     detail_path_pattern = re.compile(r"/info/\d+/\d+\.htm$", re.IGNORECASE)
     title_suffix_pattern = re.compile(r"-河南科技大学人事处$")
+
+
+class HenanHenuRscAdapter(BodaUniversityAdapter):
+    """Adapter for Henan University HR Office (rsc.henu.edu.cn)."""
+
+    adapter_name = "henan_henu_rsc"
+    list_container_selectors = ("div.nei2b li",)
+    title_suffix_pattern = re.compile(r"-河南大学人事处$")
+
+
+class HenanXynuRscAdapter(BodaUniversityAdapter):
+    """Adapter for Xinyang Normal University HR Office (hr.xynu.edu.cn)."""
+
+    adapter_name = "henan_xynu_rsc"
+    list_container_selectors = ("ul.lst li",)
+    detail_title_selectors = ("div.article h2", "h2", "h1", "meta[name='pageTitle']", "title")
+    title_suffix_pattern = re.compile(r"-信阳师范大学人事信息网$")
+
+
+class HenanNynuRscAdapter(BodaUniversityAdapter):
+    """Adapter for Nanyang Normal University HR Office (www2.nynu.edu.cn/xzbm/renshichu/)."""
+
+    adapter_name = "henan_nynu_rsc"
+    list_container_selectors = ("li.rsc-lists-item",)
+    detail_title_selectors = ("#rsc-details-title h1", "meta[name='pageTitle']", "title")
+    title_suffix_pattern = re.compile(r"-南阳师范学院人事处$")
+
+    def _extract_stub_title_and_date(self, a_tag: Any) -> tuple[str, str | None]:
+        title, pub_date = super()._extract_stub_title_and_date(a_tag)
+        if pub_date is None:
+            # Date block renders day and YYYY-MM in adjacent <p> elements: <p>14</p><p>2026-03</p>
+            p_texts = [p.get_text(strip=True) for p in a_tag.find_all("p", limit=3)]
+            if len(p_texts) >= 2:
+                ym_match = re.match(r"^(20\d{2})-(1[0-2]|0?[1-9])$", p_texts[1])
+                day_match = re.match(r"^(3[01]|[12]\d|0?[1-9])$", p_texts[0])
+                if ym_match and day_match:
+                    pub_date = f"{int(ym_match.group(1)):04d}-{int(ym_match.group(2)):02d}-{int(day_match.group(1)):02d}"
+        return title, pub_date
+
+
+class HenanAynuRscAdapter(BodaUniversityAdapter):
+    """Adapter for Anyang Normal University HR Office (rsc.aynu.edu.cn)."""
+
+    adapter_name = "henan_aynu_rsc"
+    list_container_selectors = ("div#mainList li",)
+    title_suffix_pattern = re.compile(r"-人事处$")
+
+
+class HenanHenauRscAdapter(BodaUniversityAdapter):
+    """Adapter for Henan Agricultural University HR Office (rs.henau.edu.cn)."""
+
+    adapter_name = "henan_henau_rsc"
+    list_container_selectors = ("div.newlist1 ul.list li",)
+    detail_title_selectors = ("h2.tit", "meta[name='pageTitle']", "title")
+    title_suffix_pattern = re.compile(r"-河南农业大学人事处$")
+
+    def _extract_stub_title_and_date(self, a_tag: Any) -> tuple[str, str | None]:
+        _, pub_date = super()._extract_stub_title_and_date(a_tag)
+        h3 = a_tag.select_one("h3")
+        raw_title = a_tag.get("title") or (h3.get_text(" ", strip=True) if h3 else a_tag.get_text(" ", strip=True))
+        title = _TRAILING_DATE_RE.sub("", re.sub(r"\s+", " ", str(raw_title)).strip()).strip()
+        return title, pub_date
+
+
+class HenanZzuliRscAdapter(WebPlusUniversityAdapter):
+    """Adapter for Zhengzhou University of Light Industry HR Office (rsc.zzuli.edu.cn)."""
+
+    adapter_name = "henan_zzuli_rsc"

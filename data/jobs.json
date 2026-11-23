@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-21T21:32:34+08:00",
+  "updated_at": "2026-11-22T19:13:27+08:00",
   "items": [
     {
       "id": "ent-songmics-home-7709015140973218057",
@@ -27874,6 +27874,485 @@
             "evidence_url": "https://portal-oss.zhiye.com/106200/resource/1487c8bc-9ba6-4abd-850d-c201d23e8d20.html"
           }
         ]
+      }
+    },
+    {
+      "id": "pub-henan-henu-91948522d9c5-01",
+      "category": "public_institution",
+      "title": "诚聘海内外优秀青年博士（百人计划/青年教师/专职科研/博士后）",
+      "org_name": "河南大学",
+      "province": "河南省",
+      "city": "开封市",
+      "district": null,
+      "source_url": "https://rsc.henu.edu.cn/info/1017/5378.htm",
+      "apply_url": null,
+      "source_name": "河南大学人事处（招聘公告）",
+      "source_type": "institution_official",
+      "published_at": "2025-05-12",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-22T19:06:11+08:00",
+      "last_seen_at": "2026-11-22T19:06:11+08:00",
+      "content_hash": "91948522d9c5b93c7004a2cd6c872db658cd1df60c3bb3a37618f1bf074e2516",
+      "summary": "河南大学人事处长期置顶招才公告，部分专业实行人才特区政策，具体待遇面议。覆盖开封明伦/金明校区及郑州龙子湖校区人文、社科、理学、工学、信息、医学40余个学院及重点实验室，招收百人计划A/B岗、青年教师、专职科研及博士后。",
+      "tags": [
+        "开封市",
+        "双一流高校",
+        "博士研究生",
+        "常年招聘",
+        "百人计划"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "人文/社科/理学/工学/信息/医学等40余个教学科研单位",
+        "post_level": "百人计划/青年教师/专职科研/博士后",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": null,
+        "education_min": "博士",
+        "degree_min": "博士研究生（部分青年教师岗可为高级职称人员）",
+        "majors": [
+          "中国语言文学/历史/外语/教育/马克思主义理论/法学/经济学/管理学",
+          "数学/物理/化学/材料/生物学/农学/地理科学/生态学",
+          "土木/能源/集成电路/柔性电子/计算机/软件/人工智能",
+          "基础医学/临床医学/药学/护理学/口腔医学"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "见各岗位具体要求",
+        "political_status": "良好思想品德素质",
+        "exam_type": "初选+面试（免笔试，综合考察专业技术水平与科研能力）",
+        "apply_method": "电子邮件报名（简历发至各学院招聘邮箱，或咨询人才人事部 gccrcb@henu.edu.cn / hdrsk@henu.edu.cn）",
+        "apply_start_at": "2025-05-12",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批初选面试，以人事处及各学院通知为准",
+        "other_requirements": "百人计划A岗需博士后或海内外知名机构不少于2年科研经历，B岗需3年以上学习或工作经历；公示期7个工作日。咨询：0371-66598556 / 0371-65157893。",
+        "announcement_title": "河南大学诚聘海内外优秀青年博士",
+        "attachments": []
+      }
+    },
+    {
+      "id": "pub-henan-henu-f1a6638b4663-01",
+      "category": "public_institution",
+      "title": "2026年工学部家畜繁育创新团队诚聘（百人计划/青年教师/博士后）",
+      "org_name": "河南大学（工学部）",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": null,
+      "source_url": "https://rsc.henu.edu.cn/info/1017/6488.htm",
+      "apply_url": null,
+      "source_name": "河南大学人事处（招聘公告）",
+      "source_type": "institution_official",
+      "published_at": "2026-05-15",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-22T19:06:11+08:00",
+      "last_seen_at": "2026-11-22T19:06:11+08:00",
+      "content_hash": "f1a6638b46634699fcd39dd55a04a7e2769ac599f7711bb4d2c10776996349e3",
+      "summary": "青年教师纳入事业编制、年薪17-24万元及安家费18-21万元，百人计划A/B岗年薪分别不低于50万/30万元、安家费70万/40万元、科研启动经费200万/100万元。河南大学工学部立足郑州龙子湖校区筹建家畜繁育创新团队，面向海内外博士及博士后招聘。",
+      "tags": [
+        "郑州市",
+        "双一流高校",
+        "事业编制",
+        "博士研究生",
+        "高安家费"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "河南大学工学部家畜繁育创新团队（郑州龙子湖校区）",
+        "post_level": "百人计划A/B岗、青年教师、全职博士后",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": null,
+        "education_min": "博士",
+        "degree_min": "博士学位",
+        "majors": [
+          "动物遗传育种与繁殖",
+          "动物繁殖与生物技术",
+          "动物营养与饲料",
+          "畜产品质量与安全",
+          "基因组与生物信息学/基因编辑与分子育种",
+          "合成生物与生物制造/智慧畜牧业"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "百人A岗≤38岁、B岗≤36岁、青年教师≤35岁、博士后≤33岁",
+        "political_status": null,
+        "exam_type": "团队按学校人才招聘要求组织考核面试",
+        "apply_method": "电子邮件报名（简历发至 gxb@henu.edu.cn 或 aigaiy@126.com，标题：姓名+应聘岗位+专业方向）",
+        "apply_start_at": "2026-05-15",
+        "written_exam_time": "免笔试",
+        "interview_time": "随到随审，具体见工学部通知",
+        "other_requirements": "全职博士后年薪20-30万元、配套科研经费70或120万元；子女可享附属幼儿园及小学入学待遇。人事咨询：0371-65157893；工学部李老师：13781131311。",
+        "announcement_title": "河南大学工学部家畜繁育创新团队诚聘天下英才",
+        "attachments": []
+      }
+    },
+    {
+      "id": "pub-henan-xynu-24cf233b37dd-01",
+      "category": "public_institution",
+      "title": "2026年诚聘海内外优秀人才（博士/领军/青年拔尖，60名）",
+      "org_name": "信阳师范大学",
+      "province": "河南省",
+      "city": "信阳市",
+      "district": null,
+      "source_url": "http://hr.xynu.edu.cn/info/1061/8264.htm",
+      "apply_url": null,
+      "source_name": "信阳师范大学人事信息网（通知公告）",
+      "source_type": "institution_official",
+      "published_at": "2026-03-20",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-22T19:06:13+08:00",
+      "last_seen_at": "2026-11-22T19:06:13+08:00",
+      "content_hash": "24cf233b37dd4abac81574dc0a92949e66f656f1fbee56ed9521a73e03f72481",
+      "summary": "优秀博士安家费A类40万/B类20万元、房租补贴600元/月（1年）及科研启动费3-10万元，领军/青年拔尖人才安家费最高150万/100万元。信阳师范大学2026年公开招聘60名高层次人才（正高15/副高15/中级30），覆盖24个学科组，全年招聘招满即止。",
+      "tags": [
+        "信阳市",
+        "省属公办高校",
+        "博士研究生",
+        "全年招聘",
+        "安家费"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "全校24个学院及图书馆等教学科研单位",
+        "post_level": "专业技术高级15人/副高级15人/中级30人",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 60,
+        "education_min": "博士",
+        "degree_min": "博士研究生或具高级职称专业人才（海外博士须QS前200）",
+        "majors": [
+          "哲学/马克思主义理论/法学/政治学/经济学/管理学(01-03/12)",
+          "中国语言文学/外国语言文学/新闻与传播/历史学/考古学(05-06)",
+          "数学/物理/化学/生物学/地理学/统计学(07)",
+          "电气/电子/控制/计算机/材料/化工/土木/水利/食品(08)",
+          "园艺学/林学/植物保护/作物学(09)",
+          "基础医学/临床医学/护理/公卫/口腔(10)",
+          "教育学/心理学/体育学/美术/音乐/戏剧影视(04/13)"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "一般43周岁以下（特别紧缺学科可放宽）",
+        "political_status": "理想信念坚定、德才兼备",
+        "exam_type": "用人单位初审+校内组织面试考核",
+        "apply_method": "电子邮件报名（填写附件1报名表并附材料清单，按“姓名+应聘学院”发至用人单位邮箱）",
+        "apply_start_at": "2026-03-20",
+        "written_exam_time": "免笔试",
+        "interview_time": "贯穿全年，适时分批组织考核，招满即止",
+        "other_requirements": "各阶段所学专业相同或相近；协调安排子女入幼儿园/小学/初中。人事处电话：0376-6391755 / 6390357；邮箱：rsc1755@xynu.edu.cn。",
+        "announcement_title": "信阳师范大学2026年诚聘海内外优秀人才公告",
+        "attachments": [
+          {
+            "name": "1.信阳师范大学应聘工作人员报名表.doc",
+            "url": "http://hr.xynu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1551435468&wbfileid=12355664",
+            "file_type": "doc"
+          },
+          {
+            "name": "2.报名材料清单.doc",
+            "url": "http://hr.xynu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1551435468&wbfileid=12355663",
+            "file_type": "doc"
+          },
+          {
+            "name": "3.政审意见表.xlsx",
+            "url": "http://hr.xynu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1551435468&wbfileid=12355665",
+            "file_type": "xlsx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-nynu-97cad5fd096f-01",
+      "category": "public_institution",
+      "title": "2026年诚聘高层次人才（博士教学科研及实验岗，166名）",
+      "org_name": "南阳师范学院",
+      "province": "河南省",
+      "city": "南阳市",
+      "district": null,
+      "source_url": "https://www2.nynu.edu.cn/xzbm/renshichu/info/1004/2171.htm",
+      "apply_url": null,
+      "source_name": "南阳师范学院人事处（人才招聘）",
+      "source_type": "institution_official",
+      "published_at": "2026-03-14",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-22T19:06:14+08:00",
+      "last_seen_at": "2026-11-22T19:06:14+08:00",
+      "content_hash": "97cad5fd096f39eea0054c0d338f6b5fea6a3dcb9b6eae90dfd059518ae9a0e3",
+      "summary": "博士享安家费20-40万元、购房补贴10-40万元、科研启动经费5-30万元、博士津贴4000元/月及两年租房补贴1200元/月。南阳师范学院2026年诚聘166名博士研究生（专技中级及实验岗），覆盖文理法工农艺25个学院及图书馆（11月仍在分批公示拟聘）。",
+      "tags": [
+        "南阳市",
+        "省属公办高校",
+        "博士研究生",
+        "高补贴",
+        "持续分批录用"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "24个教学科研学院及图书馆（含实验岗5名）",
+        "post_level": "专业技术中级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 166,
+        "education_min": "博士",
+        "degree_min": "博士研究生学历学位（或高级职称高层次人才）",
+        "majors": [
+          "中国语言文学/外国语言文学/新闻传播/历史考古(05-06)",
+          "马克思主义理论/哲学/法学/政治学/社会学/经济学/管理学(01-03/12)",
+          "数学/物理/化学/生物学/地理/生态/统计学(07)",
+          "计算机/软件/电子信息/电气/机械/土木/水利/化工/材料/食品/环境(08)",
+          "农学/作物学/植保/教育学/心理学/体育学/艺术设计/音乐(04/09/13)"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "43周岁以下（1983年1月1日及以后出生，优异者可放宽）",
+        "political_status": "拥护党的领导、无违法犯罪记录",
+        "exam_type": "学院评估与面试考核（分A/B/C/D四类认定）",
+        "apply_method": "电子邮件报名（填写报名表发至 nysyzp@nynu.edu.cn 及各学院负责人邮箱，主题：姓名+专业+学历+应聘岗位）",
+        "apply_start_at": "2026-03-14",
+        "written_exam_time": "免笔试",
+        "interview_time": "持续分批实施（截至2026年11月已发布第十批拟引进公示）",
+        "other_requirements": "五年内享受校内副教授奖励性绩效工资；本科以上配偶可人事代理安置，服务期8年（安置配偶12年）；解决小学初中入学。人事处贾老师：0377-63513710。",
+        "announcement_title": "南阳师范学院2026年诚聘高层次人才启事",
+        "attachments": [
+          {
+            "name": "高层次人才报名表.docx",
+            "url": "https://www2.nynu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1785714711&wbfileid=18085621",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-nynu-97cad5fd096f-02",
+      "category": "public_institution",
+      "title": "2026年诚聘校医院高级职称临床/中医医师（本科及以上，2名）",
+      "org_name": "南阳师范学院",
+      "province": "河南省",
+      "city": "南阳市",
+      "district": null,
+      "source_url": "https://www2.nynu.edu.cn/xzbm/renshichu/info/1004/2171.htm",
+      "apply_url": null,
+      "source_name": "南阳师范学院人事处（人才招聘）",
+      "source_type": "institution_official",
+      "published_at": "2026-03-14",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-22T19:06:14+08:00",
+      "last_seen_at": "2026-11-22T19:06:14+08:00",
+      "content_hash": "97cad5fd096f39eea0054c0d338f6b5fea6a3dcb9b6eae90dfd059518ae9a0e3",
+      "summary": "南阳师范学院校医院2026年面向本科及以上学历且具有副高/正高医师职称人员招聘临床医学（内科/全科/妇产科等）及中医学（中医内科/妇科/全科等）医师2名（专业技术副高级1名、正高级1名）。",
+      "tags": [
+        "南阳市",
+        "高校校医院",
+        "本科及以上",
+        "高级职称",
+        "医师岗"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "校医院",
+        "post_level": "专业技术副高级1名 / 专业技术正高级1名",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 2,
+        "education_min": "本科",
+        "degree_min": "本科及以上学历，具有副主任医师或主任医师职称",
+        "majors": [
+          "100201K 临床医学（内科类、全科医学、妇产科等）",
+          "100501K 中医学（中医内科、中医妇科、中医全科等）"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "43周岁以下（高级职称且条件优异者可适当放宽）",
+        "political_status": "拥护党的领导、无违法犯罪记录",
+        "exam_type": "校医院及人事处考核评估",
+        "apply_method": "电子邮件报名（发至 nysyzp@nynu.edu.cn 及校医院张院长邮箱 27555859@qq.com）",
+        "apply_start_at": "2026-03-14",
+        "written_exam_time": "免笔试",
+        "interview_time": "分批考核（校医院张院长：13569273737）",
+        "other_requirements": "须分别具有副主任医师（副高级）或主任医师（正高级）职称；符合教师及事业人员入职体检要求。人事处咨询：0377-63513710。",
+        "announcement_title": "南阳师范学院2026年诚聘高层次人才启事",
+        "attachments": [
+          {
+            "name": "高层次人才报名表.docx",
+            "url": "https://www2.nynu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1785714711&wbfileid=18085621",
+            "file_type": "docx"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-aynu-59ccc725b4f3-01",
+      "category": "public_institution",
+      "title": "2026年诚聘高层次人才（优秀博士/科研/辅导员，25个单位）",
+      "org_name": "安阳师范学院",
+      "province": "河南省",
+      "city": "安阳市",
+      "district": null,
+      "source_url": "https://rsc.aynu.edu.cn/info/1204/5726.htm",
+      "apply_url": null,
+      "source_name": "安阳师范学院人事处（人才招聘）",
+      "source_type": "institution_official",
+      "published_at": "2026-04-10",
+      "deadline_at": null,
+      "status": "active",
+      "scraped_at": "2026-11-22T19:06:15+08:00",
+      "last_seen_at": "2026-11-22T19:06:15+08:00",
+      "content_hash": "59ccc725b4f301f856dfe9706c80611f968710dc048d1c81367e0b533d176337",
+      "summary": "优秀博士享安家费35-60万元（博士后+5万）、科研启动费5-30万元、免费周转房一套及博士津贴2000-6000元/月。安阳师范学院2026年面向海内外诚聘优秀博士及领军人才，涵盖20个教学科研院部及科研处/学生处等25个用人单位专业技术岗。",
+      "tags": [
+        "安阳市",
+        "省属公办高校",
+        "博士研究生",
+        "安家费",
+        "周转房"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "文/历史/计算机/化环/物电/数统/马院/法学/外语/甲骨文实验室等25个单位",
+        "post_level": "专业技术岗（低职高聘一级享绩效）",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": null,
+        "education_min": "博士",
+        "degree_min": "博士研究生（或顶尖/领军高水平人才）",
+        "majors": [
+          "中国语言文学/考古学/中国史/世界史/文物/新闻传播",
+          "计算机/软件/网络空间安全/电子信息/控制/智能科学",
+          "物理学/化学/材料/光学工程/能源动力/土木/力学/水利",
+          "数学/统计学/经济学/管理学/法学/马克思主义理论",
+          "教育学/心理学/外国语言文学/体育/音乐/美术与设计"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "43周岁以下（1982年4月1日及以后出生，具高级职称可放宽）",
+        "political_status": "辅导员岗应为中共党员（含预备党员）",
+        "exam_type": "院部初审与校内人才引进考核评估",
+        "apply_method": "联系邮箱或电话投递（直接联系公告一览表中所应聘学院/部门负责人邮箱与电话）",
+        "apply_start_at": "2026-04-10",
+        "written_exam_time": "免笔试",
+        "interview_time": "以各招聘院部及人事处通知为准",
+        "other_requirements": "支持35岁以下评正高/30岁以下评副高绿色通道，按条件分类安置配偶并解决子女入学。人事处于老师/宋老师：0372-2900101。",
+        "announcement_title": "安阳师范学院2026年诚聘高层次人才",
+        "attachments": [
+          {
+            "name": "附件1-安阳师范学院公开招聘博士类型认定条件.pdf",
+            "url": "https://rsc.aynu.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=940459762&wbfileid=12208936",
+            "file_type": "pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-henau-483e02733381-01",
+      "category": "public_institution",
+      "title": "2026年公开招聘第一批高层次人才（博士研究生，100名）",
+      "org_name": "河南农业大学",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": null,
+      "source_url": "https://rs.henau.edu.cn/info/1057/2837.htm",
+      "apply_url": null,
+      "source_name": "河南农业大学人事处（招聘信息）",
+      "source_type": "institution_official",
+      "published_at": "2026-06-08",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-22T19:06:17+08:00",
+      "last_seen_at": "2026-11-22T19:06:17+08:00",
+      "content_hash": "483e02733381342706751cc168c62a21ae4f26638ce14d193b587fd8302680dc",
+      "summary": "河南农业大学2026年第一批公开招聘高层次人才100名，工资待遇按河南省事业单位有关规定执行，2026年度有效（9-10月持续公示多批拟聘博士）。涵盖农学、林学、兽医、畜牧、食品、机电、人工智能、软件、经管、马院、外语等20个学院专技中级岗。",
+      "tags": [
+        "郑州市",
+        "省属重点高校",
+        "博士研究生",
+        "年度有效",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "农学院/林学院/动医/动科/机电/信管人工/软件/生科/食品/马院等20个学院",
+        "post_level": "专业技术岗中级",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 100,
+        "education_min": "博士",
+        "degree_min": "研究生学历、博士学位",
+        "majors": [
+          "作物学/林学/园艺学/植物保护/农业资源与环境/风景园林(0862/09)",
+          "兽医学/兽医/畜牧学/生物学/生态学/食品科学与工程(0710/0832/0905/0906)",
+          "农业工程/机械/电子信息/计算机/软件/网安/人工智能/化学化工(08)",
+          "农林经济管理/应用经济学/公共管理/马克思主义理论/法学/外语/体育/设计(03-05/12/13)"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "一般38周岁及以下（1987年6月1日及以后出生，高层次业绩可放宽）",
+        "political_status": null,
+        "exam_type": "二级用人单位试讲及答辩考核（满分100分，低于60分不予聘用）",
+        "apply_method": "电子邮件报名（按“姓名+应聘学院+应聘岗位+应聘专业”分别发至招聘单位邮箱及人事处 rsc@henau.edu.cn）",
+        "apply_start_at": "2026-06-08",
+        "written_exam_time": "免笔试",
+        "interview_time": "2026年度分批考核实施（9-10月已有第一、二批拟聘公示）",
+        "other_requirements": "拥有郑州文化路、龙子湖和许昌三个校区；公示期5个工作日。咨询：0371-56552889；监督：0371-56552706。",
+        "announcement_title": "河南农业大学2026年公开招聘第一批高层次人才公告",
+        "attachments": [
+          {
+            "name": "河南农业大学2026年第一批高层次人才招聘附件1.doc",
+            "url": "https://rs.henau.edu.cn/__local/F/84/5F/93DFBCC7F58DFAD3B38C82A9A3E_D6FE433D_25C00.doc?e=.doc",
+            "file_type": "doc"
+          },
+          {
+            "name": "河南农业大学2026年公开招聘高层次人才附件2.doc",
+            "url": "https://rs.henau.edu.cn/__local/6/B8/38/548DCABBFBB8237F042C1521586_F6DF017C_14600.doc?e=.doc",
+            "file_type": "doc"
+          },
+          {
+            "name": "河南农业大学2026年公开招聘高层次人才附件3.doc",
+            "url": "https://rs.henau.edu.cn/__local/9/FB/DB/3861C658CC027C42FF728DF1644_A150CA39_15A00.doc?e=.doc",
+            "file_type": "doc"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pub-henan-zzuli-7417e06fa0fa-01",
+      "category": "public_institution",
+      "title": "2026年度公开招聘博士等高层次人才（120名）",
+      "org_name": "郑州轻工业大学",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": null,
+      "source_url": "https://rsc.zzuli.edu.cn/2026/0520/c2815a352640/page.htm",
+      "apply_url": null,
+      "source_name": "郑州轻工业大学人事处（招聘信息）",
+      "source_type": "institution_official",
+      "published_at": "2026-05-20",
+      "deadline_at": "2026-12-31",
+      "status": "active",
+      "scraped_at": "2026-11-22T19:06:19+08:00",
+      "last_seen_at": "2026-11-22T19:06:19+08:00",
+      "content_hash": "7417e06fa0fa094c0ea88bdf8d39da866a80a7c2129d250015e3e1032c446d7d",
+      "summary": "郑州轻工业大学2026年度公开招聘博士等高层次人才120名（专技中级110名、副高7名、正高3名），工资福利待遇按河南省事业单位有关规定执行，至2026年12月31日有效（录满为止）。涵盖电气、控制、计算机、食品、材料、化工、机械、设计、经管法等50余个学科专业。",
+      "tags": [
+        "郑州市",
+        "省属公办高校",
+        "博士研究生",
+        "年度有效",
+        "免笔试"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "全校21个学院及工程训练/艺术教育中心",
+        "post_level": "专业技术岗中级110名/副高级7名/正高级3名",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": 120,
+        "education_min": "博士",
+        "degree_min": "博士研究生学历、学位（副高/正高岗位须具对应职称）",
+        "majors": [
+          "电气工程/控制科学与工程/电子信息/集成电路/计算机/软件/网安(08/14)",
+          "食品科学与工程/轻工技术与工程/生物工程/材料/化工/化学/动力机械(07/08)",
+          "数学/物理学/统计学/系统科学/地理学/环境/安全(07/08)",
+          "设计学/艺术学/戏剧影视/管理科学与工程/工商管理/应用经济学/法学/马理论(02-05/12-14)"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "一般≤38岁（1987年5月1日后），出站博士后或副高以上≤43岁",
+        "political_status": "良好政治素质和道德品行",
+        "exam_type": "面试考核（试讲、答辩，满分100分，低于60分不进下一环节）",
+        "apply_method": "电子邮件报名（发至拟应聘学院邮箱并抄送 zhaopin2026@zzuli.edu.cn，标题：应聘学院+姓名+博士院校+专业方向）",
+        "apply_start_at": "2026-05-20",
+        "written_exam_time": "免笔试",
+        "interview_time": "自发布至2026-12-31不定期分批启动面试考核",
+        "other_requirements": "各学习阶段所学专业相同或相近；国外学历需教育部留服认证；公示期5个工作日。咨询：0371-86608209；监督：0371-86608112。",
+        "announcement_title": "郑州轻工业大学2026年度公开招聘博士等高层次人才公告",
+        "attachments": []
       }
     }
   ]

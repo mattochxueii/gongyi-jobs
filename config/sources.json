@@ -448,6 +448,102 @@
       "notes": "实测200 OK，含2026年度博士招聘公告（25名，报名截止2026-11-30）及.docx岗位一览表下载附件。"
     },
     {
+      "source_id": "henan_henu_rsc",
+      "name": "河南大学人事处（招聘公告）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "开封市",
+      "adapter": "henan_henu_rsc",
+      "base_url": "https://rsc.henu.edu.cn",
+      "list_urls": [
+        "https://rsc.henu.edu.cn/rczp/zpgg1.htm"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测200 OK（博达高校CMS），含2026年工学部创新团队等高层次人才及青年博士常年诚聘公告。"
+    },
+    {
+      "source_id": "henan_xynu_rsc",
+      "name": "信阳师范大学人事信息网（通知公告）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "信阳市",
+      "adapter": "henan_xynu_rsc",
+      "base_url": "http://hr.xynu.edu.cn",
+      "list_urls": [
+        "http://hr.xynu.edu.cn/tzgg.htm"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测HTTP 200 OK（博达高校CMS），含信阳师范大学2026年诚聘海内外优秀人才公告（60名，贯穿全年招满即止）。"
+    },
+    {
+      "source_id": "henan_nynu_rsc",
+      "name": "南阳师范学院人事处（人才招聘）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "南阳市",
+      "adapter": "henan_nynu_rsc",
+      "base_url": "https://www2.nynu.edu.cn",
+      "list_urls": [
+        "https://www2.nynu.edu.cn/xzbm/renshichu/rczp.htm"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测200 OK（博达高校CMS），含南阳师范学院2026年诚聘高层次人才启事及持续分批拟引进公示（至2026年11月第十批）。"
+    },
+    {
+      "source_id": "henan_aynu_rsc",
+      "name": "安阳师范学院人事处（人才招聘）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "安阳市",
+      "adapter": "henan_aynu_rsc",
+      "base_url": "https://rsc.aynu.edu.cn",
+      "list_urls": [
+        "https://rsc.aynu.edu.cn/rczp.htm"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测200 OK（博达高校CMS），含安阳师范学院2026年诚聘高层次人才公告及各学院博士需求一览表。"
+    },
+    {
+      "source_id": "henan_henau_rsc",
+      "name": "河南农业大学人事处（招聘信息）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "郑州市",
+      "adapter": "henan_henau_rsc",
+      "base_url": "https://rs.henau.edu.cn",
+      "list_urls": [
+        "https://rs.henau.edu.cn/rczp1/zpxx.htm"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测200 OK（博达高校CMS），含河南农业大学2026年公开招聘第一批高层次人才公告（100名，2026年度有效，10月仍有分批公示）。"
+    },
+    {
+      "source_id": "henan_zzuli_rsc",
+      "name": "郑州轻工业大学人事处（招聘信息）",
+      "category": "public_institution",
+      "province": "河南省",
+      "city": "郑州市",
+      "adapter": "henan_zzuli_rsc",
+      "base_url": "https://rsc.zzuli.edu.cn",
+      "list_urls": [
+        "https://rsc.zzuli.edu.cn/2815/list.htm"
+      ],
+      "enabled": true,
+      "url_verified": true,
+      "fetch_interval_hours": 24,
+      "notes": "实测200 OK（WebPlus CMS），含郑州轻工业大学2026年度公开招聘博士等高层次人才公告（120名，至2026-12-31有效）。"
+    },
+    {
       "source_id": "ent_songmics_feishu",
       "name": "致欧家居科技股份有限公司（飞书招聘）",
       "category": "enterprise",

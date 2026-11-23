@@ -14,22 +14,29 @@ from scrapers.base import (
     ADAPTER_REGISTRY,
     BodaUniversityAdapter,
     EpointGovAdapter,
+    HenanAynuRscAdapter,
     HenanHaustRscAdapter,
     HenanHautRscAdapter,
+    HenanHenauRscAdapter,
+    HenanHenuRscAdapter,
     HenanHrssAdapter,
     HenanHrssYwzlAdapter,
     HenanJiyuanRsjAdapter,
     HenanLuoyangRsksAdapter,
+    HenanNynuRscAdapter,
     HenanPingdingshanRsjAdapter,
     HenanRsksAdapter,
     HenanSanmenxiaRsjAdapter,
     HenanShangqiuRsksAdapter,
     HenanXinxiangRsjAdapter,
     HenanXuchangRsjAdapter,
+    HenanXynuRscAdapter,
     HenanZhengzhouRsjAdapter,
     HenanZhoukouRsksAdapter,
+    HenanZzuliRscAdapter,
     LongsiGovAdapter,
     TrsWcmGovAdapter,
+    WebPlusUniversityAdapter,
     classify_announcement_title,
     get_adapter_class,
     is_recruitment_announcement,
@@ -116,6 +123,12 @@ class HenanAdaptersTests(unittest.TestCase):
             "henan_jiyuan_rsj": HenanJiyuanRsjAdapter,
             "henan_haut_rsc": HenanHautRscAdapter,
             "henan_haust_rsc": HenanHaustRscAdapter,
+            "henan_henu_rsc": HenanHenuRscAdapter,
+            "henan_xynu_rsc": HenanXynuRscAdapter,
+            "henan_nynu_rsc": HenanNynuRscAdapter,
+            "henan_aynu_rsc": HenanAynuRscAdapter,
+            "henan_henau_rsc": HenanHenauRscAdapter,
+            "henan_zzuli_rsc": HenanZzuliRscAdapter,
         }
         for key, cls in expected.items():
             self.assertIn(key, ADAPTER_REGISTRY)
@@ -124,6 +137,12 @@ class HenanAdaptersTests(unittest.TestCase):
         self.assertTrue(issubclass(HenanXuchangRsjAdapter, EpointGovAdapter))
         self.assertTrue(issubclass(HenanHautRscAdapter, BodaUniversityAdapter))
         self.assertTrue(issubclass(HenanHaustRscAdapter, BodaUniversityAdapter))
+        self.assertTrue(issubclass(HenanHenuRscAdapter, BodaUniversityAdapter))
+        self.assertTrue(issubclass(HenanXynuRscAdapter, BodaUniversityAdapter))
+        self.assertTrue(issubclass(HenanNynuRscAdapter, BodaUniversityAdapter))
+        self.assertTrue(issubclass(HenanAynuRscAdapter, BodaUniversityAdapter))
+        self.assertTrue(issubclass(HenanHenauRscAdapter, BodaUniversityAdapter))
+        self.assertTrue(issubclass(HenanZzuliRscAdapter, WebPlusUniversityAdapter))
         self.assertTrue(issubclass(HenanXinxiangRsjAdapter, LongsiGovAdapter))
         self.assertTrue(issubclass(HenanJiyuanRsjAdapter, TrsWcmGovAdapter))
 
@@ -181,6 +200,27 @@ class HenanAdaptersTests(unittest.TestCase):
         self.assertFalse(is_recruitment_announcement("2026年河南省新乡市事业单位公开招聘联考综合类、卫生类分组公告"))
         self.assertFalse(is_recruitment_announcement("河南省社会保险中心2026年信息化建设项目招标代理机构选聘竞争性磋商公告"))
         self.assertFalse(is_recruitment_announcement("关于商丘市2026年高校毕业生“三支一扶”计划招募笔试定补资金发放及补报银行卡信息的通知"))
+        self.assertEqual(
+            classify_announcement_title("安阳师范学院2026年诚聘高层次人才"),
+            "recruitment",
+        )
+        self.assertEqual(
+            classify_announcement_title("2026年第十批拟引进高层次人员公示"),
+            "post_exam_notice",
+        )
+        self.assertEqual(
+            classify_announcement_title("【拟聘公示】2026年公开招聘博士研究生拟聘人员公示 (第二批）"),
+            "post_exam_notice",
+        )
+        self.assertEqual(
+            classify_announcement_title("【完善信息】2026年公开招聘辅导员（硕士）完善信息通知"),
+            "post_exam_notice",
+        )
+        self.assertEqual(
+            classify_announcement_title("【笔试通知】2026年公开招聘辅导员（硕士）笔试通知"),
+            "post_exam_notice",
+        )
+        self.assertFalse(is_recruitment_announcement("郑州轻工业大学诚邀海内外人才依托申报国家海外优青项目"))
         self.assertFalse(is_recruitment_announcement("2027年度宁夏招录选调生公告", allow_out_of_province=False))
         self.assertFalse(is_recruitment_announcement("北京市各级机关2027年度考试录用公务员公告", allow_out_of_province=False))
         self.assertTrue(is_recruitment_announcement("河南省2026年大学生乡村医生专项计划公开招聘公告", allow_out_of_province=False))
@@ -727,6 +767,138 @@ class HenanAdaptersTests(unittest.TestCase):
                 self.assertIn("title: 济源示范区招聘2027届国家公费师范毕业生公告", jy_txt)
                 self.assertIn("2027届公费师范生岗位需求表.pdf", jy_txt)
                 self.assertIn("岗位", jy_txt)
+
+    def test_campaign_8a_university_adapters_offline(self) -> None:
+        henu_list = (FIXTURES_DIR / "henan_henu_list.html").read_text(encoding="utf-8")
+        xynu_list = (FIXTURES_DIR / "henan_xynu_list.html").read_text(encoding="utf-8")
+        xynu_detail = (FIXTURES_DIR / "henan_xynu_detail.html").read_text(encoding="utf-8")
+        nynu_list = (FIXTURES_DIR / "henan_nynu_list.html").read_text(encoding="utf-8")
+        nynu_detail = (FIXTURES_DIR / "henan_nynu_detail.html").read_text(encoding="utf-8")
+        aynu_list = (FIXTURES_DIR / "henan_aynu_list.html").read_text(encoding="utf-8")
+        henau_list = (FIXTURES_DIR / "henan_henau_list.html").read_text(encoding="utf-8")
+        henau_detail = (FIXTURES_DIR / "henan_henau_detail.html").read_text(encoding="utf-8")
+        zzuli_list = (FIXTURES_DIR / "henan_zzuli_list.html").read_text(encoding="utf-8")
+        zzuli_detail = (FIXTURES_DIR / "henan_zzuli_detail.html").read_text(encoding="utf-8")
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            store = CrawlStateStore(root_dir=root)
+            no_net = PoliteHttpClient(min_interval_sec=0.0, transport=httpx.MockTransport(lambda r: httpx.Response(404)))
+
+            # 1. HENU (div.nei2b li container excludes nav link)
+            henu_cfg = {
+                "source_id": "henan_henu_rsc",
+                "name": "河南大学人事处",
+                "base_url": "https://rsc.henu.edu.cn",
+                "list_urls": ["https://rsc.henu.edu.cn/rczp/zpgg1.htm"],
+            }
+            henu_stubs = HenanHenuRscAdapter(henu_cfg, http_client=no_net, state_store=store).parse_list_page(
+                henu_list, henu_cfg["list_urls"][0]
+            )
+            self.assertEqual(len(henu_stubs), 1)
+            self.assertEqual(henu_stubs[0].title, "河南大学工学部家畜繁育创新团队诚聘天下英才")
+            self.assertEqual(henu_stubs[0].published_at, "2026-05-15")
+
+            # 2. XYNU (ul.lst li + div.article h2 detail title)
+            xynu_cfg = {
+                "source_id": "henan_xynu_rsc",
+                "name": "信阳师范大学人事信息网",
+                "base_url": "http://hr.xynu.edu.cn",
+                "list_urls": ["http://hr.xynu.edu.cn/tzgg.htm"],
+            }
+            with PoliteHttpClient(
+                min_interval_sec=0.0,
+                transport=httpx.MockTransport(lambda r: httpx.Response(200, content=xynu_detail.encode("utf-8"))),
+            ) as c:
+                xynu_adapter = HenanXynuRscAdapter(xynu_cfg, http_client=c, state_store=store)
+                xynu_stubs = xynu_adapter.parse_list_page(xynu_list, xynu_cfg["list_urls"][0])
+                self.assertEqual(len(xynu_stubs), 1)
+                self.assertEqual(xynu_stubs[0].title, "信阳师范大学2026年诚聘海内外优秀人才公告")
+                self.assertEqual(xynu_stubs[0].published_at, "2026-03-20")
+                res = xynu_adapter.process_detail_page(xynu_stubs[0], fetch_attachments=False)
+                assert res.inbox_path is not None
+                txt = res.inbox_path.read_text(encoding="utf-8")
+                self.assertIn("title: 信阳师范大学2026年诚聘海内外优秀人才公告", txt)
+                self.assertIn("安家费A类40万元", txt)
+
+            # 3. NYNU (split <p>14</p><p>2026-03</p> date + #rsc-details-title h1 ignoring header h1)
+            nynu_cfg = {
+                "source_id": "henan_nynu_rsc",
+                "name": "南阳师范学院人事处",
+                "base_url": "https://www2.nynu.edu.cn",
+                "list_urls": ["https://www2.nynu.edu.cn/xzbm/renshichu/rczp.htm"],
+            }
+            with PoliteHttpClient(
+                min_interval_sec=0.0,
+                transport=httpx.MockTransport(lambda r: httpx.Response(200, content=nynu_detail.encode("utf-8"))),
+            ) as c:
+                nynu_adapter = HenanNynuRscAdapter(nynu_cfg, http_client=c, state_store=store)
+                nynu_stubs = nynu_adapter.parse_list_page(nynu_list, nynu_cfg["list_urls"][0])
+                self.assertEqual(len(nynu_stubs), 1)
+                self.assertEqual(nynu_stubs[0].title, "南阳师范学院2026年诚聘高层次人才启事")
+                self.assertEqual(nynu_stubs[0].published_at, "2026-03-14")
+                res = nynu_adapter.process_detail_page(nynu_stubs[0], fetch_attachments=False)
+                assert res.inbox_path is not None
+                txt = res.inbox_path.read_text(encoding="utf-8")
+                self.assertIn("title: 南阳师范学院2026年诚聘高层次人才启事", txt)
+                self.assertNotIn("title: 人事处 党委教师工作部", txt)
+
+            # 4. AYNU (Chinese YYYY年MM月DD日 date)
+            aynu_cfg = {
+                "source_id": "henan_aynu_rsc",
+                "name": "安阳师范学院人事处",
+                "base_url": "https://rsc.aynu.edu.cn",
+                "list_urls": ["https://rsc.aynu.edu.cn/rczp.htm"],
+            }
+            aynu_stubs = HenanAynuRscAdapter(aynu_cfg, http_client=no_net, state_store=store).parse_list_page(
+                aynu_list, aynu_cfg["list_urls"][0]
+            )
+            self.assertEqual(len(aynu_stubs), 1)
+            self.assertEqual(aynu_stubs[0].title, "安阳师范学院2026年诚聘高层次人才")
+            self.assertEqual(aynu_stubs[0].published_at, "2026-04-10")
+
+            # 5. HENAU (h3 inside a + h2.tit detail title)
+            henau_cfg = {
+                "source_id": "henan_henau_rsc",
+                "name": "河南农业大学人事处",
+                "base_url": "https://rs.henau.edu.cn",
+                "list_urls": ["https://rs.henau.edu.cn/rczp1/zpxx.htm"],
+            }
+            with PoliteHttpClient(
+                min_interval_sec=0.0,
+                transport=httpx.MockTransport(lambda r: httpx.Response(200, content=henau_detail.encode("utf-8"))),
+            ) as c:
+                henau_adapter = HenanHenauRscAdapter(henau_cfg, http_client=c, state_store=store)
+                henau_stubs = henau_adapter.parse_list_page(henau_list, henau_cfg["list_urls"][0])
+                self.assertEqual(len(henau_stubs), 1)
+                self.assertEqual(henau_stubs[0].title, "河南农业大学2026年公开招聘第一批高层次人才公告")
+                self.assertEqual(henau_stubs[0].published_at, "2026-06-08")
+                res = henau_adapter.process_detail_page(henau_stubs[0], fetch_attachments=False)
+                assert res.inbox_path is not None
+                txt = res.inbox_path.read_text(encoding="utf-8")
+                self.assertIn("title: 河南农业大学2026年公开招聘第一批高层次人才公告", txt)
+                self.assertIn("招聘信息2026年度有效", txt)
+
+            # 6. ZZULI (WebPlusUniversityAdapter)
+            zzuli_cfg = {
+                "source_id": "henan_zzuli_rsc",
+                "name": "郑州轻工业大学人事处",
+                "base_url": "https://rsc.zzuli.edu.cn",
+                "list_urls": ["https://rsc.zzuli.edu.cn/2815/list.htm"],
+            }
+            with PoliteHttpClient(
+                min_interval_sec=0.0,
+                transport=httpx.MockTransport(lambda r: httpx.Response(200, content=zzuli_detail.encode("utf-8"))),
+            ) as c:
+                zzuli_adapter = HenanZzuliRscAdapter(zzuli_cfg, http_client=c, state_store=store)
+                zzuli_stubs = zzuli_adapter.parse_list_page(zzuli_list, zzuli_cfg["list_urls"][0])
+                self.assertEqual(len(zzuli_stubs), 1)
+                self.assertEqual(zzuli_stubs[0].title, "郑州轻工业大学2026年度公开招聘博士等高层次人才公告")
+                self.assertEqual(zzuli_stubs[0].published_at, "2026-05-20")
+                res = zzuli_adapter.process_detail_page(zzuli_stubs[0], fetch_attachments=False)
+                assert res.inbox_path is not None
+                txt = res.inbox_path.read_text(encoding="utf-8")
+                self.assertIn("至2026年12月31日有效", txt)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-11-22T19:13:27+08:00",
+  "items": [
+    {
+      "id": "pub-henan-henu-0d4cc206b6cb",
+      "category": "public_institution",
+      "title": "河南大学工学部（筹）2025年诚聘海内外优秀人才（历史归档）",
+      "org_name": "河南大学（工学部）",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": null,
+      "source_url": "https://rsc.henu.edu.cn/info/1017/5838.htm",
+      "apply_url": null,
+      "source_name": "河南大学人事处（招聘公告）",
+      "source_type": "institution_official",
+      "published_at": "2025-08-29",
+      "deadline_at": "2025-12-31",
+      "status": "expired",
+      "scraped_at": "2026-11-22T19:06:12+08:00",
+      "last_seen_at": "2026-11-22T19:06:12+08:00",
+      "content_hash": "0d4cc206b6cb510f898b9ef3e4762efeec8582ccebe65c5994c0cfa111230eeb",
+      "summary": "【历史归档】依据《河南大学2025年公开招聘工作人员方案》发布的工学部（筹）7大工科方向高层次人才、百人计划、青年教师、专职科研及博士后招聘公告，已过期。",
+      "tags": [
+        "郑州市",
+        "历史归档",
+        "博士研究生"
+      ],
+      "public_meta": {
+        "post_code": null,
+        "department": "河南大学工学部（筹）",
+        "post_level": "高层次人才/百人计划/青年教师/专职科研/博士后",
+        "bianzhi_type": "公开招聘(具体见公告)",
+        "headcount": null,
+        "education_min": "博士",
+        "degree_min": "博士学位",
+        "majors": [
+          "化工/电气/智能制造/精密仪器/智慧交通/集成电路/智慧制药"
+        ],
+        "fresh_grad_only": false,
+        "age_limit": "一般35-38周岁以下",
+        "political_status": null,
+        "exam_type": "初选+面试",
+        "apply_method": "简历发送至 gxb@henu.edu.cn",
+        "apply_start_at": "2025-08-29",
+        "written_exam_time": "免笔试",
+        "interview_time": null,
+        "other_requirements": "依据2025年招聘方案发布的历史公告，联系人李老师：13781131311。",
+        "announcement_title": "河南大学工学部（筹）诚聘海内外优秀人才",
+        "attachments": []
+      }
+    }
+  ]
+}
